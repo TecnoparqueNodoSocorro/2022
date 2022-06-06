@@ -1,0 +1,56 @@
+imagen corporativa
+--------------------------------------------------------------------
+inscripcion de hoja de vida  
+registro de usuario
+comprar membresia
+editar hoja de vida
+postulaciones 
+gestion de estados
+
+inscripcion de empresas
+publicacion de ofertas con max de aspirantes 
+(basada en parametros se envia correo electronico al grupo)
+consulta de postulados
+
+
+
+
+
+admin 
+gestion de membresias
+empresas 
+aspirantes 
+publicaciones
+
+--------------------------------------------------------------------------
+a futuro 
+gestion de empleados de cada empresa 
+horarios control de asistencias 
+pagos 
+quejas y reclamos 
+historial de trabajo 
+
+-------------------------------------------------------------------------
+
+
+
+alexander mendez
+gestion de hojas de vida vigilancia privada
+---------------------------------------------------
+necesidad de conectividad laborar, busqueda de empleo para personal de seguridad privada 
+transformacion tecnologica
+convocatoria por portales 
+---------------------------------------------------
+plataforma para el gremio de vigilancia 
+registrar hojas de vida
+busqueda de talentos 
+consulta de estado
+consulta de antecedentes 
+ubicacion geograficas de los empleados
+distintas especialidades 
+realizar convocatorias 
+---------------------------------------------------
+pendiente de registrar 
+
+
+

@@ -1,0 +1,7 @@
+git
+
+git remote add origin https://github.com/TecnoparqueNodoSocorro/2022.git
+
+
+TecnoparqueNodoSocorro
+TPNSocorro2022

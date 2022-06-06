@@ -1,0 +1,15 @@
+idea:
+fase 1
+desarrollo e implementacion de sistema misional que apoye el proceso de registro de variables y control de inventarios de la chira  
+
+fase 2
+desarollo e implementacion de modulo de control de ventas y proveedores para apoyar el proceso de produccion de vinagres en la chira
+
+
+
+¿Qué es el Sistema de información misional?
+Es una herramienta de gestión de información y memoria Institucional, diseñada en una plataforma web para capturar, almacenar y extraer la información necesaria en el momento requerido.
+
+ 
+
+es un desarrollo a  a la medida de las necesidades institucionales del negocio o idea del talento y es la base de los futuros desarrollos e integraciones tecnológicas, busca ser el soporte de información para mejorar la capacidad de produccion y mejoramiento de los proceso de cada uno de los negocio a los cuales estan enfocado
