@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2022 a las 22:53:20
+-- Tiempo de generación: 07-06-2022 a las 20:41:13
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -83,13 +83,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idemp`, `clasificacion`, `nombre`, `descripcion`, `costo`, `precio`, `imagen`) VALUES
-(35, 1, 'Fritos', 'empanada de carne ', 'empanada grande de carne ', 1200, 2000, 'views/images/products/1653340298.png'),
+(35, 1, 'Fritos', 'empanada de carne ', 'empanada grande de carne ', 12000, 2000, 'views/images/products/1653340298.png'),
 (36, 1, 'horneados', 'empanada horneada pollo', 'empanada horneada', 1100, 1800, 'views/images/products/1653340326.png'),
 (37, 1, 'Crudos', 'paquete empanada de carne cruda', 'empanadas grande de carne  para llevar', 12000, 18000, 'views/images/products/1653340382.png'),
 (38, 1, 'Fritos', 'empanada mexicana', 'empanada mexicana clasica', 2500, 3000, 'views/images/products/1653340417.png'),
 (39, 1, 'Gaseosas', 'gaseosa personal ', 'gaseopsa personal desechable ', 2200, 2500, 'views/images/products/1653340481.jpg'),
-(40, 1, 'Jugos', 'jugo natural en agua', 'jugos naturlaes en agua ', 2000, 3500, 'views/images/products/1653340532.png'),
-(41, 1, 'Fritos', 'empanada de frutas', 'empoanada hawayaa', 3000, 3500, 'views/images/products/1653341611.png');
+(41, 1, 'Fritos', 'empanada de frutas', 'empoanada hawayaa', 3000, 3500, 'views/images/products/1653341611.png'),
+(43, 1, 'Fritos', 'nueva imagen', 'localhost', 500, 1500, 'views/images/products/1654627188.jpg');
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
