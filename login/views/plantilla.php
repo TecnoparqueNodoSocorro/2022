@@ -69,10 +69,11 @@
                     <table class="table" id="tabla_productos">
                         <thead>
                             <tr>
-
+                                <th>Imagen</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Valor</th>
+                                <th>Opc</th>
 
                             </tr>
                         </thead>
