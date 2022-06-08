@@ -58,39 +58,26 @@
     </div>
 
     <!--modal canasta  -->
-    <div class="modal fade" id="canasta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="canasta">
         <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-cart4"></i> Canasta de Compra</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <table class="table">
+                <div class="modal-body" id="carrito_compras">
+                    <table class="table" id="tabla_productos">
                         <thead>
                             <tr>
 
-                                <th scope="col">Producto</th>
-                                <th scope="col">Cantidad</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Valor</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
 
-                                <td>Emmpanadas de carne</td>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-
-                                <td>Flautas vegetarianas</td>
-                                <th>2</th>
-                            </tr>
-                            <tr>
-
-                                <td>Gaseosa</td>
-                                <th>1</th>
-                            </tr>
 
                         </tbody>
 
@@ -100,8 +87,8 @@
                         </strong></center>
                 </div>
                 <div class="modal-footer">
-
-                    <button type="button" class="btn btn-primary btn-sm">Hacer pedido</button>
+                    <a href="#" class="btn btn-primary btn-sm" id="btnvaciarC">Vaciar canasta</a>
+                    <a href="#" class="btn btn-primary btn-sm" id="btnHacerP">Hacer pedido</a>
                 </div>
             </div>
         </div>
