@@ -6,7 +6,7 @@ const listaproductosdisponibles = document.querySelector('#productos');
 // tabla donde esta el listado de los productos de la canasta 
 const listaproductosencanasta = document.querySelector('#tabla_productos tbody');
 //boton de vaciar carrito
-const vaciararritoBtn = document.querySelector('#btnvaciarC');
+const vaciarcarritoBtn = document.querySelector('#btnvaciarC');
 
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
@@ -14,20 +14,52 @@ let articulosCarrito = [];
 /* -------------------------------------------- */
 cargareventListener();
 
+
 function cargareventListener() {
+
     // cuando se agrega un curso con el boton agregar
     listaproductosdisponibles.addEventListener('click', agregarpro);
+
+    //eliminar producto del carrito
+    carrito.addEventListener('click', eliminarProdecarro);
+
+    //vaciar carrito 
+    vaciarcarritoBtn.addEventListener('click', ()=>{
+       /*  console.log('vaciando el carrito'); */
+       articulosCarrito= []; //vaciamos el arreglo
+       carritoHTML();
+    });
+  
 }
+
+
 /* Funciones  */
+
 function agregarpro(e) {
     e.preventDefault();
     if (e.target.classList.contains('agregarproducto')) {
         //irnos hacia arriba 
         const DatosProductoSelec = e.target.parentElement.parentElement.parentElement.parentElement;
         leerDatosProducto(DatosProductoSelec);
+        carritoHTML();
     }
+}
 
 
+
+function eliminarProdecarro(e) {
+
+    if (e.target.classList.contains('borrar_producto')) {
+        /*  console.log(e.target.classList);  */
+
+        const productoID = e.target.getAttribute('data-id');
+
+        /*        console.log(productoID); */
+
+        articulosCarrito = articulosCarrito.filter(productos => productos.id !== productoID);
+        carritoHTML();
+        console.log(articulosCarrito);
+    }
 }
 
 
@@ -39,20 +71,38 @@ function leerDatosProducto(producto) {
         imagen: producto.querySelector('img').src,
         titulo: producto.querySelector('#nombreprod').textContent,
         id: producto.querySelector('a').getAttribute('data_id'),
-        valor:producto.querySelector('#precio').textContent,
-        cant: 2
-
+        valor: producto.querySelector('#precio').textContent,
+        cant: 1
     }
-    //agregar celementos al carrito
-    /*     console.log(DatosProducto) */
-    articulosCarrito = [...articulosCarrito, DatosProducto]
-    console.log(articulosCarrito);
-    carritoHTML();
+
+    //revisar si un producto ya existe en el carrito
+
+    const existe = articulosCarrito.some(producto => producto.id === DatosProducto.id);
+
+    if (existe) {
+        const prod = articulosCarrito.map(producto => {
+            if (producto.id === DatosProducto.id) {
+                producto.cant++;
+                return producto;
+            }
+            else {
+                return producto;
+            }
+
+        })
+    }
+    else {
+        //agregar celementos al carrito
+        /*     console.log(DatosProducto) */
+        articulosCarrito = [...articulosCarrito, DatosProducto]
+        console.log(articulosCarrito);
+        carritoHTML();
+    }
 }
 
 
-//muestra los productos en el carrito de compras
 
+//muestra los productos en el carrito de compras
 function carritoHTML() {
     //limpiar el html previamente 
 
@@ -61,20 +111,20 @@ function carritoHTML() {
     // crea la estructura del registro que se presentara
     articulosCarrito.forEach(producto => {
         // destructorin del objeto
-        const { imagen, titulo, cant, valor, id}= producto;
+        const { imagen, titulo, cant, valor, id } = producto;
         const row = document.createElement('tr');
         row.innerHTML =
-`
+            `
         <td><img src= "${imagen}" width="45"></td>
         <td> ${titulo}</td>
         <td>${cant}</td>
-        <td>${cant}</td>
+        <td>${valor}</td>
         <td>
-        <a href="#" class="borrar_producto" data-id="${id}"> X </a>
+        <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a>
         </td>
         
 `
-        //agregar el listado de productos html en el tbody
+        //crea el registro row el listado de productos html en el tbody
         listaproductosencanasta.appendChild(row)
     })
 }
