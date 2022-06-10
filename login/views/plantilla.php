@@ -84,7 +84,7 @@
 
                     </table>
                     <center><strong>
-                            <h5>Total: $15000</h6>
+                            <h5 id="total"></h6>
                         </strong></center>
                 </div>
                 <div class="modal-footer">

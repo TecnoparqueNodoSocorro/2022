@@ -8,6 +8,8 @@ const listaproductosencanasta = document.querySelector('#tabla_productos tbody')
 //boton de vaciar carrito
 const vaciarcarritoBtn = document.querySelector('#btnvaciarC');
 
+const totalCarrito =document.querySelector('.total');
+
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
 
@@ -24,12 +26,12 @@ function cargareventListener() {
     carrito.addEventListener('click', eliminarProdecarro);
 
     //vaciar carrito 
-    vaciarcarritoBtn.addEventListener('click', ()=>{
-       /*  console.log('vaciando el carrito'); */
-       articulosCarrito= []; //vaciamos el arreglo
-       carritoHTML();
+    vaciarcarritoBtn.addEventListener('click', () => {
+        /*  console.log('vaciando el carrito'); */
+        articulosCarrito = []; //vaciamos el arreglo
+        carritoHTML();
     });
-  
+
 }
 
 
@@ -95,7 +97,7 @@ function leerDatosProducto(producto) {
         //agregar celementos al carrito
         /*     console.log(DatosProducto) */
         articulosCarrito = [...articulosCarrito, DatosProducto]
-        console.log(articulosCarrito);
+  /*       console.log(articulosCarrito); */
         carritoHTML();
     }
 }
@@ -104,15 +106,18 @@ function leerDatosProducto(producto) {
 
 //muestra los productos en el carrito de compras
 function carritoHTML() {
+    
     //limpiar el html previamente 
-
     LimpiarHTML();
+    let total=0;
+    totalCarrito = articulosCarrito.forEach (produc => total += produc.valor);
 
     // crea la estructura del registro que se presentara
     articulosCarrito.forEach(producto => {
         // destructorin del objeto
         const { imagen, titulo, cant, valor, id } = producto;
         const row = document.createElement('tr');
+
         row.innerHTML =
             `
         <td><img src= "${imagen}" width="45"></td>
@@ -125,8 +130,11 @@ function carritoHTML() {
         
 `
         //crea el registro row el listado de productos html en el tbody
-        listaproductosencanasta.appendChild(row)
-    })
+        listaproductosencanasta.appendChild(row);
+    }
+    )
+    console.log(totalCarrito);
+    
 }
 
 
