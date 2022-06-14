@@ -8,7 +8,7 @@ const listaproductosencanasta = document.querySelector('#tabla_productos tbody')
 //boton de vaciar carrito
 const vaciarcarritoBtn = document.querySelector('#btnvaciarC');
 
-const totalCarrito =document.querySelector('.total');
+
 
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
@@ -31,9 +31,7 @@ function cargareventListener() {
         articulosCarrito = []; //vaciamos el arreglo
         carritoHTML();
     });
-
 }
-
 
 /* Funciones  */
 
@@ -46,7 +44,6 @@ function agregarpro(e) {
         carritoHTML();
     }
 }
-
 
 
 function eliminarProdecarro(e) {
@@ -63,7 +60,6 @@ function eliminarProdecarro(e) {
         console.log(articulosCarrito);
     }
 }
-
 
 /* leer contenido del html al que le dimos click  */
 function leerDatosProducto(producto) {
@@ -97,7 +93,7 @@ function leerDatosProducto(producto) {
         //agregar celementos al carrito
         /*     console.log(DatosProducto) */
         articulosCarrito = [...articulosCarrito, DatosProducto]
-  /*       console.log(articulosCarrito); */
+        /*       console.log(articulosCarrito); */
         carritoHTML();
     }
 }
@@ -106,17 +102,17 @@ function leerDatosProducto(producto) {
 
 //muestra los productos en el carrito de compras
 function carritoHTML() {
-    
+
     //limpiar el html previamente 
     LimpiarHTML();
-    let total=0;
-    totalCarrito = articulosCarrito.forEach (produc => total += produc.valor);
 
     // crea la estructura del registro que se presentara
+
     articulosCarrito.forEach(producto => {
         // destructorin del objeto
         const { imagen, titulo, cant, valor, id } = producto;
         const row = document.createElement('tr');
+        subtotal = (producto.cant * producto.valor);
 
         row.innerHTML =
             `
@@ -124,17 +120,27 @@ function carritoHTML() {
         <td> ${titulo}</td>
         <td>${cant}</td>
         <td>${valor}</td>
+        <td> ${subtotal} </td>
         <td>
         <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a>
         </td>
-        
+      
 `
         //crea el registro row el listado de productos html en el tbody
         listaproductosencanasta.appendChild(row);
+        let totalCompraCarrito = articulosCarrito.reduce((acomulador, producto) => acomulador + (producto.cant * producto.valor), 0);
+        const fechaPedido = new Date();
+        /* console.log(totalCompraCarrito) */
+        document.querySelector('.totalcompra p').innerHTML= totalCompraCarrito;
+     
     }
+        /* aqui va el reduce */
+
+
+
     )
-    console.log(totalCarrito);
-    
+
+
 }
 
 

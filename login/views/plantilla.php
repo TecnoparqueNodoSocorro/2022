@@ -66,13 +66,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="carrito_compras">
-                    <table class="table" id="tabla_productos">
+                    <table class="table table sm tablacarrito" id="tabla_productos">
                         <thead>
                             <tr>
                                 <th>Imagen</th>
                                 <th>Producto</th>
-                                <th>Cantidad</th>
+                                <th>Cant</th>
                                 <th>Valor</th>
+                                <th>Subtotal</th>
                                 <th>Opc</th>
 
                             </tr>
@@ -83,9 +84,12 @@
                         </tbody>
 
                     </table>
-                    <center><strong>
-                            <h5 id="total"></h6>
-                        </strong></center>
+                 
+                            <div class= row ">
+                            <div class="col-5">Total compra:</div>
+                            <div class="col-7  totalcompra "><p></p></div>
+                            </div>
+                        
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-primary btn-sm" id="btnvaciarC">Vaciar canasta</a>
