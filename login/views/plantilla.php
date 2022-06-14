@@ -20,7 +20,6 @@
 
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="views/js/jquery-3.6.0.min.js" type="text/javascript"></script>
     <!--modal addprod  -->
 
@@ -109,8 +108,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php?page=vitrina">Delicias Bernis</a>
 
-            <button type="button" class="btn btn-success btn-circle btn-sm " id="btnprod1" data-bs-toggle="modal" data-bs-target="#canasta" id="canasta"><i class="bi bi-cart4"></i>
-            </button>
+          
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -221,7 +219,7 @@
 
 <script src="views/js/app.js"></script>
 <script src="views/js/carrito.js"></script>
-<script src="views/js/pedido.js"></script>
+<script src="views/js/facturar.js"></script>
 <script src="views/js/sweetalert2.all.min.js"></script>
 
 

@@ -13,13 +13,14 @@ const vaciarcarritoBtn = document.querySelector('#btnvaciarC');
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
 
-/* -------------------------------------------- */
-cargareventListener();
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* cargareventListener(); */
 
 
 function cargareventListener() {
-
-    // cuando se agrega un curso con el boton agregar
+ console.log("aqui entro a este metodo");
+    // cuando se agrega un producto con el boton agregar
+  /*   console.log({listaproductosdisponibles}); */
     listaproductosdisponibles.addEventListener('click', agregarpro);
 
     //eliminar producto del carrito
@@ -33,11 +34,12 @@ function cargareventListener() {
     });
 }
 
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Funciones  */
 
 function agregarpro(e) {
     e.preventDefault();
-    if (e.target.classList.contains('agregarproducto')) {
+    if (e.target.classList.contains('agregar_producto')) {
         //irnos hacia arriba 
         const DatosProductoSelec = e.target.parentElement.parentElement.parentElement.parentElement;
         leerDatosProducto(DatosProductoSelec);
@@ -45,7 +47,7 @@ function agregarpro(e) {
     }
 }
 
-
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 function eliminarProdecarro(e) {
 
     if (e.target.classList.contains('borrar_producto')) {
@@ -60,7 +62,7 @@ function eliminarProdecarro(e) {
         console.log(articulosCarrito);
     }
 }
-
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* leer contenido del html al que le dimos click  */
 function leerDatosProducto(producto) {
     /* console.log(producto); */
@@ -87,7 +89,8 @@ function leerDatosProducto(producto) {
                 return producto;
             }
 
-        })
+        }
+        )
     }
     else {
         //agregar celementos al carrito
@@ -97,23 +100,18 @@ function leerDatosProducto(producto) {
         carritoHTML();
     }
 }
-
-
-
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 //muestra los productos en el carrito de compras
 function carritoHTML() {
 
     //limpiar el html previamente 
     LimpiarHTML();
-
     // crea la estructura del registro que se presentara
-
     articulosCarrito.forEach(producto => {
         // destructorin del objeto
         const { imagen, titulo, cant, valor, id } = producto;
         const row = document.createElement('tr');
         subtotal = (producto.cant * producto.valor);
-
         row.innerHTML =
             `
         <td><img src= "${imagen}" width="45"></td>
@@ -124,37 +122,30 @@ function carritoHTML() {
         <td>
         <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a>
         </td>
-      
 `
         //crea el registro row el listado de productos html en el tbody
         listaproductosencanasta.appendChild(row);
         let totalCompraCarrito = articulosCarrito.reduce((acomulador, producto) => acomulador + (producto.cant * producto.valor), 0);
         const fechaPedido = new Date();
         /* console.log(totalCompraCarrito) */
-        document.querySelector('.totalcompra p').innerHTML= totalCompraCarrito;
-     
+        document.querySelector('.totalcompra p').innerHTML = totalCompraCarrito;
     }
         /* aqui va el reduce */
-
-
-
     )
-
-
 }
 
-
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 //eliminar los productos del tbody para que no se almacenen los hijos 
 function LimpiarHTML() {
     /* 
-    
     //forma lenta de eliminar 
     listaproductosencanasta.innerHTML=''; */
     // mientras exista un hijo en la lista lo elimina y solo deja el ultimo
     while (listaproductosencanasta.firstChild) {
         listaproductosencanasta.removeChild(listaproductosencanasta.firstChild)
+        
+        totalCompraCarrito="0";
+        document.querySelector('.totalcompra p').innerHTML = totalCompraCarrito;
     }
-
-
 }
 
