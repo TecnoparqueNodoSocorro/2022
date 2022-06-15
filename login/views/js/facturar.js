@@ -6,14 +6,14 @@ let factura = [];
 
 /* funciones */
 function CargarFacturaListener() {
-    document.getElementById("sumar").addEventListener("click", Sumarpro);
-    document.getElementById("restar").addEventListener("click", Restarpro);
+    document.getElementById("AgregarPfact").addEventListener("click", AgregarPFactura);
+ 
 }
 
 /* metodos */
 
-function Sumarpro() {
-    console.log("boton sumar");
+function AgregarPFactura() {
+    console.log("boton agregar producto");
 }
 
 

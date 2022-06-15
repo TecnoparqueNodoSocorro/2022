@@ -11,27 +11,26 @@
         ?>
 
         <div class="table-responsive">
-          <table class="table table-sm tablacarrito">
+          <table class="table table-sm tablacarrito table-hover">
             <thead>
               <tr>
-                <th>Sumar</th>
+
                 <!--   <th>Imagen</th> -->
                 <th>Clasificacion</th>
                 <th>Nombre</th>
                 <th>cant</th>
                 <th>Subtotal</th>
-                <th>Restar</th>
+               <!--  <th>Restar</th> -->
               </tr>
             </thead>
             <tbody>
               <?php foreach ($productos as $key => $value) :  ?>
                 <tr>
-                  <td>
-                    <div class="d-grid gap-1 d-md-block">
-                      <a type="button" class="btn btn-outline-success btn-circle btn-sm sumar" data-idp='<?php echo $value["id"] ?>' data-idemp='<?php echo $value["idemp"] ?>' id="sumar"><i class="bi bi-cart-plus"></i></a>
-                    </div>
-                  </a>
-                  </td>
+                          <!--  <td>
+                  
+             <a type="button" class="btn btn-outline-success btn-circle btn-sm sumar" data-idp='<?php echo $value["id"] ?>' data-idemp='<?php echo $value["idemp"] ?>' id="sumar"><i class="bi bi-cart-plus"></i></a> 
+            
+                  </td>-->
                   <!--    <td> <img src=<?php echo $value["imagen"] ?> id="miniaturas" alt="">
 
                         </td> -->
@@ -48,7 +47,7 @@
                     <?php echo $value["precio"] ?>
                   </td>
                   <td>
-                    <a type="button" class="btn btn-outline-danger btn-circle btn-sm restar" data-idp='<?php echo $value["id"] ?>' data-idemp='<?php echo $value["idemp"] ?>' id="restar"><i class="bi bi-cart-x"></i></a>
+                    <a type="button" class="btn btn-outline-danger btn-circle btn-sm restar" data-idp='<?php echo $value["id"] ?>' data-idemp='<?php echo $value["idemp"] ?>' id="AgregarPfact"><i class="bi bi-plus"></i></a>
                   </td>
                 </tr>
               <?php endforeach ?>
