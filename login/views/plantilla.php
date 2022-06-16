@@ -219,7 +219,7 @@
 
 <script src="views/js/app.js"></script>
 <script src="views/js/carrito.js"></script>
-<script src="views/js/facturar.js"></script>
+<script src="views/js/vender.js"></script>
 <script src="views/js/sweetalert2.all.min.js"></script>
 
 
