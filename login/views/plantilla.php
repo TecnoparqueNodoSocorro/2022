@@ -23,7 +23,7 @@
     <script src="views/js/jquery-3.6.0.min.js" type="text/javascript"></script>
     <!--modal addprod  -->
 
-    <div class="modal fade" id="addprod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--    <div class="modal fade" id="addprod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -54,9 +54,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <!--modal canasta  -->
+    <!--modal de pedido   -->
     <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="canasta">
         <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
@@ -78,24 +78,26 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            <!-- aqui indexa la informacion el carrito.js -->
 
                         </tbody>
 
                     </table>
-                 
-                            <div class= row ">
-                            <div class="col-5">Total compra:</div>
-                            <div class="col-7  totalcompra "><p></p></div>
-                            </div>
-                        
+
+                    <div class=row ">
+                            <div class=" col-5">Total compra:</div>
+                    <div class="col-7  totalcompra ">
+                        <p></p>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-primary btn-sm" id="btnvaciarC">Vaciar canasta</a>
-                    <a href="#" class="btn btn-primary btn-sm" id="btnHacerP">Hacer pedido</a>
-                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary btn-sm" id="btnvaciarC">Vaciar canasta</a>
+                <a href="#" class="btn btn-primary btn-sm" id="btnHacerP">Hacer pedido</a>
             </div>
         </div>
+    </div>
     </div>
 
     <!--  -->
@@ -108,7 +110,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php?page=vitrina">Delicias Bernis</a>
 
-          
+
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>

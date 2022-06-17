@@ -6,7 +6,7 @@
                 <h6 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Adicionar</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="listaPro">
                 <?php $productos = ControladorProductos::ctrConsultarProductos();
                 $cantProd = count($productos);
                 echo ($cantProd . " Productos disponibles en esta tienda");

@@ -1,24 +1,28 @@
-let factura = [];
+/* definir arreglo que almacenara los articulos seleccionados  */
+let ListadoFactura = [];
 /* definir el listado  */
-const BtnlistadoPro = document.querySelector(".AgrePro");
+const listaPro = document.querySelector("#listaPro");
+
 
 /* Escuchadores  */
 function CargarFacturaListener() {
- BtnlistadoPro.addEventListener("click", AgregarPFactura);
+/*   console.log("ejecutando escuchador"), */
+    listaPro.addEventListener("click", AgregarPFactura);
 }
 
 /* funciones */
 
 function AgregarPFactura(e) {
-  /* grupo con datos del registro */
+  e.preventDefault();
   if (e.target.classList.contains("AgrePro")) {
-    //irnos hacia arriba
-    const datosSelecion = e.target.parentElement.parentElement;
-    console.log(datosSelecion);
+    const datosSeleccion = e.target.parentElement.parentElement;
+  /*   console.log(datosSeleccion); */
 
-    Estrucuradatos(datosSelecion);
+        Estrucuradatos(datosSeleccion);
+/*     console.log("agrego item"); */
   }
-};
+}
+
 /* ------------------------------------------------------- */
 function Estrucuradatos(datos) {
   const datosP = {
@@ -27,5 +31,12 @@ function Estrucuradatos(datos) {
     precio: datos.querySelector("#precio").value,
     Cant: 1,
   };
-  console.log(datosP);
+/*   console.log(datosP); */
+
+ListadoFactura=[...ListadoFactura, datosP];
+
+console.log(ListadoFactura);
 }
+
+
+/* crear registro html  */
