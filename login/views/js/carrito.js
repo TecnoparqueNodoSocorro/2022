@@ -15,9 +15,8 @@ let articulosCarrito = [];
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 
-
 function cargareventListener() {
-/*   console.log("aqui entro a este metodo"); */
+  /*   console.log("aqui entro a este metodo"); */
   // cuando se agrega un producto con el boton agregar
   /*   console.log({listaproductosdisponibles}); */
   listaproductosdisponibles.addEventListener("click", agregarpro);

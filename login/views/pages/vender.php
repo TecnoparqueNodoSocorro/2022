@@ -61,38 +61,37 @@
             <h3>Facturar Orden </h3>
         </div>
         <!-- boton que llama el  modal -->
-        <div class="col-4"><button class="btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#list_prod">Adicionar</button>
+        <div class="col-4"><button class="btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#list_prod">+ productos</button>
         </div>
     </div>
-    <div class=" col"> Fecha: 05/05/2022</div>
+    <div class=" col">
+        <h6>Fecha: </h6>
+        <h6 class="fechafac"></h6>
+    </div>
 
 </div>
-<table class="table">
+<table class="table tablafacturahtml">
     <thead>
         <tr>
-
-            <th>Producto</th>
             <th>Cantidad</th>
-            <th>Valor</th>
+            <th>Producto</th>
+            <th>Subtotal</th>
+            <th>Opc</th>
         </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
+        <!-- aqui renderiza la tabla nueva -->
     </tbody>
 </table>
 
 
 <div class="container">
     <div class="row">
-        <div class="col-4 totalLB">TOTAL</div>
-        <div class="col-4 totalValor">$15000</div>
+        <div class="col-4">TOTAL</div>
+        <div class="col-4 totalValor"></div>
         <div class="col-4">
-            <button class="btn-warning mb-2 BtnFacturar">Facturar</button>
+            <button class="btn-success mb-2 BtnFacturar">Registrar venta</button>
         </div>
 
 
