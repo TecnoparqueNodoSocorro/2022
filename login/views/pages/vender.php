@@ -11,8 +11,6 @@
                 $cantProd = count($productos);
                 echo ($cantProd . " Productos disponibles en esta tienda");
                 ?>
-
-
                 <div class="table-responsive">
                     <table class="table table-sm tablacarrito table-hover">
                         <thead>
