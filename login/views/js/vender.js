@@ -44,7 +44,7 @@ function Estrucuradatos(datos) {
   } else {
     /*   console.log(datosP); */
     ListadoFactura = [...ListadoFactura, datosP];
-    /* console.log(ListadoFactura); */
+   /*  console.log(ListadoFactura); */
   }
 
 
@@ -55,8 +55,13 @@ function Estrucuradatos(datos) {
 function FacturaHTML() {
   //limpiar el html previamente
   LimpiarHTML2();
+
+  const arraySave = [];
+
   ListadoFactura.forEach((prod) => {
+    const id_emp = 1;
     const { id, nombre, precio, Cant } = prod;
+    arraySave.push({id_producto: id, cantidad: Cant, id_empresa:id_emp});
     const row = document.createElement("tr");
     let subtotal = precio * Cant;
     row.innerHTML = `
@@ -77,7 +82,9 @@ function FacturaHTML() {
     /*  console.log(totalfacturaFinal); */
     document.querySelector(".totalValor").innerHTML = totalfacturaFinal;
   });
-GuardarFactura();
+
+  /* console.log(arraySave); */
+GuardarFactura(arraySave);
 
 }
 /* ----------------------------------------------------------- */
@@ -92,7 +99,10 @@ function LimpiarHTML2() {
 /*   console.log("limpieza ejecutada"); */
 }
 
-function GuardarFactura(){
-  console.log("factura guardada");
-   console.log(tablafacturahtml);
+function GuardarFactura(arraySave){
+  
+const datos = { myArray: arraySave };
+const paramJson = JSON.stringify(datos);
+
+console.log(paramJson);
 }
