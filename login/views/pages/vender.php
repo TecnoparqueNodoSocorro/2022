@@ -89,7 +89,9 @@
         <div class="col-4">TOTAL</div>
         <div class="col-4 totalValor"></div>
         <div class="col-4">
-            <button class="btn-success mb-2 BtnFacturar">Registrar venta</button>
+
+            <a href="#" class="btn btn-success mb-2 BtnFacturar">Registrar venta</a>
+
         </div>
 
 

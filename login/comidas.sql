@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2022 a las 20:41:13
+-- Tiempo de generación: 24-06-2022 a las 18:16:16
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -61,6 +61,39 @@ CREATE TABLE `empresas` (
   `ciudad` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `empresas`
+--
+
+INSERT INTO `empresas` (`id`, `nombre`, `email`, `telefono`, `nit`, `direccion`, `ciudad`) VALUES
+(1, 'delicias bernys', 'delicias@gmail.com', '3101010123', '000000', 'label', 'sangil');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturas`
+--
+
+CREATE TABLE `facturas` (
+  `id` int(11) NOT NULL,
+  `id empresa` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturas_detalle`
+--
+
+CREATE TABLE `facturas_detalle` (
+  `id` int(15) NOT NULL,
+  `id empresa` int(5) NOT NULL,
+  `id_producto` int(5) NOT NULL,
+  `cantidad` int(5) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
@@ -83,13 +116,12 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idemp`, `clasificacion`, `nombre`, `descripcion`, `costo`, `precio`, `imagen`) VALUES
-(35, 1, 'Fritos', 'empanada de carne ', 'empanada grande de carne ', 12000, 2000, 'views/images/products/1653340298.png'),
-(36, 1, 'horneados', 'empanada horneada pollo', 'empanada horneada', 1100, 1800, 'views/images/products/1653340326.png'),
-(37, 1, 'Crudos', 'paquete empanada de carne cruda', 'empanadas grande de carne  para llevar', 12000, 18000, 'views/images/products/1653340382.png'),
+(37, 1, 'horneados', 'paquete empanada de carne cruda', 'empanadas grande de carne  para llevar', 1200, 1800, 'views/images/products/1653340382.png'),
 (38, 1, 'Fritos', 'empanada mexicana', 'empanada mexicana clasica', 2500, 3000, 'views/images/products/1653340417.png'),
 (39, 1, 'Gaseosas', 'gaseosa personal ', 'gaseopsa personal desechable ', 2200, 2500, 'views/images/products/1653340481.jpg'),
 (41, 1, 'Fritos', 'empanada de frutas', 'empoanada hawayaa', 3000, 3500, 'views/images/products/1653341611.png'),
-(43, 1, 'Fritos', 'nueva imagen', 'localhost', 500, 1500, 'views/images/products/1654627188.jpg');
+(43, 1, 'Fritos', 'flauta tropical', 'localhost', 500, 1500, 'views/images/products/1654627188.jpg'),
+(45, 1, 'Fritos', 'empanada vayuna', 'delicionsa empanada dle valle con aguacate', 1500, 2000, 'views/images/products/1655214281.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,6 +185,18 @@ ALTER TABLE `empresas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `facturas`
+--
+ALTER TABLE `facturas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `facturas_detalle`
+--
+ALTER TABLE `facturas_detalle`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -184,13 +228,25 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `facturas`
+--
+ALTER TABLE `facturas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `facturas_detalle`
+--
+ALTER TABLE `facturas_detalle`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

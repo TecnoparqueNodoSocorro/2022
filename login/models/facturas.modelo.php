@@ -1,0 +1,48 @@
+<?php
+require_once "conexion.php";
+class ModelFacturas {
+
+ 
+    static public function mdlFacturar($tabla, $cabecera)
+    {
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (idemp, fecha) VALUES(:idemp, :fecha) ");
+        /* bindParam() */
+        $stmt->bindParam(":idemp",$cabecera["id_emp"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha",$cabecera["fecha"], PDO::PARAM_STR);
+       
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            print_r(conexion::conectar()->errorInfo());
+
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+
+
+
+static public
+    function   mdlDetalleFactura($tabla, $detalle){
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (idemp, id_factura, id_producto, cantidad, fecha) VALUES(:idemp, :idfact, :id_producto, :cant, :fecha) ");
+        /* bindParam() */
+        $stmt->bindParam(":idemp", $detalle["idemp"], PDO::PARAM_STR);
+        $stmt->bindParam(":idfac", $detalle["idfac"], PDO::PARAM_STR);
+        $stmt->bindParam(":id_producto", $detalle["idproducto"], PDO::PARAM_STR);
+        $stmt->bindParam(":cant", $detalle["cantidad"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $detalle["fecha"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            print_r(conexion::conectar()->errorInfo());
+
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+}
+
+
+
+
+}

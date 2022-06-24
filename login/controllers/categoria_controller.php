@@ -14,7 +14,7 @@ class ControladorCategorias
                 "nombre" => $_POST["cat_name"],
                 "desc" => $_POST["cat_descripcion"]
             );
-     $respuesta = ModelCategoria::mdlRegistroC($tabla, $datos);
+            $respuesta = ModelCategoria::mdlRegistroC($tabla, $datos);
 
             return $respuesta;
         } else {
@@ -23,7 +23,8 @@ class ControladorCategorias
     }
 
 
-    static public function ctrConsultar(){
+    static public function ctrConsultar()
+    {
 
         $tabla = "categorias";
         $idemp = 1;
@@ -31,9 +32,10 @@ class ControladorCategorias
         return $respuesta;
     }
 
-    static public function crtEliminaCategoria($delprod){
+    static public function crtEliminaCategoria($delprod)
+    {
         $tabla = "categorias";
-        $idecat= $delprod;
+        $idecat = $delprod;
         $respuesta = ModelCategoria::mdlEliminaCategoria($tabla, $idecat);
         return $respuesta;
     }
