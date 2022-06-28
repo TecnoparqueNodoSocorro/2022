@@ -10,6 +10,7 @@ require_once "controllers/categoria_controller.php";
 require_once "models/facturas_modelo.php";
 require_once "controllers/facturas_controller.php";
 
+
 /* creamos un objeto */
 $plantilla = new ControladorPlantilla();
 /* llamamos el metodo  */

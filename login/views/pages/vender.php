@@ -32,7 +32,7 @@
                                     <input id="prod_id" name="prod_id" type="hidden" value="<?php echo $value["id"] ?>">
                                     <input id="precio" name="precio" type="hidden" value="<?php echo $value["precio"] ?>">
                                     <td>
-                                        <a href="#" onclick="CargarFacturaListener()" class="btn btn-warning btn-circle btn-sm AgrePro" data_id="<?php echo $value["id"] ?>"><i class="bi bi-cart-plus"></i> 0</a>
+                                        <a href="#" onclick="CargarFacturaListener(this)" class="btn btn-warning btn-circle btn-sm AgrePro" data_id="<?php echo $value["id"] ?>"> + </a>
                                     </td>
                                 </tr>
 
@@ -90,7 +90,7 @@
         <div class="col-4 totalValor"></div>
         <div class="col-4">
 
-            <a href="#" class="btn btn-success mb-2 BtnFacturar">Registrar venta</a>
+            <a href="#" class="btn btn-success mb-2 BtnFacturar" onclick="onClickFactura()">Registrar venta</a>
 
         </div>
 
