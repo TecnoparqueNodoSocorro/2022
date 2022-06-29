@@ -1,30 +1,23 @@
 
+/* --------------------------------------------------------------variables y constantes */
 let ListadoFactura = [];
 let arraySave = [];
-
 const listaPro = document.querySelector("#listaPro");
 const tablafacturahtml = document.querySelector(".tablafacturahtml tbody");
 const totalValor = document.querySelector("#totalValor");
 const btnfacturar = document.querySelector(".BtnFacturar");
-
-
+/* -------------------------------------------------------------listener */
 function CargarFacturaListener() {
   listaPro.addEventListener("click", AgregarPFactura);
-  //AgregarPFactura();
+
 }
 
-function AlmacenarfacturaListener(arraySave) {
-  btnfacturar.addEventListener("click", function () {
-    GuardarFactura(arraySave, 'AlmacenarfacturaListener');
-  }, false);
-}
-/* ---------------------------------------------------------------------------------------------------------- */
-/* funciones */
+/* -----------------------------------------------------------------------------------------------------funciones */
+
 function AgregarPFactura(e) {
   e.preventDefault();
   if (e.target.classList.contains("AgrePro")) {
     const datosSeleccion = e.target.parentElement.parentElement;
-
     Estrucuradatos(datosSeleccion);
 
   }
@@ -54,7 +47,7 @@ function Estrucuradatos(datos) {
   console.log(ListadoFactura.length);
   FacturaHTML();
 }
-
+/* --------------------------------------------------------------------------------------- */
 function FacturaHTML() {
 
   LimpiarHTML2();
@@ -69,7 +62,7 @@ function FacturaHTML() {
     <td>${Cant}</td>
     <td>${nombre}</td>
     <td>${subtotal}</td>
-    <td> <a href="#" class="btn btn-sm btn-danger eliminarP" data-id=${id}> -1 </a></td>
+    <td> <a href="#" class="btn btn-sm btn-danger eliminarP" data-id=${id}> X </a></td>
     `;
     tablafacturahtml.appendChild(row);
     let totalfacturaFinal = ListadoFactura.reduce(
@@ -77,24 +70,21 @@ function FacturaHTML() {
 
     document.querySelector(".totalValor").innerHTML = totalfacturaFinal;
   });
-  // AlmacenarfacturaListener(arraySave); esto era el problema se ejecutaba cada vez que se agregaba algo al arreglo
 
 }
-
+/* ------------------------------------------------------------------------------------------- */
 const onClickFactura = () => {
-  const datos = { myArray: arraySave };
+  const datos = { myArray1: arraySave };
   const paramJson = JSON.stringify(datos);
   console.log(paramJson);
+
+  $.ajax({
+    type:"POST",
+    url:...,
+    data: {'paramJson':JSON.stringify(paramJson)},
+    success: function (data){},
+  });
 };
-/* ----------------------------------------------------------- */
-function GuardarFactura(arraySave, callFather) {
-  console.log(callFather);
-  console.log("guardarfactura=>inicio");
-  const datos = { myArray: arraySave };
-  const paramJson = JSON.stringify(datos);
-  console.log(paramJson);
-  console.log("guardar factura=> fin ");
-}
 /* --------------------------------------------------------------- */
 function LimpiarHTML2() {
   arraySave = [];
