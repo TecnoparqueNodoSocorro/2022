@@ -78,12 +78,12 @@ const onClickFactura = () => {
   const paramJson = JSON.stringify(datos);
   console.log(paramJson);
 
-  $.ajax({
+ /*  $.ajax({
     type:"POST",
     url:...,
     data: {'paramJson':JSON.stringify(paramJson)},
     success: function (data){},
-  });
+  }); */
 };
 /* --------------------------------------------------------------- */
 function LimpiarHTML2() {

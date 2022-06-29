@@ -21,40 +21,7 @@
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="views/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-    <!--modal addprod  -->
-
-    <!--    <div class="modal fade" id="addprod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Adicionar</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-
-                    <div class="row" id="rowprod">
-                        <div class="col-7">
-                            <center>
-                                <h6>Empanadas de Carne</h6>
-                            </center>
-                        </div>
-                        <div class="col-5">
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
-                                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-primary  btn-sm"><i class="bi bi-cart-check"></i></button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+   
 
     <!--modal de pedido   -->
     <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="canasta">
