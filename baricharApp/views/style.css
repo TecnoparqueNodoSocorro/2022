@@ -142,7 +142,7 @@ h6{
 h1, h2, h3, h4, h5, h6, ul#main_menu li a, .title_front, .title_date, .title_under, span.countdown_amount, .rsvp_button{
 	font-family: 'Open Sans', sans-serif;
 }
-.title, .countdown_section, .about_topsign{
+.title,.title2,.countdown_section, .about_topsign{
 	font-family: 'Clicker Script', cursive;
 }
 
@@ -245,11 +245,10 @@ nav.menu{
 	text-align:center;
 	width:100%;
 	background:url(images/menu_border_bottom.png) no-repeat center bottom;
-	height:73px;
+	height:85px;
 	position:absolute;
 	top:0px;
 	z-index:9999;
-	background: #9E2B2D;
 }
 ul#main_menu{
 	list-style:none;
@@ -324,19 +323,10 @@ ul#main_menu ul li a:hover {
 	color:#FFFFFF;
 	text-align:center;
 }
-.titleL {
+.title2{
 	font-size:30px;
-	color: #FFFFFF;
-	text-align: center;
-	font-family: 'Clicker Script', cursive;
-	font-weight: 700
-}
-.titleL2 {
-	font-size: 30px;
-	color: #9E2B2D;
-	text-align: center;
-	font-family: 'Clicker Script', cursive;
-	font-weight: 700
+	color:#FFFFFF;
+	text-align:center;
 }
 .title_front{
 	font-weight:800;
@@ -370,8 +360,8 @@ span.swirl_right{
 /*---------------------------*/	
 .slider_container {
 	width: 100%;
-	height:50%;
-	min-height: 100px;
+	height:85%;
+	min-height: 500px;
 	position: relative;
 }
 .slider_trans_black{
@@ -1749,8 +1739,8 @@ span.swirl_right_transparent{
 	}
 	.slider_container {
 	width: 100%;
-	height:30%;
-	min-height: 50%;
+	height:110%;
+	min-height: 110%;
 	position: relative
 	}
 	.countdown_container h2{
