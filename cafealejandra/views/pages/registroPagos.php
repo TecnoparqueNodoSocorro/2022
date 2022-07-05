@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal
+                    <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModalEm
                                 ">
                             <i class="bi bi-plus-circle"></i>
                         </button></td>
@@ -45,7 +45,7 @@
 
 
 <!-- The Modal empleado-->
-<div class="modal" id="myModal">
+<div class="modal" id="myModalEm">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="text-align: center">
 
@@ -61,18 +61,18 @@
 
                 <div class="col-12">
                     <label class="form-label">
-                        <h6 class="text-black">Kilos recogidos</h6>
+                        Kilos recogidos
                     </label>
                     <input type="number" readonly class="form-control" id="kilosRecogidos" name="kilosRecogidos"
                         required>
                     <label class="form-label">
-                        <h6 class="text-black">Total pendiente a pagar</h6>
+                        Total pendiente a pagar
                     </label>
                     <input type="number" readonly class="form-control" id="totalPagar" name="totalPagar" required>
                     <label class="form-label">
-                        <h6 class="text-black">Cantidad a pagar</h6>
+                        Cantidad a pagar
                     </label>
-                    <input type="number" class="form-control" id="kilosRecogidos" name="kilosRecogidos" required>
+                    <input type="number" class="form-control" id="cantidadPagar" name="cantidadPagar" required>
                     <button type="button" id="btnPagar" class="btn btn-warning mt-5">Pagar</button>
                 </div>
             </div>
@@ -100,43 +100,43 @@
 
 
 
+                <form name="form2" id="form2" method="post">
 
+                    <div class="row">
+                        <div class="input-group date col-12" id="datepicker">
+                            <div class="col-12">
+                                <span class="input-group-addon">
+                                    <label class="form-label mt-3">
+                                        Días de no asistencia:
+                                    </label>
+                                    <span id="fechas" class="count"></span></span>
+                            </div>
 
-                <div class="row">
-                    <div class="input-group date col-12" id="datepicker">
+                            <div class="col-12">
+
+                                <input type="text" class="form-control" id="diasEncargado" name="diasEncargado"
+                                    placeholder="Seleccione los días" required />
+
+                            </div>
+                        </div>
                         <div class="col-12">
-                            <span class="input-group-addon">
-                                <label class="form-label mt-3">
-                                    <h6 class="text-black">Días de no asistencia:
-                                </label>
-                                <span class="count"></span></h6></span>
+                            <label class="form-label">
+                                Total pendiente a pagar
+                            </label>
+                            <input type="number" readonly class="form-control" id="totalPagarEncargado"
+                                name="totalPagarEncargado" required>
+                            <label class="form-label">
+                                Cantidad a pagar
+                            </label>
+                            <input type="number" class="form-control" id="cantidadPagarEncargado"
+                                name="cantidadPagarEncargado" required>
+
                         </div>
 
-                        <div class="col-12">
-
-                            <input type="text" class="form-control" id="diasEncargado" name="diasEncargado"
-                                placeholder="Seleccione los días" required />
-
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label">
-                            <h6 class="text-black">Total pendiente a pagar</h6>
-                        </label>
-                        <input type="number" readonly class="form-control" id="totalPagarEncargado"
-                            name="totalPagarEncargado" required>
-                        <label class="form-label">
-                            <h6  class="text-black">Cantidad a pagar</h6>
-                        </label>
-                        <input type="number" class="form-control" id="cantidadPagarEncargado"
-                            name="cantidadPagarEncargado" required>
-
                     </div>
 
-                </div>
-
-                <button type="button" id="btnCalcularEncargado" class="btn btn-warning mt-4">Agregar</button>
-
+                    <button type="button" id="btnCalcularEncargado" class="btn btn-warning mt-4">Agregar</button>
+                </form>
 
             </div>
 

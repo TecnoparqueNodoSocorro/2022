@@ -24,7 +24,7 @@ $(document).ready(function () {
     "MultiSelect": false
   });
 
-  
+
   $('#responsive-table-envase').DataTable({
     "bPaginate": false,
     "bLengthChange": false,
@@ -37,7 +37,7 @@ $(document).ready(function () {
   });
 
 
-// al estar dentro de un tab toca inicializar la tabla para que sea responsiva
+  // al estar dentro de un tab toca inicializar la tabla para que sea responsiva
   $('#responsive-table-primera').DataTable({
     "bPaginate": false,
     "bLengthChange": false,
@@ -91,12 +91,12 @@ $(document).ready(function () {
       tabla2.columns.adjust().responsive.recalc();
       tabla3.columns.adjust().responsive.recalc();
       tabla4.columns.adjust().responsive.recalc();
-     
+
     }
   });
 
 
-// tabla de detales responsiva dentro de un modal
+  // tabla de detales responsiva dentro de un modal
   $("#detalles").on('shown.bs.modal', function () {
     $('#responsive-table-detalle').DataTable()
       .columns.adjust()
@@ -117,12 +117,12 @@ $(document).ready(function () {
 
 
   // jquery para dependiendo de la pestaña donde estamos nos redireccione ya se a segunda f o etapa de envasado
-// primero se deja que por defecto el boton redireccione a la segunda fase
+  // primero se deja que por defecto el boton redireccione a la segunda fase
   $("#nextProcess").click(function () {
     $(location).attr('href', 'index.php?page=segundaF')
   })
 
-// luego de que se entr al tab de redirecciona a envasado
+  // luego de que se entr al tab de redirecciona a envasado
   $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
     // activated tab
     var fase = $(event.target).attr('data-bs-target');
@@ -141,4 +141,7 @@ $(document).ready(function () {
 
 
 });
+
+
+
 

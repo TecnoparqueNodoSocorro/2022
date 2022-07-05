@@ -1,4 +1,4 @@
-<div class="container" style="width:90%">
+<div class="container" style="width:88%">
 
     <h2>
         <span class="text-warning mb-3">Registro de Empleados</span>
@@ -14,6 +14,8 @@
                 <select class="form-select" name="cosecha_user" id="cosecha_user" aria-label="Default select example">
                     <option selected>Seleccione la cosecha</option>
                     <option value="1">Cosecha #</option>
+                    <option value="2">Cosecha 2#</option>
+                    <option value="3">Cosecha 3#</option>
                 </select>
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
@@ -39,8 +41,8 @@
                 </label>
                 <select class="form-select" name="cargo_user" id="cargo_user" aria-label="Default select example">
                     <option selected>Seleccione el cargo</option>
-                    <option value="r">Recolector</option>
-                    <option value="e">Encargado</option>
+                    <option value="1">Recolector</option>
+                    <option value="2">Encargado</option>
                 </select>
             </div>
 
@@ -67,20 +69,20 @@
             <form class="row g-3" method="post">
 
                 <div class="col-12">
-                    <button class="btn btn-warning" id="btnRegister" type="submit">Registrar empleado</button>
+                    <button class="btn btn-warning" id="btnRegister" type="button">Registrar empleado</button>
                 </div>
             </form>
         </div>
     </form>
 
-</div>
 
 
-<!-- Tabla que muestra los empleados registrado -->
-<div class="container" style="width:95%; margin-bottom: 4%;">
+
+    <!-- Tabla que muestra los empleados registrado -->
+
 
     <table id="responsive-table" class="table rounded table-striped display responsive nowrap">
-        <thead>
+        <thead> 
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>

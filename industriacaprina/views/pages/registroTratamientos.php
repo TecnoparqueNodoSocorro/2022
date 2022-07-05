@@ -6,7 +6,7 @@
             <div class="col-12 col-xs-12 col-md-6 col-lg-6">
 
 
-                <textarea class="form-control my-2" placeholder="Descripción del tratamiento" id="floatingTextarea2"
+                <textarea class="form-control my-2" placeholder="Descripción del tratamiento" 
                     style="height: 100px" id="tratamiento"></textarea>
             </div>
             <div class="col-12 col-xs-12 col-md-6 col-lg-6 mt-3">
@@ -31,23 +31,23 @@
                             <div class="modal-body">
                                 <div class="list-group" style="text-align:left;">
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" type="checkbox" value="1">
+                                        <input class="form-check-input me-1" id="idCaprino_1" name="trata" type="checkbox" value="1">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino" type="checkbox" value="2">
+                                        <input class="form-check-input me-1" id="idCaprino_2" name="trata" type="checkbox" value="2">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino" type="checkbox" value="3">
+                                        <input class="form-check-input me-1" id="idCaprino_3" name="trata" type="checkbox" value="3">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino" type="checkbox" value="4">
+                                        <input class="form-check-input me-1" id="idCaprino_4" name="trata" type="checkbox" value="4">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino" type="checkbox" value="5">
+                                        <input class="form-check-input me-1" id="idCaprino_5" name="trata" type="checkbox" value="5">
                                         ID Caprino
                                     </label>
                                 </div>
@@ -100,6 +100,8 @@
         </tbody>
     </table>
     <div class="container mb-5" style="text-align:right;">
+    <a name="" id="cancelarT" href="index.php?page=home" class="btn btn-danger" type="button"> Cancelar</a>
+
         <button name="" id="btnGuardarT" class="btn btn-warning" type="button"> Guardar</button>
 
     </div>

@@ -32,9 +32,9 @@
 
 <body>
 
-    <nav class="navbar navbar-light">
+    <nav class="navbar navbar-light ">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="index.php?page=home">Sistema de Gestión</a>
+            <a class="navbar-brand text-white" href="index.php?page=home">Industrias Mogotes</a>
             <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <div class="boton">
@@ -44,7 +44,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h2 class="offcanvas-title" id="offcanvasNavbarLabel">LaChila</h2>
+                    <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Industrias Mogotes</h2>
                     <button type="button" class="btn btn-outline-link" data-bs-dismiss="offcanvas" aria-label="Close">
                         <div class="botonClose">
                             <i class="bi bi-chevron-double-right"></i>
@@ -59,22 +59,31 @@
                                     class="bi bi-house"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=gestionUsuarios"> <i
+                            <a class=" nav-link text-uppercase" href="index.php?page=registrarEmpleado"> <i
                                     class="bi bi-person"></i>
-                                Gestión de Usuarios</a>
+                                Registrar Empleado</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-uppercase " href="#" id="dropdownId"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="bi bi-basket"></i> Lotes</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="nav-link sub-nav" href="index.php?page=gestionLotes">
-                                    Gestión de Lotes Administrador</a>
+                        <li class="nav-item">
+                            <a class=" nav-link text-uppercase" href="index.php?page=recepcionGuayaba"> <i
+                                    class="bi bi-activity"></i>
+                                Recepción</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link text-uppercase" href="index.php?page=escaldado"> <i
+                                    class="bi bi-person"></i>
+                                Escaldado</a>
+                        </li>
 
-                                <a class="nav-link sub-nav" href="index.php?page=gestionLotesUsuarios">
-                                    Gestión de Lotes Usuarios</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class=" nav-link text-uppercase" href="index.php?page=reporteProduccion"> <i
+                                    class="bi bi-activity"></i>
+                                Reporte de Producción</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link text-uppercase" href="index.php?page=registroEmbalaje"> <i
+                                    class="bi bi-person"></i>
+                                Embalaje</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -83,35 +92,11 @@
                                     class="bi bi-file-earmark-text"></i>
                                 Informes</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class=" nav-link  sub-nav" href="index.php?page=informeInvima"> Informe INVIMA</a>
-                                <a class=" nav-link sub-nav" href="index.php?page=informeLotes">
-                                    Informe de Lotes </a>
+                                <a class=" nav-link  sub-nav" href="index.php?page=informe"> Registro de
+                                    Informe de ...</a>
+                            
                             </div>
                         </li>
-
-
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="bi bi-activity"></i>
-                                Registros</a>
-
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <div class="dropp">
-
-                                    <a class=" nav-link sub-nav" href="index.php?page=registroActividades"></i>
-                                        Registro de Actividades </a>
-
-                                </div>
-                            </div>
-                        </li>
-
-
-
-
-
 
 
 
@@ -132,15 +117,16 @@
         if (
    
         $_GET["page"] == "home" ||
-        $_GET["page"] == "gestionUsuarios" ||
-        $_GET["page"] == "gestionLotes" ||
-        $_GET["page"] == "gestionLotesUsuarios" ||
-        $_GET["page"] == "registroActividades" ||
-        $_GET["page"] == "informeInvima" ||
-        $_GET["page"] == "informeLotes" ||
-        $_GET["page"] == "faseEnvasado" ||
-        $_GET["page"] == "segundaF" ||
-        $_GET["page"] == "faseFin" ||
+        $_GET["page"] == "registrarEmpleado" ||
+        $_GET["page"] == "recepcionGuayaba" ||
+        $_GET["page"] == "escaldado" ||
+        $_GET["page"] == "reporteProduccion" ||
+        $_GET["page"] == "reporteBocadillo" ||
+        $_GET["page"] == "reporteArequipe" ||
+        $_GET["page"] == "reporteEspejuelo" ||
+        $_GET["page"] == "registroEmbalaje" ||
+        $_GET["page"] == "informe" ||
+  
         $_GET["page"] == "login"  
         
         ) {
@@ -156,8 +142,6 @@
 
 
 
-
-    <script src="views/js/js.js"></script>
     <script src="views/js/script.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -167,7 +151,8 @@
 
     <footer class="footer">
 
-        <p class="navbar-brand">LaChila</p>
+        <p class="mb-3">Industrias Mogotes</p>
+
 
     </footer>
 </body>

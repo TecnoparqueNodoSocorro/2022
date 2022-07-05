@@ -44,7 +44,7 @@
             </div>
 
         </div>
-        <button class="btn btn-warning mt-2 mb-4" id="btnRegistrarCaprino" type="submit">Registrar Caprino</button>
+        <button class="btn btn-warning mt-2 mb-4" id="btnRegistrarCaprino" type="button">Registrar Caprino</button>
 
 
 

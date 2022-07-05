@@ -1,8 +1,3 @@
-<?php
-// instanciar el metodo estatico
-$registro = ControladorCosechas::ctrCosechas();
-
-?>
 
 
 <div class="container">
@@ -39,7 +34,7 @@ $registro = ControladorCosechas::ctrCosechas();
                         required>
                 </div>
                 <div class="col-12 mt-5">
-                    <button class="btn btn-warning" id="btnIniciarCosecha" type="submit">Iniciar Cosecha</button>
+                    <button class="btn btn-warning" id="btnIniciarCosecha" type="button">Iniciar Cosecha</button>
                 </div>
             </div>
         </form>

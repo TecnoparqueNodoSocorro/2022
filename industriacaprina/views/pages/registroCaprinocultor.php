@@ -37,7 +37,7 @@
                 <label class="form-label">
                     <h6>Objetivo de producción</h6>
                 </label>
-                <select class="form-select" name="cargo_user" id="cargo_user" aria-label="Default select example">
+                <select class="form-select" name="objetivoProduccion" id="objetivoProduccion" aria-label="Default select example">
                     <option selected>Seleccione el objetivo</option>
                     <option value="1">Carne</option>
                     <option value="2">Leche</option>
@@ -47,7 +47,7 @@
             </div>
 
         </div>
-        <button class="btn btn-warning mt-2 mb-4" id="btnRegistrar" type="submit">Registrar Caprinocultor</button>
+        <button class="btn btn-warning mt-2 mb-4" id="btnRegistrar" type="button">Registrar Caprinocultor</button>
 
     </div>
 

@@ -3,9 +3,9 @@
 
     <h5> Información de Lotes</h5>
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" style="background-color:#eeb3b3;"  role="1f">
+    <ul class="nav nav-tabs" style="background-color:#eeb3b3;" role="1f">
         <li class="nav-item" role="presentation">
-            <button class="nav-tab nav-link active"  id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+            <button class="nav-tab nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
                 type="button" role="tab" aria-controls="home" aria-selected="true">1 F</button>
         </li>
         <li class="nav-item" role="2f">
@@ -39,65 +39,68 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
+                                <div class="row" style="background-color:#f9cbcb; border-radius:5px">
 
-                            <div class="row" style="background-color:#f9cbcb; border-radius:5px">
-                                <div class="col-12">
-                                    <h5> Variables del producto </h5>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">
-                                        <h6>Brix</h6>
-                                    </label>
-                                    <input type="number" name="brix" id="brix" class="form-control" value="" required>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">
-                                        <h6>Alcohol</h6>
-                                    </label>
-                                    <input type="number" name="alcohol" id="alcohol" class="form-control" value=""
-                                        required>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">
-                                        <h6>PH</h6>
-                                    </label>
-                                    <input type="number" name="ph" id="ph" class="form-control" value="" required>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">
-                                        <h6>TDS</h6>
-                                    </label>
-                                    <input type="number" name="tds" id="tds" class="form-control" value="" required>
-                                </div>
-                                <div class="col-12 mb-2">
-                                    <label class="form-label">
-                                        <h6>AC</h6>
-                                    </label>
-                                    <input type="number" name="ac" id="ac" class="form-control" value="" required>
+                                    <div class="col-12">
+                                        <h5> Variables del producto </h5>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">
+                                            <h6>Brix</h6>
+                                        </label>
+                                        <input type="number" name="brix" id="brix" class="form-control" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">
+                                            <h6>Alcohol</h6>
+                                        </label>
+                                        <input type="number" name="alcohol" id="alcohol" class="form-control" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">
+                                            <h6>PH</h6>
+                                        </label>
+                                        <input type="number" name="ph" id="ph" class="form-control" value="" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">
+                                            <h6>TDS</h6>
+                                        </label>
+                                        <input type="number" name="tds" id="tds" class="form-control" value="" required>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <label class="form-label">
+                                            <h6>AC</h6>
+                                        </label>
+                                        <input type="number" name="ac" id="ac" class="form-control" value="" required>
+                                    </div>
+
                                 </div>
 
-                            </div>
-
-                            <div class="row mt-1">
-                                <div class="col-12">
-                                    <h5> Variables de INVIMA</h5>
+                                <div class="row mt-1">
+                                    <div class="col-12">
+                                        <h5> Variables de INVIMA</h5>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <label class="form-label">
+                                            <h6>TEMPERATURA</h6>
+                                        </label>
+                                        <input type="number" name="temp" id="temp" class="form-control" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <label class="form-label">
+                                            <h6>HUMEDAD</h6>
+                                        </label>
+                                        <input type="number" name="hume" id="hume" class="form-control" value=""
+                                            required>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <label class="form-label">
-                                        <h6>TEMPERATURA</h6>
-                                    </label>
-                                    <input type="number" name="temp" id="temp" class="form-control" value="" required>
+                                <div class="container">
+                                    <button class="btn btn-danger" id="btnGuardarVar" type="submit">Guardar</button>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <label class="form-label">
-                                        <h6>HUMEDAD</h6>
-                                    </label>
-                                    <input type="number" name="hume" id="hume" class="form-control" value="" required>
-                                </div>
-                            </div>
-                            <div class="container">
-                                <button class="btn btn-danger" id="btnGuardarVar" type="submit">Guardar</button>
-                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -162,7 +165,8 @@
 
 
         <!-- empiezan los tab -->
-        <div class="tab-pane active  mt-1 mb-5" id="home" role="tabpanel" aria-labelledby="home-tab" style="text-align:left">
+        <div class="tab-pane active  mt-1 mb-5" id="home" role="tabpanel" aria-labelledby="home-tab"
+            style="text-align:left">
 
             <h6 style="color: #a20202">Primera Fermentación</h6>
 
@@ -196,7 +200,8 @@
         <!-- fin del tab -->
 
         <!-- tabla que muestra los lotes que estan en segunda fermentacion -->
-        <div class="tab-pane  mt-1 mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="text-align:left">
+        <div class="tab-pane  mt-1 mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+            style="text-align:left">
             <h6 style="color: #a20202">Segunda fermentación</h6>
             <table id="responsive-tableSegunda" class="table rounded table-danger display responsive nowrap">
                 <thead>
@@ -358,3 +363,9 @@
 
 
 </div>
+<script type="text/javascript">
+ $('#verHistorial').on('hidden.bs.modal', function () {
+    $("#verHistorial input").val("");
+      });
+
+</script>

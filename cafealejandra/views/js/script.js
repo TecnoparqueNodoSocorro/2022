@@ -1,3 +1,5 @@
+
+
 //tabla responsiva
 $(document).ready(function () {
     $('#responsive-table').DataTable({
@@ -14,6 +16,14 @@ $(document).ready(function () {
 });
 
 
-$(document).on("click", "#btnn", function () {
-    console.log("Prueba botn")
-});
+$('#myModal').on('hidden.bs.modal', function (event) {
+    $("#myModal input").val("");
+ });
+$('#myModalEm').on('hidden.bs.modal', function (event) {
+     $("#myModalEm input").val("");
+  });
+
+  $('#myModalEncargado').on('hidden.bs.modal', function (event) {
+    $("#myModalEncargado input").val("");
+    $("#myModalEncargado count").val("");
+ });

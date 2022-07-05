@@ -7,43 +7,51 @@
         <!-- formulario para agregar un usuario -->
         <div class="row justify-content-md-center">
             <div class="col col-xs-6 col-md-6 col-lg-6">
-                <label class="form-label">
+                
                     <h6>Nombres</h6>
-                </label>
+                
                 <input type="text" name="name_user" id="name_user" class="form-control" value="" required>
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
-                <label class="form-label">
+               
                     <h6>Apellidos</h6>
-                </label>
+                
                 <input type="text" name="lastname_user" id="lastname_user" class="form-control" value="" required>
             </div>
         </div>
 
         <div class="row justify-content-md-center">
             <div class="col col-xs-6 col-md-6 col-lg-6">
-                <label class="form-label">
+               
                     <h6>Número de Teléfono</h6>
-                </label>
+                
                 <input type="number" name="phone_user" id="phone_user" class="form-control" value="" required>
 
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
-                <label class="form-label">
+               
                     <h6>Núm de documento</h6>
-                </label>
+                
                 <input type="number" name="document_user" id="document_user" class="form-control" value="" required>
             </div>
         </div>
         <div class="row justify-content-md-center">
-            <div class="col col-xs-6 col-md-6 col-lg-6">
-                <label class="form-label">
+            <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+               
                     <h6>F. Nacimiento</h6>
-                </label>
+                
                 <input type="date" name="nacimiento_user" id="nacimiento_user" class="form-control" value="" required>
-
             </div>
-
+            <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+               
+                    <h6>Cargo</h6>
+                
+                <select class="form-select" name="cargo_user" id="cargo_user" aria-label="Default select example">
+                    <option selected>Seleccione el cargo</option>
+                    <option value="1">Usuario</option>
+                    <option value="2">Administrador</option>
+                </select>
+            </div>
 
         </div>
 
@@ -54,7 +62,7 @@
             <form class="row g-3" method="post">
 
                 <div class="col-12  mb-3">
-                    <button class="btn btn-danger" id="btnRegistrar" type="submit">Registrar usuario</button>
+                    <button class="btn btn-danger" id="btnRegistrar" type="button">Registrar usuario</button>
                 </div>
             </form>
         </div>
@@ -91,7 +99,7 @@
                 <td>@mdo</td>
                 <td>@mdo</td>
             </tr>
-            
+
         </tbody>
     </table>
 </div>

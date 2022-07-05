@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="" class="form-label">Peso ini. Materia KG </label>
+                                        <label for="" class="form-label">Peso ini KG </label>
                                         <input type="number" class="form-control" name="PesoIni" id="PesoIni"
                                             aria-describedby="helpId" placeholder="">
                                     </div>

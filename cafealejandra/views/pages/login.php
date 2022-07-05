@@ -28,7 +28,7 @@
                     </div>
 
 
-                    <button type="submit" id="btnIniciar" class="btn btn-warning mt-5">Ingresar</button>
+                    <button type="button" id="btnIniciar" class="btn btn-warning mt-5">Ingresar</button>
                 </form>
             </div>
         </div>

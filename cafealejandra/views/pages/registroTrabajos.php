@@ -8,9 +8,11 @@
         <label class="form-label">
             <h4 class="text-warning">Cosecha</h4>
         </label>
-        <select class="form-select rounded" name="cosecha" aria-label="Default select example">
+        <select class="form-select rounded" name="cosecha" id="cosecha_trabajo" aria-label="Default select example">
             <option style="width:50px" selected>Seleccione cosecha</option>
             <option value="1">Cosecha #</option>
+            <option value="2">Cosecha 2</option>
+            <option value="2">Cosecha 3#</option>
         </select>
     </div>
         <table id="responsive-table" class="table table-striped display responsive nowrap rounded">
@@ -60,17 +62,21 @@
              
 
                 <div class="col-12">
+                    <form>
+
+                  
                     <label for="validationServer02" class="form-label">
                         <h4>Kilos recogidos</h4>
                     </label>
-                    <input type="number" class="form-control" value="" required>
-                    <button type="button" class="btn btn-warning mt-4">Agregar</button>
+                    <input type="number" id="kilos_recogidos" class="form-control" value="" required>
+                    <button type="button" id="agregar_trabajo" class="btn btn-warning mt-4">Agregar</button>
+                  </form>
                 </div>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="cancelar" data-bs-dismiss="modal">Cancelar</button>
             </div>
 
         </div>

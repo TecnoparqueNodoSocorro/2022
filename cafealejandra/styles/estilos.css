@@ -449,7 +449,19 @@ height: 100%;
   line-height: 1;
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+.table,
+.table-fluid,
+.table-xxl,
+.table-xl,
+.table-lg,
+.table-md,
+.table-sm {
+  text-align: left;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  background-color: #c7b69f;
 
+}
 .page-section {
 
   margin: 0px auto;
@@ -466,19 +478,7 @@ height: 100%;
 }
 
 
-.table,
-.table-fluid,
-.table-xxl,
-.table-xl,
-.table-lg,
-.table-md,
-.table-sm {
-  text-align: left;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  background-color: #c7b69f;
 
-}
 
 .containerTabla {
   text-align: center;
