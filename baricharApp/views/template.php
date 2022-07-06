@@ -212,32 +212,32 @@
                     <h2>PLANES Y SERVICIOS BARICHARA</h2>
                     <span class="carousel_titles">Alma Herencia &amp; Encanto</span>
                     <div id="weddingcarousel" class="owl-carousel">
-                        <div class="left14"><img src="views/images/image_14_2.jpg" alt="" title="" />
+                        <div class="left14"><img src="views/images/planesyservicios/barichara.png" alt="" title="" />
                             <h3>BARICHARA </h3>
                         </div>
-                        <div class="left14"><img src="views/images/image_14_2.jpg" alt="" title="" />
+                        <div class="left14"><img src="views/images/planesyservicios/planest.png" alt="" title="" />
                             <h3>PLANES </h3>
                         </div>
-                        <div class="left14"><img src="views/images/image_14_2.jpg" alt="" title="" />
+                        <div class="left14"><img src="views/images/planesyservicios/promociones.png" alt="" title="" />
                             <h3>PROMOCIONES</h3>
                         </div>
-                        <div class="left14_last"><img src="views/images/image_14_6.jpg" alt="" title="" />
+                        <div class="left14_last"><img src="views/images/planesyservicios/vacaciones.png" alt="" title="" />
                             <h3>VACACIONES</h3>
                         </div>
-                        <div class="left14"><img src="views/images/image_14_5.jpg" alt="" title="" />
+                        <div class="left14"><img src="views/images/planesyservicios/lunademiel.png" alt="" title="" />
                             <h3>LUNA DE MIEL</h3>
                         </div>
-                        <div class="left14"><img src="views/images/image_14_3.jpg" alt="" title="" />
+                        <div class="left14"><img src="views/images/planesyservicios/tours.png" alt="" title="" />
                             <h3>TOUR DE ENTRETENIMIENTO</h3>
                         </div>
-                        <div class="left14"><img src="views/images/image_14_7.jpg" alt="" title="" />
+                        <div class="left14"><img src="views/images/planesyservicios/bodas.png" alt="" title="" />
                             <h3>BODAS</h3>
                         </div>
-                        <div class="left14_last"><img src="views/images/image_14_8.jpg" alt="" title="" />
+                        <div class="left14_last"><img src="views/images/planesyservicios/turismo.png" alt="" title="" />
                             <h3>TURISMO</h3>
                         </div>
                     </div>
-                    <div class="view_all_carousel"><a href="bridesmaids.html">RESERVA AQUI </a></div>
+                    <div class="view_all_carousel"><a href="bridesmaids.html">COTIZA TU BODA AQUI!!!</a></div>
                 </div>
             </div>
         </div>
@@ -248,31 +248,31 @@
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                            <span class="post_date">BaricharApp</span>
+                        
                             <h3><a href="blog-single.html">PROPUESTAS DE MATRIMONIO</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
-                        <img src="views/images/post_thumb1.jpg" alt="" title="" />
+                        <img src="views/images/web/proveedores/propuestas.png" alt="" title="" />
                     </div>
                 </div>
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                            <span class="post_date">BaricharApp</span>
+                
                             <h3><a href="blog-single.html">CHEFF Y PASTELEROS</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
-                        <img src="views/images/post_thumb2.jpg" alt="" title="" />
+                        <img src="views/images/web/proveedores/pasteleros.png" alt="" title="" />
                     </div>
                 </div>
                 <div class="left13_last">
                     <div class="latest_post">
                         <div class="post_info">
-                            <span class="post_date">BaricharApp</span>
+                   
                             <h3><a href="blog-single.html">HOTELES DE ENSUEÑO</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
-                        <img src="views/images/post_thumb3.jpg" alt="" title="" />
+                        <img src="views/images/web/proveedores/hoteles.png" alt="" title="" />
                     </div>
                 </div>
             </div>
@@ -283,31 +283,31 @@
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                            <span class="post_date">BaricharApp</span>
+                       
                             <h3><a href="blog-single.html">GASTRONOMIA BODAS</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
-                        <img src="views/images/post_thumb1.jpg" alt="" title="" />
+                        <img src="views/images/web/proveedores/gastronomia.png" alt="" title="" />
                     </div>
                 </div>
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                            <span class="post_date">BaricharApp</span>
+                    
                             <h3><a href="blog-single.html">DISEÑADORES</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
-                        <img src="views/images/post_thumb2.jpg" alt="" title="" />
+                        <img src="views/images/web/proveedores/disenadores.png" alt="" title="" />
                     </div>
                 </div>
                 <div class="left13_last">
                     <div class="latest_post">
                         <div class="post_info">
-                            <span class="post_date">BaricharApp</span>
+                       
                             <h3><a href="blog-single.html">CRUCEROS</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
-                        <img src="views/images/post_thumb3.jpg" alt="" title="" />
+                        <img src="views/images/web/proveedores/cruceros.png" alt="" title="" />
                     </div>
                 </div>
 

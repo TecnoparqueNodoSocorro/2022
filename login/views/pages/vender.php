@@ -43,9 +43,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary  btn-sm"><i class="bi bi-cart-check"></i></button>
-            </div>
+
 
         </div>
     </div>
@@ -67,30 +65,28 @@
         <h6 class="fechafac"></h6>
     </div>
 
-</div>
-<table class="table tablafacturahtml">
-    <thead>
-        <tr>
-            <th>Cantidad</th>
-            <th>Producto</th>
-            <th>Subtotal</th>
-            <th>Opc</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        <!-- aqui renderiza la tabla nueva -->
-    </tbody>
-</table>
+    <table class="table  table-sm tablafacturahtml">
+        <thead>
+            <tr>
+                <th>Cantidad</th>
+                <th>Producto</th>
+                <th>Subtotal</th>
+                <th>Opc</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            <!-- aqui renderiza la tabla nueva -->
+        </tbody>
+    </table>
 
-<div class="container">
     <div class="row">
         <div class="col-4">TOTAL</div>
-        <div class="col-4 totalValor"></div>
-        <div class="col-4">
+        <div class="col-5 totalValor"></div>
+        <div class="col-3">
 
-            <a href="#" class="btn btn-success mb-2 BtnFacturar" onclick="onClickFactura()">Registrar venta</a>
+            <a href="#" class="btn btn-success btn-sm mb-2 BtnFacturar" onclick="onClickFactura()">Registrar venta</a>
 
         </div>
 

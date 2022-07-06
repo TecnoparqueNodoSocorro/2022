@@ -11,15 +11,12 @@ function CargarFacturaListener() {
   listaPro.addEventListener("click", AgregarPFactura);
 
 }
-
 /* -----------------------------------------------------------------------------------------------------funciones */
-
 function AgregarPFactura(e) {
   e.preventDefault();
   if (e.target.classList.contains("AgrePro")) {
     const datosSeleccion = e.target.parentElement.parentElement;
     Estrucuradatos(datosSeleccion);
-
   }
 }
 
