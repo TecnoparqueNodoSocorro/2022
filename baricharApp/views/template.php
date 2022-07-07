@@ -106,12 +106,14 @@
                             <div class="col-12 col-md-2">
                                 <div class="footer_socials">
                                     <ul>
-                                        <li><a href="#"><img src="views/images/social/twitter.png" alt="" title="" /></a></li>
-                                        <li><a href="#"><img src="views/images/social/facebook.png" alt="" title="" /></a></li>
-                                        <li><a href="#"><img src="views/images/social/pinterest.png" alt="" title="" /></a></li>
-                                        <li><a href="#"><img src="views/images/social/vimeo.png" alt="" title="" /></a></li>
-                                        <li><a href="#"><img src="views/images/social/google.png" alt="" title="" /></a></li>
-                                        <li><a href="#"><img src="views/images/social/youtube.png" alt="" title="" /></a></li>
+                                        <li><a href="https://twitter.com/PropuestaDMatri" target="_blank"><img src="views/images/social/twitter.png" alt="" title="" /></a></li>
+                                        <li><a href="https://www.facebook.com/expobodasbarichara/" target="_blank"><img src="views/images/social/facebook.png" alt="" title="" /></a></li>
+                                        <li><a href="https://www.instagram.com/expobodasbarichara/" target="_blank"><img src="views/images/social/instagram.png" alt="" title="" /></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCBx4pFER775V_jBuQ6nhOBQ" target="_blank"><img src="views/images/social/youtube.png" alt="" title="" /></a></li>
+                                        <li><a href="https://www.tiktok.com/expobodasbarichara/" target="_blank"><img src="views/images/social/tiktok.png" alt="" title="" /></a></li>
+                                        <li><a href="whap" target="_blank"><img src="views/images/social/whapsap.png" alt="" title="" /></a></li>
+                                        <li><a href="https://www.matrimonio.com.co/wedding-planner/propuesta-de-matrimonio--e118629" target="_blank"><img src="views/images/social/matrimonios.png" alt="" title="" /></a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -248,7 +250,7 @@
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                        
+
                             <h3><a href="blog-single.html">PROPUESTAS DE MATRIMONIO</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
@@ -258,7 +260,7 @@
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                
+
                             <h3><a href="blog-single.html">CHEFF Y PASTELEROS</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
@@ -268,7 +270,7 @@
                 <div class="left13_last">
                     <div class="latest_post">
                         <div class="post_info">
-                   
+
                             <h3><a href="blog-single.html">HOTELES DE ENSUEÑO</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
@@ -283,7 +285,7 @@
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                       
+
                             <h3><a href="blog-single.html">GASTRONOMIA BODAS</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
@@ -293,7 +295,7 @@
                 <div class="left13">
                     <div class="latest_post">
                         <div class="post_info">
-                    
+
                             <h3><a href="blog-single.html">DISEÑADORES</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
@@ -303,7 +305,7 @@
                 <div class="left13_last">
                     <div class="latest_post">
                         <div class="post_info">
-                       
+
                             <h3><a href="blog-single.html">CRUCEROS</a></h3>
                             <a href="blog-single.html" class="post_read_more">Ver Mas</a>
                         </div>
@@ -318,52 +320,23 @@
         </div>
 
 
-        <div class="home_bottom">
-            <div class="full_width_centered">
-                <div class="left13">
-                    <div class="bottom_icon"><img src="views/images/icon_music.png" alt="" title="" /></div>
-                    <h2>ALIADOS INSTITUCIONALES</h2>
-                    <span class="subtitle">BRING YOUR DANCING SHOES</span>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse <strong>cillum dolore</strong> eu fugiat nulla pariat ur si nt oc caecat non proident, sunt in culpa <a href="#">qui officia</a> deserunt mollit anim id est laborum sed quia non numquam eius modi.</p>
-                    <a href="page.html" class="post_read_more">READ MORE</a>
-                </div>
 
-                <div class="left13_last">
-                    <div class="bottom_icon"><img src="views/images/icon_gifts.png" alt="" title="" /></div>
-                    <h2>NUESTRAS RELACIONES</h2>
-                    <span class="subtitle">GIVEN FREELY AND OUT OF PURE LOVE</span>
-                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit <a href="#">esse quam nihil</a> aspernatur aut odit aut fugit molestiae consequatur, vel illum <strong>qui dolorem</strong> eum fugiat quo voluptas nulla pariatur aspernatur.</p>
-                    <a href="page.html" class="post_read_more">READ MORE</a>
-                </div>
-
-                <div class="left13_last">
-                    <div class="bottom_icon"><img src="views/images/icon_location.png" alt="" title="" /></div>
-                    <h2>GIFT REGISTRY</h2>
-                    <span class="subtitle">GIVEN FREELY AND OUT OF PURE LOVE</span>
-                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit <a href="#">esse quam nihil</a> aspernatur aut odit aut fugit molestiae consequatur, vel illum <strong>qui dolorem</strong> eum fugiat quo voluptas nulla pariatur aspernatur.</p>
-                    <a href="page.html" class="post_read_more">READ MORE</a>
-                </div>
-
-
-                <div class="clear"></div>
-            </div>
-        </div>
 
         <div class="footer">
             <div class="full_width_centered">
                 <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
-                <div class="footer_names">JENIFER &amp; OLIVER</div>
+                <div class="footer_names">BaricharApp</div>
 
                 <nav class="footer_menu">
                     <ul>
-                        <li><a href="index.html" class="selected">HOME</a></li>
-                        <li><a href="page.html">THE WEDDING</a></li>
-                        <li><a href="rsvp.html">RSVP</a></li>
-                        <li><a href="contact.html">GET IN TOUCH</a></li>
+           <!--              <li><a href="index.html" class="selected">HOME</a></li> -->
+
                         <li><a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> </li>
                     </ul>
+
+                 
             </div>
-            <div class="footer_copyright">Made with love by <a href="http://themes.sindevo.com">SindevoThemes</a> &amp; <a href="http://ourweddingtheme.com">OURWEDDINGTHEME.COM</a></div>
+
             </nav>
         </div>
 
