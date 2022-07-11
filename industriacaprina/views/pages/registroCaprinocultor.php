@@ -53,8 +53,8 @@
 
     <!-- listado de caprinocultores -->
     <h5 class="mt-3">Listado de Caprinocultores</h5>
-<div class="mb-5">
-    <table id="responsive-table" class="table rounded table-warning display responsive nowrap mb-4">
+    <div class="table-responsive mt-3">
+        <table class="table table-warning table-bordered">
         <thead>
             <tr>
                 <th>Nombre</th>

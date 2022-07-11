@@ -1,5 +1,5 @@
 <!-- header -->
-<div class="container"  >
+<div class="container">
     <h2>
         <span class="text-warning mb-3">Registro de Kilos</span>
     </h2>
@@ -43,45 +43,46 @@
                 <button type="button" id="btnGenerarCant" class="btn btn-warning mt-3">Generar </button>
             </div>
         </div>
+
+
+
+
+
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha</th>
+                        <th>Kilos recogidos</th>
+                        <th class="none">Total. pagar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+
+                    </tr>
+                    <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+
+                    </tr>
+                    <tr>
+                        <td>Mark</td>
+                        <td>@mdo</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-
-
-
-
-    <table id="responsive-table" class="table  table-striped display responsive nowrap rounded">
-        <thead>
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Fecha</th>
-                <th>K. recogidos</th>
-                <th class="none">T. pagar</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-
-            </tr>
-            <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-
-            </tr>
-            <tr>
-                <td>Mark</td>
-                <td>@mdo</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-
-            </tr>
-        </tbody>
-    </table>
-
 </div>

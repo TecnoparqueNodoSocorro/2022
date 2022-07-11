@@ -39,68 +39,65 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                                <div class="row" style="background-color:#f9cbcb; border-radius:5px">
+                            <div class="row" style="background-color:#f9cbcb; border-radius:5px">
 
-                                    <div class="col-12">
-                                        <h5> Variables del producto </h5>
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">
-                                            <h6>Brix</h6>
-                                        </label>
-                                        <input type="number" name="brix" id="brix" class="form-control" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">
-                                            <h6>Alcohol</h6>
-                                        </label>
-                                        <input type="number" name="alcohol" id="alcohol" class="form-control" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">
-                                            <h6>PH</h6>
-                                        </label>
-                                        <input type="number" name="ph" id="ph" class="form-control" value="" required>
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">
-                                            <h6>TDS</h6>
-                                        </label>
-                                        <input type="number" name="tds" id="tds" class="form-control" value="" required>
-                                    </div>
-                                    <div class="col-12 mb-2">
-                                        <label class="form-label">
-                                            <h6>AC</h6>
-                                        </label>
-                                        <input type="number" name="ac" id="ac" class="form-control" value="" required>
-                                    </div>
-
+                                <div class="col-12">
+                                    <h5> Variables del producto </h5>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">
+                                        <h6>Brix</h6>
+                                    </label>
+                                    <input type="number" name="brix" id="brix" class="form-control" value="" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">
+                                        <h6>Alcohol</h6>
+                                    </label>
+                                    <input type="number" name="alcohol" id="alcohol" class="form-control" value=""
+                                        required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">
+                                        <h6>PH</h6>
+                                    </label>
+                                    <input type="number" name="ph" id="ph" class="form-control" value="" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">
+                                        <h6>TDS</h6>
+                                    </label>
+                                    <input type="number" name="tds" id="tds" class="form-control" value="" required>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label class="form-label">
+                                        <h6>AC</h6>
+                                    </label>
+                                    <input type="number" name="ac" id="ac" class="form-control" value="" required>
                                 </div>
 
-                                <div class="row mt-1">
-                                    <div class="col-12">
-                                        <h5> Variables de INVIMA</h5>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <label class="form-label">
-                                            <h6>TEMPERATURA</h6>
-                                        </label>
-                                        <input type="number" name="temp" id="temp" class="form-control" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <label class="form-label">
-                                            <h6>HUMEDAD</h6>
-                                        </label>
-                                        <input type="number" name="hume" id="hume" class="form-control" value=""
-                                            required>
-                                    </div>
+                            </div>
+
+                            <div class="row mt-1">
+                                <div class="col-12">
+                                    <h5> Variables de INVIMA</h5>
                                 </div>
-                                <div class="container">
-                                    <button class="btn btn-danger" id="btnGuardarVar" type="submit">Guardar</button>
+                                <div class="col-12 col-sm-6">
+                                    <label class="form-label">
+                                        <h6>TEMPERATURA</h6>
+                                    </label>
+                                    <input type="number" name="temp" id="temp" class="form-control" value="" required>
                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <label class="form-label">
+                                        <h6>HUMEDAD</h6>
+                                    </label>
+                                    <input type="number" name="hume" id="hume" class="form-control" value="" required>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <button class="btn btn-danger" id="btnGuardarVar" type="submit">Guardar</button>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -125,29 +122,30 @@
                     <div class="modal-body">
                         <div class="container">
                             <div class="row  mt-3">
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-danger table-bordered">
+                                        <thead>
+                                            <tr>
 
-                                <table id="responsive-table-envase"
-                                    class="table rounded table-danger display responsive nowrap">
-                                    <thead>
-                                        <tr>
+                                                <th>Id</th>
+                                                <th>Materia</th>
+                                                <th>F. Inicio</th>
+                                                <th>Peso Inicial Materia en Kg</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
 
-                                            <th>Id</th>
-                                            <th>Materia</th>
-                                            <th>F. Inicio</th>
-                                            <th>Peso Inicial Materia en Kg</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
+                                                <td>1</td>
+                                                <td>Manzana</td>
+                                                <td>11/07/2022</td>
+                                                <td>66</td>
+                                            </tr>
 
-                                            <td>1</td>
-                                            <td>Manzana</td>
-                                            <td>11/07/2022</td>
-                                            <td>66</td>
-                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                    </tbody>
-                                </table>
                             </div>
 
                         </div>
@@ -171,31 +169,34 @@
             <h6 style="color: #a20202">Primera Fermentación</h6>
 
             <!-- tabla que muestra los lotes que estan en primera fermentacion -->
-            <table id="responsive-table" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Opciones</th>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opciones</th>
 
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>Peso Inicial Materia en Kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnPrimfU" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#verHistorial">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>66</td>
-                    </tr>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>Peso Inicial Materia en Kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnPrimfU" class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal" data-bs-target="#verHistorial">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>66</td>
+                        </tr>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
         <!-- fin del tab -->
 
@@ -203,31 +204,34 @@
         <div class="tab-pane  mt-1 mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab"
             style="text-align:left">
             <h6 style="color: #a20202">Segunda fermentación</h6>
-            <table id="responsive-tableSegunda" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Opciones</th>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opciones</th>
 
-                        <th> Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>Peso Inicial Materia en Kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnSegfU" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#verHistorial">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>66</td>
-                    </tr>
+                            <th> Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>Peso Inicial Materia en Kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnSegfU" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#verHistorial">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>66</td>
+                        </tr>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
         <!-- fin del tab -->
 
@@ -236,29 +240,31 @@
             style="text-align:left">
             <h6 style="color: #a20202"> Fase Envasado</h6>
             <!-- tabla envase -->
-            <table id="responsive-tableEnvase" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Opciones</th>
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>Peso Inicial Materia en Kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnEnvasadoU" class="btn btn-sm btn-danger"
-                                class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#envase">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>66</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opciones</th>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>Peso Inicial Materia en Kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnEnvasadoU" class="btn btn-sm btn-danger"
+                                    class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#envase">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>66</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- fin del tab -->
@@ -271,31 +277,34 @@
         <div class="tab-pane  mt-1 mb-5" id="messages" role="tabpanel" aria-labelledby="messages-tab"
             style="text-align:left">
             <h6 style="color: #a20202">Historial</h6>
-            <table id="responsive-tableHistorial" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Registros</th>
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>F. Fin</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnHistorialU" class="btn btn-sm btn-danger"
-                                data-bs-toggle="modal" data-bs-target="#detalles">
-                                <i class="bi bi-plus-circle"></i> Ver
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>11/07/2022</td>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Registros</th>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>F. Fin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnHistorialU" class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal" data-bs-target="#detalles">
+                                    <i class="bi bi-plus-circle"></i> Ver
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>11/07/2022</td>
 
-                    </tr>
+                        </tr>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
 
 
             <!-- Modal ver detallles de lote -->
@@ -313,9 +322,8 @@
                                 <h4>Registro del lote</h4>
 
                                 <!-- tabla registro del lote -->
-                                <div class="container" style="width:100%; margin-bottom: 4%; text-align:left; ">
-                                    <table id="responsive-table-detalle"
-                                        class="round table  table-danger display responsive nowrap rounded">
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-danger table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Usuario</th>
@@ -329,7 +337,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
 
                                             <tr>
                                                 <td>Mark</td>
@@ -351,21 +358,14 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <!-- final del modal historial -->
-
         </div>
-
-        <!-- fin del tab de historial-->
+        <!-- final del modal historial -->
 
     </div>
 
+    <!-- fin del tab de historial-->
 
 </div>
-<script type="text/javascript">
- $('#verHistorial').on('hidden.bs.modal', function () {
-    $("#verHistorial input").val("");
-      });
-
-</script>

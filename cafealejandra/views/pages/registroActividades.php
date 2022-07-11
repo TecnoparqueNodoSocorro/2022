@@ -10,9 +10,9 @@
     </h4>
     <h5 class="text-danger  ">Vista para empleados unicamente
     </h5>
-</div>
-<div class="container" style="width:90%">
-    <table id="responsive-table" class="table table-striped rounded display responsive nowrap">
+
+<div class="table-responsive mt-3" >
+        <table class="table table-bordered">
         <thead>
             <tr>
 
@@ -44,5 +44,6 @@
         </tbody>
     </table>
 
+    </div>
 
 </div>

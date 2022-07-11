@@ -1,7 +1,7 @@
 <div class="container">
     <h4 class="mt-3"> Reporte de Caprinocultores</h4>
-    <div class="container mb-5" style="text-align:left;">
-        <table id="responsive-table" class="table table-warning display responsive nowrap rounded">
+    <div class="table-responsive mt-3">
+        <table class="table table-warning table-bordered">
             <thead>
                 <tr>
                     <th>Nombre</th>

@@ -133,31 +133,33 @@
                             </div>
                             <div class="col-12">
                                 <h6>Temperatura</h6>
-                                <table id="responsive-table"
-                                    class="table rounded table-danger display responsive nowrap">
-                                    <thead>
-                                        <tr>
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-danger table-bordered">
+                                        <thead>
+                                            <tr>
 
-                                            <th>Id</th>
-                                            <th>Materia</th>
-                                            <th>F. Inicio</th>
-                                            <th>Peso Inicial Materia en Kg</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
+                                                <th>Id</th>
+                                                <th>Materia</th>
+                                                <th>F. Inicio</th>
+                                                <th>Peso Inicial Materia en Kg</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
 
-                                            <td>1</td>
-                                            <td>Manzana</td>
-                                            <td>11/07/2022</td>
-                                            <td>66</td>
-                                        </tr>
-                                     
-
+                                                <td>1</td>
+                                                <td>Manzana</td>
+                                                <td>11/07/2022</td>
+                                                <td>66</td>
+                                            </tr>
 
 
-                                    </tbody>
-                                </table>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                             <div class="col-12 mt-3">
                                 <a class="btn btn-success" id="nextProcess" type="button">Finalizar Proceso</a>
@@ -187,28 +189,30 @@
                         <div class="container">
                             <div class="row  mt-3">
 
-                                <table id="responsive-table-envase"
-                                    class="table rounded table-danger display responsive nowrap">
-                                    <thead>
-                                        <tr>
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-danger table-bordered">
+                                        <thead>
+                                            <tr>
 
-                                            <th>Id</th>
-                                            <th>Materia</th>
-                                            <th>F. Inicio</th>
-                                            <th>Peso Inicial Materia en Kg</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
+                                                <th>Id</th>
+                                                <th>Materia</th>
+                                                <th>F. Inicio</th>
+                                                <th>Peso Inicial Materia en Kg</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
 
-                                            <td>1</td>
-                                            <td>Manzana</td>
-                                            <td>11/07/2022</td>
-                                            <td>66</td>
-                                        </tr>
+                                                <td>1</td>
+                                                <td>Manzana</td>
+                                                <td>11/07/2022</td>
+                                                <td>76</td>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                             <div class="col-12 mt-3">
                                 <a class="btn btn-success" id="finishProcess" type="button">Finalizar Proceso</a>
@@ -225,69 +229,77 @@
         <!-- final de la tabla lotes en estado de envase -->
 
         <!-- tab primera fermentacion -->
-        <div class="tab-pane active  mt-1 mb-5" id="home" role="tabpanel" aria-labelledby="home-tab" style="text-align:left">
+        <div class="tab-pane active  mt-1 mb-5" id="home" role="tabpanel" aria-labelledby="home-tab"
+            style="text-align:left">
             <h6 style="color: #a20202">Primera Fase</h6>
 
             <!-- tabla primera fermentacion -->
-            <table id="responsive-table-primera" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
 
-                        <th>Opciones</th>
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>Peso Inicial Materia en Kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnFerme1" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#consultar">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>66</td>
-                    </tr>
-               
+                            <th>Opciones</th>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>Peso Inicial Materia en Kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnFerme1" class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal" data-bs-target="#consultar">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>66</td>
+                        </tr>
 
 
-                </tbody>
-            </table>
+
+                    </tbody>
+                </table>
+            </div>
+
             <!-- final tabla primer fermentacion -->
         </div>
         <!-- fin tab primera fermentacion -->
 
 
         <!-- segunda fermentacion tab -->
-        <div class="tab-pane  mt-1 mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="text-align:left">
+        <div class="tab-pane  mt-1 mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+            style="text-align:left">
             <h6 style="color: #a20202">Segunda Fase</h6>
             <!-- tabla segunda fermentacion -->
-            <table id="responsive-tableSegunda" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Opciones</th>
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>Peso Inicial Materia en Kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnFerme2" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#consultar">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>66</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opciones</th>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>Peso Inicial Materia en Kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnFerme2" class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal" data-bs-target="#consultar">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>66</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <!-- final  tabla segunda f -->
         </div>
         <!-- fin tab segunda fermentacion -->
@@ -298,29 +310,31 @@
             style="text-align:left">
             <h6 style="color: #a20202"> Fase Envasado</h6>
             <!-- tabla envase -->
-            <table id="responsive-tableEnvase" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Opciones</th>
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>Peso Inicial Materia en Kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnEnvA" class="btn btn-sm btn-danger"
-                                class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#envase">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>66</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opciones</th>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>Peso Inicial Materia en Kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnEnvA" class="btn btn-sm btn-danger"
+                                    class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#envase">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>66</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <!-- fin tabla lotes en envase -->
         </div>
         <!-- fin tab lotes en envase -->
@@ -331,34 +345,37 @@
             style="text-align:left">
             <h6 style="color: #a20202">Historial</h6>
             <!-- tabla historial -->
-            <table id="responsive-tableHistorial" class="table rounded table-danger display responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>Registros</th>
-                        <th>Id</th>
-                        <th>Materia</th>
-                        <th>F. Inicio</th>
-                        <th>F. Fin</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><button type="button" id="btnHistA" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#detalles">
-                                <i class="bi bi-plus-circle"></i>
-                            </button></td>
-                        <td>1</td>
-                        <td>Manzana</td>
-                        <td>11/07/2022</td>
-                        <td>11/07/2022</td>
+            <div class="table-responsive mt-3">
+                <table class="table table-danger table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Registros</th>
+                            <th>Id</th>
+                            <th>Materia</th>
+                            <th>F. Inicio</th>
+                            <th>F. Fin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button type="button" id="btnHistA" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#detalles">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button></td>
+                            <td>1</td>
+                            <td>Manzana</td>
+                            <td>11/07/2022</td>
+                            <td>11/07/2022</td>
 
-                    </tr>
+                        </tr>
 
-                </tbody>
-            </table>
-            <!-- final  tabla historial -->
+                    </tbody>
+                </table>
+                <!-- final  tabla historial -->
 
+            </div>
         </div>
+
         <!-- final  tab historial -->
 
 
@@ -375,10 +392,10 @@
                     <div class="container">
 
                         <h4>Registro del lote</h4>
-                        <div class="container" style="width:100%; margin-bottom: 4%; text-align:left; ">
 
-                            <table id="responsive-table-detalle"
-                                class="round table  table-danger display responsive nowrap rounded">
+
+                        <div class="table-responsive mt-3">
+                            <table class="table table-danger table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Usuario</th>

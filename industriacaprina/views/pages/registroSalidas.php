@@ -30,21 +30,21 @@
 
     <!-- listado de caprinos que se dieron de baja -->
     <h5 class="mt-3">Listado de Salidas</h5>
-</div>
-<div class="container mb-5" style="text-align:left;">
-    <table id="responsive-table" class="table rounded table-warning display responsive nowrap">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Raza</th>
-                <th>Motivo de salida</th>
-                <th class="none">Fecha de Salida</th>
 
-            </tr>
-        </thead>
-        <tbody>
+    <div class="table-responsive mt-3">
+        <table class="table table-warning table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Raza</th>
+                    <th>Motivo de salida</th>
+                    <th class="none">Fecha de Salida</th>
 
-            <!--         <?php foreach ($usuarios as $key => $value) : ?>
+                </tr>
+            </thead>
+            <tbody>
+
+                <!--         <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["nombre"] ?></td>
                         <td><?php echo $value["apellido"] ?></td>
@@ -52,13 +52,14 @@
                         <td><?php echo $value["telefono"] ?></td>
                         <td><?php echo $value["cargo"] ?></td>
                         <?php endforeach ?> -->
-            <tr>
-                <td>Mark</td>
-                <td>44</td>
-                <td>Ootto</td>
-                <td>6444534</td>
+                <tr>
+                    <td>Mark</td>
+                    <td>44</td>
+                    <td>Ootto</td>
+                    <td>6444534</td>
 
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

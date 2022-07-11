@@ -2,8 +2,8 @@
     <h2>
         <span class="text-warning mb-3">Registro de Pago</span>
     </h2>
-    <div class="container" style="width: 95%">
-        <table id="responsive-table" class="table rounded table-striped display responsive nowrap">
+    <div class="table-responsive">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Opciones</th>
@@ -39,6 +39,7 @@
                 </tr>
             </tbody>
         </table>
+
     </div>
 
 </div>

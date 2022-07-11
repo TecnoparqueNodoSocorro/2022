@@ -12,9 +12,8 @@
          </select>
 
      </div>
-     <div class="container" style="width:95%; margin-bottom: 4%;">
-
-         <table id="responsive-table" class="table rounded table-striped display responsive nowrap">
+     <div class="table-responsive">
+         <table class="table">
              <thead>
                  <tr>
                      <th>Nombre</th>
@@ -45,6 +44,4 @@
              </tbody>
          </table>
      </div>
-
-
  </div>

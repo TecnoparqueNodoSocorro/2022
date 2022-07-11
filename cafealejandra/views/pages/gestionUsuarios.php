@@ -1,4 +1,4 @@
-<div class="container" style="width:88%">
+<div class="container">
 
     <h2>
         <span class="text-warning mb-3">Registro de Empleados</span>
@@ -81,19 +81,20 @@
     <!-- Tabla que muestra los empleados registrado -->
 
 
-    <table id="responsive-table" class="table rounded table-striped display responsive nowrap">
-        <thead> 
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Documento</th>
-                <th class="none">Teléfono</th>
-                <th class="none">Cargo</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="table-responsive mt-3" >
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Documento</th>
+                    <th class="none">Teléfono</th>
+                    <th class="none">Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
 
-            <!--         <?php foreach ($usuarios as $key => $value) : ?>
+                <!--         <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["nombre"] ?></td>
                         <td><?php echo $value["apellido"] ?></td>
@@ -101,14 +102,15 @@
                         <td><?php echo $value["telefono"] ?></td>
                         <td><?php echo $value["cargo"] ?></td>
                         <?php endforeach ?> -->
-            <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>6444534</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-            </tr>
+                <tr>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>6444534</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>

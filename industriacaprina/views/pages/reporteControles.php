@@ -1,6 +1,6 @@
 <div class="container">
     <h4 class="mt-2"> Reporte de Controles</h4>
-    <div class="container mb-3 mt-2"  style="background-color:#f8deb9;border-radius:5px;">
+    <div class="container mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;">
         <div class="row justify-content-md-center mt-2">
             <div class="col-6 col-xs-12 col-md-6 col-lg-6 mt-1">
                 <label class="form-label">
@@ -17,12 +17,13 @@
             </div>
         </div>
 
-        <button class="btn btn-warning mt-2 mb-2"  id="btnReporteC" type="submit">Generar reporte</button>
+        <button class="btn btn-warning mt-2 mb-2" id="btnReporteC" type="submit">Generar reporte</button>
 
         <!-- tabla del reporte generado -->
-        
+
     </div>
-    <table id="responsive-table" class="table rounded table-warning display responsive nowrap">
+    <div class="table-responsive mt-3">
+        <table class="table table-warning table-bordered">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -54,4 +55,5 @@
 
             </tbody>
         </table>
+    </div>
 </div>

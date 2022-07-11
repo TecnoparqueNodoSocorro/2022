@@ -11,13 +11,14 @@
         <option value="1">Cosecha #</option>
     </select>
 
-        <table id="responsive-table" class="table table-striped display responsive nowrap rounded">
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#Empleados</th>
                     <th>k rec.</th>
-                    <th>C Guayaba</th>
-                    <th>C Pergamino</th>
+                    <th>Cafe Guayaba</th>
+                    <th>Cafe Pergamino</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,4 +30,5 @@
                 </tr>
 
         </table>
+    </div>
 </div>

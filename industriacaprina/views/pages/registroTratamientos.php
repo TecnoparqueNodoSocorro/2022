@@ -6,8 +6,8 @@
             <div class="col-12 col-xs-12 col-md-6 col-lg-6">
 
 
-                <textarea class="form-control my-2" placeholder="Descripción del tratamiento" 
-                    style="height: 100px" id="tratamiento"></textarea>
+                <textarea class="form-control my-2" placeholder="Descripción del tratamiento" style="height: 100px"
+                    id="tratamiento"></textarea>
             </div>
             <div class="col-12 col-xs-12 col-md-6 col-lg-6 mt-3">
                 <div class="input-group mb-3">
@@ -16,7 +16,7 @@
                         data-bs-target="#staticBackdrop">
                         <i class="bi bi-plus-circle"></i>
                     </button>
-                </div>         
+                </div>
 
                 <!-- Modal que mostrará los id de los caprinos -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -31,23 +31,28 @@
                             <div class="modal-body">
                                 <div class="list-group" style="text-align:left;">
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino_1" name="trata" type="checkbox" value="1">
+                                        <input class="form-check-input me-1" id="idCaprino_1" name="trata"
+                                            type="checkbox" value="1">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino_2" name="trata" type="checkbox" value="2">
+                                        <input class="form-check-input me-1" id="idCaprino_2" name="trata"
+                                            type="checkbox" value="2">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino_3" name="trata" type="checkbox" value="3">
+                                        <input class="form-check-input me-1" id="idCaprino_3" name="trata"
+                                            type="checkbox" value="3">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino_4" name="trata" type="checkbox" value="4">
+                                        <input class="form-check-input me-1" id="idCaprino_4" name="trata"
+                                            type="checkbox" value="4">
                                         ID Caprino
                                     </label>
                                     <label class="list-group-item">
-                                        <input class="form-check-input me-1" id="idCaprino_5" name="trata" type="checkbox" value="5">
+                                        <input class="form-check-input me-1" id="idCaprino_5" name="trata"
+                                            type="checkbox" value="5">
                                         ID Caprino
                                     </label>
                                 </div>
@@ -62,26 +67,27 @@
             </div>
         </div>
     </div>
-    
+
 
     <h5 class="mt-3">Listado de caprinos</h5>
 
 
 
 
-    <table id="responsive-table" class="table rounded table-warning display responsive nowrap">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Raza</th>
-                <th>Tratamiento</th>
-                <th class="none">Fecha de Salida</th>
+    <div class="table-responsive mt-3">
+        <table class="table table-warning table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Raza</th>
+                    <th>Tratamiento</th>
+                    <th class="none">Fecha de Salida</th>
 
-            </tr>
-        </thead>
-        <tbody>
+                </tr>
+            </thead>
+            <tbody>
 
-            <!--         <?php foreach ($usuarios as $key => $value) : ?>
+                <!--         <?php foreach ($usuarios as $key => $value) : ?>
                 <tr>
                     <td><?php echo $value["nombre"] ?></td>
                     <td><?php echo $value["apellido"] ?></td>
@@ -89,18 +95,20 @@
                     <td><?php echo $value["telefono"] ?></td>
                     <td><?php echo $value["cargo"] ?></td>
                     <?php endforeach ?> -->
-            <tr>
-                <td>Mark</td>
-                <td>44</td>
-                <td>Ootto</td>
-                <td>6444534</td>
+                <tr>
+                    <td>Mark</td>
+                    <td>44</td>
+                    <td>Ootto</td>
+                    <td>6444534</td>
 
-            </tr>
+                </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
     <div class="container mb-5" style="text-align:right;">
-    <a name="" id="cancelarT" href="index.php?page=home" class="btn btn-danger" type="button"> Cancelar</a>
+        <a name="" id="cancelarT" href="index.php?page=home" class="btn btn-danger" type="button"> Cancelar</a>
 
         <button name="" id="btnGuardarT" class="btn btn-warning" type="button"> Guardar</button>
 
