@@ -14,7 +14,16 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
     <!-- boostrap -->
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <!-- boostrapmenu -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="views/css/styles.css" />
 </head>
 
 <body>
@@ -59,14 +68,51 @@
 
         <div class="title_container">
 
-            <div class="title_front">BARICHARAPP</div>
-            <!--       <div class="love_birds"><img src="views/images/birds_icon.png" alt="" title="" /></div> -->
+   <!--          <div class="title_front">BARICHARAPP</div> -->
+        
 
-            <!--   
-            <div class="title">Jenifer <span>&amp;</span> Oliver</div>
-            <div class="title_date"><span class="swirl_left"><span class="swirl_right">12.07.2017</span></span></div> -->
-            <img src="views/images/baricharapp.png" alt="" title="" width="400" height="400" />
-            <div class="title_under">SAVE THE DATE</div>
+
+            <!--  INICIO MENU POPUP-->
+            <div class="container mt-5">
+              
+                <nav class="menu_popup">
+                    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+                    <img src="" alt="">
+                    <label class="menu-open-button" for="menu-open">
+                        <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
+                        <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
+
+                    </label>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_3"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_5"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_7"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_9"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_11"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_1"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_4"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_10"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_2"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_6"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_8"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal_12"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+
+                </nav>
+
+            </div>
+            <!-- FIN MENU POPUP -->
+         
 
         </div>
 
@@ -94,6 +140,7 @@
             <h2 class="centered_title">Countdown to Wedding Ceremony</h2>
             <div id="defaultCountdown"></div>
             <div class="rsvp_button"><span class="swirl_left_small"><span class="swirl_right_small"><a href="#">RSVP</a></span></span></div>
+      
         </div> -->
 
 
@@ -163,50 +210,7 @@
         </div>
 
 
-        <!--       <div class="about_content">
-            <div class="about_topsign">&amp;</div>
-            <div class="full_width_centered">
 
-
-                <div class="left12_first">
-                    <span class="names_titles">THE BRIDE</span>
-                    <h2>JENIFER HARRISON</h2>
-                    <div class="about_pic_container">
-                        <span class="about_picframe"></span>
-                        <div class="about_social">
-                            <a href="#"><img src="views/images/social/twitter.png" alt="" title="" /></a>
-                            <a href="#"><img src="views/images/social/facebook.png" alt="" title="" /></a>
-                            <a href="#"><img src="views/images/social/pinterest.png" alt="" title="" /></a>
-                        </div>
-                        <div class="about_pic"><img src="views/images/image12.jpg" alt="" title="" /></div>
-                    </div>
-                    <a href="#" class="thumb_read_more">MORE ABOUT JENIFER</a>
-                    <p>Love is friendship that has caught fire. It is quiet understanding, mutual confidence, <a href="#">sharing and forgiving</a>. It is loyalty through good and bad times. It settles for less than perfection and <strong>makes allowances</strong> for human weaknesses "<a href="#">LOVE QUOTE</a>":</p>
-                    <span class="love_quote">Sometimes the heart sees what is invisible to the eye.</span>
-
-                </div>
-                <div class="left12_last">
-                    <span class="names_titles">THE GROOM</span>
-                    <h2>OLIVER DUVALL</h2>
-                    <div class="about_pic_container">
-                        <span class="about_picframe"></span>
-                        <div class="about_social">
-                            <a href="#"><img src="views/images/social/twitter.png" alt="" title="" /></a>
-                            <a href="#"><img src="views/images/social/facebook.png" alt="" title="" /></a>
-                            <a href="#"><img src="views/images/social/pinterest.png" alt="" title="" /></a>
-                        </div>
-                        <div class="about_pic"><img src="views/images/image12_2.jpg" alt="" title="" /></div>
-                    </div>
-                    <a href="#" class="thumb_read_more">MORE ABOUT OLIVER</a>
-                    <p>I believe that imagination is stronger than knowledge. That myth is more potent than history. That dreams are more powerful than facts. That hope always triumphs over experience. That laughter is the only cure for grief. And I believe that love is stronger than death "<a href="#">LOVE QUOTE</a>":</p>
-                    <span class="love_quote">Where there is love there is life.</span>
-                </div>
-
-                <div class="clear"></div>
-            </div>
-    
-        </div> -->
-        <!--end of about content-->
 
         <div class="carousel_container">
             <div class="carousel_container_image">
@@ -329,12 +333,12 @@
 
                 <nav class="footer_menu">
                     <ul>
-           <!--              <li><a href="index.html" class="selected">HOME</a></li> -->
+                        <!--              <li><a href="index.html" class="selected">HOME</a></li> -->
 
                         <li><a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> </li>
                     </ul>
 
-                 
+
             </div>
 
             </nav>
@@ -369,6 +373,26 @@
     <script type="text/javascript" src="views/js/effects.js"></script>
     <script type="text/javascript" src="views/js/jquery.arctext.js"></script>
     <script type="text/javascript" src="views/js/jquery.countdown.js"></script>
+
+    <!-- js menu inicio -->
+
+    <script type="text/javascript">
+        function visualiza_primero() {
+            document.getElementById('primero').style.visibility = 'visible';
+            document.getElementById('primero').style.display = 'block';
+            document.getElementById('segundo').style.visibility = 'hidden';
+            document.getElementById('segundo').style.display = 'none';
+        };
+
+        function visualiza_segundo() {
+            document.getElementById('segundo').style.visibility = 'visible';
+            document.getElementById('segundo').style.display = 'block';
+            document.getElementById('primero').style.visibility = 'hidden';
+            document.getElementById('primero').style.display = 'none';
+        };
+    </script>
+    <!-- js menu fin -->
+
     <script type="text/javascript">
         var $ = jQuery.noConflict();
         $(window).load(function() {

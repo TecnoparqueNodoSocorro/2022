@@ -9,49 +9,55 @@ class ControladorProductos
         /* imagen generica */
         $rutaimagen = "views/images/producto.jpeg";
         /* directorio de almacenamiento de imagenes  */
-        $raizImagenes="views/images/products";
-        if (isset($_POST["prod_name"]) && isset($_POST["prod_descripcion"]) && isset($_POST["prod_clasificacion"]) && isset($_POST["prod_costo"]) && isset($_POST["prod_valor"]) && isset($_POST["prod_idemp"])) {
+        $raizImagenes = "views/images/products";
 
-            if(isset($_FILES["imagen"]["tmp_name"])){
-                $newAncho=300;
-                $newAlto=150;
-                list($ancho, $alto)=getimagesize($_FILES["imagen"]["tmp_name"]);
-                if(!file_exists($raizImagenes))
+
+        if (
+            isset($_POST["prod_name"]) &&
+            isset($_POST["prod_descripcion"]) &&
+            isset($_POST["prod_clasificacion"]) &&
+            isset($_POST["prod_costo"]) &&
+            isset($_POST["prod_valor"]) &&
+            isset($_POST["prod_idemp"])
+        ) {
+
+            if (isset($_FILES["imagen"]["tmp_name"])) {
+                $newAncho = 300;
+                $newAlto = 150;
+                list($ancho, $alto) = getimagesize($_FILES["imagen"]["tmp_name"]);
+                if (!file_exists($raizImagenes))
                     mkdir($raizImagenes, 0755);
-                
+
                 $dateLoad = new DateTime();
                 $nameRandom = $dateLoad->getTimestamp();
-                
 
-                if($_FILES["imagen"]["type"]=="image/png"){
-                    $rutaimagen = $raizImagenes."/".$nameRandom.".png";
+
+                if ($_FILES["imagen"]["type"] == "image/png") {
+                    $rutaimagen = $raizImagenes . "/" . $nameRandom . ".png";
                     $orige = imagecreatefrompng($_FILES["imagen"]["tmp_name"]);
-                    $destino = imagecreatetruecolor($newAncho, $newAlto);                
+                    $destino = imagecreatetruecolor($newAncho, $newAlto);
                     imagealphablending($destino, false);
                     imagesavealpha($destino, true);
-                    $transparent = imagecolorallocatealpha($destino,255,255,255,127);
+                    $transparent = imagecolorallocatealpha($destino, 255, 255, 255, 127);
                     imagefilledrectangle($destino, 0, 0, $newAncho, $newAlto, $transparent);
-                    imagecopyresampled($destino, $orige, 0,0,0,0, $newAncho, $newAlto, $ancho, $alto);
-                    imagepng($destino,$rutaimagen);
-                }  else if($_FILES["imagen"]["type"] == "image/jpeg") {
+                    imagecopyresampled($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
+                    imagepng($destino, $rutaimagen);
+                } else if ($_FILES["imagen"]["type"] == "image/jpeg") {
                     $rutaimagen = $raizImagenes . "/" . $nameRandom . ".jpg";
                     $orige = imagecreatefromjpeg($_FILES["imagen"]["tmp_name"]);
                     $destino = imagecreatetruecolor($newAncho, $newAlto);
-                    imagecopyresized($destino,$orige,0,0,0,0,$newAncho,$newAlto, $ancho, $alto);
+                    imagecopyresized($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
                     imagejpeg($destino, $rutaimagen);
-                }
-
-                else if($_FILES["imagen"]["type"] == "image/jpg") {
+                } else if ($_FILES["imagen"]["type"] == "image/jpg") {
                     $rutaimagen = $raizImagenes . "/" . $nameRandom . ".jpg";
                     $orige = imagecreatefromjpeg($_FILES["imagen"]["tmp_name"]);
                     $destino = imagecreatetruecolor($newAncho, $newAlto);
-                    imagecopyresized($destino,$orige,0,0,0,0,$newAncho,$newAlto, $ancho, $alto);
+                    imagecopyresized($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
                     imagejpeg($destino, $rutaimagen);
                 }
-
             }
 
-            /* ---------------------------------------------------------------------------------------- */
+            /* ------------------------------creamos es array----------------------------------------------- */
             $tabla = "productos";
             $datos = array(
                 "idemp" => $_POST["prod_idemp"],
@@ -60,7 +66,7 @@ class ControladorProductos
                 "costo" => $_POST["prod_costo"],
                 "precio" => $_POST["prod_valor"],
                 "clasificacion" => $_POST["prod_clasificacion"],
-                "imagen"=>$rutaimagen
+                "imagen" => $rutaimagen
             );
             $respuesta = ModelProductos::mdlRegistro($tabla, $datos);
             return $respuesta;
@@ -68,6 +74,10 @@ class ControladorProductos
             return "error";
         }
     }
+
+
+
+
 
     /* C CONSULTAR TODOS LOS PRODUCTOS  */
     static public function ctrConsultarProductos()
@@ -104,12 +114,10 @@ class ControladorProductos
     }
 
     /* ELIMINAR PRODUCTO */
-    static public function crtelimnarproducto($delprod){
+    static public function crtelimnarproducto($delprod)
+    {
         $tabla = "productos";
-        $eliminarproducto=ModelProductos::mdleliminarProducto($tabla, $delprod);
+        $eliminarproducto = ModelProductos::mdleliminarProducto($tabla, $delprod);
         return $eliminarproducto;
     }
-
-
-    
 }

@@ -13,6 +13,7 @@ if ($registro == "ok") {
 
 <?php
 $categorias = ControladorCategorias::ctrConsultar();
+
 ?>
 
 
@@ -62,26 +63,27 @@ $categorias = ControladorCategorias::ctrConsultar();
                             <div class="col-6">Descripcion</div>
                             <div class="col-6"> <textarea class="form-control" name="prod_descripcion" aria-label="With textarea" required></textarea></div>
                         </div>
-
-
-                        <div class="row">
-                            <div class="col-6">Costo</div>
-                            <div class="col-6"><input type="number" name="prod_costo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">Valor</div>
-                            <div class="col-6"><input type="number" name="prod_valor" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                            </div>
+                  
+                   
+                    <div class="row">
+                        <div class="col-6">Costo</div>
+                        <div class="col-6"><input type="number" name="prod_costo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                         </div>
                     </div>
-                    <a type="submit" class="btn btn-primary  btn-sm">Agregar</a>
+                    <div class="row">
+                        <div class="col-6">Valor</div>
+                        <div class="col-6"><input type="number" name="prod_valor" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        </div>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary  btn-sm">Agregar</button>
                 </form>
             </div>
         </div>
         <div class="modal-footer">
         </div>
     </div>
+</div>
 </div>
 
 
@@ -102,7 +104,7 @@ $categorias = ControladorCategorias::ctrConsultar();
 
                 <div class="container">
 
-                    <div class="input-group mb-3 mt-3">
+                <div class="input-group mb-3 mt-3">
                         <label class="input-group-text" for="inputGroupSelect01">Clasificacion</label>
                         <select class="form-select" id="clasificacion" name="clasificacion">
                             <option selected>Seleccione...</option>
@@ -122,7 +124,7 @@ $categorias = ControladorCategorias::ctrConsultar();
                         <div class="col-6"> <textarea class="form-control" aria-label="With textarea" id="descripcion"></textarea></div>
                     </div>
 
-
+                  
                     <div class="row">
                         <div class="col-6">Costo</div>
                         <div class="col-6"><input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="costo"></div>
@@ -141,9 +143,13 @@ $categorias = ControladorCategorias::ctrConsultar();
     </div>
 </div>
 <!--  -->
+
 <?php
 $productos = ControladorProductos::ctrConsultarProductos();
 ?>
+
+
+
 
 <!--  -->
 <div class="container" id="fondo">
@@ -151,19 +157,21 @@ $productos = ControladorProductos::ctrConsultarProductos();
     <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#crearpro">+ Adicionar</a>
     <hr>
     <div class="table-responsive">
-        <table class="table table-sm tablacarrito">
+        <table class="table table-sm ">
             <thead>
                 <tr>
-                    <th>Opc</th>
+                    <th>Opciones</th>
                     <th>Imagen</th>
                     <th>Clasificacion</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Costo</th>
                     <th>Valor</th>
+
                 </tr>
             </thead>
             <tbody>
+
                 <?php foreach ($productos as $key => $value) :  ?>
                     <tr>
                         <td>
@@ -193,8 +201,8 @@ $productos = ControladorProductos::ctrConsultarProductos();
 
                     </tr>
                 <?php endforeach ?>
+
             </tbody>
 
         </table>
     </div>
-</div>

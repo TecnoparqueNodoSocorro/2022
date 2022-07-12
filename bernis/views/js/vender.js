@@ -71,16 +71,28 @@ function FacturaHTML() {
 }
 /* ------------------------------------------------------------------------------------------- */
 const onClickFactura = () => {
+
   const datos = { myArray1: arraySave };
   const paramJson = JSON.stringify(datos);
   console.log(paramJson);
 
- /*  $.ajax({
-    type:"POST",
-    url:...,
-    data: {'paramJson':JSON.stringify(paramJson)},
-    success: function (data){},
-  }); */
+  $.ajax({
+    type: "POST",
+    url: 'controllers/facturas_controller.php',
+    data: { 'paramJson': JSON.stringify(paramJson) },
+    success: function (data) {
+      alert('proceso correcto');
+
+    },
+    error: function () {
+      alert('error en trancaccion');
+    }
+
+  }
+  );
+
+
+
 };
 /* --------------------------------------------------------------- */
 function LimpiarHTML2() {
