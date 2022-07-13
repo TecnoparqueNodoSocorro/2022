@@ -81,8 +81,8 @@ const onClickFactura = () => {
     url: 'controllers/facturas_controller.php',
     data: { 'paramJson': JSON.stringify(paramJson) },
     success: function (data) {
+      
       alert('proceso correcto');
-
     },
     error: function () {
       alert('error en trancaccion');

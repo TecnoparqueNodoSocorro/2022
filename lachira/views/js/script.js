@@ -34,6 +34,7 @@ if (btnRegistrar) {
         } else {
             empleado_nuevo = { cargo: cargo_user.value, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, fecha_nacimiento: nacimiento_user.value }
             console.log(empleado_nuevo);
+            /* aqui ejecuta ajax */
         }
     })
 }
