@@ -72,17 +72,21 @@ function FacturaHTML() {
 /* ------------------------------------------------------------------------------------------- */
 const onClickFactura = () => {
 
+const mensaje = document.getElementById('mesaje');
+
   const datos = { myArray1: arraySave };
   const paramJson = JSON.stringify(datos);
   console.log(paramJson);
 
   $.ajax({
     type: "POST",
-    url: 'controllers/facturas_controller.php',
+    url: 'views/ajax/factura.ajax.php',
     data: { 'paramJson': JSON.stringify(paramJson) },
     success: function (data) {
       
       alert('proceso correcto');
+      
+      mensaje.innerHTML=paramJson
     },
     error: function () {
       alert('error en trancaccion');

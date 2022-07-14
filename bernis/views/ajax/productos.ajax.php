@@ -23,9 +23,9 @@ class ProductoAjax
     }
 
 
-    public function UpdateProductos($upd_idproducto, $upd_nombre, $upd_descripcion, $upd_costo ,$upd_valor, $upd_clasificacion)
+    public function UpdateProductos($upd_idproducto, $upd_nombre, $upd_descripcion, $upd_costo, $upd_valor, $upd_clasificacion)
     {
-        $productoactualizado = ControladorProductos::ctractualizarProducto($upd_idproducto, $upd_nombre, $upd_descripcion,$upd_costo, $upd_valor, $upd_clasificacion);
+        $productoactualizado = ControladorProductos::ctractualizarProducto($upd_idproducto, $upd_nombre, $upd_descripcion, $upd_costo, $upd_valor, $upd_clasificacion);
         $respuesta = array("data" => $productoactualizado);
         echo json_encode($respuesta);
     }
@@ -37,7 +37,8 @@ class ProductoAjax
         echo json_encode($respuesta);
     }
 
-    public function Deletecategoria($delprod){
+    public function Deletecategoria($delprod)
+    {
         $cateliminada = ControladorCategorias::crtEliminaCategoria($delprod);
         $respuesta = array("data" => $cateliminada);
         echo json_encode($respuesta);
