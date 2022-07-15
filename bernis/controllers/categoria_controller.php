@@ -3,7 +3,6 @@
 
 class ControladorCategorias
 {
-
     static public function ctrCategoria()
     {
         if (isset($_POST["cat_idemp"]) && ($_POST["cat_name"]) && ($_POST["cat_descripcion"])) {
@@ -21,8 +20,6 @@ class ControladorCategorias
             return "error";
         }
     }
-
-
     static public function ctrConsultar()
     {
 
