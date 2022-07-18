@@ -5,11 +5,10 @@ class ModelFacturas {
  
     static public function mdlFacturar($tabla, $cabecera)
     {
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (idemp, fecha, idusuario,) VALUES(:idemp, :fecha, :idusuario) ");
+        
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_empresa) VALUES(:idemp) ");
         /* bindParam() */
         $stmt->bindParam(":idemp",$cabecera["id_emp"], PDO::PARAM_STR);
-        $stmt->bindParam(":fecha",$cabecera["fecha"], PDO::PARAM_STR);
-        $stmt->bindParam(":idusuario", $cabecera["idusuario"], PDO::PARAM_STR);
         if ($stmt->execute()) {
             return "ok";
         } else {

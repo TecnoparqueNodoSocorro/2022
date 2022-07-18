@@ -51,8 +51,7 @@ function FacturaHTML() {
   ListadoFactura.forEach((prod) => {
     const id_emp = 1;
     const { id, nombre, precio, Cant } = prod;
-
-    arraySave.push({ id_producto: id, cantidad: Cant, id_empresa: id_emp });
+    arraySave.push({ id_producto: id, namepro: nombre, cantidad: Cant, id_empresa: id_emp });
     const row = document.createElement("tr");
     let subtotal = precio * Cant;
     row.innerHTML = `
@@ -73,10 +72,8 @@ function FacturaHTML() {
 const onClickFactura = () => {
 
 const mensaje = document.getElementById('mesaje');
-
   const datos = { myArray1: arraySave };
   const paramJson = JSON.stringify(datos);
-  console.log(paramJson);
 
   $.ajax({
     type: "POST",
@@ -84,9 +81,10 @@ const mensaje = document.getElementById('mesaje');
     data: { 'paramJson': JSON.stringify(paramJson) },
     success: function (data) {
       
-      alert('proceso correcto');
-      
-      mensaje.innerHTML=paramJson
+  /*     alert('proceso correcto'); */
+      console.log("dataok");    
+
+   /*    mensaje.innerHTML=paramJson */
     },
     error: function () {
       alert('error en trancaccion');

@@ -1,35 +1,48 @@
 <?php
 require_once('../../controllers/facturas_controller.php');
+require_once('../../models/facturas_modelo.php');
 
 
 class FacturaAjax
 {
-
-
-    static public function SaveIdFactura($datos)
+    function __construct()
     {
-        /* armar el array cabecera (id empresa,fecha,usuario) */
-        $tabla =
-            $Cfactura = ControladorFacturas::CtrGuardarFactura($tabla, $cabecera);
+    }
+    static public function SaveIdFactura($tabla, $idempresa)
+    {
+        $Cfactura = ControladorFacturas::CtrGuardarFactura($tabla, $idempresa);
+        return $Cfactura;
     }
 
-
+    /* 
     public function SaveDetalleFact($datos)
     {
-        /* armar array id cabecera, idproducto , cantiddad , valorunitario */
+    
         $Dfactura = ControladorFacturas::CtrGuardarDetalleFactura($tabla, $detalle);
+    } */
+}
+
+
+if (isset($_POST['data'])) {
+    $ajaxCabecera = new FacturaAjax();
+    $datos = json_decode('data');
+    foreach ($datos as $dato => $valor) {
+        $idempresa = $dato['id_empresa'];
+        $idproducto = $dato['id_producto'];
+        $nombreprod = $dato['namepro'];
+        $cantidad = $dato['cantidad'];
+        $tabla = "facturas";
+        var_dump($idempresa);
+        echo '<script language="javascript">alert("';
+        echo $idempresa;
+        echo '");</script>';
     }
+
+    $ajaxCabecera->SaveIdFactura($tabla, $idempresa);
+} else {
+
+    echo '<script language="javascript">alert("nada de datos");</script>';
 }
-
-
-if (isset($_POST['prodId']) && isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['costo']) && isset($_POST['valor']) && isset($_POST['clasificacion'])) {
-    $ajax = new FacturaAjax();
-        $Factfecha =
-        $factIDemp =
-        $tabla = "facturacabecera";
-    $ajax->SaveIdFactura($tabla, $cabecera);
-}
-
 
 
 

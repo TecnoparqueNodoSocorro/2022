@@ -2,9 +2,9 @@
 
 class ControladorFacturas
 {
-      static public function CtrGuardarFactura($tabla,$cabecera)
+      static public function CtrGuardarFactura($tabla, $idempresa)
       {
-/* id empresa,fecha,usuario*/
+$crearFactura=ModelFacturas::mdlFacturar($tabla, $idempresa);
 
       }
 
