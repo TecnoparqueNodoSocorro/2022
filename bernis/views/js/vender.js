@@ -11,7 +11,7 @@ function CargarFacturaListener() {
   listaPro.addEventListener("click", AgregarPFactura);
 
 }
-/* -----------------------------------------------------------------------------------------------------funciones */
+/* ------------------------------------------------------------------------------------funciones */
 function AgregarPFactura(e) {
   e.preventDefault();
   if (e.target.classList.contains("AgrePro")) {
@@ -48,8 +48,13 @@ function Estrucuradatos(datos) {
 function FacturaHTML() {
 
   LimpiarHTML2();
+  /*  */
+
+
+  /*  */
   ListadoFactura.forEach((prod) => {
     const id_emp = 1;
+    const fecha = new Date().toDateString();
     const { id, nombre, precio, Cant } = prod;
     arraySave.push({ id_producto: id, namepro: nombre, cantidad: Cant, id_empresa: id_emp });
     const row = document.createElement("tr");
@@ -65,26 +70,63 @@ function FacturaHTML() {
       (acc, item) => acc + item.precio * item.Cant, 0);
 
     document.querySelector(".totalValor").innerHTML = totalfacturaFinal;
-  });
+
+  }
+  );
 
 }
 /* ------------------------------------------------------------------------------------------- */
 const onClickFactura = () => {
 
-const mensaje = document.getElementById('mesaje');
+  guardarIDfact();
+
+
+};
+
+/*envio de cabecera de factura */
+function guardarIDfact() {
+
+  $.ajax({
+    type: "POST",
+    url: 'views/ajax/factura.ajax.php',
+    dataType: 'json',
+    data: {
+      'idempresa': id_emp,
+      'fecha': fecha,
+    },
+
+    success: function (data) {
+      console.log("cabecera ok!");
+      mensaje.innerHTML = dataCabecera
+    },
+    error: function () {
+      alert('error!!!');
+    }
+
+  }
+  );
+  guardadetalle(id_factura);
+}
+
+
+/*  envio de detalle de factura*/
+
+function guardadetalle($id_factura) {
+
+  const mensaje = document.getElementById('mesaje');
   const datos = { myArray1: arraySave };
   const paramJson = JSON.stringify(datos);
 
   $.ajax({
     type: "POST",
     url: 'views/ajax/factura.ajax.php',
-    data: { 'paramJson': JSON.stringify(paramJson) },
+    data: { 'dataDetalle': JSON.stringify(paramJson) },
     success: function (data) {
-      
-  /*     alert('proceso correcto'); */
-      console.log("dataok");    
 
-   /*    mensaje.innerHTML=paramJson */
+      /*     alert('proceso correcto'); */
+      console.log("dataok");
+
+      /*    mensaje.innerHTML=paramJson */
     },
     error: function () {
       alert('error en trancaccion');
@@ -92,10 +134,8 @@ const mensaje = document.getElementById('mesaje');
 
   }
   );
+}
 
-
-
-};
 /* --------------------------------------------------------------- */
 function LimpiarHTML2() {
   arraySave = [];

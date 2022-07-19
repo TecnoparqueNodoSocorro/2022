@@ -2,17 +2,18 @@
 
 class ControladorFacturas
 {
-      static public function CtrGuardarFactura($tabla, $idempresa)
+      static public function CtrGuardarIdFactura($cabecera)
       {
-$crearFactura=ModelFacturas::mdlFacturar($tabla, $idempresa);
-
+            $tabla = "facturas";
+            $crearIdFactura = mdlFacturar->mdlFacturar($tabla, $cabecera);
+         
+            return crearIdFactura;
       }
 
-      static public function CtrGuardarDetalleFactura($tabla,$detalle)
+      static public function CtrGuardarDetalleFactura($detalle)
       {
-            
 
+            $tabla = "factura_detalle";
+            $crearDetalleFactura = ModelFacturas::mdlDetalleFactura($tabla, $detalle);
       }
 }
-
-

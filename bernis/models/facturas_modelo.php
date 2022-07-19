@@ -1,28 +1,36 @@
 <?php
 require_once "conexion.php";
-class ModelFacturas {
+class ModelFacturas
+{
 
- 
+
     static public function mdlFacturar($tabla, $cabecera)
     {
-        
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_empresa) VALUES(:idemp) ");
-        /* bindParam() */
-        $stmt->bindParam(":idemp",$cabecera["id_emp"], PDO::PARAM_STR);
-        if ($stmt->execute()) {
-            return "ok";
-        } else {
-            print_r(conexion::conectar()->errorInfo());
 
-            $stmt->closeCursor();
-            $stmt = null;
+
+
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_empresa, fecha) VALUES(:idemp, :fecha) ");
+        /* bindParam() */
+        $stmt->bindParam(":idemp", $cabecera["idempresa"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $cabecera["fecha"], PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            $lastInsertId = $pdo->lastInsertId();
+        } else {
+            //Pueden haber errores, como clave duplicada
+            $lastInsertId = 0;
+            echo $stmt->errorInfo()[2];
         }
+
+        $stmt->closeCursor();
+        $stmt = null;
+        return  $lastInsertId;
     }
 
 
 
-static public
-    function   mdlDetalleFactura($tabla, $detalle){
+
+    static public function mdlDetalleFactura($tabla, $detalle)
+    {
         $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (idemp, id_factura, id_producto, cantidad, fecha) VALUES(:idemp, :idfact, :id_producto, :cant, :fecha) ");
         /* bindParam() */
         $stmt->bindParam(":idemp", $detalle["idemp"], PDO::PARAM_STR);
@@ -39,9 +47,5 @@ static public
             $stmt->closeCursor();
             $stmt = null;
         }
-}
-
-
-
-
+    }
 }
