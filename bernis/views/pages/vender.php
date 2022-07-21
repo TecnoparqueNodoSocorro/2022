@@ -21,6 +21,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        
                             <?php foreach ($productos as $key => $value) :  ?>
                                 <tr>
                                     <td>

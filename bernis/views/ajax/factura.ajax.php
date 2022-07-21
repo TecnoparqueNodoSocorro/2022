@@ -5,13 +5,15 @@ require_once('../../models/facturas_modelo.php');
 
 class FacturaAjax
 {
-    function __construct()
+
+    
+    public function SaveIdFactura($idempresa)
     {
-    }
-    static public function SaveIdFactura($cabecera)
-    {
-        $Cfactura = ControladorFacturas::CtrGuardarIdFactura($cabecera);
-        return ("ok controlador");
+       
+            $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa);
+        /*    echo '<pre>';
+        print_r($RtaCabecera);
+        echo '</pre>'; */
     }
 
 
@@ -21,19 +23,22 @@ class FacturaAjax
         return ("ok controlador");
     }
 }
-/* --------------------------------------------------------------------------------------- */
-if (isset($_POST['dataCabecera'])) {
+
+
+
+
+/* --------------------------cabecera---------------------------------- */
+if (isset($_POST['id_emp'])) {
     $ajaxCabecera = new FacturaAjax();
-    $detalle = JSON_decode('dataCabecera');
-    $ajaxCabecera->SaveIdFactura($cabecera);
+    $idempresa= $_POST['id_emp'];
+    $ajaxCabecera->SaveIdFactura($idempresa);
+    echo("ajaxphp  ok");
 } else {
+return ("nada de dato!!!");}
 
-    echo '<script language="javascript">alert("nada de datos");</script>';
-}
+/* ---------------------------------detalle------ */
 
-/* --------------------------------------- */
-
-
+/* 
 if (isset($_POST['dataDetalle'])) {
 
     $ajaxDetalle = new FacturaAjax();
@@ -42,10 +47,10 @@ if (isset($_POST['dataDetalle'])) {
 } else {
 
     echo '<script language="javascript">alert("nada de datos");</script>';
-}
+} */
+/* ------------------------------------------------ */
 
-
-if (isset($_POST['data'])) {
+/* if (isset($_POST['data'])) {
     $data = json_decode($_POST["data"]);
     $myarray = $data->myArray;
     print_r($myarray);
@@ -53,5 +58,5 @@ if (isset($_POST['data'])) {
     ///  aqui creas un ciclo para recorrer ahora el arreglo
     foreach ($myarray as $producto) {
         ///   aqui se recorre el array
-    }
-}
+    } 
+}*/

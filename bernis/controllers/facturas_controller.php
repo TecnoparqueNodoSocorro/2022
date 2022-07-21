@@ -8,7 +8,7 @@ class ControladorFacturas
             $tabla = "facturas";
             $crearIdFactura = ModelFacturas::mdlFacturar($tabla, $cabecera);
          
-            return ("ok modelo");
+            return "ok modelo";
       }
 
       static public function CtrGuardarDetalleFactura($detalle)
@@ -16,6 +16,6 @@ class ControladorFacturas
 
             $tabla = "factura_detalle";
             $crearDetalleFactura = ModelFacturas::mdlDetalleFactura($tabla, $detalle);
-            return ("ok modelo")
+            return "ok controller";
       }
 }

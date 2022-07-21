@@ -9,12 +9,12 @@ class ModelFacturas
 
 
 
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_empresa, fecha) VALUES(:idemp, :fecha) ");
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_empresa) VALUES(:idemp) ");
         /* bindParam() */
-        $stmt->bindParam(":idemp", $cabecera["idempresa"], PDO::PARAM_STR);
-        $stmt->bindParam(":fecha", $cabecera["fecha"], PDO::PARAM_STR);
+        $stmt->bindParam(":idemp", $cabecera ,PDO::PARAM_STR);
         if ($stmt->execute()) {
-            $lastInsertId = $pdo->lastInsertId();
+           /*  $lastInsertId = $pdo->lastInsertId(); */
+           return "ok";
         } else {
             //Pueden haber errores, como clave duplicada
             $lastInsertId = 0;
