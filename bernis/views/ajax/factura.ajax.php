@@ -11,16 +11,15 @@ class FacturaAjax
     {
        
             $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa);
-        /*    echo '<pre>';
-        print_r($RtaCabecera);
-        echo '</pre>'; */
+        echo ( $RtaCabecera);
+    
     }
 
 
     public function SaveDetalleFactura($detalle)
     {
         $Dfactura = ControladorFacturas::CtrGuardarDetalleFactura($detalle);
-        return ("ok controlador");
+     /*    return ("ok controlador"); */
     }
 }
 
@@ -32,7 +31,8 @@ if (isset($_POST['id_emp'])) {
     $ajaxCabecera = new FacturaAjax();
     $idempresa= $_POST['id_emp'];
     $ajaxCabecera->SaveIdFactura($idempresa);
-    echo("ajaxphp  ok");
+   
+/*  return $ajaxCabecera; */
 } else {
 return ("nada de dato!!!");}
 

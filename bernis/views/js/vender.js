@@ -85,7 +85,7 @@ const onClickFactura = () => {
 
 /*envio de cabecera de factura */
 function guardarIDfact() {
-  var id_emp = 1;
+  var id_emp = 3;
   enviarIDfactura(id_emp);
   /*  var  id_emp_fact = 1;
    var datos = new FormData();
@@ -118,7 +118,7 @@ function enviarIDfactura(id_emp) {
     let response = function (data) {
       let response = (data);
       location.href = 'index.php?page=categorias';
-      console.log(data);
+  /*    var_dump (data); */
     };
 
   });

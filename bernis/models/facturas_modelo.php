@@ -6,27 +6,28 @@ class ModelFacturas
 
     static public function mdlFacturar($tabla, $cabecera)
     {
+        $stmt = conexion::conectar();
+        $consulta = $stmt->prepare("INSERT INTO $tabla (id_empresa) VALUES(:idemp)");
 
-
-
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_empresa) VALUES(:idemp) ");
         /* bindParam() */
-        $stmt->bindParam(":idemp", $cabecera ,PDO::PARAM_STR);
-        if ($stmt->execute()) {
-           /*  $lastInsertId = $pdo->lastInsertId(); */
-           return "ok";
+        $consulta->bindParam(":idemp", $cabecera, PDO::PARAM_STR);
+
+        // $lastId =($stmt->lastInsertId());
+
+        if ($consulta->execute()) {
+            $lastId = $stmt->lastInsertId();
+            return  $lastId;
         } else {
             //Pueden haber errores, como clave duplicada
-            $lastInsertId = 0;
+
             echo $stmt->errorInfo()[2];
         }
 
-        $stmt->closeCursor();
-        $stmt = null;
-        return  $lastInsertId;
+        $consulta->closeCursor();
+        $consulta = null;
+        return
+            "no se pudo";
     }
-
-
 
 
     static public function mdlDetalleFactura($tabla, $detalle)
