@@ -47,5 +47,6 @@ class ModelFacturas
             $stmt->closeCursor();
             $stmt = null;
         }
+        return ("ok");
     }
 }

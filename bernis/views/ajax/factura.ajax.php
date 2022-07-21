@@ -11,14 +11,14 @@ class FacturaAjax
     static public function SaveIdFactura($cabecera)
     {
         $Cfactura = ControladorFacturas::CtrGuardarIdFactura($cabecera);
-        return $lastInsertI;
+        return ("ok controlador");
     }
 
 
     public function SaveDetalleFactura($detalle)
     {
         $Dfactura = ControladorFacturas::CtrGuardarDetalleFactura($detalle);
-        return $Dfactura;
+        return ("ok controlador");
     }
 }
 /* --------------------------------------------------------------------------------------- */
@@ -43,24 +43,6 @@ if (isset($_POST['dataDetalle'])) {
 
     echo '<script language="javascript">alert("nada de datos");</script>';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if (isset($_POST['data'])) {
