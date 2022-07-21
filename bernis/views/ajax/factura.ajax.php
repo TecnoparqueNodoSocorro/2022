@@ -11,7 +11,7 @@ class FacturaAjax
     {
        
             $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa, $idusuario);
-        echo ( $RtaCabecera);
+             return $RtaCabecera;
     
     }
 
@@ -34,9 +34,8 @@ if (isset($_POST['datosfactura']))  {
     $idusuario = $data['d_user'];
     $ajaxCabecera->SaveIdFactura($idempresa, $idusuario);
    
-/*  return $ajaxCabecera; */
 } else {
-return ("nada de dato!!!");}
+return ("nada de dato cabecera!!!");}
 
 /* ---------------------------------detalle------ */
 
@@ -47,18 +46,9 @@ if (isset($_POST['dataDetalle'])) {
     $detalle = JSON_decode('dataDetalle');
     $ajaxDetalle->SaveDetalleFactura($detalle);
 } else {
-
-    echo '<script language="javascript">alert("nada de datos");</script>';
+    return ("nada de dato detalle!!!");
 }
+  
+
 /* ------------------------------------------------ */
 
-/* if (isset($_POST['data'])) {
-    $data = json_decode($_POST["data"]);
-    $myarray = $data->myArray;
-    print_r($myarray);
-    return $myarray;
-    ///  aqui creas un ciclo para recorrer ahora el arreglo
-    foreach ($myarray as $producto) {
-        ///   aqui se recorre el array
-    } 
-}*/

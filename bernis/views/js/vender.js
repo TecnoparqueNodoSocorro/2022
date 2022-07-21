@@ -6,8 +6,8 @@ const listaPro = document.querySelector("#listaPro");
 const tablafacturahtml = document.querySelector(".tablafacturahtml tbody");
 const totalValor = document.querySelector("#totalValor");
 const btnfacturar = document.querySelector(".BtnFacturar");
-const id_emp = 3;
-var id_user = 4;
+const id_emp = 8;
+var id_user = 8;
 /* ------------------------------------------------listener */
 function CargarFacturaListener() {
   listaPro.addEventListener("click", AgregarPFactura);
@@ -55,7 +55,7 @@ function FacturaHTML() {
 
   /*  */
   ListadoFactura.forEach((prod) => {
-   
+
     const fecha = new Date().toDateString();
     const { id, nombre, precio, Cant } = prod;
     arraySave.push({ id_producto: id, namepro: nombre, cantidad: Cant, id_empresa: id_emp });
@@ -86,56 +86,26 @@ const onClickFactura = () => {
 };
 
 /*envio de cabecera de factura */
+
 function guardarIDfact() {
-/*   var id_emp = 3;
-  var id_user = 4; */
-  
   var datosfactura = {
     "d_emp": id_emp,
     "d_user": id_user
   }
-  enviarIDfactura(datosfactura);
-
-
-}
-
-
-
-function enviarIDfactura(datosfactura) {
+  /* posteo de datos  */
   $.post("views/ajax/factura.ajax.php", { datosfactura }, function (data) {
     let response = function (data) {
       let response = (data);
-      location.href = 'index.php?page=categorias';
-      /*    var_dump (data); */
+      console.log(response);
     };
-
   });
+}
+
+/*  envio de detalle de factura*/
+function guardarDetalleFact(datosfactura) {
+  arraySave.push({})
 
 
-  /*  envio de detalle de factura*/
-
-  /*   function guardadetalle($id_factura) {
-  
-      const div_mensaje = document.getElementById('mesaje');
-      const datos = { myArray1: arraySave };
-      const paramJson = JSON.stringify(datos);
-  
-      $.ajax({
-        type: "POST",
-        url: 'views/ajax/factura.ajax.php',
-        data: { 'dataDetalle': JSON.stringify(paramJson) },
-        success: function (data) {
-          console.log(data);
-          div_mensaje.innerHTML = paramJson
-        },
-        error: function () {
-          alert('error en trancaccion');
-        }
-  
-      }
-      );
-    }
-   */
 }
 /* ---------------------------------------------------- */
 function LimpiarHTML2() {
