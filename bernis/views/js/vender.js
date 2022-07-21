@@ -6,6 +6,8 @@ const listaPro = document.querySelector("#listaPro");
 const tablafacturahtml = document.querySelector(".tablafacturahtml tbody");
 const totalValor = document.querySelector("#totalValor");
 const btnfacturar = document.querySelector(".BtnFacturar");
+const id_emp = 3;
+var id_user = 4;
 /* ------------------------------------------------listener */
 function CargarFacturaListener() {
   listaPro.addEventListener("click", AgregarPFactura);
@@ -53,7 +55,7 @@ function FacturaHTML() {
 
   /*  */
   ListadoFactura.forEach((prod) => {
-    const id_emp = 1;
+   
     const fecha = new Date().toDateString();
     const { id, nombre, precio, Cant } = prod;
     arraySave.push({ id_producto: id, namepro: nombre, cantidad: Cant, id_empresa: id_emp });
@@ -85,40 +87,26 @@ const onClickFactura = () => {
 
 /*envio de cabecera de factura */
 function guardarIDfact() {
-  var id_emp = 3;
-  enviarIDfactura(id_emp);
-  /*  var  id_emp_fact = 1;
-   var datos = new FormData();
-   datos.append("idempresa",id_emp_fact);
+/*   var id_emp = 3;
+  var id_user = 4; */
   
-    $.ajax({
-      url: 'views/ajax/factura.ajax.php',
-      method: "POST",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function (respuesta) {
-        console.log("cabecera ok !! respuesta:", respuesta);
-       
-       
-      },
-      error: function () {
-        alert('error!!!');
-      }
-    }
-    ); */
+  var datosfactura = {
+    "d_emp": id_emp,
+    "d_user": id_user
+  }
+  enviarIDfactura(datosfactura);
+
 
 }
 
 
 
-function enviarIDfactura(id_emp) {
-  $.post("views/ajax/factura.ajax.php", { id_emp }, function (data) {
+function enviarIDfactura(datosfactura) {
+  $.post("views/ajax/factura.ajax.php", { datosfactura }, function (data) {
     let response = function (data) {
       let response = (data);
       location.href = 'index.php?page=categorias';
-  /*    var_dump (data); */
+      /*    var_dump (data); */
     };
 
   });
@@ -148,17 +136,17 @@ function enviarIDfactura(id_emp) {
       );
     }
    */
-  }
-  /* ---------------------------------------------------- */
-  function LimpiarHTML2() {
-    arraySave = [];
-    while (tablafacturahtml.firstChild) {
-      tablafacturahtml.removeChild(tablafacturahtml.firstChild);
-      TotalfacturaFinal = "0";
-      document.querySelector(".totalValor").innerHTML = TotalfacturaFinal;
+}
+/* ---------------------------------------------------- */
+function LimpiarHTML2() {
+  arraySave = [];
+  while (tablafacturahtml.firstChild) {
+    tablafacturahtml.removeChild(tablafacturahtml.firstChild);
+    TotalfacturaFinal = "0";
+    document.querySelector(".totalValor").innerHTML = TotalfacturaFinal;
 
-    }
   }
+}
 
 
 

@@ -4,13 +4,14 @@ class ModelFacturas
 {
 
 
-    static public function mdlFacturar($tabla, $cabecera)
+    static public function mdlFacturar($tabla, $empresa, $usuario)
     {
         $stmt = conexion::conectar();
-        $consulta = $stmt->prepare("INSERT INTO $tabla (id_empresa) VALUES(:idemp)");
+        $consulta = $stmt->prepare("INSERT INTO $tabla (id_empresa, id_usuario) VALUES(:idemp, :idusuario)");
 
         /* bindParam() */
-        $consulta->bindParam(":idemp", $cabecera, PDO::PARAM_STR);
+        $consulta->bindParam(":idemp", $empresa, PDO::PARAM_STR);
+        $consulta->bindParam(":idusuario", $usuario, PDO::PARAM_STR);
 
         // $lastId =($stmt->lastInsertId());
 

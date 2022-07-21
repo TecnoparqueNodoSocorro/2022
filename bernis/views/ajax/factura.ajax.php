@@ -7,10 +7,10 @@ class FacturaAjax
 {
 
     
-    public function SaveIdFactura($idempresa)
+    public function SaveIdFactura($idempresa, $idusuario)
     {
        
-            $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa);
+            $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa, $idusuario);
         echo ( $RtaCabecera);
     
     }
@@ -27,10 +27,12 @@ class FacturaAjax
 
 
 /* --------------------------cabecera---------------------------------- */
-if (isset($_POST['id_emp'])) {
+if (isset($_POST['datosfactura']))  {
     $ajaxCabecera = new FacturaAjax();
-    $idempresa= $_POST['id_emp'];
-    $ajaxCabecera->SaveIdFactura($idempresa);
+    $data= $_POST['datosfactura'];
+    $idempresa = $data['d_emp'];
+    $idusuario = $data['d_user'];
+    $ajaxCabecera->SaveIdFactura($idempresa, $idusuario);
    
 /*  return $ajaxCabecera; */
 } else {
@@ -38,7 +40,7 @@ return ("nada de dato!!!");}
 
 /* ---------------------------------detalle------ */
 
-/* 
+
 if (isset($_POST['dataDetalle'])) {
 
     $ajaxDetalle = new FacturaAjax();
@@ -47,7 +49,7 @@ if (isset($_POST['dataDetalle'])) {
 } else {
 
     echo '<script language="javascript">alert("nada de datos");</script>';
-} */
+}
 /* ------------------------------------------------ */
 
 /* if (isset($_POST['data'])) {
