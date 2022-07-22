@@ -6,8 +6,8 @@ const listaPro = document.querySelector("#listaPro");
 const tablafacturahtml = document.querySelector(".tablafacturahtml tbody");
 const totalValor = document.querySelector("#totalValor");
 const btnfacturar = document.querySelector(".BtnFacturar");
-const id_emp = 8;
-var id_user = 8;
+const id_emp = 2;
+var id_user = 2;
 /* ------------------------------------------------listener */
 function CargarFacturaListener() {
   listaPro.addEventListener("click", AgregarPFactura);
@@ -79,34 +79,39 @@ function FacturaHTML() {
 }
 /* --------------------------------------------------- */
 const onClickFactura = () => {
-
   guardarIDfact();
-
-
 };
 
-/*envio de cabecera de factura */
+//envio de cabecera de factura post
 
 function guardarIDfact() {
   var datosfactura = {
     "d_emp": id_emp,
     "d_user": id_user
   }
-  /* posteo de datos  */
   $.post("views/ajax/factura.ajax.php", { datosfactura }, function (data) {
-    let response = function (data) {
-      let response = (data);
-      console.log(response);
-    };
+    let responseCab = (data);
+    console.log(responseCab);
+  });
+
+/*   guardarDetalleFact(response, arraySave); */
+}
+
+
+
+
+// envio de detalle de factura
+function guardarDetalleFact(idfactura, arraySave) {
+  let detallefactura = JSON.stringify(arraySave);
+  $.post("views/ajax/factura.ajax.php", { idfactura, detallefactura }, function (data) {
+    let responseDet = (data);
+    console.log(responseDet);
   });
 }
 
-/*  envio de detalle de factura*/
-function guardarDetalleFact(datosfactura) {
-  arraySave.push({})
 
 
-}
+
 /* ---------------------------------------------------- */
 function LimpiarHTML2() {
   arraySave = [];

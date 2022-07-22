@@ -6,20 +6,20 @@ require_once('../../models/facturas_modelo.php');
 class FacturaAjax
 {
 
-    
+
     public function SaveIdFactura($idempresa, $idusuario)
     {
-       
-            $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa, $idusuario);
-             return $RtaCabecera;
-    
+
+        $RtaCabecera = ControladorFacturas::CtrGuardarIdFactura($idempresa, $idusuario);
+        $response = array("idFactura" => $RtaCabecera);
+        echo json_encode($response);
     }
 
 
-    public function SaveDetalleFactura($detalle)
+    public function SaveDetalleFactura($idfactura, $detalle)
     {
-        $Dfactura = ControladorFacturas::CtrGuardarDetalleFactura($detalle);
-     /*    return ("ok controlador"); */
+        $RtaDetallefact = ControladorFacturas::CtrGuardarDetalleFactura($idfactura,$detalle);
+        echo json_encode($RtaDetallefact);
     }
 }
 
@@ -27,28 +27,28 @@ class FacturaAjax
 
 
 /* --------------------------cabecera---------------------------------- */
-if (isset($_POST['datosfactura']))  {
+if (isset($_POST['datosfactura'])) {
     $ajaxCabecera = new FacturaAjax();
-    $data= $_POST['datosfactura'];
+    $data = $_POST['datosfactura'];
     $idempresa = $data['d_emp'];
     $idusuario = $data['d_user'];
     $ajaxCabecera->SaveIdFactura($idempresa, $idusuario);
-   
 } else {
-return ("nada de dato cabecera!!!");}
+    return ("nada de dato cabecera!!!");
+}
 
 /* ---------------------------------detalle------ */
 
 
-if (isset($_POST['dataDetalle'])) {
+if (isset($_POST['idfactura']) && isset($_POST['detallefactura'])) {
 
     $ajaxDetalle = new FacturaAjax();
     $detalle = JSON_decode('dataDetalle');
-    $ajaxDetalle->SaveDetalleFactura($detalle);
+    $ajaxDetalle->SaveDetalleFactura($idfactura, $detalle);
+
 } else {
     return ("nada de dato detalle!!!");
 }
   
 
 /* ------------------------------------------------ */
-

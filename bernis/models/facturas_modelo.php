@@ -13,11 +13,13 @@ class ModelFacturas
         $consulta->bindParam(":idemp", $empresa, PDO::PARAM_STR);
         $consulta->bindParam(":idusuario", $usuario, PDO::PARAM_STR);
 
-        // $lastId =($stmt->lastInsertId());
+        $lastId =($stmt->lastInsertId());
 
         if ($consulta->execute()) {
             $lastId = $stmt->lastInsertId();
-            return  $lastId;
+        
+            return $lastId;
+
         } else {
             //Pueden haber errores, como clave duplicada
 
@@ -26,12 +28,11 @@ class ModelFacturas
 
         $consulta->closeCursor();
         $consulta = null;
-        return
-            "no se pudo";
+        return "no se pudo";
     }
 
 
-    static public function mdlDetalleFactura($tabla, $detalle)
+    static public function mdlDetalleFactura($tabla,$idfactura, $detalle)
     {
         $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (idemp, id_factura, id_producto, cantidad, fecha) VALUES(:idemp, :idfact, :id_producto, :cant, :fecha) ");
         /* bindParam() */

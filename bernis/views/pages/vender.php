@@ -21,7 +21,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+
                             <?php foreach ($productos as $key => $value) :  ?>
                                 <tr>
                                     <td>
@@ -88,7 +88,7 @@
         <div class="col-3">
 
             <a href="#" class="btn btn-success btn-sm mb-2 BtnFacturar" onclick="onClickFactura()">Registrar venta</a>
-<div id="mesaje"></div>
+            <div id="respuesta"></div>
         </div>
 
 
