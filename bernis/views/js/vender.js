@@ -94,7 +94,7 @@ function guardarIDfact() {
     console.log(responseCab);
   });
 
-/*   guardarDetalleFact(response, arraySave); */
+  guardarDetalleFact(responseCab, arraySave);
 }
 
 

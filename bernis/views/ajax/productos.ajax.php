@@ -44,7 +44,8 @@ class ProductoAjax
         echo json_encode($respuesta);
     }
 }
-
+/* ------------------------------------------------------------- */
+/* ------------------------------------------------------------- */
 if (isset($_POST['idp'])) {
     $ajax = new ProductoAjax();
     $ajax->GetProductos($_POST['idp']);
