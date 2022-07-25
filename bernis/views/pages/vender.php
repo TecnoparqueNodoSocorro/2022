@@ -88,7 +88,8 @@
         <div class="col-3">
 
             <a href="#" class="btn btn-success btn-sm mb-2 BtnFacturar" onclick="onClickFactura()">Registrar venta</a>
-            <div id="respuesta"></div>
+            <input id="factId" name="factId" type="hidden">
+            <div id="valor"></div>
         </div>
 
 

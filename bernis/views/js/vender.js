@@ -6,6 +6,8 @@ const listaPro = document.querySelector("#listaPro");
 const tablafacturahtml = document.querySelector(".tablafacturahtml tbody");
 const totalValor = document.querySelector("#totalValor");
 const btnfacturar = document.querySelector(".BtnFacturar");
+let factid = document.getElementById("factId");
+let valor = document.getElementById("valor");
 const id_emp = 2;
 var id_user = 2;
 /* ------------------------------------------------listener */
@@ -43,6 +45,7 @@ function Estrucuradatos(datos) {
   } else {
     ListadoFactura = [...ListadoFactura, datosP];
   }
+
   console.log(ListadoFactura.length);
   FacturaHTML();
 }
@@ -80,21 +83,27 @@ function FacturaHTML() {
 /* --------------------------------------------------- */
 const onClickFactura = () => {
   guardarIDfact();
+
 };
 
 //envio de cabecera de factura post
 
-function guardarIDfact() {
-  var datosfactura = {
+async function guardarIDfact() {
+  const datosfactura = {
     "d_emp": id_emp,
     "d_user": id_user
   }
-  $.post("views/ajax/factura.ajax.php", { datosfactura }, function (data) {
-    let responseCab = (data);
-    console.log(responseCab);
-  });
+  const responseCab = await $.post("views/ajax/factura.ajax.php", { datosfactura });
+  console.log(responseCab);
+  let rta = JSON.parse(responseCab);
+  let datarta = rta.idFactura;
+  /*  */
+  console.log(datarta);
+  factid.value = datarta;
+  valor.innerHTML = datarta;
 
-  guardarDetalleFact(responseCab, arraySave);
+  guardarDetalleFact(datarta, arraySave);
+
 }
 
 
@@ -103,12 +112,11 @@ function guardarIDfact() {
 // envio de detalle de factura
 function guardarDetalleFact(idfactura, arraySave) {
   let detallefactura = JSON.stringify(arraySave);
-  $.post("views/ajax/factura.ajax.php", { idfactura, detallefactura }, function (data) {
+  $.post("views/ajax/factura.ajax.php", { idfactura: idfactura, detallefactura: detallefactura }, function (data) {
     let responseDet = (data);
     console.log(responseDet);
   });
 }
-
 
 
 
@@ -119,6 +127,7 @@ function LimpiarHTML2() {
     tablafacturahtml.removeChild(tablafacturahtml.firstChild);
     TotalfacturaFinal = "0";
     document.querySelector(".totalValor").innerHTML = TotalfacturaFinal;
+
 
   }
 }
