@@ -103,17 +103,14 @@ async function guardarIDfact() {
   valor.innerHTML = datarta;
 
   guardarDetalleFact(datarta, arraySave);
-
 }
-
-
-
 
 // envio de detalle de factura
 function guardarDetalleFact(idfactura, arraySave) {
   let detallefactura = JSON.stringify(arraySave);
   $.post("views/ajax/factura.ajax.php", { idfactura: idfactura, detallefactura: detallefactura }, function (data) {
-    let responseDet = (data);
+   /*  let responseDet = (data); */
+    var responseDet = JSON.parse(data);
     console.log(responseDet);
   });
 }

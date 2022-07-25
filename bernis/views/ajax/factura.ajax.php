@@ -25,7 +25,6 @@ class FacturaAjax
 
 
 
-
 /* --------------------------cabecera---------------------------------- */
 if (isset($_POST['datosfactura'])) {
     $ajaxCabecera = new FacturaAjax();
