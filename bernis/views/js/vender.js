@@ -28,6 +28,7 @@ function Estrucuradatos(datos) {
   const datosP = {
     id: datos.querySelector("#prod_id").value,
     nombre: datos.querySelector("#nombre").textContent,
+    categoria: datos.querySelector("#clasificacion").textContent,
     precio: datos.querySelector("#precio").value,
     Cant: 1,
   };
@@ -59,13 +60,14 @@ function FacturaHTML() {
   /*  */
   ListadoFactura.forEach((prod) => {
 
-    const fecha = new Date().toDateString();
-    const { id, nombre, precio, Cant } = prod;
-    arraySave.push({ id_producto: id, namepro: nombre, cantidad: Cant, id_empresa: id_emp });
+  
+    const { id, categoria,nombre, precio, Cant } = prod;
+    arraySave.push({ id_producto: id, namepro: nombre, categoria: categoria,cantidad: Cant, id_empresa: id_emp });
     const row = document.createElement("tr");
     let subtotal = precio * Cant;
     row.innerHTML = `
     <td>${Cant}</td>
+     <td>${categoria}</td>
     <td>${nombre}</td>
     <td>${subtotal}</td>
     <td> <a href="#" class="btn btn-sm btn-danger eliminarP" data-id=${id}> X </a></td>
@@ -109,7 +111,7 @@ async function guardarIDfact() {
 function guardarDetalleFact(idfactura, arraySave) {
   let detallefactura = JSON.stringify(arraySave);
   $.post("views/ajax/factura.ajax.php", { idfactura: idfactura, detallefactura: detallefactura }, function (data) {
-   /*  let responseDet = (data); */
+    /*  let responseDet = (data); */
     var responseDet = JSON.parse(data);
     console.log(responseDet);
   });

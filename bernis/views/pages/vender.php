@@ -70,7 +70,8 @@
     <table class="table  table-sm tablafacturahtml">
         <thead>
             <tr>
-                <th>Cantidad</th>
+                <th>Cant</th>
+                <th>Categ</th>
                 <th>Producto</th>
                 <th>Subtotal</th>
                 <th>Opc</th>
