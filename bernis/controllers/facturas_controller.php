@@ -15,6 +15,6 @@ class ControladorFacturas
             $tabla = "facturas_detalle";
             $crearDetalleFactura = ModelFacturas::mdlDetalleFactura($tabla, $idfactura, $detalle);
             return $crearDetalleFactura;
-            /* return $typo; */
+          
       }
 }
