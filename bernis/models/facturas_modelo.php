@@ -33,22 +33,24 @@ class ModelFacturas
 
     static public function mdlDetalleFactura($tabla, $idfactura, $detalle)
     {
-   
+        $data = json_decode($detalle, true);
         try {
             foreach
-            ($detalle as $registro=>$descripcion) {
+           
+
+            ($data as $key=>$data1) {
                 $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_factura, id_empresa, id_producto,nombrep,cantidad) VALUES(:idfact,:idemp,:idprod,:nombrep,:cant)");
                 $stmt->bindParam(":idfact", $idfactura, PDO::PARAM_STR);
-                $stmt->bindParam(":idemp", $registro[$id_empresa], PDO::PARAM_STR);
-                $stmt->bindParam(":idprod", $registro.$id_producto, PDO::PARAM_STR);
-                $stmt->bindParam(":nombrep", $registro.$descripcion, PDO::PARAM_STR);
-                $stmt->bindParam(":cant", $registro.$descripcion, PDO::PARAM_STR);
+                $stmt->bindParam(":idemp", $key["id_empresa"], PDO::PARAM_STR);
+                $stmt->bindParam(":idprod", $key["id_producto"], PDO::PARAM_STR);
+                $stmt->bindParam(":nombrep", $key["descripcion"], PDO::PARAM_STR);
+                $stmt->bindParam(":cant", $key["descripcion"], PDO::PARAM_STR);
                 $stmt->execute();
             }
         } catch (Exception $e) {
             return $e->getMessage();
         }
-      /*   return $detalle; */
+       /*  return $detalle; */
             return "ok";
     }
 }

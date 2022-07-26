@@ -42,7 +42,7 @@ if (isset($_POST['datosfactura'])) {
 if (isset($_POST['idfactura']) && isset($_POST['detallefactura'])) {
 
     $ajaxDetalle = new FacturaAjax();
-    $detalle = JSON_decode($_POST['detallefactura']);
+    $detalle = JSON_decode($_POST['detallefactura'], true);
     $idfactura = $_POST['idfactura'];
     $ajaxDetalle->SaveDetalleFactura($idfactura, $detalle);
 } /* else {
