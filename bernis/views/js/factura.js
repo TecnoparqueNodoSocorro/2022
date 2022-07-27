@@ -67,7 +67,7 @@ function FacturaHTML() {
     let subtotal = precio * Cant;
     row.innerHTML = `
     <td>${Cant}</td>
-     <td>${categoria}</td>
+    <td>${categoria}</td>
     <td>${nombre}</td>
     <td>${subtotal}</td>
     <td> <a href="#" class="btn btn-sm btn-danger eliminarP" data-id=${id}> X </a></td>

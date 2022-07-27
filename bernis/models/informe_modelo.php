@@ -6,7 +6,7 @@ class ModeloInformes{
 static public function  mdlconsultaAll( $tabla, $id_empresa, $finicial, $ffinal)
 {
         $stmt = conexion::conectar();
-        $consulta = $stmt->prepare("SELECT nombrep, cantidad, categoria FROM $tabla WHERE id_empresa =$id_empresa AND fecha BETWEEN $finicial AND $ffinal");
+        $consulta = $stmt->prepare("SELECT categoria, nombrep, cantidad,fecha  FROM $tabla WHERE id_empresa =$id_empresa AND fecha BETWEEN $finicial AND $ffinal");
         return $consulta;
 }
 

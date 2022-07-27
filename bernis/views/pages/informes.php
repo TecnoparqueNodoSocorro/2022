@@ -22,6 +22,7 @@
 
         <div class="col-4">
             <label for="exampleFormControlInput1" class="form-label">Categoria</label>
+            <input id="id_empresa" value="1" type="hidden">
             <select id="categorias" class="form-select form-select-sm" aria-label="Default select example">
                 <option value="todas" selected>Seleccione...</option>
                 <?php foreach ($categorias as $key => $value) :  ?>

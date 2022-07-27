@@ -21,7 +21,7 @@
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="views/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-   
+
 
     <!--modal de pedido   -->
     <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="canasta">
@@ -188,8 +188,9 @@
 
 <script src="views/js/app.js"></script>
 <script src="views/js/carrito.js"></script>
-<script src="views/js/vender.js"></script>
+<script src="views/js/factura.js"></script>
 <script src="views/js/sweetalert2.all.min.js"></script>
+<script src="views/js/informes.js"></script>
 
 
 </html>

@@ -7,14 +7,14 @@ require_once('../../models/informes_modelo.php');
 class informesAjax
 {
     public function
-    InformeConCateg($finicial, $ffinal, $categoria)
+    InformeConCateg($id_empresa, $finicial, $ffinal, $categoria)
     {
         if ($categoria = "todas") {
             //informe con todass las categorias
-            $datosconsulta = InformesController::ctrdatosconsultaAll($finicial, $ffinal);
+            $datosconsulta = InformesController::ctrdatosconsultaAll($id_empresa, $finicial, $ffinal);
         } else {
             //informe con categoria seleccionada
-            $datosconsulta = InformesController::ctrdatosconsultaCat($finicial, $ffinal, $categoria);
+            $datosconsulta = InformesController::ctrdatosconsultaCat($id_empresa, $finicial, $ffinal, $categoria);
         }
     }
 }
@@ -26,5 +26,6 @@ if (isset($_POST['datos'])) {
     $finicial = $datosconsulta . $finicio;
     $ffinal = $datosConsulta . $ffinal;
     $categoria = $datosConsulta . $categoria;
-    $ajax->InformeConCateg($ffinal, $ffinal, $categoria);
+    $id_empresa =$datosConsulta.$id_empresa; 
+    $ajax->InformeConCateg($id_empresa, $ffinal, $ffinal, $categoria);
 }
