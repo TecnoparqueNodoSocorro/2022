@@ -137,7 +137,7 @@ $categorias = ControladorCategorias::ctrConsultar();
             </div>
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-primary  btn-sm" id="btnActualizar" data-id=''>Guardar</button>
+                <button type="button" class="btn btn-primary  btn-sm" id="btnActualizar">Guardar</button>
             </div>
         </div>
     </div>
