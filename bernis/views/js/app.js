@@ -73,7 +73,6 @@ $(document).on("click", "#btneliminar", function () {
   eliminarproducto(idpdelete);
 });
 
-
 function eliminarproducto(idpdelete) {
   $.post("views/ajax/productos.ajax.php", { idpdelete }, function (data) {
     let response = $.parseJSON(data);

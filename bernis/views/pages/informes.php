@@ -1,38 +1,38 @@
 <div class="container-fluid" id="diario">
     <h4>pagina de informes</h4>
     <hr>
-    <form method="post" enctype="multipart/form-data">
-        <div class="row g-2">
-            <div class="col-4">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Fecha inicial</label>
-                    <input type="date" id="finicial" class="form-control form-control-sm" id="exampleFormControlInput1">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput2" class="form-label">Fecha final</label>
-                    <input type="date" id="ffinal" class="form-control form-control-sm" id="exampleFormControlInput2">
-                </div>
-            </div>
 
-            <?php
-            $categorias = ControladorCategorias::ctrConsultar();
-            ?>
-
-            <div class="col-4">
-                <label for="exampleFormControlInput1" class="form-label">Categoria</label>
-                <input id="id_empresa" value="1" type="hidden">
-                <select id="categorias" class="form-select form-select-sm" aria-label="Default select example">
-                    <option value="todas" selected>Seleccione...</option>
-                    <?php foreach ($categorias as $key => $value) :  ?>
-                        <option value=<?php echo $value["nombre"] ?>><?php echo $value["nombre"] ?></option>
-                    <?php endforeach ?>
-                </select>
+    <div class="row g-2">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Fecha inicial</label>
+                <input type="date" id="finicio" class="form-control form-control-sm">
             </div>
-     <button id="btnconsultar">enviar</button>
         </div>
-    </form>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Fecha final</label>
+                <input type="date" id="ffinal" class="form-control form-control-sm">
+            </div>
+        </div>
+
+        <?php
+        $categorias = ControladorCategorias::ctrConsultar();
+        ?>
+
+        <div class="col-4">
+            <label for="exampleFormControlInput1" class="form-label">Categoria</label>
+            <input id="id_empresa" value=2 type="hidden">
+            <select id="categorias" class="form-select form-select-sm" aria-label="Default select example">
+                <option value="todas" selected>Seleccione...</option>
+                <?php foreach ($categorias as $key => $value) :  ?>
+                    <option value=<?php echo $value["nombre"] ?>><?php echo $value["nombre"] ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <button id="btnconsultar">enviar</button>
+    </div>
+
 
 
     <hr>
@@ -57,7 +57,7 @@
                         <td>Otto</td>
                         <td>@mdo</td>
                     </tr>
-                 
+
                 </tbody>
             </table>
         </div>
@@ -66,10 +66,3 @@
 </div>
 </div>
 
-<!-- cosantruir una consulta que en la fecha actual muestre la sumatoria de las cantidaddes de productos vendidos -->
-<!-- factura de venta  -->
-
-<!-- 
-
-SELECT P.nombre as Nombre, sum(V.cantidad) as Cantidad, sum(V.total) AS Total from ventas V INNER join productos P on V.idproducto = P.id GROUP BY V.idproducto order by Cantidad DESC;
- -->

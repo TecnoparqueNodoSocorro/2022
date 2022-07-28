@@ -117,8 +117,6 @@ function guardarDetalleFact(idfactura, arraySave) {
   });
 }
 
-
-
 /* ---------------------------------------------------- */
 function LimpiarHTML2() {
   arraySave = [];

@@ -2,30 +2,59 @@
 require_once('../../controllers/categoria_controller.php');
 require_once('../../models/categoria_modelo.php');
 require_once('../../controllers/informes_controller.php');
-require_once('../../models/informes_modelo.php');
+require_once('../../models/informe_modelo.php');
+
+
 
 class informesAjax
 {
-    public function
-    InformeConCateg($id_empresa, $finicial, $ffinal, $categoria)
+
+    static public function
+    InformeConCateg($datosConsulta)
     {
-        if ($categoria = "todas") {
-            //informe con todass las categorias
-            $datosconsulta = InformesController::ctrdatosconsultaAll($id_empresa, $finicial, $ffinal);
+
+        /*         $datosConsulta = file_get_contents('$datosConsulta');
+        $decode =  json_decode($datosConsulta, true);  */
+
+
+        if ($datosConsulta["categoria"] == "todas") {
+            /*    $id_empresa = $datosConsulta["id_empresa"];
+            $finicial = $datosConsulta["finicio"];
+            $ffinal = $datosConsulta["ffinal"]; */
+            $datosC = InformesController::ctrdatosconsultaAll($datosConsulta);
+            $rta = json_encode($datosC);
+            echo $rta;
         } else {
-            //informe con categoria seleccionada
-            $datosconsulta = InformesController::ctrdatosconsultaCat($id_empresa, $finicial, $ffinal, $categoria);
+            /*    $id_empresa = $datosConsulta["id_empresa"];
+            $finicial = $datosConsulta["finicio"];
+            $ffinal = $datosConsulta["ffinal"];
+            $categoria = $datosConsulta["categoria"]; */
+            $datosC = InformesController::ctrdatosconsultaCat($datosConsulta);
+            $rta = json_encode($datosC);
+            echo $rta;
         }
+
+        /*      if($datosConsulta["categoria"] = "todas"){
+
+            echo $datosConsulta["categoria"];
+            }else{
+                echo "error";
+            }
+    */
     }
 }
 
 
-if (isset($_POST['datos'])) {
+
+
+
+
+/* -------------------------------------------------------------- */
+
+if (isset($_POST['datosC'])) {
     $ajax = new informesAjax();
-    $datosConsulta = ($_POST['datos']);
-    $finicial = $datosconsulta . $finicio;
-    $ffinal = $datosConsulta . $ffinal;
-    $categoria = $datosConsulta . $categoria;
-    $id_empresa =$datosConsulta.$id_empresa; 
-    $ajax->InformeConCateg($id_empresa, $ffinal, $ffinal, $categoria);
+    $datosConsulta = $_POST['datosC'];
+    $ajax->InformeConCateg($datosConsulta);
+} else {
+    return "error";
 }
