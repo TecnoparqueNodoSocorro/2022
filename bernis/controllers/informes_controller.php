@@ -20,3 +20,4 @@ class InformesController
         return $datosconsulta2;
     }
 }
+

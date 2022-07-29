@@ -62,7 +62,7 @@ function FacturaHTML() {
 
   
     const { id, categoria,nombre, precio, Cant } = prod;
-    arraySave.push({ id_producto: id, namepro: nombre, categoria: categoria,cantidad: Cant, id_empresa: id_emp });
+    arraySave.push({ id_producto: id, namepro: nombre, categoria: categoria,cantidad: Cant, id_empresa: id_emp, precio:precio });
     const row = document.createElement("tr");
     let subtotal = precio * Cant;
     row.innerHTML = `

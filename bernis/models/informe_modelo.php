@@ -1,33 +1,33 @@
 <?php
 require_once "conexion.php";
 
-class ModeloInformes{
-
-static public function  mdlconsultaAll( $tabla, $datosConsulta)
+class ModeloInformes
 {
-        $stmt = conexion::conectar();
-        $consulta = $stmt->prepare("SELECT categoria, nombrep, cantidad,fecha  FROM $tabla WHERE id_empresa = :id_empresa AND fecha BETWEEN :finicial AND :ffinal");
-        $consulta->bindParam(":id_empresa", $datosConsulta["id_empresa"]);
-        $consulta->bindParam(":finicial", $datosConsulta["finicial"], PDO::PARAM_STR);
-        $consulta->bindParam(":ffinal", $datosConsulta["ffinal"], PDO::PARAM_STR);
 
-        $consulta->execute();
-
-        return $consulta->fetchAll(PDO::FETCH_ASSOC);
-}
-
-    static public function  mdlconsultaCat( $tabla, $datosConsulta)
+    static public function  mdlconsultaAll($tabla, $datosConsulta)
     {
+        $fechainicial = $datosConsulta["finicio"] . " 00:00:00";
+        $fechafinal = $datosConsulta["ffinal"] . " 23:59:59";
         $stmt = conexion::conectar();
-        $consulta = $stmt->prepare("SELECT nombrep, cantidad, categoria FROM $tabla WHERE id_empresa = :id_empresa AND categoria=:categoria AND  fecha BETWEEN :finicial AND :ffinal");
+        $consulta = $stmt->prepare("SELECT categoria, nombrep, precioP, cantidad,fecha  FROM $tabla WHERE id_empresa = :id_empresa AND fecha BETWEEN :finicial AND :ffinal");
         $consulta->bindParam(":id_empresa", $datosConsulta["id_empresa"]);
-        $consulta->bindParam(":finicial", $datosConsulta["finicial"], PDO::PARAM_STR);
-        $consulta->bindParam(":ffinal", $datosConsulta["ffinal"], PDO::PARAM_STR);
-        $consulta->bindParam(":categoria", $datosConsulta["categoria"], PDO::PARAM_STR);
-
-
+        $consulta->bindParam(":finicial",  $fechainicial);
+        $consulta->bindParam(":ffinal", $fechafinal);
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    static public function  mdlconsultaCat($tabla, $datosConsulta)
+    {
+        $fechainicial = $datosConsulta["finicio"] . " 00:00:00";
+        $fechafinal = $datosConsulta["ffinal"] . " 23:59:59";
+        $stmt = conexion::conectar();
+        $consulta = $stmt->prepare("SELECT categoria, nombrep, precioP, cantidad,fecha  FROM $tabla WHERE id_empresa = :id_empresa AND categoria=:categoria AND  fecha BETWEEN :finicial AND :ffinal");
+        $consulta->bindParam(":id_empresa", $datosConsulta["id_empresa"]);
+        $consulta->bindParam(":finicial",  $fechainicial);
+        $consulta->bindParam(":ffinal", $fechafinal);
+        $consulta->bindParam(":categoria", $datosConsulta["categoria"], PDO::PARAM_STR);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

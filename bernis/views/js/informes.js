@@ -1,5 +1,4 @@
 
-
 document.getElementById("btnconsultar").addEventListener("click",function()
 {
     let id_empresa = document.getElementById("id_empresa").value;
@@ -19,7 +18,6 @@ function realizarInforme(id_empresa, finicio, ffinal, categoria) {
         categoria: categoria,
         id_empresa:id_empresa,
     };
-    //datos=JSON.parse(datosC);
     $.post("views/ajax/informes.ajax.php", { datosC }, function (data) {
       let response = JSON.parse(data)
       console.log(response);
