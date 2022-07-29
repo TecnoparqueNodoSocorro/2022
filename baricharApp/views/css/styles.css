@@ -1,18 +1,118 @@
-body {
-   padding: 0;
-   margin: 0;
-   background: #596778 !important;
-   color: #EEEEEE;
-   text-align: center;
-   font-family: sans-serif;
-}
 
-@media screen and (max-width: 700px) {
+
+/* @media screen and (max-width: 450px) {
    body {
-  /*     padding: 170px 0 0 0; */
       width: 100%
    }
+
+   .container_menupopup {
+
+      margin-top: 125%;
+   }
 }
+
+@media screen and (min-width: 451px) {
+   body {
+      width: 100%
+   }
+
+   .container_menupopup {
+
+      margin-top: 125%;
+   }
+}
+
+@media screen and (min-width: 700px) {
+   body {
+      width: 100%
+   }
+
+   .container_menupopup {
+
+      margin-top: 25%;
+   }
+
+} */
+
+
+@media (min-width: 200px) and (max-width: 499.99px) {
+   .container_menupopup {
+      margin-top: 120%;
+   }
+}
+
+@media (min-width: 400px) and (max-width: 559.99px) {
+   .container_menupopup {
+      margin-top: 80%;
+   }
+}
+@media (min-width: 560px) and (max-width: 680.99px) {
+   .container_menupopup {
+      margin-top: 60%;
+   }
+}
+@media (min-width: 681px) and (max-width: 704.99px) {
+   .container_menupopup {
+      margin-top: 56.1%;
+   }
+}
+
+@media (min-width: 705px) and (max-width: 713.99px) {
+   .container_menupopup {
+      margin-top: 55%;
+   }
+}
+
+@media (min-width: 714px) and (max-width: 767.99px) {
+   .container_menupopup {
+      margin-top: 50%;
+   }
+}
+
+@media (min-width: 768px) and (max-width: 965.99px) {
+   .container_menupopup {
+      margin-top: 40%;
+   }
+}
+
+
+
+@media (min-width: 966px) and (max-width: 1270.99px) {
+   .container_menupopup {
+      margin-top: 32%;
+   }
+}
+
+@media (min-width: 1271px) {
+   .container_menupopup {
+      margin-top: 25%;
+   }
+}
+
+
+
+/* 
+@media (min-width: 966px) {
+   .container_menupopup {
+      margin-top: 32%;
+   }
+}
+
+@media (min-width: 1200px) {
+   .container_menupopup {
+      margin-top: 30%;
+   }
+}
+
+@media (min-width: 1399.98px) {
+   .container_menupopup {
+      margin-top: 25%;
+   }
+}
+
+ */
+
+
 
 a {
    color: inherit;
@@ -356,19 +456,23 @@ a {
 }
 
 .logo {
- 
+
 
    border-radius: 100%;
    width: 110%;
    height: 100%;
- 
+
 }
+
 .logo2 {
-   margin-top: 30px;
+   -webkit-transition: opacity 0.5s 0s ease;
+   -moz-transition: opacity 0.5s 0s ease;
+   -o-transition: opacity 0.5s 0s ease;
+   transition: opacity 0.5s 0s ease;
    border-radius: 100%;
    width: 300%;
    height: 300%;
-   position:relative;
-   right:70px;
-   bottom:70px
+   position: relative;
+   right: 70px;
+   bottom: 70px
 }
