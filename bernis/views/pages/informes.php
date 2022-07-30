@@ -41,23 +41,23 @@
     <div class=" container-fluid">
         <br>
         <div class="table-responsive">
-            <table id="rtatable" class="table table-sm">
+            <table id="tablaresultados"class="table table-sm">
                 <thead>
                     <tr>
-                        <th scope="col">cat</th>
+                        <th scope="col">Cat</th>
                         <th scope="col">Cant</th>
                         <th scope="col">Producto</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">Subtotal</th>
                     </tr>
                 </thead>
-                <tbody>
-            
-
+                <tbody id="rtatable">
                 </tbody>
+
             </table>
+            <div id="totaltable">
+            </div>
         </div>
     </div>
 
 </div>
 </div>
-

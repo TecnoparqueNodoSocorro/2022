@@ -85,7 +85,6 @@ function FacturaHTML() {
 /* --------------------------------------------------- */
 const onClickFactura = () => {
   guardarIDfact();
-
 };
 
 //envio de cabecera de factura post
