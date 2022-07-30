@@ -44,27 +44,26 @@ function realizarInforme(id_empresa, finicio, ffinal, categoria) {
             /*  */
             let $tdPrecio = document.createElement("td");
         /*     $subtotal = producto.precioP * producto.cantidad */
-            $tdPrecio.textContent = producto.precioP * producto.cantidad;
+            $tdPrecio.textContent = producto.precioP;
             $tr.appendChild($tdPrecio);
+            /*  */
+            let $tdSub = document.createElement("td");
+            /*     $subtotal = producto.precioP * producto.cantidad */
+            $tdSub.textContent = producto.precioP * producto.cantidad;
+            $tr.appendChild($tdSub);
 
             $cuerpotabla.appendChild($tr);
 
-        
+            let totalConsulta = response.reduce(
+                (acomulador, item) => acomulador + (item.precioP * item.cantidad),
+                0);
+            document.querySelector("#totaltable").innerHTML = totalConsulta;
         });
   
         
         // aqui el subtotal
-        let totalConsulta = response.reduce(
-            (acomulador, item) => acomulador + item.totalConsulta,
-            0);
-    
-
-        const $totaltabla = document.querySelector("#totaltable");
-        const $tr = document.createElement("tr");
-        let $tdtotal = document.createElement("td");
-        $tdtotal.textContent = "Total: ".totalConsulta;
-        $tr.appendChild($tdtotal);
-        $totaltabla.appendChild($tr);
+      
+        
     });
 }
 

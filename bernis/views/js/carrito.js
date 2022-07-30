@@ -118,19 +118,20 @@ function carritoHTML() {
         <td> ${subtotal} </td>
         <td>
         <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a>
-        </td>
-`;
+        </td>`;
       //crea el registro row el listado de productos html en el tbody
       listaproductosencanasta.appendChild(row);
+      
       let totalCompraCarrito = articulosCarrito.reduce(
         (acomulador, producto) => acomulador + producto.cant * producto.valor,
         0
       );
+
       const fechaPedido = new Date();
       /* console.log(totalCompraCarrito) */
       document.querySelector(".totalcompra p").innerHTML = totalCompraCarrito;
     }
-    /* aqui va el reduce */
+
   );
 }
 
