@@ -60,8 +60,8 @@
 
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-primary btn-sm" id="btnvaciarC">Vaciar canasta</a>
-                <a href="#" class="btn btn-primary btn-sm" id="btnHacerP">Hacer pedido</a>
+                <a href="#" class="btn btn-danger btn-sm" id="btnvaciarC">Vaciar</a>
+                <a href="https://wa.me/573124624763?text=Me%20interesa%20el%20auto%20que%20estás%20vendiendo" class="btn btn-success btn-sm" id="btnHacerP"><i class="bi bi-whatsapp"></i>Hacer pedido</a>
             </div>
         </div>
     </div>
@@ -76,9 +76,6 @@
     <nav class="navbar navbar-light  fixed-top" id="navbarqr" name="navbarqr">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php?page=vitrina">Delicias Bernis</a>
-
-
-
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -94,8 +91,6 @@
                                 Administración</a>
                         </li>
                         <li>
-
-
                             <form method="post">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>

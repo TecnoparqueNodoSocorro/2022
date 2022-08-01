@@ -30,7 +30,7 @@
                 <?php endforeach ?>
             </select>
         </div>
-        <button id="btnconsultar">Consultar</button>
+        <button type="button" id="btnconsultar">Consultar</button>
     </div>
 
 
@@ -44,8 +44,8 @@
             <table id="tablaresultados" class="table table-sm">
                 <thead>
                     <tr>
-                        <th scope="col">Cat</th>
                         <th scope="col">Cant</th>
+                        <th scope="col">Cat</th>
                         <th scope="col">Producto</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Subtotal</th>

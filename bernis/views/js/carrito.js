@@ -9,7 +9,7 @@ const listaproductosencanasta = document.querySelector(
 );
 //boton de vaciar carrito
 const vaciarcarritoBtn = document.querySelector("#btnvaciarC");
-
+const mensajealerta = document.querySelector("#alertas");
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
 
@@ -45,6 +45,16 @@ function agregarpro(e) {
     carritoHTML();
   }
 }
+
+function alertaok() {
+//muestra la alerta y el boton del carrito de compras
+  mensajealerta.innerHTML = `
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Producto agregado al pedido!  </strong>     <button type="button" class="btn btn-success btn-circle btn-sm " id="btnprod1" data-bs-toggle="modal" data-bs-target="#canasta" id="canasta"><i class="bi bi-cart4"></i> Ver pedido </button>
+ 
+</div>`
+}
+
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 function eliminarProdecarro(e) {
@@ -94,6 +104,7 @@ function leerDatosProducto(producto) {
     //agregar celementos al carrito
     /*     console.log(DatosProducto) */
     articulosCarrito = [...articulosCarrito, DatosProducto];
+    alertaok();
     /*       console.log(articulosCarrito); */
     carritoHTML();
   }
@@ -121,14 +132,13 @@ function carritoHTML() {
         </td>`;
       //crea el registro row el listado de productos html en el tbody
       listaproductosencanasta.appendChild(row);
-      
+
       let totalCompraCarrito = articulosCarrito.reduce(
         (acomulador, producto) => acomulador + producto.cant * producto.valor,
         0
       );
 
       const fechaPedido = new Date();
-      /* console.log(totalCompraCarrito) */
       document.querySelector(".totalcompra p").innerHTML = totalCompraCarrito;
     }
 

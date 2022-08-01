@@ -35,9 +35,10 @@ $categorias = ControladorCategorias::ctrConsultar();
                                 <div class="input-group mb-3 mt-3">
                                     <input type="file" class="form-control imageproducto" id="imagen" name="imagen">
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="col-4 col-sm-4 col-xs-5">
                                     <img src="views/images/icono.png" class="reviewImagen img-thumbnail" style="width: 100px" />
                                 </div>
+                                <div class="col-8 col-sm-4 col-xs-7"><small> <strong>Recomendacion: </strong>Si la imagen es directamente desde la camara del celular se debe tomar de manera horizantal </small> </div>
                             </div>
                         </div>
                         <div class="row">
@@ -63,18 +64,18 @@ $categorias = ControladorCategorias::ctrConsultar();
                             <div class="col-6">Descripcion</div>
                             <div class="col-6"> <textarea class="form-control" name="prod_descripcion" aria-label="With textarea" required></textarea></div>
                         </div>
-                  
-                   
-                    <div class="row">
-                        <div class="col-6">Costo</div>
-                        <div class="col-6"><input type="number" name="prod_costo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+
+
+                        <div class="row">
+                            <div class="col-6">Costo</div>
+                            <div class="col-6"><input type="number" name="prod_costo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Valor</div>
-                        <div class="col-6"><input type="number" name="prod_valor" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        <div class="row">
+                            <div class="col-6">Valor</div>
+                            <div class="col-6"><input type="number" name="prod_valor" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <button type="submit" class="btn btn-primary  btn-sm">Agregar</button>
                 </form>
@@ -104,7 +105,7 @@ $categorias = ControladorCategorias::ctrConsultar();
 
                 <div class="container">
 
-                <div class="input-group mb-3 mt-3">
+                    <div class="input-group mb-3 mt-3">
                         <label class="input-group-text" for="inputGroupSelect01">Clasificacion</label>
                         <select class="form-select" id="clasificacion" name="clasificacion">
                             <option selected>Seleccione...</option>
@@ -124,7 +125,7 @@ $categorias = ControladorCategorias::ctrConsultar();
                         <div class="col-6"> <textarea class="form-control" aria-label="With textarea" id="descripcion"></textarea></div>
                     </div>
 
-                  
+
                     <div class="row">
                         <div class="col-6">Costo</div>
                         <div class="col-6"><input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="costo"></div>
