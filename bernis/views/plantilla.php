@@ -76,6 +76,8 @@
     <nav class="navbar navbar-light  fixed-top" id="navbarqr" name="navbarqr">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php?page=vitrina">Delicias Bernis</a>
+            <div id="msj"></div>
+            <div id="alertas"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -116,7 +118,7 @@
                         <div class="container" id="fondo">
                             <h3>Administracion</h3>
 
-                            <li> <a class="nav-link" href="index.php?page=vender"><i class="bi bi-calendar2-check"></i>
+                            <li> <a class="nav-link" href="index.php?page=facturar"><i class="bi bi-calendar2-check"></i>
                                     Facturar</a> </li>
                             <li> <a class="nav-link " href="index.php?page=productos"><i class="bi bi-collection-fill"></i>
                                     Productos</a></li>
@@ -155,7 +157,7 @@
     if (isset($_GET["page"])) {
 
         if (
-            $_GET["page"] == "vender" ||
+            $_GET["page"] == "facturar" ||
             $_GET["page"] == "productos" ||
             $_GET["page"] == "categorias" ||
             $_GET["page"] == "informes" ||

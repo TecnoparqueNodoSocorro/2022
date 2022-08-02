@@ -49,22 +49,14 @@ function agregarpro(e) {
 function alertaok() {
 //muestra la alerta y el boton del carrito de compras
   mensajealerta.innerHTML = `
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Producto agregado al pedido!  </strong>     <button type="button" class="btn btn-success btn-circle btn-sm " id="btnprod1" data-bs-toggle="modal" data-bs-target="#canasta" id="canasta"><i class="bi bi-cart4"></i> Ver pedido </button>
- 
-</div>`
+<button type="button" class="btn btn-success btn-circle btn-sm " id="btnprod1" data-bs-toggle="modal" data-bs-target="#canasta" id="canasta"><i class="bi bi-cart4"></i> ver pedido</button>
+`
 }
-
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 function eliminarProdecarro(e) {
   if (e.target.classList.contains("borrar_producto")) {
-    /*  console.log(e.target.classList);  */
-
     const productoID = e.target.getAttribute("data-id");
-
-    /*        console.log(productoID); */
-
     articulosCarrito = articulosCarrito.filter(
       (productos) => productos.id !== productoID
     );
@@ -128,8 +120,7 @@ function carritoHTML() {
         <td>${valor}</td>
         <td> ${subtotal} </td>
         <td>
-        <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a>
-        </td>`;
+        <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a> </td>`;
       //crea el registro row el listado de productos html en el tbody
       listaproductosencanasta.appendChild(row);
 

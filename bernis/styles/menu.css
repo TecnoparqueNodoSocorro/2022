@@ -129,12 +129,11 @@ img#imagentarjeta {
     border-radius: 15px;
 }
 #btnprod1 {
-   /*  background-color: #285C6E;  */
+/*     background-color: #00ff08;  */
     border-radius: 15px;
-    
+    border-color: yellow;
+    box-shadow: 1px 1px 1px 1px yellow;
 }
-
-
 
 #btnprod {
     width: 30px;
@@ -213,8 +212,8 @@ div.modal-footer {
     text-shadow: 4px 4px 5px #0005;
     padding: 3px !important;
     margin: 0px !important;
- 
 }
+
 div.modal-body{
     padding: 5px;
   

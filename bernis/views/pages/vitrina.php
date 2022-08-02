@@ -1,5 +1,5 @@
 <div class="container-fluid" id="lista_productos">
-    <div id="alertas"></div>
+  <!--   <div id="alertas"></div> -->
     <div class="container" id="logo">
         <img src="images/logo.png" alt="" id="imagenlogo">
     </div>

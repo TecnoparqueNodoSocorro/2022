@@ -40,11 +40,11 @@ class ModelFacturas
              foreach ($data as $key => $valor) {
                 $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_factura, id_empresa, id_producto,nombrep,categoria,cantidad,precioP) VALUES(:idfact,:idemp,:idprod,:nombrep,:cat,:cant,:precio)");
                 $stmt->bindParam(":idfact", $idfactura);
-                $stmt->bindParam(":idemp", $valor["id_empresa"]);
-                $stmt->bindParam(":idprod", $valor["id_producto"]);
-                $stmt->bindParam(":nombrep", $valor["namepro"], PDO::PARAM_STR);
+                $stmt->bindParam(":idemp", $valor["id_emp"]);
+                $stmt->bindParam(":idprod", $valor["id"]);
+                $stmt->bindParam(":nombrep", $valor["nombre"], PDO::PARAM_STR);
                 $stmt->bindParam(":cat", $valor["categoria"], PDO::PARAM_STR);
-                $stmt->bindParam(":cant", $valor["cantidad"]);
+                $stmt->bindParam(":cant", $valor["Cant"]);
                 $stmt->bindParam(":precio", $valor["precio"]);
                 $stmt->execute();
             }
