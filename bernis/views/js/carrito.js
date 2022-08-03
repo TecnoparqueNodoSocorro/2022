@@ -12,6 +12,9 @@ const vaciarcarritoBtn = document.querySelector("#btnvaciarC");
 const mensajealerta = document.querySelector("#alertas");
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
+let arrayOrden = [];
+let btnenviamensaje = document.querySelector("#btnHacerP");
+
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -47,7 +50,7 @@ function agregarpro(e) {
 }
 
 function alertaok() {
-//muestra la alerta y el boton del carrito de compras
+  //muestra  el boton del carrito de compras
   mensajealerta.innerHTML = `
 <button type="button" class="btn btn-success btn-circle btn-sm " id="btnprod1" data-bs-toggle="modal" data-bs-target="#canasta" id="canasta"><i class="bi bi-cart4"></i> ver pedido</button>
 `
@@ -61,7 +64,7 @@ function eliminarProdecarro(e) {
       (productos) => productos.id !== productoID
     );
     carritoHTML();
-    console.log(articulosCarrito);
+   /*  console.log(articulosCarrito); */
   }
 }
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -94,10 +97,8 @@ function leerDatosProducto(producto) {
     });
   } else {
     //agregar celementos al carrito
-    /*     console.log(DatosProducto) */
     articulosCarrito = [...articulosCarrito, DatosProducto];
     alertaok();
-    /*       console.log(articulosCarrito); */
     carritoHTML();
   }
 }
@@ -105,12 +106,16 @@ function leerDatosProducto(producto) {
 //muestra los productos en el carrito de compras
 function carritoHTML() {
   //limpiar el html previamente
+  arrayOrden = [];
   LimpiarHTML();
+
   // crea la estructura del registro que se presentara
+
   articulosCarrito.forEach(
     (producto) => {
       // destructorin del objeto
       const { imagen, titulo, cant, valor, id } = producto;
+      arrayOrden.push({ nombre: titulo, cant: cant,  precio: valor });
       const row = document.createElement("tr");
       subtotal = producto.cant * producto.valor;
       row.innerHTML = `
@@ -122,19 +127,40 @@ function carritoHTML() {
         <td>
         <a href="#" class="btn btn-danger borrar_producto" data-id=${id}> X </a> </td>`;
       //crea el registro row el listado de productos html en el tbody
-      listaproductosencanasta.appendChild(row);
-
+      listaproductosencanasta.appendChild(row)
+      //totaliza el valor de la factura
       let totalCompraCarrito = articulosCarrito.reduce(
-        (acomulador, producto) => acomulador + producto.cant * producto.valor,
-        0
-      );
-
-      const fechaPedido = new Date();
+        (acomulador, producto) => acomulador + producto.cant * producto.valor, 0);
       document.querySelector(".totalcompra p").innerHTML = totalCompraCarrito;
     }
 
   );
+
 }
+
+btnenviamensaje.addEventListener("click", enviomensaje);
+
+function enviomensaje(){
+/*  console.log( arrayOrden); */
+
+  let arrayfinal = JSON.stringfy(arrayOrden);
+  console.log(arrayfinal.join("").toString());
+
+/*   arrayOrden.forEach(element => {
+
+    console.log('('+element.cant+')'+element.nombre ); 
+  
+});
+ */
+
+/*  console.log (arrayOrden[cant]); */
+}
+
+  
+
+
+
+
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 //eliminar los productos del tbody para que no se almacenen los hijos
