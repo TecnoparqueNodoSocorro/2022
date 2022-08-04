@@ -13,6 +13,7 @@ const mensajealerta = document.querySelector("#alertas");
 /* variable vector que guarda los articulos  */
 let articulosCarrito = [];
 let arrayOrden = [];
+let arrayfinal = [];
 let btnenviamensaje = document.querySelector("#btnHacerP");
 
 
@@ -64,7 +65,7 @@ function eliminarProdecarro(e) {
       (productos) => productos.id !== productoID
     );
     carritoHTML();
-   /*  console.log(articulosCarrito); */
+    /*  console.log(articulosCarrito); */
   }
 }
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -115,7 +116,7 @@ function carritoHTML() {
     (producto) => {
       // destructorin del objeto
       const { imagen, titulo, cant, valor, id } = producto;
-      arrayOrden.push({ nombre: titulo, cant: cant,  precio: valor });
+      arrayOrden.push({ nombre: titulo, cant: cant, precio: valor });
       const row = document.createElement("tr");
       subtotal = producto.cant * producto.valor;
       row.innerHTML = `
@@ -140,23 +141,19 @@ function carritoHTML() {
 
 btnenviamensaje.addEventListener("click", enviomensaje);
 
-function enviomensaje(){
-/*  console.log( arrayOrden); */
+function enviomensaje() {
+  /*  console.log( arrayOrden); */
 
-  let arrayfinal = JSON.stringfy(arrayOrden);
+
+  arrayOrden.forEach(element => {
+    let datastring = element.titulo.replaceAll(' ', '');
+    arrayfinal.push(element.cant +datastring);
+  });
   console.log(arrayfinal.join("").toString());
 
-/*   arrayOrden.forEach(element => {
-
-    console.log('('+element.cant+')'+element.nombre ); 
-  
-});
- */
-
-/*  console.log (arrayOrden[cant]); */
 }
 
-  
+
 
 
 
