@@ -62,7 +62,8 @@
             <div class="modal-footer">
                 <a href="#" class="btn btn-danger btn-sm" id="btnvaciarC">Vaciar</a>
                 <a href="#" class="btn btn-success btn-sm" id="btnHacerP"><i class="bi bi-whatsapp"></i>Hacer pedido</a>
-                <!-- https://wa.me/573124624763?text=Me%20interesa%20el%20auto%20que%20estás%20vendiendo -->
+              
+          <!--       https://wa.me/573124624763?text= -->
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ let articulosCarrito = [];
 let arrayOrden = [];
 let arrayfinal = [];
 let btnenviamensaje = document.querySelector("#btnHacerP");
-
+let totalCompraCarrito
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -130,7 +130,7 @@ function carritoHTML() {
       //crea el registro row el listado de productos html en el tbody
       listaproductosencanasta.appendChild(row)
       //totaliza el valor de la factura
-      let totalCompraCarrito = articulosCarrito.reduce(
+      totalCompraCarrito = articulosCarrito.reduce(
         (acomulador, producto) => acomulador + producto.cant * producto.valor, 0);
       document.querySelector(".totalcompra p").innerHTML = totalCompraCarrito;
     }
@@ -144,13 +144,20 @@ btnenviamensaje.addEventListener("click", enviomensaje);
 function enviomensaje() {
   /*  console.log( arrayOrden); */
 
-
   arrayOrden.forEach(element => {
-    let datastring = element.titulo.replaceAll(' ', '');
-    arrayfinal.push(element.cant +datastring);
+ /*    console.log(element); */
+    var re = / /g;
+    var datastring = element.nombre.replace(re, '');
+    arrayfinal.push("("+ element.cant+")" + datastring);
   });
-  console.log(arrayfinal.join("").toString());
 
+
+ let listado = (arrayfinal.join("").toString());
+let total=totalCompraCarrito;
+let msg = listado + "<<<total("+ total+")>>>";
+
+  window.open("https://wa.me/573124624763?text="+ msg);
+/* console.log(msg); */
 }
 
 
