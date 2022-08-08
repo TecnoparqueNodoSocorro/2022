@@ -8,7 +8,7 @@
     <meta name="keywords" content="premium css templates, premium wordpress themes, wedding themes, themeforest" />
     <title>local | BaricharApp</title>
     <link rel="stylesheet" type="text/css" media="all" href="views/style.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="views/colors/blue.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="views/colors/red.css" />
     <link rel="stylesheet" href="views/css/carousel.css">
     <link href='http://fonts.googleapis.com/css?family=Clicker+Script' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
@@ -17,14 +17,9 @@
     <!-- boostrapmenu -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-
-
     <link rel="stylesheet" href="views/css/styles.css" />
 </head>
 
@@ -37,30 +32,10 @@
     <nav class="menu">
         <ul id="main_menu">
             <li><a class="selected" href="index.php?page=home">HOME</a></li>
-            <li><a href="index.php?page=m_diversion">DIVERSION</a>
-                <ul>
-                    <li><a href="page.html">Planes</a></li>
-                    <li><a href="page.html">Eventos</a></li>
-                    <li><a href="page.html">Pride</a></li>
-                    <li><a href="page.html">Festivales</a></li>
-                    <li><a href="page.html">Cruceros</a></li>
-                </ul>
-            </li>
-
-            <li><a href="index.php?page=m_cultural">CULTURAL</a></li>
-            <li><a href="index.php?page=m_servicios">SERVICIOS</a>
-                <ul>
-                    <li><a href="page.html">Concierge</a></li>
-                    <li><a href="page.html">Hoteles</a></li>
-                    <li><a href="page.html">Oasis</a></li>
-                    <li><a href="page.html">Toures</a></li>
-                    <li><a href="page.html">Autos</a></li>
-                    <li><a href="page.html">Wedding Planner</a></li>
-                </ul>
-            </li>
-            <li><a href="index.php?page=login">INICIAR SESION</a></li>
-            <li><a href="admin.php?page=administracion">Admin</a></li>
-            <li><a href="proveedor.php?page=proveedores">Proveedor</a></li>
+            <li><a href="index.php?page=m_cultural">Proveedores</a></li>
+            <li><a href="index.php?page=login">Solicitudes</a></li>
+            <li><a href="admin.php?page=administracion">Pagina</a></li>
+            <li><a href="proveedor.php?page=proveedores">Cerrar sesion</a></li>
         </ul>
     </nav>
 
@@ -78,14 +53,14 @@
             $_GET["page"] == "agregar_empresa" ||
             $_GET["page"] == "m_diversion" ||
             $_GET["page"] == "m_cultural" ||
-            $_GET["page"] == "m_servicios"||
-            $_GET["page"] == "administracion"||
+            $_GET["page"] == "m_servicios" ||
+            $_GET["page"] == "administracion" ||
             $_GET["page"] == "proveedores"
 
 
 
         ) {
-            include "pages/front/" . $_GET["page"] . ".php";
+            include "pages/administracion/" . $_GET["page"] . ".php";
         } else {
             include "pages/error.php";
         }
