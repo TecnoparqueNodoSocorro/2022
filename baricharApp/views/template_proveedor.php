@@ -31,10 +31,10 @@
 
     <nav class="menu">
         <ul id="main_menu">
-            <li><a class="selected" href="index.php?page=home">HOME</a></li>
-            <li><a href="proveedor.php?page=">Productos</a></li>
-            <li><a href="proveedor.php?page=">Solicitudes</a></li>
-            <li><a href="index.php?page=cerrarsesion">Cerrar sesion</a></li>
+            <li><a class="selected" href="proveedor.php?page=phome">HOME</a></li>
+            <li><a href="proveedor.php?page=productos">Productos</a></li>
+            <li><a href="proveedor.php?page=solicitudes">Solicitudes</a></li>
+            <li><a href="index.php?page=home">Cerrar sesion</a></li>
         </ul>
     </nav>
 
@@ -45,10 +45,10 @@
 
         if (
 
-            $_GET["page"] == "home" ||
-            $_GET["page"] == "proveedores" ||
+            $_GET["page"] == "phome" ||
+            $_GET["page"] == "productos" ||
             $_GET["page"] == "solicitudes" ||
-            $_GET["page"] == "cerrarsesion"
+            $_GET["page"] == "home"
         ) {
             include "pages/proveedores/" . $_GET["page"] . ".php";
         } else {

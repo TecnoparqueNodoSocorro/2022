@@ -59,8 +59,8 @@
                 </ul>
             </li>
             <li><a href="index.php?page=login">INICIAR SESION</a></li>
-            <li><a href="admin.php?page=administracion">Administrador</a></li>
-            <li><a href="proveedor.php?page=proveedores">Proveedor</a></li>
+            <li><a href="admin.php?page=ahome">Administrador</a></li>
+            <li><a href="proveedor.php?page=phome">Proveedor</a></li>
         </ul>
     </nav>
 
@@ -72,26 +72,23 @@
         if (
 
             $_GET["page"] == "home" ||
-            $_GET["page"] == "login" ||
-            $_GET["page"] == "agregar_productos" ||
-            $_GET["page"] == "productos" ||
-            $_GET["page"] == "agregar_empresa" ||
             $_GET["page"] == "m_diversion" ||
             $_GET["page"] == "m_cultural" ||
-            $_GET["page"] == "m_servicios"
-
+            $_GET["page"] == "m_servicios" ||
+            $_GET["page"] == "login"
+      
         ) {
             include "pages/front/" . $_GET["page"] . ".php";
         } else {
 
-            if ($_GET["page"] == "administracion") {
+            if ($_GET["page"] == "ahome") {
                 include "pages/administracion/" . $_GET["page"] . ".php";
             } else {
-                if ($_GET["page"] == "proveedores") {
+                if ($_GET["page"] == "phome") {
                     include "pages/proveedores/" . $_GET["page"] . ".php";
                 }
             }
-    /*         include "pages/front/error.php"; */
+            include "pages/front/error.php";
         }
     } else {
         include "pages/login.php";

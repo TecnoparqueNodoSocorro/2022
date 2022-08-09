@@ -31,11 +31,11 @@
 
     <nav class="menu">
         <ul id="main_menu">
-            <li><a class="selected" href="index.php?page=home">HOME</a></li>
+            <li><a class="selected" href="admin.php?page=ahome">HOME</a></li>
             <li><a href="admin.php?page=g_proveedores">Proveedores</a></li>
-            <li><a href="admin.php?page=g_solicitudes">Solicitudes</a></li>
+     <!--        <li><a href="admin.php?page=g_solicitudes">Solicitudes</a></li> -->
             <li><a href="admin.php?page=g_pagina">Pagina</a></li>
-            <li><a href="index.php?page=cerrarsesion">Cerrar sesion</a></li>
+            <li><a href="index.php?page=home">Cerrar sesion</a></li>
         </ul>
     </nav>
 
@@ -46,11 +46,11 @@
 
         if (
 
-            $_GET["page"] == "home" ||
+            $_GET["page"] == "ahome" ||
             $_GET["page"] == "g_proveedores" ||
             $_GET["page"] == "g_solicitudes" ||
             $_GET["page"] == "g_pagina" ||
-            $_GET["page"] == "cerrarsesion"
+            $_GET["page"] == "home"
 
 
         ) {

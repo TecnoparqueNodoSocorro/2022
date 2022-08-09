@@ -1,8 +1,7 @@
 <?php
 require_once "modal.php";
 ?>
-    <!--      <div class="title_front">BARICHARAPP</div> -->
-
+<link rel="stylesheet" href="views\css\style_modal.css">
 
 
 <!--  INICIO MENU POPUP-->
@@ -27,7 +26,7 @@ require_once "modal.php";
 
             <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></a>
 
             <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
 
