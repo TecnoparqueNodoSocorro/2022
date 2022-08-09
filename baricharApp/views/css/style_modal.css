@@ -1,3 +1,67 @@
-#tarjetas{
-    background-color:purple !important;
+#tarjetas {
+  background-color: rgb(150, 222, 253) !important;
+  border: 5px solid !important;
+  border-color: rgb(255, 255, 255) !important;
+  padding: 5px !important;
+  border-radius: 15px;
+
+}
+
+img.imgtarjeta {
+  /*    border: 0px solid darkblue; */
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  padding: 5px !important;
+}
+
+.nombre {
+  font-size: 15px !important;
+  padding: 0% !important;
+  margin: 2px !important;
+  text-align: center;
+}
+
+.detalleproducto {
+   font-size: 8px !important;
+ line-height:9px !important;
+  padding: 0% !important;
+  margin: 5px !important;
+  text-align: justify;
+}
+.container-fluid {
+  padding: 0% !important;
+  margin: 0% !important;
+  align-content: center;
+}
+.precioproducto {
+  padding: 1px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  margin: 0% !important;
+  font-weight: 700;
+  }
+img.logoE{
+width: 30px;
+  height: 30px;
+  border-radius: 50%!important;
+  border-color: blue solid;
+}
+.name_empresa{
+ font-size: 8px !important;
+ line-height:9px !important;
+}
+hr{
+    margin: 3px !important;
+}
+.redondo{
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 2px;
+}
+.labelbtn{
+     font-size: 8px !important;
 }
