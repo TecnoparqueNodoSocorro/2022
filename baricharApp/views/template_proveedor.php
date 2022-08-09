@@ -32,10 +32,9 @@
     <nav class="menu">
         <ul id="main_menu">
             <li><a class="selected" href="index.php?page=home">HOME</a></li>
-            <li><a href="index.php?page=m_cultural">Proveedores</a></li>
-            <li><a href="index.php?page=login">Solicitudes</a></li>
-            <li><a href="admin.php?page=administracion">Pagina</a></li>
-            <li><a href="proveedor.php?page=proveedores">Cerrar sesion</a></li>
+            <li><a href="proveedor.php?page=">Productos</a></li>
+            <li><a href="proveedor.php?page=">Solicitudes</a></li>
+            <li><a href="index.php?page=cerrarsesion">Cerrar sesion</a></li>
         </ul>
     </nav>
 
@@ -47,22 +46,13 @@
         if (
 
             $_GET["page"] == "home" ||
-            $_GET["page"] == "login" ||
-            $_GET["page"] == "agregar_productos" ||
-            $_GET["page"] == "productos" ||
-            $_GET["page"] == "agregar_empresa" ||
-            $_GET["page"] == "m_diversion" ||
-            $_GET["page"] == "m_cultural" ||
-            $_GET["page"] == "m_servicios" ||
-            $_GET["page"] == "administracion" ||
-            $_GET["page"] == "proveedores"
-
-
-
+            $_GET["page"] == "proveedores" ||
+            $_GET["page"] == "solicitudes" ||
+            $_GET["page"] == "cerrarsesion"
         ) {
             include "pages/proveedores/" . $_GET["page"] . ".php";
         } else {
-            include "pages/error.php";
+            include "pages/front/error.php";
         }
     } else {
         include "pages/login.php";

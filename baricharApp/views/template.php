@@ -59,7 +59,7 @@
                 </ul>
             </li>
             <li><a href="index.php?page=login">INICIAR SESION</a></li>
-            <li><a href="admin.php?page=administracion">Admin</a></li>
+            <li><a href="admin.php?page=administracion">Administrador</a></li>
             <li><a href="proveedor.php?page=proveedores">Proveedor</a></li>
         </ul>
     </nav>
@@ -78,16 +78,20 @@
             $_GET["page"] == "agregar_empresa" ||
             $_GET["page"] == "m_diversion" ||
             $_GET["page"] == "m_cultural" ||
-            $_GET["page"] == "m_servicios"||
-            $_GET["page"] == "administracion"||
-            $_GET["page"] == "proveedores"
-
-
+            $_GET["page"] == "m_servicios"
 
         ) {
             include "pages/front/" . $_GET["page"] . ".php";
         } else {
-            include "pages/error.php";
+
+            if ($_GET["page"] == "administracion") {
+                include "pages/administracion/" . $_GET["page"] . ".php";
+            } else {
+                if ($_GET["page"] == "proveedores") {
+                    include "pages/proveedores/" . $_GET["page"] . ".php";
+                }
+            }
+    /*         include "pages/front/error.php"; */
         }
     } else {
         include "pages/login.php";
@@ -102,7 +106,7 @@
 
             <nav class="footer_menu">
                 <ul>
-                    <!--              <li><a href="index.html" class="selected">HOME</a></li> -->
+
 
                     <li><a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> </li>
                 </ul>

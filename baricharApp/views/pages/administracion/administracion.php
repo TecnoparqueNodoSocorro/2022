@@ -1,3 +1,4 @@
+
 <div class="title_container">
 
     <div class="home_bottomS">
@@ -57,7 +58,7 @@
 
             <div class="table-responsive" id="proveedores">
                 <table class="table caption-top">
-                    <!--   <caption>List of users</caption> -->
+
                     <thead>
                         <tr>
                             <th>imag</th>

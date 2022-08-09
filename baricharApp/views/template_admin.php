@@ -6,7 +6,7 @@
     <meta name="author" content="tecnoparque nodo socorro" />
     <meta name="description" content="plataforma de gestion de bodas en barichara" />
     <meta name="keywords" content="premium css templates, premium wordpress themes, wedding themes, themeforest" />
-    <title>local | BaricharApp</title>
+    <title>Administracion | BaricharApp</title>
     <link rel="stylesheet" type="text/css" media="all" href="views/style.css" />
     <link rel="stylesheet" type="text/css" media="all" href="views/colors/red.css" />
     <link rel="stylesheet" href="views/css/carousel.css">
@@ -32,10 +32,10 @@
     <nav class="menu">
         <ul id="main_menu">
             <li><a class="selected" href="index.php?page=home">HOME</a></li>
-            <li><a href="index.php?page=m_cultural">Proveedores</a></li>
-            <li><a href="index.php?page=login">Solicitudes</a></li>
-            <li><a href="admin.php?page=administracion">Pagina</a></li>
-            <li><a href="proveedor.php?page=proveedores">Cerrar sesion</a></li>
+            <li><a href="admin.php?page=g_proveedores">Proveedores</a></li>
+            <li><a href="admin.php?page=g_solicitudes">Solicitudes</a></li>
+            <li><a href="admin.php?page=g_pagina">Pagina</a></li>
+            <li><a href="index.php?page=cerrarsesion">Cerrar sesion</a></li>
         </ul>
     </nav>
 
@@ -47,22 +47,16 @@
         if (
 
             $_GET["page"] == "home" ||
-            $_GET["page"] == "login" ||
-            $_GET["page"] == "agregar_productos" ||
-            $_GET["page"] == "productos" ||
-            $_GET["page"] == "agregar_empresa" ||
-            $_GET["page"] == "m_diversion" ||
-            $_GET["page"] == "m_cultural" ||
-            $_GET["page"] == "m_servicios" ||
-            $_GET["page"] == "administracion" ||
-            $_GET["page"] == "proveedores"
-
+            $_GET["page"] == "g_proveedores" ||
+            $_GET["page"] == "g_solicitudes" ||
+            $_GET["page"] == "g_pagina" ||
+            $_GET["page"] == "cerrarsesion"
 
 
         ) {
             include "pages/administracion/" . $_GET["page"] . ".php";
         } else {
-            include "pages/error.php";
+            include "pages/front/error.php";
         }
     } else {
         include "pages/login.php";
@@ -77,7 +71,7 @@
 
             <nav class="footer_menu">
                 <ul>
-                    <!--              <li><a href="index.html" class="selected">HOME</a></li> -->
+               
 
                     <li><a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> </li>
                 </ul>
