@@ -83,7 +83,7 @@ class ControladorProductos
     static public function ctrConsultarProductos()
     {
         $tabla = "productos";
-        $idemp = 1;
+        $idemp =1;
         $consulta = ModelProductos::mdlConsultarProductos($tabla, $idemp);
         return $consulta;
     }

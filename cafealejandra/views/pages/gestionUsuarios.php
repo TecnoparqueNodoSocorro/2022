@@ -1,3 +1,6 @@
+<?php
+$cosecha = ControladorCosecha::ConsultarCosechaActiva()
+?>
 <div class="container">
 
     <h2>
@@ -12,10 +15,13 @@
                     <h6 class="text-white">Cosecha</h6>
                 </label>
                 <select class="form-select" name="cosecha_user" id="cosecha_user" aria-label="Default select example">
-                    <option selected>Seleccione la cosecha</option>
-                    <option value="1">Cosecha #</option>
-                    <option value="2">Cosecha 2#</option>
-                    <option value="3">Cosecha 3#</option>
+                    <option selected>--Seleccione la cosecha--</option>
+                    <?php foreach ($cosecha as $key => $value) : ?>
+
+                        <option value="<?php echo $value["id"] ?>">Codigo: <?php echo $value["id"] ?> | Fecha de inicio <?php echo $value["fecha_inicio"] ?></option>
+
+                    <?php endforeach ?>
+
                 </select>
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
@@ -40,7 +46,7 @@
                     <h6 class="text-white">Cargo</h6>
                 </label>
                 <select class="form-select" name="cargo_user" id="cargo_user" aria-label="Default select example">
-                    <option selected>Seleccione el cargo</option>
+                    <option selected>--Seleccione el cargo--</option>
                     <option value="1">Recolector</option>
                     <option value="2">Encargado</option>
                 </select>
@@ -80,35 +86,33 @@
 
     <!-- Tabla que muestra los empleados registrado -->
 
-
-    <div class="table-responsive mt-3" >
+    <?php
+    $usuarios = ControladorUsuario::ctrConsultarUsuario()
+    ?>
+    <div class="table-responsive mt-3">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Documento</th>
-                    <th class="none">Teléfono</th>
-                    <th class="none">Cargo</th>
+                    <th>Teléfono</th>
+                    <th>Cargo</th>
                 </tr>
             </thead>
             <tbody>
 
-                <!--         <?php foreach ($usuarios as $key => $value) : ?>
+                <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
-                        <td><?php echo $value["nombre"] ?></td>
-                        <td><?php echo $value["apellido"] ?></td>
-                        <td><?php echo $value["documento"] ?></td>
-                        <td><?php echo $value["telefono"] ?></td>
-                        <td><?php echo $value["cargo"] ?></td>
-                        <?php endforeach ?> -->
-                <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>6444534</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
+                        <td><?php echo $value["nombres"] ?></td>
+                        <td><?php echo $value["apellidos"] ?></td>
+                        <td><?php echo $value["num_documento"] ?></td>
+                        <td><?php echo $value["num_telefono"] ?></td>
+                        <td><?php echo($value["id_cargo"]==1 ?'Encargado' : 'Recolector')?></td>
+                    </tr>
+
+                <?php endforeach ?>
+
 
             </tbody>
         </table>

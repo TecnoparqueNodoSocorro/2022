@@ -1,6 +1,6 @@
 <div class="container">
     <h2>
-        <span class="text-warning mb-3">Registrar Pago a Recolectores</span>
+        <span class="text-warning mb-3">Registrar Pago a Encargados</span>
     </h2>
     <?php
     $cosecha = ControladorCosecha::ConsultarCosechaActiva();
@@ -9,7 +9,7 @@
     <label class="form-label">
         <h5 class="text-warning">Cosecha</h5>
     </label>
-    <select class="form-select" name="cosecha_trabajo" id="registro_pago">
+    <select class="form-select" name="cosecha_trabajo" id="buscar_recolectores">
         <option selected>--Seleccione la cosecha--</option>
         <?php foreach ($cosecha as $key => $value) : ?>
 
@@ -29,7 +29,7 @@
 
                 </tr>
             </thead>
-            <tbody id="tablaPagos">
+            <tbody id="tbodyEncargados">
                 <!-- <tr>
                     <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModalEm
                                 ">
@@ -66,7 +66,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h2 class="modal-title" id="nombreRecolector"> </h2>
+                <h2 class="modal-title" id="nombreEncargado"> </h2>
 
             </div>
 
@@ -76,18 +76,18 @@
 
                 <div class="col-12">
                     <label class="form-label">
-                        Kilos recogidos
+                        Días Trabajados (desde el inicio de la cosecha)
                     </label>
-                    <input type="number" readonly class="form-control" id="kilosRecogidos" name="kilosRecogidos" required>
+                    <input type="text" readonly class="form-control" id="diasTrabajados" name="diasTrabajados" required>
                     <label class="form-label">
                         Total pendiente a pagar
                     </label>
-                    <input type="text" readonly class="form-control" id="totalPagar" name="totalPagar" required>
+                    <input type="text" readonly class="form-control" id="totalPagarEncargado" name="totalPagarEncargado" required>
                     <label class="form-label">
                         Cantidad a pagar
                     </label>
-                    <input type="number" class="form-control" id="cantidadPagar" name="cantidadPagar" required>
-                    <button type="button" id="btnPagar" class="btn btn-warning mt-5">Pagar</button>
+                    <input type="number" class="form-control" id="cantidadPagarEncargado" name="cantidadPagarEncargado" required>
+                    <button type="button" id="btnPagarEncargado" class="btn btn-warning mt-5">Pagar</button>
                 </div>
             </div>
             <!-- Modal footer -->

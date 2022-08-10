@@ -12,7 +12,6 @@ static public function mdlloginusuario($tabla, $item, $valor)
   $stmt->bindParam(":".$valor, $valor, PDO::PARAM_STR); 
   $stmt->execute();
   return  $stmt->fetch();
-  
   $stmt = null;
 }
 

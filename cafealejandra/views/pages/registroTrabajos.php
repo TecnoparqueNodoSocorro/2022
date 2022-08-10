@@ -4,44 +4,44 @@
         <span class="text-warning mb-3">Registro de Trabajo Diario</span>
     </h2>
 
-
+<?php
+$cosecha=ControladorCosecha::ConsultarCosechaActiva();
+?>
     <label class="form-label">
         <h4 class="text-warning">Cosecha</h4>
     </label>
-    <select class="form-select rounded" name="cosecha" id="cosecha_trabajo" aria-label="Default select example">
-        <option style="width:50px" selected>Seleccione cosecha</option>
-        <option value="1">Cosecha #</option>
-        <option value="2">Cosecha 2</option>
-        <option value="2">Cosecha 3#</option>
-    </select>
+    <select class="form-select" name="cosecha_trabajo" id="cosecha_trabajo" >
+            <option selected>--Seleccione la cosecha--</option>
+            <?php foreach ($cosecha as $key => $value) : ?>
+
+                <option value="<?php echo $value["id"] ?>">Codigo: <?php echo $value["id"] ?> | Fecha de inicio <?php echo $value["fecha_inicio"] ?></option>
+
+            <?php endforeach ?>
+
+        </select>
+
 
     <div class="table-responsive mt-3">
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Opciones</th>
+                    <th>Registrar</th>
+
                     <th>Nombre</th>
-                    <th>Apellido</th>
+                    <th>Documento</th>
+
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="body">
+             <!--    <tr>
                     <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="bi bi-plus-circle"></i>
                         </button></td>
                     <td>Tiger Nixon</td>
                     <td>Edinburgh</td>
 
-                </tr>
-                <tr>
-                    <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal">
-                            <i class="bi bi-plus-circle"></i>
-                        </button></td>
-                    <td>Garrett Winters</td>
-                    <td>Tokyo</td>
-
-                </tr>
-
+                </tr> -->
+               
         </table>
     </div>
 
@@ -56,7 +56,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title text-center ">Nombre del empleado</h4>
+                <h4 class="modal-title text-center" id="modalHeadNombre">Nombre del empleado</h4>
             </div>
 
             <!-- Modal body -->
@@ -71,6 +71,12 @@
                             <h4>Kilos recogidos</h4>
                         </label>
                         <input type="number" id="kilos_recogidos" class="form-control" value="" required>
+
+
+                        <label for="validationServer02" class="form-label">
+                            <h4>Fecha</h4>
+                        </label>
+                        <input type="date" id="fecha_recoleccion" class="form-control" value="" required>
                         <button type="button" id="agregar_trabajo" class="btn btn-warning mt-4">Agregar</button>
                     </form>
                 </div>

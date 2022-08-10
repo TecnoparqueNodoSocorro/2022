@@ -3,16 +3,16 @@
     <div class="container" id="logo">
         <img src="images/logo.png" alt="" id="imagenlogo">
     </div>
-
     <div id="titulo" style="text-align:center;">
         Nuestros productos
     </div>
-
-
     <div id="productos" name="productos">
-
         <?php
+
+
         $productos = ControladorProductos::ctrConsultarProductos();
+ 
+    
         ?>
         <?php foreach ($productos as $key => $value) :  ?>
             <div class="col-6 col-md-3 col-lg-3 ">
@@ -36,7 +36,6 @@
                                 <p class="card-text" id="descripcion"> <?php echo $value["descripcion"] ?></p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -46,4 +45,4 @@
     </div>
 </div>
 <hr>
-<p class="piedepagina">Designed by Tecnoparque Nodo Socorro 2022 ©</p>
+<p class="piedepagina">Diseñado y desarrollado por Tecnoparque Nodo Socorro 2022 ©</p>
