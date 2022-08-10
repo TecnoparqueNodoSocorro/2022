@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-08-2022 a las 22:27:07
+-- Tiempo de generación: 11-08-2022 a las 00:19:51
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -135,7 +135,8 @@ INSERT INTO `facturas` (`id`, `id_empresa`, `id_usuario`, `fecha`) VALUES
 (268, 2, 2, '2022-08-02 20:04:57'),
 (269, 2, 2, '2022-08-02 20:06:20'),
 (270, 2, 2, '2022-08-02 20:07:50'),
-(271, 2, 2, '2022-08-02 20:09:22');
+(271, 2, 2, '2022-08-02 20:09:22'),
+(272, 2, 2, '2022-08-04 14:12:52');
 
 -- --------------------------------------------------------
 
@@ -245,7 +246,10 @@ INSERT INTO `facturas_detalle` (`id`, `id_factura`, `id_empresa`, `categoria`, `
 (156, 270, 2, 'Fritos', 38, ' empanada mexicana', 3000, 1, '2022-08-02 20:07:50'),
 (157, 270, 2, 'Fritos', 50, ' empanada david', 4000, 1, '2022-08-02 20:07:50'),
 (158, 271, 2, 'horneados', 37, ' paquete empanada de carne cruda', 1800, 1, '2022-08-02 20:09:22'),
-(159, 271, 2, 'Crudos', 51, ' empanada cruda', 8000, 1, '2022-08-02 20:09:22');
+(159, 271, 2, 'Crudos', 51, ' empanada cruda', 8000, 1, '2022-08-02 20:09:22'),
+(160, 272, 2, 'horneados', 37, ' paquete empanada de carne cruda', 1800, 1, '2022-08-04 14:12:52'),
+(161, 272, 2, 'Fritos', 50, ' empanada david', 4000, 1, '2022-08-04 14:12:52'),
+(162, 272, 2, 'Crudos', 51, ' empanada cruda', 8000, 1, '2022-08-04 14:12:52');
 
 -- --------------------------------------------------------
 
@@ -384,13 +388,13 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
 
 --
 -- AUTO_INCREMENT de la tabla `facturas_detalle`
 --
 ALTER TABLE `facturas_detalle`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
