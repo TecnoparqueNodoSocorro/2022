@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] != "ok") {
+        echo '<script>window.location="index.php?=vitrina"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?=vitrina"; </script>';
+}
+?>
+
+
 <div class="container-fluid" id="diario">
     <h4>pagina de informes</h4>
     <hr>

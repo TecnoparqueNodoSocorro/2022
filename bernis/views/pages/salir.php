@@ -1,1 +1,4 @@
-<h1>salir de la sesion </h1>
+<?php
+session_destroy();
+echo '<script>window.location="index.php?=vitrina"; </script>';
+?>

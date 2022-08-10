@@ -34,9 +34,25 @@ class ControladorLogin
             if ($respuesta["usuario"] == $_POST["l_username"]  &&  $respuesta["contrasena"] == $_POST["l_password"])
             {
                 
-             $_SESSION["ValidarIngreso"]="ok";
+             $_SESSION["validar_ingreso"]="ok";
 
-            echo 'ok';
+            echo ' <br>   <div class="container" id="fondo">
+               <hr>
+
+                            <h3>Administracion</h3>
+
+                            <li> <a class="nav-link" href="index.php?page=facturar"><i class="bi bi-calendar2-check"></i>
+                                    Facturar</a> </li>
+                            <li> <a class="nav-link " href="index.php?page=productos"><i class="bi bi-collection-fill"></i>
+                                    Productos</a></li>
+                            <li> <a class="nav-link " href="index.php?page=categorias"><i class="bi bi-columns"></i>
+                                    Categorias</a> </li>
+                            <li> <a class="nav-link " href="index.php?page=informes"><i class="bi bi-cash-coin"></i>
+                                    Informes</a> </li>
+                            <li> <a class="nav-link " href="index.php?page=salir"><i class="bi bi-x-circle-fill"></i>
+                                    Salir</a> </li>
+                                         <hr>
+                        </div>';
             }
 
             else{

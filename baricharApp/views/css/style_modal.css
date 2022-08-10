@@ -1,67 +1,123 @@
-#tarjetas {
-  background-color: rgb(150, 222, 253) !important;
-  border: 5px solid !important;
-  border-color: rgb(255, 255, 255) !important;
-  padding: 5px !important;
-  border-radius: 15px;
-
-}
-
 img.imgtarjeta {
   /*    border: 0px solid darkblue; */
-  margin-top: 10px;
-  width: 100%;
-  height: 100%;
+  /*   margin-top: 10px; */
+  width: 90%;
+  height: 90%;
   border-radius: 15px;
-  padding: 5px !important;
+  margin-left: 10px !important;
+  padding: opx !important;
 }
 
 .nombre {
-  font-size: 15px !important;
+  font-size: 110% !important;
   padding: 0% !important;
   margin: 2px !important;
   text-align: center;
 }
 
 .detalleproducto {
-   font-size: 8px !important;
- line-height:9px !important;
+  font-size: 60% !important;
+  line-height: 90% !important;
   padding: 0% !important;
   margin: 5px !important;
   text-align: justify;
 }
-.container-fluid {
+/* .container-fluid {
   padding: 0% !important;
   margin: 0% !important;
   align-content: center;
-}
+} */
 .precioproducto {
   padding: 1px !important;
   text-align: center !important;
   font-size: 13px !important;
   margin: 0% !important;
   font-weight: 700;
-  }
-img.logoE{
-width: 30px;
+}
+img.logoE {
+  width: 30px;
   height: 30px;
-  border-radius: 50%!important;
+  border-radius: 50% !important;
   border-color: blue solid;
 }
-.name_empresa{
- font-size: 8px !important;
- line-height:9px !important;
+.name_empresa {
+  font-size: 60% !important;
+  line-height: 100% !important;
 }
-hr{
-    margin: 3px !important;
+hr {
+  margin: 3px !important;
 }
-.redondo{
+.redondo {
   display: block;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  padding: 2px;
+  padding: 1px;
+  margin: 2px;
 }
-.labelbtn{
-     font-size: 8px !important;
+.labelbtn {
+  font-size: 8px !important;
+}
+div#tarjetas {
+  padding: 0px !important;
+}
+div.col-2 {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px !important;
+}
+div.modal-body {
+  padding: 5px !important;
+}
+
+div.col-7,
+div.col-md-6 {
+  padding: 5px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px !important;
+}
+
+div.col-12,
+div.col-md-4 {
+   padding: 5px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div.col-7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div.col-5,
+div.col-md-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  margin: 0% !important;
+  padding: 0% !important;
+}
+div.modal-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0% !important;
+  padding: 0% !important;
+}
+label {
+  font-size: 50% !important;
 }

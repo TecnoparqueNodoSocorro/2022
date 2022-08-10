@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -62,8 +66,8 @@
             <div class="modal-footer">
                 <a href="#" class="btn btn-danger btn-sm" id="btnvaciarC">Vaciar</a>
                 <a href="#" class="btn btn-success btn-sm" id="btnHacerP"><i class="bi bi-whatsapp"></i>Hacer pedido</a>
-              
-          <!--       https://wa.me/573124624763?text= -->
+
+                <!--       https://wa.me/573124624763?text= -->
             </div>
         </div>
     </div>
@@ -116,31 +120,15 @@
                         $login->ctrlogin();
 
                         ?>
-                        <hr>
-                        <div class="container" id="fondo">
-                            <h3>Administracion</h3>
-
-                            <li> <a class="nav-link" href="index.php?page=facturar"><i class="bi bi-calendar2-check"></i>
-                                    Facturar</a> </li>
-                            <li> <a class="nav-link " href="index.php?page=productos"><i class="bi bi-collection-fill"></i>
-                                    Productos</a></li>
-                            <li> <a class="nav-link " href="index.php?page=categorias"><i class="bi bi-columns"></i>
-                                    Categorias</a> </li>
-                            <li> <a class="nav-link " href="index.php?page=informes"><i class="bi bi-cash-coin"></i>
-                                    Informes</a> </li>
-                            <li> <a class="nav-link " href="index.php?page=salir"><i class="bi bi-x-circle-fill"></i>
-                                    Salir</a> </li>
-                        </div>
-                        <hr>
+                   
+                     <!-- aqui va el menu -->
+              
                         <li> <a class="nav-link" href="index.php?page=vitrina"><i class="bi bi-house"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="index.php?page=contactos"><i class="bi bi-whatsapp"></i> Contactenos para pedidos</a>
+                            <a class="nav-link " href="index.php?page=contactos"><i class="bi bi-whatsapp"></i> Visitanos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=acercade"><i class="bi bi-bookmark-heart-fill"></i> Agregar a
-                                favoritos</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=acercade"><i class="bi bi-info-circle-fill"></i> Acerca de ...</a>
                         </li>
@@ -154,7 +142,6 @@
     </div>
     <!-- rutas -->
     <?php
-
 
     if (isset($_GET["page"])) {
 

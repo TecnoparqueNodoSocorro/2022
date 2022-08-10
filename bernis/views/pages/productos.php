@@ -1,4 +1,16 @@
 <?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] != "ok") {
+        echo '<script>window.location="index.php?=vitrina"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?=vitrina"; </script>';
+}
+?>
+
+
+<?php
 // instanciar el metodo estatico
 $registro = ControladorProductos::ctrRegistro();
 if ($registro == "ok") {

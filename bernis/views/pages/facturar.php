@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] != "ok") {
+        echo '<script>window.location="index.php?=vitrina"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?=vitrina"; </script>';
+}
+?>
+
+
 <!-- modal con listado de productos -->
 <div class="modal fade" id="list_prod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
