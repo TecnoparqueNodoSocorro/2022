@@ -22,12 +22,12 @@ function Login() {
     if (user.value.trim() == "" || pass.value.trim() == "") {
         Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            text: 'Credenciales incorrectas',
+            title: 'Error...',
+            text: 'Los campos son obligatorios para el ingreso',
         })
     } else {
         $.post("views/ajax/login_ajax.php", { login }, function (dato) {
-            let response = JSON.parse(dato)
+            let response = (dato)
             console.log(response);
             if(response=="error"){
                 Swal.fire({
@@ -36,6 +36,7 @@ function Login() {
                     text: 'Credenciales incorrectas',
                 })
             }
+         
         })
     }
 

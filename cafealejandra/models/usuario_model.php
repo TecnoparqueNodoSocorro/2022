@@ -8,21 +8,24 @@ class ModelUsuario
     {
         session_start();
 
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nombres=:user AND num_documento=:pass");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE num_documento =:user AND contrasena=:pass");
         $stmt->bindParam(":user",  $data["user"], PDO::PARAM_STR);
         $stmt->bindParam(":pass",  $data["password"], PDO::PARAM_STR);
         $stmt->execute();
 
-        $datos = $stmt->fetch(PDO::FETCH_OBJ);
-        /* return $stmt->rowCount(); */
+        $datos = $stmt->fetch();
+    
         if ($datos === false) {
             return "error";
         } elseif ($stmt->rowCount() == 1) {
-            // return  $_SESSION['nombre'] = $datos->nombres;
+         
 
-            header('location:../pages/home.php');
+          return $datos;
         }
     }
+
+
+
     static public function mdlregistroUsuario($tabla, $data)
     {
         $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_cosecha, nombres, apellidos, id_cargo, num_telefono, num_documento) VALUES( :id_cosecha, :nombres, :apellidos, :id_cargo, :num_telefono, :num_documento) ");

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cafe Alejandra</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <link href="styles/estilos.css" rel="stylesheet" />
@@ -40,16 +43,16 @@
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
-            <a class="navbar-brand text-uppercase text-warning fw-bold d-lg-none" href="index.php?page=home">Sistema
+            <a class="navbar-brand  text-warning fw-bold d-lg-none" href="index.php?page=home">Sistema
                 de
-                Gestión</a>
+                Gestión <br> Cafe Alejandra</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
+            <!-- administradores -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php?page=home"><i class="bi bi-house"></i> Home</a></li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-basket"></i>
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-basket"></i>
                             Gestión de Cosechas
                         </a>
                         <ul class="dropdown-menu" style="background-color: #2f170fe6;" aria-labelledby="navbarDropdownMenuLink">
@@ -59,7 +62,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-person"></i>
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-person"></i>
                             Gestión de Empleados
                         </a>
 
@@ -72,7 +75,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-clipboard2-pulse"></i>
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-clipboard2-pulse"></i>
                             Registrar </a>
                         <ul class="dropdown-menu rounded" style="background-color: #2f170fe6;" aria-labelledby="navbarDropdownMenuLink">
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=registroTrabajos">Registrar Trabajo Diario a Recolectores</a></li>
@@ -84,7 +87,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-coin"></i>
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-coin"></i>
                             Pagos </a>
                         <ul class="dropdown-menu rounded" style="background-color: #2f170fe6;" aria-labelledby="navbarDropdownMenuLink">
 
@@ -95,8 +98,8 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bar-chart"></i>
-                            Reportes
+                        <a class="nav-link dropdown-toggle text-" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bar-chart"></i>
+                            Reportes administrativos
                         </a>
                         <ul class="dropdown-menu" style="background-color: #2f170fe6;" aria-labelledby="navbarDropdownMenuLink">
                             <li class="nav-item px-lg-4"><a class="nav-link" href="index.php?page=reportePagos">Reporte
@@ -105,14 +108,33 @@
                                     de kilos</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=reporteAvanzadoRecolector">Reporte Avanzado por Recolector</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=reporteEncargado">Reporte Avanzado por Encargado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=home"><i class="bi bi-house"></i> Cerrar sesion</a></li>
 
+                </ul>
+            </div>
+
+            <!--usuarios  -->
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
+                <ul class="navbar-nav mx-auto">
+          
+                    <!-- sesion de usuarios  -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bar-chart"></i>
+                            Reportes particulares
+                        </a>
+                        <ul class="dropdown-menu" style="background-color: #2f170fe6;" aria-labelledby="navbarDropdownMenuLink">
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=registroActividades">Reporte por Empleado</a></li>
 
                         </ul>
                     </li>
-
+                    <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=home"><i class="bi bi-house"></i> Cerrar sesion</a></li>
                 </ul>
             </div>
+
+            <!--  -->
         </div>
     </nav>
 

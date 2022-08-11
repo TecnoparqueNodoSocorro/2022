@@ -1,5 +1,4 @@
 <?php
-
 require_once "controllers/plantilla_controller.php";
 require_once "controllers/productos_controller.php";
 require_once "controllers/user_controller.php";

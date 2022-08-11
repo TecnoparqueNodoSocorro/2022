@@ -1,5 +1,6 @@
 <?php
 
+use function PHPSTORM_META\type;
 
 class ControladorUsuario
 {
@@ -61,8 +62,37 @@ class ControladorUsuario
 
         $tabla = "empleados";
         $consulta = ModelUsuario::mdlLogin($tabla, $data);
-        return  $consulta;
+        $datajson= json_encode($data);
+        $jsonconsulta=json_encode($consulta);
+        return $jsonconsulta .  $datajson;
+
+     /*    if ($consulta["num_documento"] == $data->user  &&  $consulta["contrasena"] == $data->password) {
+            $_SESSION["validar_ingreso"] = "ok";
+            $_SESSION["perfil"] = $data->id_cargo;
+
+        
+           // presentacion de menu
+            if ($consulta["id_cargo"] == 1) {
+                //menu de empleado
+                echo ' mostrar menu';
+            } else {
+                if ($consulta["id_cargo"] == 2) {
+                    //MENU DE ENCARGADO
+                    echo ' mostrar menu';
+                } else {
+                    if ($consulta["id_cargo"] == 3) {
+                        //MENU DE ADMINISTRACION
+                        echo ' mostrar menu';
+                    }
+                }
+            }
+
+       
+        } else {
+            return "error";
+        } */
     }
+}
 
     /*  
     static public function ctrFinalizarCosecha($data)
@@ -73,4 +103,3 @@ class ControladorUsuario
 
         return $rta;
     } */
-}

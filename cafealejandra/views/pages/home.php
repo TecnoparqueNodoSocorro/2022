@@ -1,5 +1,3 @@
-
-<div class="contenedor-principal">
-
-
-</div>
+<?php
+session_destroy();
+echo '<script>window.location="index.php"; </script>';
