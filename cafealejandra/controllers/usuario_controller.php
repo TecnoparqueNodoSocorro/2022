@@ -56,17 +56,44 @@ class ControladorUsuario
         $consulta = ModelUsuario::mdlConsultarUsuarioEspecifico($tabla, $data);
         return  $consulta;
     }
+    /* ----------------------------------------------------- */
     /*   LOGIN */
     static public function ctrLogin($data)
     {
 
         $tabla = "empleados";
         $consulta = ModelUsuario::mdlLogin($tabla, $data);
-        $datajson= json_encode($data);
-        $jsonconsulta=json_encode($consulta);
-        return $jsonconsulta .  $datajson;
+        return $consulta;
 
-     /*    if ($consulta["num_documento"] == $data->user  &&  $consulta["contrasena"] == $data->password) {
+
+
+        /* ------------------------------------------------ */
+        /*   if ($consulta == false || $consulta == '') {
+
+            echo '<script> 
+            if (window.history.replaceState){
+                window.fistoy.replaceState(null, null, window.location.href);
+            } </script>';
+            echo '<div class="alert alert-danger" role="alert">
+            Error de credenciales!
+             </div>';
+
+
+           
+        } else {
+            if ($consulta["num_documento"] == $data["user"]  &&  $consulta["contrasena"] == $data["password"]) {
+                echo ' mostrar menu';
+            }
+        } */
+
+
+
+
+        /* $datajson= json_encode($data);
+        $jsonconsulta=json_encode($consulta); */
+        /*   return $jsonconsulta .  $datajson; */
+
+        /*    if ($consulta["num_documento"] == $data->user  &&  $consulta["contrasena"] == $data->password) {
             $_SESSION["validar_ingreso"] = "ok";
             $_SESSION["perfil"] = $data->id_cargo;
 

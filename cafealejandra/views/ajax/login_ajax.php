@@ -9,7 +9,8 @@ class LoginAjax
     {
         $usuario = ControladorUsuario::ctrLogin($data);
         $respuesta = json_encode($usuario);
-        echo $respuesta;
+      //  echo var_dump($usuario);
+        echo ($respuesta);
     }
 }
 

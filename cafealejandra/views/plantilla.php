@@ -49,7 +49,7 @@ session_start();
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <!-- administradores -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav mx-auto menucafe">
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-basket"></i>
@@ -110,17 +110,17 @@ session_start();
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=reporteEncargado">Reporte Avanzado por Encargado</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=home"><i class="bi bi-house"></i> Cerrar sesion</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=home"><i class="bi bi-house"></i> Cerrar sesion</a></li> 
 
                 </ul>
             </div>
 
-            <!--usuarios  -->
+            //usuarios 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
                 <ul class="navbar-nav mx-auto">
           
-                    <!-- sesion de usuarios  -->
+                   // sesion de usuarios
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bar-chart"></i>
                             Reportes particulares
@@ -134,7 +134,7 @@ session_start();
                 </ul>
             </div>
 
-            <!--  -->
+         
         </div>
     </nav>
 

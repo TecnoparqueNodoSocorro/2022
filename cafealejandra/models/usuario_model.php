@@ -6,22 +6,21 @@ class ModelUsuario
 {
     static public function mdlLogin($tabla, $data)
     {
-        session_start();
-
         $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE num_documento =:user AND contrasena=:pass");
         $stmt->bindParam(":user",  $data["user"], PDO::PARAM_STR);
         $stmt->bindParam(":pass",  $data["password"], PDO::PARAM_STR);
         $stmt->execute();
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $datos;
+       
 
-        $datos = $stmt->fetch();
-    
-        if ($datos === false) {
+      /*   if ($datos === false) {
             return "error";
         } elseif ($stmt->rowCount() == 1) {
          
 
           return $datos;
-        }
+        } */
     }
 
 

@@ -4,6 +4,7 @@
 let user = document.getElementById('user')
 let pass = document.getElementById('password')
 let btn = document.getElementById('btnIniciar')
+let menucafe = document.getElementsByClassName('#menucafe')
 let login = {}
 if (btn) {
     btn.addEventListener("click", () => {
@@ -27,16 +28,32 @@ function Login() {
         })
     } else {
         $.post("views/ajax/login_ajax.php", { login }, function (dato) {
-            let response = (dato)
+            let response = JSON.parse(dato)
             console.log(response);
-            if(response=="error"){
+
+            if (response.length === 0) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Credenciales incorrectas',
                 })
             }
-         
+            else {
+
+                let usuario = response[0]
+                let { id, id_cargo } = usuario
+                if (id_cargo === 1) {
+                    console.log("menu 1")
+                }
+                else if (id_cargo === 2) {
+                    console.log("menu 2")
+                }
+                else {
+                    console.log("menu 3")
+                }
+
+            }
+
         })
     }
 
