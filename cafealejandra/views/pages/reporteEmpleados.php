@@ -1,4 +1,14 @@
 <?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+?>
+<?php
 $cosecha = ControladorCosecha::ConsultarCosecha()
 ?>
 
@@ -8,7 +18,7 @@ $cosecha = ControladorCosecha::ConsultarCosecha()
     </h3>
 
     <div class="container mt-3">
-        <select class="form-select" name="usuarios_cosecha" id="usuarios_cosecha" >
+        <select class="form-select" name="usuarios_cosecha" id="usuarios_cosecha">
             <option selected>--Seleccione la cosecha--</option>
             <?php foreach ($cosecha as $key => $value) : ?>
 
@@ -30,11 +40,11 @@ $cosecha = ControladorCosecha::ConsultarCosecha()
                     <th>Documento</th>
                     <th>Teléfono</th>
                     <th>Cargo</th>
-                </tr>   
+                </tr>
             </thead>
             <tbody id="tbody">
 
-     
+
 
 
             </tbody>

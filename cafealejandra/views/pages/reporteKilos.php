@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+?>
 <div class="container">
 
     <h2>
@@ -33,7 +43,7 @@
         </table>
     </div>
 
-   
+
     <div class="table-responsive mt-3">
         <table class="table table-bordered">
             <thead id="headReporte">
@@ -43,8 +53,8 @@
                     <th>Cafe Guayaba</th>
                     <th>Cafe Pergamino</th>
                 </tr> -->
-           
-           
+
+
 
         </table>
     </div>

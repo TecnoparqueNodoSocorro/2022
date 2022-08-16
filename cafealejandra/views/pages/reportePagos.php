@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+?>
 <div class="container">
 
     <h2>
@@ -27,7 +37,7 @@
                 </tr>
             </thead>
             <tbody id="tbodyReporte">
-<!--                 <tr>
+                <!--                 <tr>
                     <td>Tiger Nixon</td>
                     <td>Tiger Nixon</td>
                     <td>Edinburgh</td>

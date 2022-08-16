@@ -1,24 +1,34 @@
+<?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+?>
 <div class="container">
 
     <h2>
         <span class="text-warning mb-3">Registro de Trabajo Diario</span>
     </h2>
 
-<?php
-$cosecha=ControladorCosecha::ConsultarCosechaActiva();
-?>
+    <?php
+    $cosecha = ControladorCosecha::ConsultarCosechaActiva();
+    ?>
     <label class="form-label">
         <h4 class="text-warning">Cosecha</h4>
     </label>
-    <select class="form-select" name="cosecha_trabajo" id="cosecha_trabajo" >
-            <option selected>--Seleccione la cosecha--</option>
-            <?php foreach ($cosecha as $key => $value) : ?>
+    <select class="form-select" name="cosecha_trabajo" id="cosecha_trabajo">
+        <option selected>--Seleccione la cosecha--</option>
+        <?php foreach ($cosecha as $key => $value) : ?>
 
-                <option value="<?php echo $value["id"] ?>">Codigo: <?php echo $value["id"] ?> | Fecha de inicio <?php echo $value["fecha_inicio"] ?></option>
+            <option value="<?php echo $value["id"] ?>">Codigo: <?php echo $value["id"] ?> | Fecha de inicio <?php echo $value["fecha_inicio"] ?></option>
 
-            <?php endforeach ?>
+        <?php endforeach ?>
 
-        </select>
+    </select>
 
 
     <div class="table-responsive mt-3">
@@ -33,7 +43,7 @@ $cosecha=ControladorCosecha::ConsultarCosechaActiva();
                 </tr>
             </thead>
             <tbody id="body">
-             <!--    <tr>
+                <!--    <tr>
                     <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="bi bi-plus-circle"></i>
                         </button></td>
@@ -41,7 +51,7 @@ $cosecha=ControladorCosecha::ConsultarCosechaActiva();
                     <td>Edinburgh</td>
 
                 </tr> -->
-               
+
         </table>
     </div>
 

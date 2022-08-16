@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+?>
+
+
 <div class="container">
 
     <h2>
@@ -81,7 +93,7 @@
 
                             </div>
                         </div>
-                <!--         <div class="col-12">
+                        <!--         <div class="col-12">
                             <label class="form-label">
                                 Total pendiente a pagar
                             </label>

@@ -1,4 +1,13 @@
 <?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+
 $cosecha = ControladorCosecha::ConsultarCosechaActiva()
 ?>
 <div class="container">

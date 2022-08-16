@@ -12,13 +12,9 @@ class ModelUsuario
         $stmt->execute();
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $datos;
-       
-
       /*   if ($datos === false) {
             return "error";
         } elseif ($stmt->rowCount() == 1) {
-         
-
           return $datos;
         } */
     }

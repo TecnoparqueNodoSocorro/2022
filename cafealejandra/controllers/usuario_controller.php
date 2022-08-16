@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
 
 class ControladorUsuario
 {
@@ -60,73 +59,16 @@ class ControladorUsuario
     /*   LOGIN */
     static public function ctrLogin($data)
     {
-
         $tabla = "empleados";
         $consulta = ModelUsuario::mdlLogin($tabla, $data);
-        return $consulta;
-
-
-
-        /* ------------------------------------------------ */
-        /*   if ($consulta == false || $consulta == '') {
-
-            echo '<script> 
-            if (window.history.replaceState){
-                window.fistoy.replaceState(null, null, window.location.href);
-            } </script>';
-            echo '<div class="alert alert-danger" role="alert">
-            Error de credenciales!
-             </div>';
-
-
-           
+        if ($consulta == false || $consulta == '') {
+            return "";
         } else {
-            if ($consulta["num_documento"] == $data["user"]  &&  $consulta["contrasena"] == $data["password"]) {
-                echo ' mostrar menu';
-            }
-        } */
+            $idcargo = $consulta[0]['id_cargo'];
+            session_start();
+            $_SESSION["validar_rol"] =   $idcargo;
 
-
-
-
-        /* $datajson= json_encode($data);
-        $jsonconsulta=json_encode($consulta); */
-        /*   return $jsonconsulta .  $datajson; */
-
-        /*    if ($consulta["num_documento"] == $data->user  &&  $consulta["contrasena"] == $data->password) {
-            $_SESSION["validar_ingreso"] = "ok";
-            $_SESSION["perfil"] = $data->id_cargo;
-
-        
-           // presentacion de menu
-            if ($consulta["id_cargo"] == 1) {
-                //menu de empleado
-                echo ' mostrar menu';
-            } else {
-                if ($consulta["id_cargo"] == 2) {
-                    //MENU DE ENCARGADO
-                    echo ' mostrar menu';
-                } else {
-                    if ($consulta["id_cargo"] == 3) {
-                        //MENU DE ADMINISTRACION
-                        echo ' mostrar menu';
-                    }
-                }
-            }
-
-       
-        } else {
-            return "error";
-        } */
+            return $consulta;
+        }
     }
 }
-
-    /*  
-    static public function ctrFinalizarCosecha($data)
-    {
-        $tabla = "cosechas";
-        $estado = 0;
-        $rta = ModelCosecha::FinalizarCosecha($tabla, $data, $estado);
-
-        return $rta;
-    } */

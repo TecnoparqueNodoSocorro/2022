@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+?>
 <!-- header -->
 <div class="container">
     <h2>
@@ -24,8 +34,8 @@
             </div>
             <div class="col-12 mt-3">
                 <select class="form-select" id="listado_encargados" aria-label="Default select example">
-               <option selected>Seleccione el encargado</option>
-             
+                    <option selected>Seleccione el encargado</option>
+
                 </select>
             </div>
 
@@ -61,12 +71,12 @@
                         <th>Días no Trabajados</th>
                         <th>Total a pagar</th>
                         <th>Total pagado</th>
-                        <th >Saldo a pagar</th>
+                        <th>Saldo a pagar</th>
 
                     </tr>
                 </thead>
                 <tbody id="bodyReporteEncargado">
-                   <!--  <tr>
+                    <!--  <tr>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>

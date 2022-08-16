@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!doctype html>
@@ -82,6 +83,7 @@ session_start();
     <nav class="navbar navbar-light  fixed-top" id="navbarqr" name="navbarqr">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php?page=vitrina">Delicias Bernis</a>
+       
             <div id="msj"></div>
             <div id="alertas"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">

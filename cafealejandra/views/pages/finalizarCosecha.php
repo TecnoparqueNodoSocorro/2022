@@ -1,4 +1,13 @@
 <?php
+if (isset($_SESSION["validar_rol"])) {
+    if ($_SESSION["validar_rol"] != "3") {
+        echo '<script>window.location="index.php?page=error2"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error3"; </script>';
+}
+
 $cosecha = ControladorCosecha::ConsultarCosechaActiva()
 ?>
 
@@ -24,4 +33,3 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
 
     <button type="button" id="btnCerrarCosecha" class="btn btn-danger mt-4">Finalizar Cosecha</button>
 </div>
-
