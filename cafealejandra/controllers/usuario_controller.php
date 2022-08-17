@@ -61,11 +61,11 @@ class ControladorUsuario
     {
         $tabla = "empleados";
         $consulta = ModelUsuario::mdlLogin($tabla, $data);
+        session_start();
         if ($consulta == false || $consulta == '') {
             return "";
         } else {
             $idcargo = $consulta[0]['id_cargo'];
-            session_start();
             $_SESSION["validar_rol"] =  $idcargo;
             return $consulta;
         }
@@ -76,7 +76,14 @@ class ControladorUsuario
 
         if (isset($_SESSION["validar_rol"])) {
             if ($_SESSION["validar_rol"] == 3) {
-                echo ' <li class="nav-item dropdown">
+
+                echo '
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                   <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
+                <ul class="navbar-nav mx-auto" id="menucafe">
+                    
+                
+                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-basket"></i>
                             Gestión de Cosechas
                         </a>
@@ -131,11 +138,16 @@ class ControladorUsuario
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=reporteAvanzadoRecolector">Reporte Avanzado por Recolector</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=reporteEncargado">Reporte Avanzado por Encargado</a></li>
                         </ul>
-                    </li>';
+                    </li>
+                     <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=error"><i class="bi bi-house"></i> Cerrar sesion</a></li>
+                     ';
                 return;
             } else {
                 ($_SESSION["validar_rol"] == 1);
-                echo '<li class="nav-item dropdown">
+                echo '         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
+                <ul class="navbar-nav mx-auto" id="menucafe">
+                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bar-chart"></i>
                             Reportes particulares
                         </a>
@@ -143,12 +155,11 @@ class ControladorUsuario
                             <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=registroActividades">Reporte por Empleado</a></li>
 
                         </ul>
-                    </li>';
+                    </li>
+                     <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=error"><i class="bi bi-house"></i> Cerrar sesion</a></li>
+                    ';
                 return;
             }
-        }else{
-         
-            
         }
     }
 }

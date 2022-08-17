@@ -7,7 +7,6 @@ class LoginAjax
     static public function Login($data)
     {
         $usuario = ControladorUsuario::ctrLogin($data);
-       
         $respuesta = json_encode($usuario);
         echo ($respuesta);
     }

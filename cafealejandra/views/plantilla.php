@@ -1,7 +1,6 @@
 <?php
 require_once "controllers/usuario_controller.php";
 session_start();
-/* $_SESSION["validar_rol"] = "ok"; */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,18 +38,18 @@ session_start();
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
-            <a class="navbar-brand  text-warning fw-bold d-lg-none" href="index.php?page=home">Sistema
+            <a class="navbar-brand  text-warning fw-bold d-lg-none" href="#">Sistema
                 de
                 Gestión <br> Cafe Alejandra</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <!-- administradores -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
-                <ul class="navbar-nav mx-auto" id="menucafe">
+    
+       
+                    
                     <?php
                     $login = new ControladorUsuario();
                     $login->ctrmenu();
                     ?>
-                    <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=error"><i class="bi bi-house"></i> Cerrar sesion</a></li>
+
+              
                 </ul>
             </div>
         </div>
@@ -78,6 +77,7 @@ session_start();
             $_GET["page"] == "registrarDiasEncargados" ||
             $_GET["page"] == "reporteEncargado" ||
             $_GET["page"] == "pagoEncargados" ||
+            $_GET["page"] == "reporteActividadesEncargado" ||
             $_GET["page"] == "home" ||
             $_GET["page"] == "login" ||
             $_GET["page"] == "error" ||
