@@ -18,9 +18,8 @@ class UsuarioEspecificoAjax
 if (isset($_POST['id_empleado'])) {
     $usuarioEsp = new UsuarioEspecificoAjax();
     $data = $_POST['id_empleado'];
-
     $usuarioEsp->usuarioEspcifico($data);
-    return "dfgdfgfd";
+
 } else {
     return ("Error");
 }

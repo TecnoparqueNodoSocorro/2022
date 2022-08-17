@@ -57,4 +57,24 @@ class ModelDiasEncargado
             $stmt = null;
         }
     }
+    
+// CONSULTAR DIAS NO ASISTIDOS POR EL ENCARGADO
+    static public function mdlDias($tabla,
+        $dato
+    ) {
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN empleados ON empleados.id=$tabla.id_empleado WHERE $tabla.id_empleado=:id_emp");
+        $stmt->bindParam(":id_emp", $dato["id_encargado"]);
+
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            return "fallo";
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
 }

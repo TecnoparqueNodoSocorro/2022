@@ -100,28 +100,28 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
     ?>
     <div class="table-responsive mt-3">
         <table class="table table-bordered">
-            <thead>
+            <thead id="tableHeadListarEmpleadosCosecha">
                 <tr>
-                    <th>Nombre</th>
+               <!--      <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Documento</th>
                     <th>Teléfono</th>
                     <th>Cargo</th>
-                </tr>
+                </tr> -->
             </thead>
-            <tbody>
+            <tbody id="tableBodyListarEmpleadosCosecha">
 
-                <?php foreach ($usuarios as $key => $value) : ?>
+               <!--  <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["nombres"] ?></td>
                         <td><?php echo $value["apellidos"] ?></td>
                         <td><?php echo $value["num_documento"] ?></td>
                         <td><?php echo $value["num_telefono"] ?></td>
-                        <td><?php echo($value["id_cargo"]==1 ?'Encargado' : 'Recolector')?></td>
+                        <td><?php echo ($value["id_cargo"] == 1 ? 'Recolector' : 'Encargado') ?></td>
                     </tr>
 
                 <?php endforeach ?>
-
+ -->
 
             </tbody>
         </table>

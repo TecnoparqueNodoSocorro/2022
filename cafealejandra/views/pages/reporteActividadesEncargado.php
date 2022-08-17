@@ -5,7 +5,7 @@
         <span class="text-warning mt-3 mb-3">Reporte de Actividades</span>
     </h2>
     <h4>
-        <span class="nombreEncargado text-warning mt-3 mb-3 text-uppercase"></span>
+        <span  class="nombreEncargado text-warning mt-3 mb-3 text-uppercase"></span>
     </h4>
     <h5 class="text-danger">Vista para encargados unicamente
     </h5>
@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody id="tbodyEncargados">
-            
+
             </tbody>
         </table>
 
@@ -29,4 +29,4 @@
 
 
 </div>
-<script src="views/js/reporteActividadesEncargado.js"></script>
+<!-- <script src="views/js/reporteActividadesEncargado.js"></script> -->

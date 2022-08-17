@@ -24,7 +24,15 @@ class ControladorPagos
             return $dato;
         }
     }
+    
 
+    // CONSULTAR LOS PAGOS AL RECOLECTOR PARA MOSTRAR EN EL REPROTE 
+    static public function ctrConsultarPagos($data)
+    {
+        $tabla = "pagos";
+        $respuesta = ModelPagos::mdlConsultarPagos($tabla, $data);
+        return $respuesta;
+    }
     //REGISTRAR PAGO
     static public function ctrPagoPostRecolector($data)
     {

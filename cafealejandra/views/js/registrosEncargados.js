@@ -1,3 +1,4 @@
+/* ADMINISTRADOR  3 */
 
 //console.log("dias encargados");
 let bodyEncargados = document.getElementById("bodyEncargados")
@@ -64,7 +65,7 @@ if (btnCalcularEncargado) {
             datos = { id_empleado: id, id_cosecha: dias_encargados.value, dia: diasNo.value }
             console.log(datos);
             Swal.fire({
-                title: 'Registrar kilos',
+                title: 'Registrar dia no laborado',
                 text: `¿Seguro que desea registrar que el día: ${diasNo.value}  el empleado ${nombre} no trabajó?`,
                 icon: 'question',
                 showCancelButton: true,

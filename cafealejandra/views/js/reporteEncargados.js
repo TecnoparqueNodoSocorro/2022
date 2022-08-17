@@ -5,6 +5,7 @@ let listado_encargados = document.getElementById("listado_encargados")
 let fecFinal = document.getElementById("fecFinal")
 let fecIni = document.getElementById("fecIni")
 
+
 let bodyReporteEncargado = document.getElementById("bodyReporteEncargado")
 let dias_laborados
 let pago_a_encargado

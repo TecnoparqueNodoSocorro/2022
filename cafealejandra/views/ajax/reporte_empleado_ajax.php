@@ -19,6 +19,4 @@ if (isset($_POST['data'])) {
     $usuarioCosecha = new UsuarioCosechaAjax();
     $dato = $_POST['data'];
     $usuarioCosecha->usuarioCosecha($dato);
-} else {
-    return ("Error");
 }

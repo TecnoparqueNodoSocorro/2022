@@ -12,6 +12,13 @@ class ConsultaPagoAjax
         $respuesta = json_encode($datosrecolector);
         echo ($respuesta);
     }
+    /* Consultar fechas y pagos a encargados por id */
+    static public function ConsultarPagos($data)
+    {
+        $datosrecolector = ControladorPagos::ctrConsultarPagos($data);
+        $respuesta = json_encode($datosrecolector);
+        echo ($respuesta);
+    }
 }
 
 if (isset($_POST['consultaPagos'])) {
@@ -19,6 +26,10 @@ if (isset($_POST['consultaPagos'])) {
     $data = $_POST['consultaPagos'];
 
     $calcularPago->ConsultarPagosR($data);
-} else {
-    return ("Error");
+}
+if (isset($_POST['id_empleado'])) {
+    $calcularPago = new ConsultaPagoAjax();
+    $data = $_POST['id_empleado'];
+
+    $calcularPago->ConsultarPagos($data);
 }

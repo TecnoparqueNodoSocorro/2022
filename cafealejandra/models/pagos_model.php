@@ -39,6 +39,25 @@ class ModelPagos
             $stmt = null;
         }
     }
+
+    /* consultar pagos al recolector para registro individual */
+    static public function mdlConsultarPagos($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla  WHERE id_empleado=:id_emp");
+        $stmt->bindParam(":id_emp",  $data["id_empleado"]);
+
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    
     //REGISTRAR UN PAGO A UN RECOLECTOR
     static public function mdlPostPagosRecolector($tabla, $data)
     {

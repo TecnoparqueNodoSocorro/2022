@@ -19,14 +19,19 @@ class ControladorEncargado
         } else {
             return $respuesta;
         }
-        /*      if($respuesta ==0){
-       
-        } */
+     
     }
     static public function ctrConsultarDiasNoTrabajados($data)
     {
         $tabla = "dias_no_asistidos";
         $respuesta = ModelDiasEncargado::mdlCantidadDias($tabla, $data);
+        return $respuesta;
+    }
+    /* consultar dias no asistidos */
+    static public function ctrConsultarDia($dato)
+    {
+        $tabla = "dias_no_asistidos";
+        $respuesta = ModelDiasEncargado::mdlDias($tabla, $dato);
         return $respuesta;
     }
 }

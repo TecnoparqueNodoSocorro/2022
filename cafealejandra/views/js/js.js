@@ -108,6 +108,60 @@ let phone_user = document.getElementById('phone_user')
 let document_user = document.getElementById('document_user')
 let cargo_user = document.getElementById('cargo_user')
 let btnRegister = document.getElementById('btnRegister')
+
+//LISTAR LOS EMPLEADOS POR COSECHA
+
+
+let tablaHeadEmpleados = document.getElementById('tableHeadListarEmpleadosCosecha')
+let tablaBodyEmpleados = document.getElementById('tableBodyListarEmpleadosCosecha')
+
+if (cosecha_user) {
+    cosecha_user.addEventListener("change", () => {
+
+       // LIMPIAR LA TABLA CADA QUE HACE CHANGE EL SELECT
+        limpiarTablas()
+        const data = { id_cosecha: cosecha_user.value }
+        $.post("views/ajax/reporte_empleado_ajax.php", { data }, function (dato) {
+            let response = JSON.parse(dato)
+            console.log(response);
+            response.forEach(x=>{
+                tablaHeadEmpleados.innerHTML=`
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Documento</th>
+                    <th>Teléfono</th>
+                    <th>Cargo</th>
+                </tr>
+            `
+                tablaBodyEmpleados.innerHTML+=`
+            <tr>
+            <td>${x.nombres}</td>
+            <td>${x.apellidos}</td>
+            <td>${x.num_documento}</td>
+            <td>${x.num_telefono}</td>
+            <td>${(x.id_cargo == 1) ? 'Recolector' : 'Encargado'}</td>
+            </tr>
+
+                `
+
+            })
+        })
+    })
+
+}
+
+function limpiarTablas(){
+    tablaBodyEmpleados.innerHTML =""
+    tablaHeadEmpleados.innerHTML =""
+}
+
+
+
+
+
+
+
 if (btnRegister) {
     btnRegister.addEventListener("click", () => {
         //    capturar el texto del select
@@ -185,7 +239,7 @@ if (btnRegister) {
 
 /* /--------------------------------LISTAR EMPLEADOS TODOS  POR COSECHA/------------------------------------------------------------------- */
 
-let usuarios_cosecha = document.getElementById('usuarios_cosecha')
+/* let usuarios_cosecha = document.getElementById('usuarios_cosecha')
 let tabla = document.getElementById('tbody')
 let valor
 let data = {}
@@ -217,7 +271,7 @@ if (usuarios_cosecha) {
         })
 
     })
-}
+} */
 //-----------------------------------------------REGISTRO DE TRABAJO DIARIO DE RECOLECTOR--------------------/-------------------------------------------------------------------
 
 

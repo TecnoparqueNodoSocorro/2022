@@ -1,9 +1,16 @@
 <?php
 require_once "controllers/usuario_controller.php";
 session_start();
+if(isset($_SESSION["id_empleado"])){
+    $userid = $_SESSION["id_empleado"];}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- campooculto -->
+<input id="userId" name="userId" type="hidden" value="<?php echo $userid; ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -41,17 +48,17 @@ session_start();
             <a class="navbar-brand  text-warning fw-bold d-lg-none" href="#">Sistema
                 de
                 Gestión <br> Cafe Alejandra</a>
-    
-       
-                    
-                    <?php
-                    $login = new ControladorUsuario();
-                    $login->ctrmenu();
-                    ?>
 
-              
-                </ul>
-            </div>
+
+
+            <?php
+            $login = new ControladorUsuario();
+            $login->ctrmenu();
+            ?>
+
+
+            </ul>
+        </div>
         </div>
     </nav>
 
@@ -100,6 +107,8 @@ session_start();
     <script src="views/js/registrosEncargados.js"></script>
     <script src="views/js/reporteEncargados.js"></script>
     <script src="views/js/login.js"></script>
+    <script src="views/js/reporteActividadesEncargado.js"></script>
+
     <footer class="footer">
 
         <p class="text-warning">Café Alejandra </p>

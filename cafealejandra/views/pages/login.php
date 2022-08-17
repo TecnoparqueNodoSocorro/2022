@@ -15,8 +15,6 @@
             <div class="container" style="width:100%;">
                 <form method="post">
                     <div id="logincampos">
-
-
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                             <input type="text" class="form-control" id="user" name="user" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">

@@ -12,12 +12,23 @@ class diasencargadoReporte
         $respuesta = json_encode($usuario);
         echo $respuesta;
     }
+    static public function ConsultarDias($dato)
+    {
+        $usuario = ControladorEncargado::ctrConsultarDia($dato);
+        $respuesta = json_encode($usuario);
+        echo $respuesta;
+    }
 }
 
 if (isset($_POST['datos'])) {
     $diasEncargado = new diasEncargadoReporte();
     $dato = $_POST['datos'];
     $diasEncargado->AgregarDiasEncargado($dato);
-} else {
-    return ("Error");
+}
+
+
+if (isset($_POST['id_encargado'])) {
+    $diasEncargado = new diasEncargadoReporte();
+    $dato = $_POST['id_encargado'];
+    $diasEncargado->ConsultarDias($dato);
 }
