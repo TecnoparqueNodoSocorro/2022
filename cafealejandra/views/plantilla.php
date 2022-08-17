@@ -22,8 +22,8 @@ session_start();
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
-    </script> 
-   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -46,11 +46,16 @@ session_start();
             <!-- administradores -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
                 <ul class="navbar-nav mx-auto" id="menucafe">
+                    <?php
+                    $login = new ControladorUsuario();
+                    $login->ctrmenu();
+                    ?>
                     <li class="nav-item px-lg-4"><a class="nav-link " href="index.php?page=error"><i class="bi bi-house"></i> Cerrar sesion</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
 
 
 

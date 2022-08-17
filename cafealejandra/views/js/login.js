@@ -1,5 +1,3 @@
-
-
 // --------------------------------CREDENCIALES PARA EL LOGIN---------------------------------
 let user = document.getElementById('user')
 let pass = document.getElementById('password')
@@ -12,65 +10,55 @@ if (btn) {
     })
 }
 //--------------------------------------------------------------------------------------------
-/*  console.log(login);
-      Swal.fire({
-          icon: 'success',
-          title: 'Bienvenido',
-      }) */
+
 
 function Login() {
-    /* ----------------------------------------------- */
-   
-
-        login = { user: user.value, password: pass.value }
-        if (user.value.trim() == "" || pass.value.trim() == "") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error...',
-                text: 'Los campos son obligatorios para el ingreso',
-            })
-        } else {
-            $.post("views/ajax/login_ajax.php", { login }, function (dato) {
-                let response = JSON.parse(dato)
-                console.log(response);
+    login = { user: user.value, password: pass.value }
+    if (user.value.trim() == "" || pass.value.trim() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error...',
+            text: 'Los campos son obligatorios para el ingreso',
+        })
+    } else {
+        $.post("views/ajax/login_ajax.php", { login }, function (dato) {
+            let response = JSON.parse(dato)
+            console.log(response);
 
 
 
-                if (response.length === 0) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Credenciales incorrectas',
-                    })
+            if (response.length === 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Credenciales incorrectas',
+                })
+            }
+/*             else {
+
+                let usuario = response[0]
+                let { id, id_cargo } = usuario
+               
+                if (id_cargo === "1") {
+                    console.log("menu 1")
+                    menuempleado();
+
+                }
+                else if (id_cargo === "3") {
+                    console.log("menu 3")
+                    menuadmin();
                 }
                 else {
-
-                    let usuario = response[0]
-                    let { id, id_cargo } = usuario
-                    /*    console.log(id_cargo); */
-                    if (id_cargo === "1") {
-                        console.log("menu 1")
-                        menuempleado();
-
-                    }
-                    else if (id_cargo === "3") {
-                        console.log("menu 3")
-                        menuadmin();
-                    }
-                    else {
-                        console.log("menu 2");
-
-                    }
+                    console.log("menu 2");
 
                 }
 
-            })
-        }
+            } */
+
+        })
     }
-    
+}
 
-
-    /* ---------------------------------------------- */
 
 
 

@@ -142,7 +142,7 @@ h1,
 h2,
 .h2 {
   font-size: calc(1.325rem + 0.9vw);
-  color: #5b3924;
+/*   color: #5b3924; */
 }
 
 @media (min-width: 1200px) {
@@ -171,7 +171,7 @@ h3,
 h4,
 .h4 {
   font-size: calc(1.275rem + 0.3vw);
-  color: #5b3924;
+/*   color: #5b3924; */
 
 }
 
@@ -180,7 +180,7 @@ h4,
   h4,
   .h4 {
     font-size: 1.5rem;
-    color: #5b3924;
+/*     color: #5b3924; */
 
   }
 }
@@ -237,7 +237,7 @@ p {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background-color: #2f170fe6;
+ /*  background-color: #2f170fe6; */
 }
 
 .navbar-brand {
