@@ -4,8 +4,9 @@
 //require_once "controllers/caprinocultor_controller.php";
 
 session_start();
-if(isset( $_SESSION["id"])){
-$id = $_SESSION["id"];}
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
 
 ?>
 
@@ -38,12 +39,13 @@ $id = $_SESSION["id"];}
 
 <body>
 
-<!-- ID DEL EMPLEADO EN CAMPO OCULTO -->
+    <!-- ID DEL EMPLEADO EN CAMPO OCULTO -->
     <input type="hidden" name="" id="id_userOculto" value="<?php echo $id ?>">
 
 
     <nav class="navbar navbar-light">
-        <div class="container-fluid">
+        <!--  -->
+        <!-- <div class="container-fluid">
             <a class="navbar-brand text-white" href="index.php?page=home">Gestión Caprina</a>
             <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <div class="boton">
@@ -62,28 +64,31 @@ $id = $_SESSION["id"];}
 
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <!-- <li class="nav-item">
+
+
+
+                        <li class="nav-item">
                             <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=home"> <i class="bi bi-house"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=registroCaprinocultor"> <i class="bi bi-person"></i>
+                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroCaprinocultor"> <i class="bi bi-person"></i>
                                 Registrar Caprinocultor</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-uppercase " href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-list-stars"></i> Reportes</a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="nav-link sub-nav" href="index.php?page=reporteCaprinocultores">
-                                    Reporte de caprinicultores </a>
+                                <a class="nav-link sub-nav" href="index.php?page=a_reporteCaprinocultores">
+                                    Reporte de caprinocultores </a>
 
-                                <a class="nav-link sub-nav" href="index.php?page=reporteControles">
+                                <a class="nav-link sub-nav" href="index.php?page=a_reporteControles">
                                     Reporte de controles registrado</a>
-                                <a class="nav-link sub-nav" href="index.php?page=reporteHallazgos">
+                                <a class="nav-link sub-nav" href="index.php?page=a_reporteTratamientos">
                                     Reporte de tratamientos</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=estadoCaprino"> <i class="bi bi-activity"></i>
+                            <a class=" nav-link text-uppercase" href="index.php?page=a_estadoCaprino"> <i class="bi bi-activity"></i>
                                 Estado General Caprino</a>
                         </li>
 
@@ -91,35 +96,37 @@ $id = $_SESSION["id"];}
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
                                 Registros</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class=" nav-link  sub-nav" href="index.php?page=registroCaprinos"> Registro de
+                                <a class=" nav-link  sub-nav" href="index.php?page=c_registroCaprinos"> Registro de
                                     Caprinos</a>
-                                <a class=" nav-link sub-nav" href="index.php?page=registroControlIndividual">
+                                <a class=" nav-link sub-nav" href="index.php?page=c_registroControlIndividual">
                                     Registro de control Individual </a>
-                                <a class=" nav-link  sub-nav" href="index.php?page=registroTratamientos"> Registro de
+                                <a class=" nav-link  sub-nav" href="index.php?page=c_registroTratamientos"> Registro de
                                     Tratamientos</a>
 
-                                <a class=" nav-link  sub-nav" href="index.php?page=registroSalidas"> Registro de
+                                <a class=" nav-link  sub-nav" href="index.php?page=c_registroSalidas"> Registro de
                                     Salidas</a>
-                                <a class=" nav-link sub-nav" href="index.php?page=registroProduccion">
+                                <a class=" nav-link sub-nav" href="index.php?page=c_registroProduccion">
                                     Registrar Producción </a>
                             </div>
                         </li>
 
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=login"><i class="bi bi-box-arrow-right"></i>   
+                            <a class=" nav-link text-uppercase" id="btnCerrarSesion" href="#"><i class="bi bi-box-arrow-right"></i>
                                 cerrar sesión</a>
                         </li>
- -->
 
 
-                        <?php
-                        $menu = new ControladorCaprinocultor();
-                        $menu->ctrMenu();
-                        ?>
+
+
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>  -->
+        <!--  -->
+        <?php
+        $menu = new ControladorCaprinocultor();
+        $menu->ctrMenu();
+        ?>
     </nav>
 
 
