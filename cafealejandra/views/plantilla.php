@@ -38,7 +38,7 @@ if(isset($_SESSION["id_empleado"])){
             <span class="site-heading-upper text-warning mb-3">CAFÉ ALEJANDRA</span>
         </h1>
         <?php
-        var_dump($_SESSION);
+      /*   var_dump($_SESSION); */
         ?>
 
     </header>
