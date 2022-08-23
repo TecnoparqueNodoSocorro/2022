@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-08-2022 a las 23:22:28
+-- Tiempo de generación: 24-08-2022 a las 00:00:18
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -52,7 +52,7 @@ INSERT INTO `pg_categorias` (`id`, `sesion`, `categoria`, `item`) VALUES
 (11, 'menu', 'servicios', 'hoteles'),
 (12, 'menu', 'servicios', 'concierge'),
 (13, 'menu', 'servicios', 'hoteles'),
-(14, 'menu', 'servicios', 'toures'),
+(14, 'menu', 'servicios', 'Oasis'),
 (15, 'menu', 'servicios', 'autos'),
 (16, 'menu', 'servicios', 'toures'),
 (17, 'menu', 'servicios', 'autos'),
@@ -70,7 +70,15 @@ INSERT INTO `pg_categorias` (`id`, `sesion`, `categoria`, `item`) VALUES
 (29, 'menu2', 'planesyservicios', 'lunademiel'),
 (30, 'menu2', 'planesyservicios', 'tour_de_entretenimiento'),
 (31, 'menu2', 'planesyservicios', 'bodas'),
-(32, 'menu2', 'planesyservicios', 'turismo');
+(32, 'menu2', 'planesyservicios', 'turismo'),
+(33, 'menu3', 'enterate', 'propuestas_matrimonio'),
+(34, 'menu3', 'enterate', 'cheffypasteleros'),
+(35, 'menu3', 'enterate', 'propuestas_matrimonio'),
+(36, 'menu3', 'enterate', 'cheffypasteleros'),
+(37, 'menu3', 'enterate', 'hotelesdeensueno'),
+(38, 'menu3', 'enterate', 'gastronomiabodas'),
+(39, 'manu3', 'enterate', 'disenadores'),
+(40, 'menu3', 'enterate', 'cruceros');
 
 -- --------------------------------------------------------
 
@@ -132,7 +140,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `pg_categorias`
 --
 ALTER TABLE `pg_categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`

@@ -3,7 +3,8 @@ let user = document.getElementById('username')
 let pass = document.getElementById('pass')
 let btn = document.getElementById('btnIniciar')
 
-let id_userOculto=document.getElementById('id_userOculto').value
+let id_userOculto=document.getElementById('id_userOculto')
+
 let login = {}
 if (btn) {
     btn.addEventListener("click", () => {
@@ -19,7 +20,7 @@ if (btn) {
 
             $.post("views/ajax/login_ajax.php", { login }, function (dato) {
                 let response = JSON.parse(dato)
-                console.log(response);
+                //console.log(response);
                 if(response==false){
                     Swal.fire({
                         icon: 'error',
@@ -38,7 +39,10 @@ if (btn) {
 }
 
 //-------------------CERRAR SESIÓN------------------------------
-document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+let btnCerrarSesion =document.getElementById("btnCerrarSesion")
+if(btnCerrarSesion){
+
+btnCerrarSesion.addEventListener("click", () => {
     Swal.fire({
         title: 'Cerrar Sesión',
         text: `¿Seguro que desea cerrar sesión?`,
@@ -63,11 +67,13 @@ document.getElementById("btnCerrarSesion").addEventListener("click", () => {
             $.post("controllers/cerrar_sesion.php", { login }, function (dato) {
                 console.log(dato);
             })
+            location.href = 'index.php?page=login'
             Swal.fire({
                 icon: 'success',
-                title: `Sesión cerrada`,
+                title: `${dato}`,
                 confirmButtonColor: '#f69100',
                 showConfirmButton: true,
+                timer:1200,
                 allowOutsideClick: () => {
                     const popup = Swal.getPopup()
                     popup.classList.remove('swal2-show')
@@ -80,6 +86,10 @@ document.getElementById("btnCerrarSesion").addEventListener("click", () => {
                     return false
                 }
             }).then((result) => {
+                setTimeout(function () {
+                    location.href = 'index.php?page=login'
+
+                }, 1200);
                 if (result.isConfirmed) {
 
                     location.href = 'index.php?page=login'
@@ -89,3 +99,6 @@ document.getElementById("btnCerrarSesion").addEventListener("click", () => {
         }
     })
 })
+}
+
+

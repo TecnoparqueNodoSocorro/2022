@@ -37,18 +37,18 @@ static public function ctrConsultarCantidadDeCaprinosPorRaza()
   return $consulta;
 }
 //------------------CONSULTAR CANTIDAD DE CAPRINOS ACTIVOS----------------------
-  static public function ctrConsultarCaprinoActivo()
+  static public function ctrConsultarCaprinoActivo($id)
   {
     $tabla = "registro_caprino";
-    $consulta = ModelCaprino::mdlConsultarCaprinoActivo($tabla);
+    $consulta = ModelCaprino::mdlConsultarCaprinoActivo($tabla, $id);
     return $consulta;
   }
 
   //------------------CONSULTAR CANTIDAD DE CAPRINOS INACTIVOS-----------------------
-  static public function ctrConsultarCaprinoInactivo()
+  static public function ctrConsultarCaprinoInactivo($id)
   {
     $tabla = "registro_caprino";
-    $consulta = ModelCaprino::mdlConsultarCaprinoInactivo($tabla);
+    $consulta = ModelCaprino::mdlConsultarCaprinoInactivo($tabla, $id);
     return $consulta;
   }
 
@@ -89,5 +89,13 @@ static public function ctrConsultarCantidadDeCaprinosPorRaza()
     $tabla = "caprinos_en_tratamiento";
     $crearDetalleFactura = ModelCaprino::mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos);
     return $crearDetalleFactura;
+  }
+
+  //-----------------GET CAPRINO POR USUARIO--------------------
+  static public function ctrGetCaprinoUsuario($data)
+  {
+    $tabla = "registro_caprino";
+    $consulta = ModelCaprino::mdlCaprinosPorUsuario($tabla, $data);
+    return $consulta;
   }
 }

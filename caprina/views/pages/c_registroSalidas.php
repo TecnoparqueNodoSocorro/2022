@@ -1,3 +1,14 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+ 
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+if(isset( $_SESSION["id"])){
+$id = $_SESSION["id"];}
+
+?>
+
 <div class="container">
     <h4>Registro de Salidas</h4>
 
@@ -5,8 +16,7 @@
         <!-- formulario para buscar caprino para darle de baja -->
         <div class="row justify-content-md-center mt-2">
             <?php
-            $caprino = ControladorCaprino::ctrConsultarCaprinoActivo();
-
+            $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id);
             ?>
             <div class="col-12 col-md-6">
                 <label class="form-label">
@@ -56,7 +66,7 @@
     <!-- listado de caprinos que se dieron de baja -->
     <h5 class="mt-3">Listado de Salidas</h5>
     <?php
-    $caprinoInactivo = ControladorCaprino::ctrConsultarCaprinoInactivo()
+    $caprinoInactivo = ControladorCaprino::ctrConsultarCaprinoInactivo($id)
 
     ?>
     <div class="table-responsive mt-3 mb-5">

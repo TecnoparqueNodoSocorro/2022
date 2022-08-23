@@ -49,19 +49,31 @@ class CaprinoAjax
         $RtaDetallefact = ControladorCaprino::ctrPostCaprinosTratamiento($idtratamiento, $caprinos);
         echo json_encode($RtaDetallefact);
     }
+
+    
+    public function GetCaprinoUsuario($data)
+    {
+        $respuesta = ControladorCaprino::ctrGetCaprinoUsuario($data);
+        echo json_encode($respuesta);
+    }
 }
 
+//POST CARPINO
 if (isset($_POST['nuevoCaprino'])) {
     $postCaprino = new CaprinoAjax();
     $data = $_POST['nuevoCaprino'];
 
     $postCaprino->PostCaprino($data);
 }
+
+//TRAER CAPRINOS
 if (isset($_POST['controlIndividual'])) {
     $data = $_POST['controlIndividual'];
     $ajax = new CaprinoAjax();
     $ajax->GetCaprino($data);
 }
+
+//TRAER CAPRINO INDIVIDUAL POR EL CODIGO
 if (isset($_POST['codigo'])) {
     $data = $_POST['codigo'];
     $codigoC = new CaprinoAjax();
@@ -95,3 +107,10 @@ if (isset($_POST['idtratatamiento']) && isset($_POST['caprinos'])) {
   
 
 /* ------------------------------------------------ */
+
+//TRAER CAPRINOS POR USUARIO
+if (isset($_POST['id_usuario'])) {
+    $data = $_POST['id_usuario'];
+    $codigoC = new CaprinoAjax();
+    $codigoC->GetCaprinoUsuario($data);
+}

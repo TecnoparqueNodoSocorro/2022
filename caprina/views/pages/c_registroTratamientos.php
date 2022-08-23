@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+ 
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+if(isset( $_SESSION["id"])){
+$id = $_SESSION["id"];}
+
+?>
 <div class="container">
 
     <h4>Registro de tratamientos</h4>
@@ -13,7 +23,7 @@
         <div class="row justify-content-md-center mt-2">
             <div class="col-xs-12 col-sm-12 col-md-6  ">
                 <?php
-                $caprino = ControladorCaprino::ctrConsultarCaprinoActivo()
+                $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id)
                 ?>
                 <label class="form-label">
                     Seleccione el código del caprino

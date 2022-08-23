@@ -1,8 +1,19 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+ 
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
+
+?>
 <div class="container">
 
     <h4>Control Individual</h4>
     <?php
-    $caprinos = ControladorCaprino::ctrConsultarCaprinoActivo()
+    $caprinos = ControladorCaprino::ctrConsultarCaprinoActivo($id)
     ?>
     <!-- formulario para agregar un control individual -->
     <div class="container" style="background-color:#f8deb9; border-radius:5px;">

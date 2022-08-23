@@ -479,3 +479,28 @@ a {
 #tablas{
    background-color: #ffffff;
 }
+#proveedor{
+   padding: 10px;
+/*    margin:10px; */
+   text-align: center;
+
+
+}
+.prov_item {
+   padding: 10px;
+  /*  margin:5px; */
+}
+#imagen_prov{
+   padding: 15px;
+
+}
+#imgproveedor{
+
+   height: 150px;
+}
+#imgproveedorlista{
+    height: 50px;
+}
+.footer_socials{
+   padding: 50px;
+}

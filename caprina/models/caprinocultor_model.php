@@ -11,7 +11,7 @@ class ModelCaprinocultor
     // -------------MODELO LOGIN--------
     static public function login($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nombres=:user AND num_documento=:pass");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE num_documento=:user AND clave=:pass");
         $stmt->bindParam(":user",  $data["user"], PDO::PARAM_STR);
         $stmt->bindParam(":pass",  $data["password"], PDO::PARAM_STR);
         $stmt->execute();
@@ -22,21 +22,24 @@ class ModelCaprinocultor
     // ----------REGISTRAR CAPRINOCULTOR-----------
     static public function registroCaprinocultor($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (nombres, apellidos, num_documento, num_telefono,  objetivo_produccion, direccion, id_cargo) VALUES( :nombres, :apellidos, :num_documento, :num_telefono, :objetivo_produccion, :direccion,  :id_cargo) ");
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (nombres, apellidos, num_documento, num_telefono,  objetivo_produccion, direccion, id_cargo, clave) 
+        VALUES( :nombres, :apellidos, :num_documento, :num_telefono, :objetivo_produccion, :direccion,  :id_cargo, :pass) ");
         $stmt->bindParam(":nombres", $data["nombres"], PDO::PARAM_STR);
         $stmt->bindParam(":apellidos",  $data["apellidos"], PDO::PARAM_STR);
-        $stmt->bindParam(":num_documento",  $data["documento"], PDO::PARAM_STR);
-        $stmt->bindParam(":num_telefono",  $data["telefono"], PDO::PARAM_STR);
-        $stmt->bindParam(":direccion",  $data["direccion"], PDO::PARAM_STR);
+        $stmt->bindParam(":num_documento",  $data["documento"]);
+        $stmt->bindParam(":num_telefono",  $data["telefono"]);
+        $stmt->bindParam(":direccion",  $data["direccion"]);
         $stmt->bindParam(":objetivo_produccion",  $data["objetivo_produccion"], PDO::PARAM_STR);
-        $stmt->bindParam(":id_cargo", $data["cargo"], PDO::PARAM_STR);
+        $stmt->bindParam(":id_cargo", $data["cargo"]);
+        $stmt->bindParam(":pass", $data["password"]);
+
 
         if ($stmt->execute()) {
+            return "ok";
             $stmt->closeCursor();
             $stmt = null;
-            return "ok";
         } else {
-            /*         echo "\nPDO::errorInfo():\n". $data. "modelo; */
+            echo "\nPDO::errorInfo():\n";
             print_r($stmt->errorInfo());
             $stmt->closeCursor();
             $stmt = null;

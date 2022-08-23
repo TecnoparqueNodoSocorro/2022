@@ -3,20 +3,20 @@
     <div class="home_bottomS">
 
         <div class="container-fluid" id="tablas">
-            <br>
 
 
-            <hr>
+
+
             <div class="container">
-                <h4>Gestion de presentacion de articulos de la aplicacion </h4>
-            </div>
-            <hr>
-            <div class="row">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_pagina">
-                    Adicionar
-                </button>
-            </div>
+                <!-- aqui imagen representativa  -->
+                <h4 style="padding: 0;">Gestion de presentacion de articulos de la aplicacion </h4>
 
+                <div class="row">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_pagina">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
 
             <div class="table-responsive" id="proveedores">
                 <table class="table caption-top">
@@ -219,7 +219,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo Articulo a la presentacion de la pagina</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">Agregar nuevo Articulo a la presentacion de la pagina</h5>
 
             </div>
             <div class="modal-body">
@@ -273,8 +273,8 @@
                                 <input type="file" class="form_input " name="product_img" id="product_img1" />
                             </div>
                             <div class="col-12  col-md-6">
-                               <p>Recomendaciones de la imagen:</p>
-                            
+                                <p>Recomendaciones de la imagen:</p>
+
                             </div>
 
                             <div class="col-12">

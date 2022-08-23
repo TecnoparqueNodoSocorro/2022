@@ -1,3 +1,12 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+ 
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+if(isset( $_SESSION["id"])){
+$id = $_SESSION["id"];}
+?>
 <div class="container">
 
     <h4 class="mt-2">Registrar Producción</h4>
@@ -9,7 +18,7 @@
                     <h6>Código</h6>
                 </label>
                 <?php
-                $caprino = ControladorCaprino::ctrConsultarCaprinoActivo()
+                $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id)
                 ?>
                 <select class="form-select mb-2" name="cosecha_user" id="caprino_produccion_select" aria-label="Default select example">
                     <option selected value="0">--Seleccione el código del caprino--</option>

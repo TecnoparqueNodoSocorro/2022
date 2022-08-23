@@ -115,10 +115,12 @@ class ModelReportes
     static public function mdlGenerarGrafico($tabla, $data)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT fecha_registro, SUM(cantidad_leche) AS 'cantidad' FROM $tabla WHERE fecha_registro BETWEEN :inicio AND :fin GROUP BY fecha_registro");
+        $stmt = conexion::conectar()->prepare("SELECT fecha_registro, SUM(cantidad_leche) AS 'cantidad' FROM $tabla WHERE fecha_registro BETWEEN :inicio AND :fin AND id_usuario= :id GROUP BY fecha_registro");
 
         $stmt->bindParam(":inicio", $data["fecha_inicio"]);
         $stmt->bindParam(":fin", $data["fecha_fin"]);
+        $stmt->bindParam(":id", $data["id_usuario"]);
+
 
         if ($stmt->execute()) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

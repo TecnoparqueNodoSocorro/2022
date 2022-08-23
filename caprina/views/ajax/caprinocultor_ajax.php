@@ -13,9 +13,11 @@ class CaprinocultorAjax
     {
 
         $datoscaprinocultor = ControladorCaprinocultor::ctrPostCaprinocultor($data);
-        $respuesta = array($datoscaprinocultor);
-        echo json_encode($respuesta);
+      /*   $respuesta = ($datoscaprinocultor);
+        echo json_encode($respuesta); */
+        echo $datoscaprinocultor;
     }
+
 }
 
 if (isset($_POST['nuevoCaprinocultor'])) {

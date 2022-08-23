@@ -7,18 +7,17 @@
 
 
             <div class="container">
-                <h4>Gestion de Proveedores</h4>
+                <!-- aqui imagen representativa  -->
+                <h4 style="padding: 0px;">Gestion de Proveedores BaricharApp</h4>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_proveedores">
+                        Agregar nuevo proveedor
+                    </button>
+                </div>
             </div>
-            <hr>
-            <div class="row">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_proveedores">
-                    Adicionar
-                </button>
-            </div>
 
 
-
-            <div class="table-responsive" id="proveedores">
+            <div class="table-responsive  table-bordered table-sm" id="proveedores">
                 <table class="table caption-top">
 
                     <thead>
@@ -47,7 +46,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -69,7 +68,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -91,7 +90,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -113,7 +112,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -135,7 +134,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -157,7 +156,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -179,7 +178,7 @@
                                 </div>
                             </td>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -205,7 +204,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo proveedor</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">Agregar nuevo proveedor</h5>
 
             </div>
             <div class="modal-body">
@@ -265,8 +264,7 @@
                             </div>
                         </div>
 
-
-                        <div class="col">
+                        <div>
                             <button type="button" class="btn btn-success"> Guardar</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                         </div>

@@ -1,5 +1,7 @@
 
 //---------------------------------- REGISTRO  DE CAPRINOS-------------------------------------------------------------------
+let id_usuario = id_userOculto.value;
+
 
 let nuevoCaprino = {}
 let btnRegistrarCaprino = document.getElementById('btnRegistrarCaprino')
@@ -9,10 +11,57 @@ if (btnRegistrarCaprino) {
     })
 }
 
+//AL DARLE CLICK AL BOTON REGISTRO DE CAPRINOS SE LISTAN LOS CAPRINOS QUE ESTEN REGISTRADOS POR EL USUARIO LOGGEADO
+/* let ListarCaprinosPorUsuario = document.getElementById('ListarCaprinosPorUsuario')
+if (ListarCaprinosPorUsuario) {
+    ListarCaprinosPorUsuario */
+document.addEventListener("DOMContentLoaded", () => {
+
+    const id_usuario = { id_usuario: id_userOculto.value }
+    $.post("views/ajax/caprino_ajax.php", { id_usuario }, function (dato) {
+        let response = JSON.parse(dato)
+        // console.log(response);
+        thead = document.getElementById("theadListarCaprinosPorUsuario")
+        tbody = document.getElementById("tbodyListarCaprinosPorUsuario")
+
+        response.forEach(x => {
+            if (thead) {
+
+                thead.innerHTML = `
+                <tr>
+                <th>Código</th>
+                <th>Raza</th>
+                <th>Origen</th>
+                <th>Fecha Nacimiento</th>
+       
+                </tr>
+                `
+            }
+            if (tbody) {
+                tbody.innerHTML += `
+                <tr>
+                <td>${x.codigo}</td>
+                <td>${x.raza}</td>
+                <td>${x.origen}</td>
+                <td>${x.fecha_nacimiento}</td>
+        
+            </tr>
+                `
+            }
+        });
+
+    })
+})
+
+
+
+
+
 function RegistrarCaprinos() {
 
-    //id usuario quemado
-    let id_usuario = 1;
+
+
+
 
 
     let raza = document.getElementById('raza')
@@ -20,6 +69,7 @@ function RegistrarCaprinos() {
     let fecha_nac = document.getElementById('fecha_nac')
     let codigo = document.getElementById('codigo')
     if (codigo.value == "" || raza.value == "Seleccione la raza" || origen.value == "Seleccione el origen" || fecha_nac.value.trim() == "") {
+
         DatosIncompletos()
     } else {
         nuevoCaprino = { codigo: codigo.value, raza: raza.options[raza.selectedIndex].text, origen: origen.options[origen.selectedIndex].text, fecha_nacimiento: fecha_nac.value, usuario: id_usuario }

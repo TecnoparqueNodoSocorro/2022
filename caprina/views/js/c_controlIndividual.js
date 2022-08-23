@@ -54,7 +54,7 @@ function LimpiarTabla() {
 let peso_kilos = document.getElementById('peso_kilos')
 
 //id usuario quemado
-let id_users = 1;
+let id_users = id_userOculto.value;
 
 let condicion = document.getElementById('condicion')
 let textER = document.getElementById('textER')

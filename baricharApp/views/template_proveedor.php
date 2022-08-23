@@ -65,13 +65,7 @@
             <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
             <div class="footer_names">BaricharApp</div>
 
-            <nav class="footer_menu">
-                <ul>
-                    <!--              <li><a href="index.html" class="selected">HOME</a></li> -->
-
-                    <li><a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> </li>
-                </ul>
-            </nav>
+      
 
         </div>
 

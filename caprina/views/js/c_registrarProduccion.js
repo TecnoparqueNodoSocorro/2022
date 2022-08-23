@@ -6,7 +6,7 @@ let btnAdicionar = document.getElementById('btnAdicionar')
 let produccion = {}
 if (btnAdicionar) {
     btnAdicionar.addEventListener("click", () => {
-        if (codigo_caprino.value === 0 || cantidad_leche.value.trim() == "" || fecha_prod.value.trim() == "") {
+        if (codigo_caprino.value == "0" || cantidad_leche.value.trim() == "" || fecha_prod.value.trim() == "") {
             DatosIncompletos()
         } else {
             produccion = { codigo_caprino: codigo_caprino.value, cantidad: cantidad_leche.value, fecha: fecha_prod.value, usuario: id_usuario }
@@ -59,10 +59,11 @@ let cantidades = []
 
 if (btnGenerarGrafica) {
     btnGenerarGrafica.addEventListener("click", () => {
+     
         if (fecha1_gra.value.trim() == "" || fecha2_gra.value.trim() == "") {
             DatosIncompletos()
         } else {
-            grafico = { fecha_inicio: fecha1_gra.value, fecha_fin: fecha2_gra.value }
+            grafico = { id_usuario :id_userOculto.value,  fecha_inicio: fecha1_gra.value, fecha_fin: fecha2_gra.value }
 
             $.post("views/ajax/reportes_ajax.php", { grafico }, function (dato) {
                 res = JSON.parse(dato)

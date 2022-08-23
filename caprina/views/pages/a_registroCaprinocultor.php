@@ -1,5 +1,12 @@
 <?php
-
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["id_cargo"] != "1") {
+        echo '<script>window.location="index.php?page=error_credenciales"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
 ?>
 
 <div class="container">
@@ -39,13 +46,28 @@
 
             </div>
             <div class="row justify-content-md-center">
+                <div class="col col-xs-12 col-md-12 col-lg-12">
+                    <label class="form-label">
+                        <h6>Objetivo de producción</h6>
+                    </label>
+                    <select class="form-select" name="objetivoProduccion" id="objetivoProduccion" aria-label="Default select example">
+                        <option selected value="0">--Seleccione el objetivo--</option>
+                        <option value="1">Carne</option>
+                        <option value="2">Leche</option>
+                        <option value="2">Doble Propósito</option>
+
+                    </select>
+                </div>
+
+            </div>
+            <div class="row justify-content-md-center">
 
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
                         <h6>Cargo</h6>
                     </label>
                     <select class="form-select" name="objetivoProduccion" id="cargo" aria-label="Default select example">
-                        <option selected>--Seleccione el cargo--</option>
+                        <option selected value="0">--Seleccione el cargo--</option>
                         <option value="1">Administrador</option>
                         <option value="2">Caprinocultor</option>
 
@@ -55,33 +77,33 @@
                     <label class="form-label">
                         <h6>direccion</h6>
                     </label>
-                    <input type="number" name="document_user" id="direccion" class="form-control" value="" required>
+                    <input type="text" name="" id="direccion" class="form-control" value="" required>
                 </div>
 
             </div>
+
             <div class="row justify-content-md-center">
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
-                        <h6>Objetivo de producción</h6>
+                        <h6>Clave (4 numero)</h6>
                     </label>
-                    <select class="form-select" name="objetivoProduccion" id="objetivoProduccion" aria-label="Default select example">
-                        <option selected>--Seleccione el objetivo--</option>
-                        <option value="1">Carne</option>
-                        <option value="2">Leche</option>
-                        <option value="2">Doble Propósito</option>
-
-                    </select>
+                    <input type="number" name="clave" id="clave" class="form-control" value="" required>
                 </div>
-
+                <div class="col col-xs-6 col-md-6 col-lg-6">
+                    <label class="form-label">
+                        <h6>Confirmar clave</h6>
+                    </label>
+                    <input type="number" name="claveConfir" id="claveConfir" class="form-control" value="" required>
+                </div>
             </div>
             <button class="btn btn-warning mt-2 mb-4" id="btnRegistrar" type="button">Registrar Caprinocultor</button>
 
         </div>
     </form>
     <!-- listado de caprinocultores -->
-   <!--  <?php
-    $usuarios = ControladorCaprinocultor::ctrConsultarCaprinocultores();
-    ?>
+    <!--  <?php
+            $usuarios = ControladorCaprinocultor::ctrConsultarCaprinocultores();
+            ?>
 
     <h5 class="mt-3">Listado de Caprinocultores</h5>
     <div class="table-responsive mt-3 mb-5">

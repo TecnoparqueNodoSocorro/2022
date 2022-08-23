@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["id_cargo"] != "1") {
+        echo '<script>window.location="index.php?page=error_credenciales"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+?>
 <div class="container">
     <h4 class="mt-3"> Reporte de Caprinocultores</h4>
     <div class="table-responsive mt-3 mb-5">
@@ -32,7 +42,7 @@
                         <td><?php echo $value["num_telefono"] ?></td>
                         <td><?php echo $value["direccion"] ?></td>
                         <td><?php echo $value["objetivo_produccion"] ?></td>
-                        <td><?php echo $value["id_cargo"] ?></td>
+                        <td><?php echo $value["id_cargo"]==1 ? 'Administrador': 'Caprinocultor' ?></td>
 
                     </tr>
 

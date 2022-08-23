@@ -18,7 +18,7 @@
                 <form method="post">
                     <div class="input-group">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
-                        <input type="text" class="form-control" id="username" name="user" placeholder="Usuario" aria-label="Username"
+                        <input type="text" class="form-control" id="username" name="user" placeholder="Número de documento" aria-label="Username"
                             aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mt-3">

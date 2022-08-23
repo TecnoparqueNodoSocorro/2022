@@ -1,3 +1,11 @@
+
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+ 
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+?>
 <div class="container">
     <h4>Registro de Caprinos</h4>
     <div class="container" style="background-color:#f8deb9; border-radius:5px;">
@@ -45,7 +53,7 @@
                 <label class="form-label">
                     <h6>Código</h6>
                 </label>
-                <input type="number" name="fecha_nac" id="codigo" class="form-control" value="" required>
+                <input type="text" name="fecha_nac" id="codigo" class="form-control" value="" required>
             </div>
         </div>
 
@@ -57,17 +65,16 @@
 <!--     <h5 class="mt-2">Listado de Caprinos</h5> -->
 
 
-    <?php
+  <!--   <?php
     $caprino = ControladorCaprino::ctrConsultarCaprino();
-    ?>
-
+    ?> -->
 
     <!-- listado de caprinos -->
-<!-- 
+
     <div class="table-responsive mt-3 mb-5">
         <table class="table table-warning table-bordered">
-            <thead>
-                <tr>
+            <thead id="theadListarCaprinosPorUsuario">
+            <!--     <tr>
                     <th>Código</th>
                     <th>Estado</th>
                     <th>Raza</th>
@@ -77,11 +84,11 @@
                     <th>Fecha de Salida</th>
 
 
-                </tr>
+                </tr> -->
             </thead>
-            <tbody>
+            <tbody id="tbodyListarCaprinosPorUsuario">
 
-                <?php foreach ($caprino as $key => $value) : ?>
+               <!--  <?php foreach ($caprino as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["codigo"]  ?></td>
                         <td><?php echo ($value["estado"]==1 ?'Activo':'Inactivo') ?></td>
@@ -93,11 +100,11 @@
 
                     </tr>
 
-                <?php endforeach ?>
+                <?php endforeach ?> -->
 
 
 
             </tbody>
         </table>
-    </div> -->
+    </div>
 </div>

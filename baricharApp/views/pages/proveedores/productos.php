@@ -3,55 +3,9 @@
     <div class="home_bottomS">
 
         <div class="container-fluid" id="tablas">
-            <br>
-
-            <div class="container">
-                <div class="row">PROVEEDOR</div>
-                <hr>
-                <div class="row">
-                    <div class="col-12 col-md-2">
-                        <div class="container">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus alias, tempore,
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-10">
-                        <div class="row">
+            <h4>Gestion de productos y servicios</h4>
 
 
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Empresa:</strong> rosas y flores s.a</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Nit:</strong>1234566</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Rep legal:</strong> xx</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Telefono:</strong> xx</label>
-                            </div>
-
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Direccion:</strong> xx</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Email:</strong> xx</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Direccion:</strong> xx</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Descripcion:</strong> xx</label>
-                            </div>
-                            <div class="col-6  col-md-4">
-                                <label> <strong>Licencia de uso hasta:</strong> 05-12-2022</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
 
             <!--     <button type="button" class="btn btn-success"><i class="bi bi-plus-circle"> Adicionar</i></button> -->
             <div class="row">
@@ -76,7 +30,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -99,7 +53,7 @@
                         </tr>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -122,7 +76,7 @@
                         </tr>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -145,7 +99,7 @@
                         </tr>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -168,7 +122,7 @@
                         </tr>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -191,7 +145,7 @@
                         </tr>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -214,7 +168,7 @@
                         </tr>
                         <tr>
                             <td>
-                                xxx
+                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -266,7 +220,7 @@
                         <br>
                         <div class="row">
                             <div class="col-12  col-md-4">
-                                <label>Nombre del producto o Servicio</label>
+                                <label>Seleccione la categoria producto o Servicio</label>
                                 <div class="select_container">
                                     <select class="form_select" name="guests" id="categoria">
                                         <option selected>---Categorias---</option>

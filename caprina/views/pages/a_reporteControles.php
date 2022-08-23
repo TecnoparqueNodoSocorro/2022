@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["id_cargo"] != "1") {
+        echo '<script>window.location="index.php?page=error_credenciales"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+?>
 <div class="container">
     <h4 class="mt-2"> Reporte de Controles</h4>
     <div class="container mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;">

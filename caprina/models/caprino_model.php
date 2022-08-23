@@ -72,22 +72,22 @@ class ModelCaprino
         $stmt = null; */
     }
 
-    //---------MODELO CONSULTAR LOS CAPRINOS ACTIVOS--------
-    static public function mdlConsultarCaprinoActivo($tabla)
+    //---------MODELO CONSULTAR LOS CAPRINOS ACTIVOS  POR CAPRINOCULTOR--------
+    static public function mdlConsultarCaprinoActivo($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT id,codigo, raza, origen, fecha_nacimiento FROM $tabla WHERE estado =1 ORDER BY codigo DESC");
+        $stmt = conexion::conectar()->prepare("SELECT id,codigo, raza, origen, fecha_nacimiento FROM $tabla WHERE estado =1 AND id_usuario=$id ORDER BY codigo DESC");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
 
-    //---------MODELO CONSULTAR LOS CAPRINOS INACTIVOS--------
-    static public function mdlConsultarCaprinoInactivo($tabla)
+    //---------MODELO CONSULTAR LOS CAPRINOS INACTIVOS POR CAPRINOCULTOR--------
+    static public function mdlConsultarCaprinoInactivo($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT id,codigo, motivo_salida, fecha_salida FROM $tabla WHERE estado =0 ORDER BY codigo DESC");
+        $stmt = conexion::conectar()->prepare("SELECT id,codigo, motivo_salida, fecha_salida FROM $tabla WHERE estado =0 AND id_usuario = $id ORDER BY codigo DESC");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();
@@ -132,7 +132,7 @@ class ModelCaprino
         }
     }
 
-//--------------CREAR TRATAMIENTO--------------------------
+    //--------------CREAR TRATAMIENTO--------------------------
     static public function mdlTratamiento($tabla, $id_usuario, $descripcion, $fecha_inicio)
     {
         $stmt = conexion::conectar();
@@ -154,15 +154,54 @@ class ModelCaprino
     }
 
 
-     //------------AGREGAR CAPRINOS AL TRATAMIENTO ANTERIOR----------------   
+    //------------AGREGAR CAPRINOS AL TRATAMIENTO ANTERIOR----------------   
     static public function mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos)
     {
-                foreach ($caprinos   as $value) {
+        foreach ($caprinos   as $value) {
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento) VALUES( 1, :codigo, :id_trat) ");
             $stmt->bindParam(":id_trat", $idtratamiento);
             $stmt->bindParam(":codigo", $value["codigo"]);
             $stmt->execute();
         }
         return "OK";
+    }
+
+    //--------MODELO CONSULTAR CAPRINOS POR USUARIO---------
+    static public function mdlConsultarCaprinoPorUsuario($tabla, $data)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario=:id");
+        $stmt->bindParam(":id", $data["id_usuario"]);
+
+
+        if ($stmt->execute()) {
+            return $stmt->fetch(PDO::FETCH_OBJ);
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    //---------MODELO CONSULTAR LOS CAPRINOS  POR USUARIO-------
+    static public function mdlCaprinosPorUsuario($tabla, $data)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario=:id   ORDER BY codigo DESC");
+        $stmt->bindParam(":id", $data["id_usuario"]);
+
+        $stmt->execute();
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
     }
 }
