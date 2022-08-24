@@ -7,46 +7,92 @@ require_once "modal.php";
 <!--  INICIO MENU POPUP-->
 
 <div class="title_container">
-    <div class="container_menupopup">
+    <!--  <h1 class="titulo"><strong>BaricharApp</strong></h1> -->
+    <div class="full_width_centered">
+        <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
 
-        <nav class="menu_popup">
-            <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
-            <img src="" alt="">
-            <label class="menu-open-button" for="menu-open">
-                <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
-                <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
+        <div class="container_menupopup">
 
-            </label>
+            <nav class="menu_popup">
+                <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+                <img src="" alt="">
+                <label class="menu-open-button" for="menu-open">
+                    <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
+                    <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+                </label>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
 
-        </nav>
+                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+
+            </nav>
+
+        </div>
 
     </div>
+    <br>
+    <br>
+    <br>
+    <div class="footer_names">BaricharApp</div>
     <!-- FIN MENU POPUP -->
+    <br>
+    <h1 class="titulo">tabla aca</h1>
+    <!--  -->
+ <!--    <div class="container" style="background-color: ;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
 
+
+    <!--  -->
 
 </div>
 
@@ -70,19 +116,14 @@ require_once "modal.php";
         <div style="background-image: url(views/images/slider/slide15.jpg);"></div>
     </div>
 </div>
-<!--    <div class="countdown_container">
-            <h2 class="centered_title">Countdown to Wedding Ceremony</h2>
-            <div id="defaultCountdown"></div>
-            <div class="rsvp_button"><span class="swirl_left_small"><span class="swirl_right_small"><a href="#">RSVP</a></span></span></div>
-      
-        </div> -->
+
 
 
 <div class="countdown_container">
 
     <div class="videocontainer">
         <h5 style="text-align:center ;" class="text-light">Quienes Somos?</h2>
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-2">
                         <div class="footer_socials">

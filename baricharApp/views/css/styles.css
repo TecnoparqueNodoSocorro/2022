@@ -502,5 +502,14 @@ a {
     height: 50px;
 }
 .footer_socials{
-   padding: 50px;
+   padding: 30px;
+}
+
+.clear{
+   margin-top: 5px;
+   padding: 0px;
+   text-align: center;
+}
+.titulo{
+   color: #ffffff;
 }

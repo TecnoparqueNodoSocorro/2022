@@ -13,15 +13,13 @@
                 <div class="row">
                     <div class="col-12 col-md-2" id="imagen_prov">
                         <div class="container">
-                            <img id="imgproveedor"src="views/images/proveedores/proveedor1.jpg">
+                            <img id="imgproveedor" src="views/images/proveedores/proveedor1.jpg">
                         </div>
-                    
+
                     </div>
 
                     <div class="col-12 col-md-10">
                         <div class="row" id="proveedor">
-
-
                             <div class="prov_item col-6 col-md-4 ">
                                 <label> <strong>Empresa:</strong></br> rosas y flores s.a</label>
                             </div>
@@ -34,7 +32,6 @@
                             <div class="prov_item col-6  col-md-4">
                                 <label> <strong>Telefono:</strong></br> xx</label>
                             </div>
-
                             <div class="prov_item col-6  col-md-4">
                                 <label> <strong>Direccion:</strong></br> xx</label>
                             </div>
@@ -54,10 +51,10 @@
                     </div>
                 </div>
             </div>
-            <hr>
 
 
-            <div class="row">
+
+            <div class="row ">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     editar informacion
                 </button>
@@ -83,7 +80,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">editar datos de la empresa</h5>
+                <h5 class="modal-title clear" id="exampleModalLabel">Editar datos de la empresa</h5>
 
             </div>
             <div class="modal-body">
@@ -91,60 +88,54 @@
 
                 <div class="container">
                     <form id="ContactForm" method="post" action="">
-                        <br>
-                        <div class="row">
-                            <div class="col-12  col-md-4">
-                                <label>Nombre del producto o Servicio</label>
-                                <div class="select_container">
-                                    <select class="form_select" name="guests" id="categoria">
-                                        <option selected>---Categorias---</option>
-                                        <option value="C1">Iglesias, hoteles y bodas</option>
-                                        <option value="C2">Maquillaje y peinado</option>
-                                        <option value="C3">Iluminacion sonido y animación</option>
-                                        <option value="C4">Zapatos y recordatorios</option>
-                                        <option value="C5">Planeadores de bodas</option>
-                                        <option value="C6">Videos y fotografia</option>
-                                        <option value="C7">Chef y pasteleros</option>
-                                        <option value="C8">Anillos y accesorios</option>
-                                        <option value="C9">Vestidos de novia y novio</option>
-                                        <option value="C10">Tarjetas de invitación</option>
-                                        <option value="C11">Bebidas y licores</option>
-                                        <option value="C12">Floristeria y decoración</option>
+                        <p class="clear"><strong>Datos de la empresa</strong></p>
 
-                                    </select>
+                        <div class="row">
+
+                            <div class="col-12  col-md-4">
+                                <label>Direccion</label>
+                                <input type="text" class="form_input " name="direccion" id="direccion" />
+                            </div>
+                            <div class="col-12  col-md-4">
+                                <label>Telefono</label>
+                                <input type="number" class="form_input" name="telefono" id="telefono" />
+                            </div>
+                            <div class="col-12  col-md-4">
+                                <label>Email</label>
+                                <input type="mail" class="form_input " name="email" id="email" />
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label>Logo <Small>(Reemplazar)</Small></label>
+                                <input type="file" class="form_input " name="logo" id="logo" />
+                            </div>
+                            <br>
+                         
+                            <div class="row">
+                                <p class="clear"><strong>Cambiar Contraseña</strong></p>
+                                <hr>
+                                <div class="col-12  col-md-4">
+                                    <label>Contraseña actual</label>
+                                    <input type="text" class="form_input" name="user" id="user" />
+                                </div>
+                                <div class="col-12  col-md-4">
+                                    <label>Contraseña Nueva</label>
+                                    <input type="password" class="form_input" name=" pass_1" id="pass_1" />
+                                </div>
+                                <div class="col-12  col-md-4">
+                                    <label>Confirmar contraseña</label>
+                                    <input type="password" class="form_input" name=" pass_2" id="pass_2" />
+                                </div>
+                                <div class="col-12">
+                                    <label>Breve descripcion de la empresa</label>
+                                    <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
                                 </div>
                             </div>
-                            <div class="col-12  col-md-4">
-                                <label>Nombre del producto o Servicio</label>
-                                <input type="text" class="form_input " name="product_nuevo" id="product_nombre" />
-                            </div>
-                            <div class="col-12  col-md-4">
-                                <label>Precio</label>
-                                <input type="number" class="form_input " name="product_precio" id="product_precio" />
-                            </div>
-                            <div class="col-12  col-md-6">
-                                <label>Imagen (1)</label>
-                                <input type="file" class="form_input " name="product_img" id="product_img1" />
-                            </div>
-                            <div class="col-12  col-md-6">
-                                <label>Imagen (2)</label>
-                                <input type="file" class="form_input " name="product_img" id="product_img2" />
-                            </div>
-                            <div class="col-12">
-                                <label>Breve descripcion de su producto o servicio</label>
-                                <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
-                            </div>
 
-                            <div class="col-6">
-
-
-                            </div>
-                            <div class="col-6">
-
+                            <div>
                                 <button type="button" class="btn btn-success"> Guardar</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                             </div>
-                        </div>
                     </form>
                 </div>
 

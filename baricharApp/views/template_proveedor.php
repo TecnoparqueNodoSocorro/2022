@@ -33,7 +33,7 @@
         <ul id="main_menu">
             <li><a class="selected" href="proveedor.php?page=phome">HOME</a></li>
             <li><a href="proveedor.php?page=productos">Productos</a></li>
-            <li><a href="proveedor.php?page=solicitudes">Solicitudes</a></li>
+         <!--    <li><a href="proveedor.php?page=solicitudes">Solicitudes</a></li> -->
             <li><a href="index.php?page=home">Cerrar sesion</a></li>
         </ul>
     </nav>
