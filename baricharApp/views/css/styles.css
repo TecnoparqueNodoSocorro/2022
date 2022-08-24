@@ -1,13 +1,13 @@
 
 
-/* @media screen and (max-width: 450px) {
+@media screen and (max-width: 450px) {
    body {
       width: 100%
    }
 
    .container_menupopup {
 
-      margin-top: 125%;
+           margin-top: 10%;
    }
 }
 
@@ -18,7 +18,7 @@
 
    .container_menupopup {
 
-      margin-top: 125%;
+            margin-top: 10%;
    }
 }
 
@@ -29,49 +29,49 @@
 
    .container_menupopup {
 
-      margin-top: 25%;
+        margin-top: 10%;
    }
 
-} */
+}
 
 
 @media (min-width: 200px) and (max-width: 499.99px) {
    .container_menupopup {
-      margin-top: 120%;
+      margin-top: 10%;
    }
 }
 
 @media (min-width: 400px) and (max-width: 559.99px) {
    .container_menupopup {
-      margin-top: 80%;
+          margin-top: 10%;
    }
 }
 @media (min-width: 560px) and (max-width: 680.99px) {
    .container_menupopup {
-      margin-top: 60%;
+        margin-top: 10%;
    }
 }
 @media (min-width: 681px) and (max-width: 704.99px) {
    .container_menupopup {
-      margin-top: 56.1%;
+           margin-top: 10%;
    }
 }
 
 @media (min-width: 705px) and (max-width: 713.99px) {
    .container_menupopup {
-      margin-top: 55%;
+      margin-top: 10%;
    }
 }
 
 @media (min-width: 714px) and (max-width: 767.99px) {
    .container_menupopup {
-      margin-top: 50%;
+        margin-top: 10%;
    }
 }
 
 @media (min-width: 768px) and (max-width: 965.99px) {
    .container_menupopup {
-      margin-top: 40%;
+           margin-top: 10%;
    }
 }
 
@@ -79,13 +79,13 @@
 
 @media (min-width: 966px) and (max-width: 1270.99px) {
    .container_menupopup {
-      margin-top: 32%;
+      margin-top: 10%;
    }
 }
 
 @media (min-width: 1271px) {
    .container_menupopup {
-      margin-top: 25%;
+      margin-top: 10%;
    }
 }
 
@@ -188,13 +188,10 @@ a {
  }
   */
 .menu_popup {
-   margin-top: 150px;
+
    margin: auto;
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
+/*    position: absolute; */
+
    width: 80px;
    height: 80px;
    text-align: center;

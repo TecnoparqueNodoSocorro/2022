@@ -76,7 +76,7 @@
             $_GET["page"] == "m_cultural" ||
             $_GET["page"] == "m_servicios" ||
             $_GET["page"] == "login"
-      
+
         ) {
             include "pages/front/" . $_GET["page"] . ".php";
         } else {
@@ -200,5 +200,6 @@
         main_menu.init("main_menu", "menuhover");
     </script>
 </body>
-
+<script src="views/js/bari_user.js"></script>
+<script src="views/js/bari_productos.js"></script>
 </html>

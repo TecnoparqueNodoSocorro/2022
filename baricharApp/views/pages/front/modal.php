@@ -78,10 +78,8 @@
                                 </div>
                                 <!--  -->
                                 <div class="col-7 col-md-6">
-
                                     <h2 class="nombre">anillos de boda celeste</h2>
-
-
+                                    
                                     <div class="detalleproducto">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis facere ullam sapiente incidunt nostrum quis molestiae ex inventore totam quam necessitatibus
                                     </div>

@@ -33,7 +33,7 @@
         <ul id="main_menu">
             <li><a class="selected" href="proveedor.php?page=phome">HOME</a></li>
             <li><a href="proveedor.php?page=productos">Productos</a></li>
-         <!--    <li><a href="proveedor.php?page=solicitudes">Solicitudes</a></li> -->
+            <!--    <li><a href="proveedor.php?page=solicitudes">Solicitudes</a></li> -->
             <li><a href="index.php?page=home">Cerrar sesion</a></li>
         </ul>
     </nav>
@@ -65,7 +65,7 @@
             <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
             <div class="footer_names">BaricharApp</div>
 
-      
+
 
         </div>
 
@@ -158,5 +158,8 @@
         main_menu.init("main_menu", "menuhover");
     </script>
 </body>
+<script src="views/js/bari_user.js"></script>
+<script src="views/js/bari_productos.js"></script>
+
 
 </html>

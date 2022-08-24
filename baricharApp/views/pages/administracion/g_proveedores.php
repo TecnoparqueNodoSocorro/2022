@@ -265,12 +265,12 @@
                         </div>
 
                         <div>
-                            <button type="button" class="btn btn-success"> Guardar</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success" id="btn_guardar"> Guardar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
                         </div>
                     </form>
                 </div>
-            
+
             </div>
 
 
@@ -279,6 +279,3 @@
     </div>
 </div>
 </div>
-<!-- <div class="modal-footer">
-    <h1>hola</h1>
-</div> -->

@@ -9,19 +9,16 @@ require_once "modal.php";
 <div class="title_container">
     <!--  <h1 class="titulo"><strong>BaricharApp</strong></h1> -->
     <div class="full_width_centered">
-        <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
+        <div class="footer_sign"><<img src="views/images/birds_icon.png" alt="" title="" /></div>
 
         <div class="container_menupopup">
-
             <nav class="menu_popup">
                 <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
                 <img src="" alt="">
                 <label class="menu-open-button" for="menu-open">
                     <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
                     <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
-
                 </label>
-
                 <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
 
                 <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
@@ -51,49 +48,12 @@ require_once "modal.php";
         </div>
 
     </div>
-    <br>
-    <br>
-    <br>
+
     <div class="footer_names">BaricharApp</div>
     <!-- FIN MENU POPUP -->
     <br>
     <h1 class="titulo">tabla aca</h1>
     <!--  -->
- <!--    <div class="container" style="background-color: ;">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
-
-
-    <!--  -->
-
 </div>
 
 <div class="slider_container">

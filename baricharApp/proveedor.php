@@ -1,5 +1,12 @@
 <?php
 require_once "controllers/controller_plantilla.php";
+/*  */
+require_once "models/model_productos.php";
+require_once "controllers/controller_productos.php";
+
+require_once "models/model_user.php";
+require_once "controllers/controller_user.php";
+
 
 /* creamos un objeto */
 $plantilla3 = new ControladorPlantilla();
