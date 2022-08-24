@@ -1,6 +1,5 @@
 <?php
 if (isset($_SESSION["validar_ingreso"])) {
- 
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
@@ -18,7 +17,7 @@ if (isset($_SESSION["id"])) {
     <!-- formulario para agregar un control individual -->
     <div class="container" style="background-color:#f8deb9; border-radius:5px;">
         <div class="row justify-content-md-center mt-2">
-            <div class="col-12 col-xs-12 col-md-6 col-lg-6 mt-3 ">
+            <div class="col-12 mt-3 ">
 
                 <!-- 
                 <label class="form-label">
@@ -139,8 +138,3 @@ if (isset($_SESSION["id"])) {
         </div>
     </div>
 </div>
-
-
-<!-- <script type="text/javascript">
-   
-</script> -->

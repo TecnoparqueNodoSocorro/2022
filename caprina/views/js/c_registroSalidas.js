@@ -1,4 +1,4 @@
-//id usuario quemado
+//id usuario TRAIDO DE LA PLANTILLA
 let id_usua = id_userOculto.value;;
 
 let codigo_salida = document.getElementById('caprino_salida_select')

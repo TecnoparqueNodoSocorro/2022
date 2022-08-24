@@ -33,4 +33,11 @@ class ControladorCaprinoControl
     $consulta = ModelCaprino::mdlConsultarCaprino($tabla);
     return $consulta;
   }
+    //---------------CANTIDAD DE CONTROLES EL DIA ACTUAL---------------------------
+    static public function ctrConsultarControlesPorUsuario($usuario)
+    {
+      $tabla = "registro_control";
+      $respuesta = ModelCaprinoControl::mdlConsultarControlesPorUsuario($tabla, $usuario);
+      return $respuesta;
+    }
 }

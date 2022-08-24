@@ -8,18 +8,17 @@ class CaprinocultorAjax
     public $controlador;
 
 
-
+    //GUARDAR CAPRINOCULTOR
     static public function PostCaprinocultores($data)
     {
 
         $datoscaprinocultor = ControladorCaprinocultor::ctrPostCaprinocultor($data);
-      /*   $respuesta = ($datoscaprinocultor);
+        /*   $respuesta = ($datoscaprinocultor);
         echo json_encode($respuesta); */
         echo $datoscaprinocultor;
     }
-
 }
-
+//GUARDAR CAPRINOCULTOR
 if (isset($_POST['nuevoCaprinocultor'])) {
     $postCaprinocultor = new CaprinocultorAjax();
     $data = $_POST['nuevoCaprinocultor'];

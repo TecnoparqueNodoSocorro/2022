@@ -12,13 +12,13 @@ class ProduccionAjax
 
     static public function PostProduccion($data)
     {
-
+        //GUARDAR PRODUCCION
         $datosproduccion = ControladorProduccion::ctrPostProduccion($data);
         $respuesta = array($datosproduccion);
         echo json_encode($respuesta);
     }
 }
-
+//GUARDAR PRODUCCION
 if (isset($_POST['produccion'])) {
     $Produccion = new ProduccionAjax();
     $data = $_POST['produccion'];

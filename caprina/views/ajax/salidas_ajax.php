@@ -9,10 +9,9 @@ class SalidasAjax
 
 
 
-
+//REGISTRO DE SALIDAS
     static public function registrarSalida($data)
     {
-      
         $datos_salidas= ControladorSalidas::ctrPostSalidas($data);
         $respuesta = array($datos_salidas);
         echo json_encode($respuesta);
@@ -21,12 +20,11 @@ class SalidasAjax
 
 
 }
+//REGISTRO DE SALIDAS
 
 if(isset($_POST['salidas'])){
     $Salida= new SalidasAjax();
     $data = $_POST['salidas'];
     $Salida->registrarSalida($data);
 
-}else{
-return ("Error");
 }

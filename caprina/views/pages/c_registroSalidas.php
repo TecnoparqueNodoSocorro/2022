@@ -18,7 +18,7 @@ $id = $_SESSION["id"];}
             <?php
             $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id);
             ?>
-            <div class="col-12 col-md-6">
+            <div class="col-12">
                 <label class="form-label">
                     <h6>Código</h6>
                 </label>
@@ -35,7 +35,7 @@ $id = $_SESSION["id"];}
 
         </div>
         <div class="row justify-content-md-center mt-2">
-            <div class="col-12 col-xs-12 col-md-6 col-lg-6">
+            <div class="col-12">
                 <label class="form-label">
                     <h6>Fecha</h6>
                 </label>
@@ -45,7 +45,7 @@ $id = $_SESSION["id"];}
         </div>
         <div class="row justify-content-md-center mt-2">
 
-            <div class="col-12 col-xs-12 col-md-6 col-lg-6">
+            <div class="col-12">
 
                 <label class="form-label">
                     <h6>Motivo de Salida</h6>
@@ -76,6 +76,8 @@ $id = $_SESSION["id"];}
                     <th>Código</th>
                     <th>Raza</th>
                     <th>Motivo de salida</th>
+                    <th>Fecha de salida</th>
+
 
                 </tr>
             </thead>
@@ -84,6 +86,7 @@ $id = $_SESSION["id"];}
                 <?php foreach ($caprinoInactivo as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["codigo"] ?></td>
+                        <td><?php echo $value["raza"] ?></td>
                         <td><?php echo $value["motivo_salida"] ?></td>
                         <td><?php echo $value["fecha_salida"] ?></td>
 

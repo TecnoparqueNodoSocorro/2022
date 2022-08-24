@@ -60,4 +60,13 @@ class ModelCaprinoControl
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
+    //------------CONSULTAR LOS CONTROLES POR USUARIOS-----------------------------------------
+    static public function mdlConsultarControlesPorUsuario($tabla, $usuario)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario= $usuario ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        /*  $stmt->closeCursor();
+        $stmt = null; */
+    }
 }

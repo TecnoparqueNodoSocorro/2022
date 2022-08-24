@@ -4,18 +4,22 @@
 class ControladorCaprino
 {
 
+
+  //POSTEO DE CAPRINOS
   static public function ctrPostCaprino($data)
   {
-
-
     $tabla = "registro_caprino";
     $respuesta = ModelCaprino::registroCaprino($tabla, $data);
     if ($respuesta == "ok") {
+      //SI SE RETORNA 1 SE POSTEA EL CAPRINO
       return 1;
-    } else {
+    } else 
+    //SI EL MODELO NO DEVUELVE "OK" ES PORQUE EL CÓDIGO QUE SE ESTÁ REPITIENDO
+    {
       return 0;
     }
   }
+  //TRAER CAPRINO DE MANERA INDIVUAL, POR CÓDIGO 
   static public function ctrConsultarCaprino()
   {
     $tabla = "registro_caprino";

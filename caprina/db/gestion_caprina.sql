@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-08-2022 a las 16:49:46
+-- Tiempo de generación: 24-08-2022 a las 21:42:25
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `caprinos_en_tratamiento` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `codigo_caprino` int(11) NOT NULL,
+  `codigo_caprino` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `id_tratamiento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -39,10 +39,18 @@ CREATE TABLE `caprinos_en_tratamiento` (
 --
 
 INSERT INTO `caprinos_en_tratamiento` (`id`, `id_usuario`, `codigo_caprino`, `id_tratamiento`) VALUES
-(43, 1, 0, 74),
-(44, 1, 2, 74),
-(45, 1, 33, 75),
-(46, 1, 0, 75);
+(61, 29, 'a23', 86),
+(62, 34, 'c33', 87),
+(63, 33, '4444', 88),
+(64, 29, 'a23', 89),
+(65, 29, 'a23', 90),
+(66, 29, 'a11', 91),
+(67, 29, '1', 91),
+(68, 29, 'hr23', 91),
+(69, 29, 'a11', 92),
+(70, 29, 'A20', 92),
+(71, 29, 'a22', 92),
+(72, 29, 'a23', 92);
 
 -- --------------------------------------------------------
 
@@ -52,7 +60,7 @@ INSERT INTO `caprinos_en_tratamiento` (`id`, `id_usuario`, `codigo_caprino`, `id
 
 CREATE TABLE `registro_caprino` (
   `id` int(11) NOT NULL,
-  `codigo` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
+  `codigo` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `raza` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_nacimiento` date NOT NULL,
@@ -68,10 +76,25 @@ CREATE TABLE `registro_caprino` (
 
 INSERT INTO `registro_caprino` (`id`, `codigo`, `id_usuario`, `raza`, `fecha_nacimiento`, `origen`, `estado`, `motivo_salida`, `fecha_salida`) VALUES
 (50, '1', 29, 'Alpino', '2022-08-17', 'Otro', 1, '', NULL),
-(52, '2', 28, 'Saanen', '2022-08-16', 'Comprado', 1, '', NULL),
-(53, 'c1', 28, 'Santandereano', '2022-08-17', 'Nacido', 1, '', NULL),
-(54, '33', 32, 'Alpino', '2022-08-04', 'Comprado', 1, '', NULL),
-(55, 'a1', 32, 'Booer', '2022-08-18', 'Otro', 0, 'Sacrificio', '2022-08-18');
+(53, 'c1', 28, 'Santandereano', '2022-08-17', 'Nacido', 0, 'Sacrificio', '2022-08-29'),
+(54, 'a33', 32, 'Alpino', '2022-08-04', 'Comprado', 1, '', NULL),
+(55, 'a1', 32, 'Booer', '2022-08-18', 'Otro', 0, 'Sacrificio', '2022-08-18'),
+(56, 'a32', 28, 'Saanen', '2022-08-15', 'Comprado', 1, '', NULL),
+(57, 'z56', 28, 'Santandereano', '2022-06-17', 'Nacido', 1, '', NULL),
+(58, 'eq34', 28, 'Alpino', '2022-08-10', 'Comprado', 0, 'Venta', '2022-08-02'),
+(59, 'a23', 29, 'Nubiana', '2022-08-02', 'Comprado', 1, '', NULL),
+(60, 'a21', 32, 'Alpino', '2022-08-01', 'Comprado', 1, '', NULL),
+(61, 'c33', 34, 'Alpino', '2022-08-22', 'Otro', 1, '', NULL),
+(62, '4444', 33, 'Togenburn', '2022-08-22', 'Otro', 1, '', NULL),
+(63, 'c45', 34, 'Nubiana', '2022-08-30', 'Otro', 1, '', NULL),
+(64, 'q56', 34, 'Otras', '2022-08-25', 'Nacido', 1, '', NULL),
+(66, 'a22', 29, 'Saanen', '2022-08-23', 'Comprado', 1, '', NULL),
+(67, 'a11', 29, 'Saanen', '2022-08-20', 'Otro', 1, '', NULL),
+(68, 'd45', 29, 'Togenburn', '2022-08-12', 'Nacido', 1, '', NULL),
+(69, 'j67', 29, 'Nubiana', '2022-07-06', 'Otro', 1, '', NULL),
+(70, 'hr23', 29, 'Nubiana', '2022-08-12', 'Comprado', 1, '', NULL),
+(71, 'k90', 29, 'Santandereano', '2022-08-23', 'Otro', 0, 'Muerte Natural', '2022-08-24'),
+(73, 'A20', 29, 'Booer', '2022-08-24', 'Comprado', 1, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -81,7 +104,7 @@ INSERT INTO `registro_caprino` (`id`, `codigo`, `id_usuario`, `raza`, `fecha_nac
 
 CREATE TABLE `registro_control` (
   `id` int(11) NOT NULL,
-  `codigo_caprino` int(20) NOT NULL,
+  `codigo_caprino` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `peso` int(3) NOT NULL,
   `condicion_corporal` int(1) NOT NULL,
@@ -96,8 +119,16 @@ CREATE TABLE `registro_control` (
 --
 
 INSERT INTO `registro_control` (`id`, `codigo_caprino`, `id_usuario`, `peso`, `condicion_corporal`, `enfermedad_respiratoria`, `enfermedad_gastrointestinal`, `enfermedad_mordedura`, `fecha`) VALUES
-(56, 0, 28, 25, 3, 'Problemas', '', '', '2022-08-19'),
-(57, 0, 32, 12, 3, 'enfermedad respiratoria', '', 'enfermedad por mordedura', '2022-08-19');
+(58, 'a32', 28, 21, 2, 'enfermedad respiratoria', '', '', '2022-08-23'),
+(59, 'z56', 28, 22, 3, '', 'enfermedad gastro intestinal', '', '2022-08-23'),
+(60, '1', 29, 25, 2, 'enfermedad respiratoria', 'enfermedad gastro intestinal', '', '2022-08-23'),
+(61, '1', 29, 25, 5, '', '', 'enfermedad por mordedura', '2022-08-23'),
+(62, '1', 29, 5, 3, '', 'enfermedad gastro intestinal', '', '2022-08-23'),
+(63, 'a23', 29, 23, 2, 'enfermedad respiratoria', '', '', '2022-08-23'),
+(64, 'a33', 32, 47, 1, 'enfermedad respiratoria', '', '', '2022-08-23'),
+(65, 'a33', 32, 11, 4, '', '', 'enfermedad por mordedura', '2022-08-23'),
+(66, 'c33', 34, 20, 5, '', '', 'enfermedad por mordedura', '2022-08-23'),
+(67, 'A20', 29, 25, 5, '', 'Gastro', '', '2022-08-24');
 
 -- --------------------------------------------------------
 
@@ -108,7 +139,7 @@ INSERT INTO `registro_control` (`id`, `codigo_caprino`, `id_usuario`, `peso`, `c
 CREATE TABLE `registro_produccion` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `codigo_caprino` int(11) NOT NULL,
+  `codigo_caprino` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad_leche` int(3) NOT NULL,
   `fecha_registro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -118,7 +149,17 @@ CREATE TABLE `registro_produccion` (
 --
 
 INSERT INTO `registro_produccion` (`id`, `id_usuario`, `codigo_caprino`, `cantidad_leche`, `fecha_registro`) VALUES
-(27, 32, 33, 58, '2022-08-05');
+(27, 32, '33', 58, '2022-08-05'),
+(28, 28, 'a32', 32, '2022-08-23'),
+(29, 28, 'z56', 32, '2022-08-26'),
+(30, 28, 'z56', 122, '2022-08-26'),
+(31, 32, 'a21', 10, '2022-08-08'),
+(32, 32, 'a33', 10, '2022-08-12'),
+(33, 32, 'a33', 100, '2022-08-30'),
+(34, 29, '1', 20, '2022-08-25'),
+(35, 29, 'a23', 1000, '2022-08-25'),
+(36, 29, 'a23', 10, '2022-08-08'),
+(37, 29, 'a22', 20, '2022-08-23');
 
 -- --------------------------------------------------------
 
@@ -129,7 +170,7 @@ INSERT INTO `registro_produccion` (`id`, `id_usuario`, `codigo_caprino`, `cantid
 CREATE TABLE `registro_salidas` (
   `id` int(11) NOT NULL,
   `id_usuario` int(20) NOT NULL,
-  `codigo_caprino` int(11) NOT NULL,
+  `codigo_caprino` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `motivo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -151,8 +192,13 @@ CREATE TABLE `registro_tratamientos` (
 --
 
 INSERT INTO `registro_tratamientos` (`id`, `id_usuario`, `descripcion`, `fecha_inicio`) VALUES
-(74, 1, 'Vacunacion', '2022-08-17'),
-(75, 1, '123', '2022-08-05');
+(86, 29, '74', '2022-08-30'),
+(87, 34, '33', '2022-08-16'),
+(88, 33, '4444', '2022-08-17'),
+(89, 29, 'we', '2022-08-22'),
+(90, 29, 'parvo', '2022-08-24'),
+(91, 29, 'Prueba ultima', '2022-08-31'),
+(92, 29, 'Vacunación todo', '2022-08-24');
 
 -- --------------------------------------------------------
 
@@ -179,7 +225,9 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `num_documento`, `num_telefono`, `direccion`, `objetivo_produccion`, `clave`, `id_cargo`) VALUES
 (28, 'Juan', 'Sandoval', '2111', '121212', 'san gil', 'Carne', 1111, 1),
 (29, 'Pedro', 'Rojas', '2222', '121212', 'san gil', 'Carne', 2222, 2),
-(32, 'Carlos', 'Perez', '5555', '985454', 'San gil', 'Doble Propósito', 5555, 2);
+(32, 'Carlos', 'Perez', '5555', '985454', 'San gil', 'Doble Propósito', 5555, 2),
+(33, 'Luis', 'Vargas', '4444', '12212454', 'San gil', 'Carne', 4444, 2),
+(34, 'Hector', '4564', '3333', '45645', '4545', 'Carne', 3333, 2);
 
 --
 -- Índices para tablas volcadas
@@ -236,25 +284,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `caprinos_en_tratamiento`
 --
 ALTER TABLE `caprinos_en_tratamiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_caprino`
 --
 ALTER TABLE `registro_caprino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_control`
 --
 ALTER TABLE `registro_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_produccion`
 --
 ALTER TABLE `registro_produccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_salidas`
@@ -266,13 +314,13 @@ ALTER TABLE `registro_salidas`
 -- AUTO_INCREMENT de la tabla `registro_tratamientos`
 --
 ALTER TABLE `registro_tratamientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -32,7 +32,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             <div class="row justify-content-md-center">
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
-                        <h6>Número de Teléfono</h6>
+                        <h6>Núm de Teléfono</h6>
                     </label>
                     <input type="number" name="phone_user" id="phone_user" class="form-control" value="" required>
 
@@ -45,10 +45,48 @@ if (isset($_SESSION["validar_ingreso"])) {
                 </div>
 
             </div>
+
+
+
+            <div class="row justify-content-md-center">
+                <div class="col col-xs-6 col-md-6 col-lg-6">
+                    <label class="form-label">
+                        <h6>Clave (4 numeros)</h6>
+                    </label>
+                    <input type="number" name="clave" id="clave" class="form-control" value="" required>
+                </div>
+                <div class="col col-xs-6 col-md-6 col-lg-6">
+                    <label class="form-label">
+                        <h6>Confirmar clave</h6>
+                    </label>
+                    <input type="number" name="claveConfir" id="claveConfir" class="form-control" value="" required>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+
+                <!--   <div class="col col-xs-6 col-md-6 col-lg-6">
+      <label class="form-label">
+          <h6>Cargo</h6>
+      </label>
+      <select class="form-select" name="objetivoProduccion" id="cargo" aria-label="Default select example">
+          <option selected value="0">--Seleccione el cargo--</option>
+          <option value="1">Administrador</option>
+          <option value="2">Caprinocultor</option>
+
+      </select>
+  </div> -->
+  <div class="col col-xs-12 col-md-12 col-lg-12">
+                    <label class="form-label">
+                        <h6>Dirección</h6>
+                    </label>
+                    <input type="text" name="" id="direccion" class="form-control" value="" required>
+                </div>
+
+            </div>
             <div class="row justify-content-md-center">
                 <div class="col col-xs-12 col-md-12 col-lg-12">
                     <label class="form-label">
-                        <h6>Objetivo de producción</h6>
+                        <h6>Seleccione el objetivo de producción</h6>
                     </label>
                     <select class="form-select" name="objetivoProduccion" id="objetivoProduccion" aria-label="Default select example">
                         <option selected value="0">--Seleccione el objetivo--</option>
@@ -59,42 +97,6 @@ if (isset($_SESSION["validar_ingreso"])) {
                     </select>
                 </div>
 
-            </div>
-            <div class="row justify-content-md-center">
-
-                <div class="col col-xs-6 col-md-6 col-lg-6">
-                    <label class="form-label">
-                        <h6>Cargo</h6>
-                    </label>
-                    <select class="form-select" name="objetivoProduccion" id="cargo" aria-label="Default select example">
-                        <option selected value="0">--Seleccione el cargo--</option>
-                        <option value="1">Administrador</option>
-                        <option value="2">Caprinocultor</option>
-
-                    </select>
-                </div>
-                <div class="col col-xs-6 col-md-6 col-lg-6">
-                    <label class="form-label">
-                        <h6>direccion</h6>
-                    </label>
-                    <input type="text" name="" id="direccion" class="form-control" value="" required>
-                </div>
-
-            </div>
-
-            <div class="row justify-content-md-center">
-                <div class="col col-xs-6 col-md-6 col-lg-6">
-                    <label class="form-label">
-                        <h6>Clave (4 numero)</h6>
-                    </label>
-                    <input type="number" name="clave" id="clave" class="form-control" value="" required>
-                </div>
-                <div class="col col-xs-6 col-md-6 col-lg-6">
-                    <label class="form-label">
-                        <h6>Confirmar clave</h6>
-                    </label>
-                    <input type="number" name="claveConfir" id="claveConfir" class="form-control" value="" required>
-                </div>
             </div>
             <button class="btn btn-warning mt-2 mb-4" id="btnRegistrar" type="button">Registrar Caprinocultor</button>
 

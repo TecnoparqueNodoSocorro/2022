@@ -11,58 +11,11 @@ if (btnRegistrarCaprino) {
     })
 }
 
-//AL DARLE CLICK AL BOTON REGISTRO DE CAPRINOS SE LISTAN LOS CAPRINOS QUE ESTEN REGISTRADOS POR EL USUARIO LOGGEADO
-/* let ListarCaprinosPorUsuario = document.getElementById('ListarCaprinosPorUsuario')
-if (ListarCaprinosPorUsuario) {
-    ListarCaprinosPorUsuario */
-document.addEventListener("DOMContentLoaded", () => {
-
-    const id_usuario = { id_usuario: id_userOculto.value }
-    $.post("views/ajax/caprino_ajax.php", { id_usuario }, function (dato) {
-        let response = JSON.parse(dato)
-        // console.log(response);
-        thead = document.getElementById("theadListarCaprinosPorUsuario")
-        tbody = document.getElementById("tbodyListarCaprinosPorUsuario")
-
-        response.forEach(x => {
-            if (thead) {
-
-                thead.innerHTML = `
-                <tr>
-                <th>Código</th>
-                <th>Raza</th>
-                <th>Origen</th>
-                <th>Fecha Nacimiento</th>
-       
-                </tr>
-                `
-            }
-            if (tbody) {
-                tbody.innerHTML += `
-                <tr>
-                <td>${x.codigo}</td>
-                <td>${x.raza}</td>
-                <td>${x.origen}</td>
-                <td>${x.fecha_nacimiento}</td>
-        
-            </tr>
-                `
-            }
-        });
-
-    })
-})
-
 
 
 
 
 function RegistrarCaprinos() {
-
-
-
-
-
 
     let raza = document.getElementById('raza')
     let origen = document.getElementById('origen')

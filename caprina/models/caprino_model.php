@@ -76,7 +76,7 @@ class ModelCaprino
     static public function mdlConsultarCaprinoActivo($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT id,codigo, raza, origen, fecha_nacimiento FROM $tabla WHERE estado =1 AND id_usuario=$id ORDER BY codigo DESC");
+        $stmt = conexion::conectar()->prepare("SELECT id,codigo, raza, origen, fecha_nacimiento FROM $tabla WHERE estado =1 AND id_usuario=$id ORDER BY codigo ASC ");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();
@@ -87,7 +87,7 @@ class ModelCaprino
     static public function mdlConsultarCaprinoInactivo($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT id,codigo, motivo_salida, fecha_salida FROM $tabla WHERE estado =0 AND id_usuario = $id ORDER BY codigo DESC");
+        $stmt = conexion::conectar()->prepare("SELECT id,codigo, motivo_salida, fecha_salida, raza FROM $tabla WHERE estado =0 AND id_usuario = $id ORDER BY codigo ASC ");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();
@@ -132,6 +132,7 @@ class ModelCaprino
         }
     }
 
+
     //--------------CREAR TRATAMIENTO--------------------------
     static public function mdlTratamiento($tabla, $id_usuario, $descripcion, $fecha_inicio)
     {
@@ -158,9 +159,10 @@ class ModelCaprino
     static public function mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos)
     {
         foreach ($caprinos   as $value) {
-            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento) VALUES( 1, :codigo, :id_trat) ");
+            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento) VALUES( :id, :codigo, :id_trat) ");
             $stmt->bindParam(":id_trat", $idtratamiento);
             $stmt->bindParam(":codigo", $value["codigo"]);
+            $stmt->bindParam(":id",$value["id_usuario"]);
             $stmt->execute();
         }
         return "OK";

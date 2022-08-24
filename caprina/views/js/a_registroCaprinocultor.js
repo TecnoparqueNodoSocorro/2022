@@ -3,6 +3,14 @@
 let btnRegistrar = document.getElementById('btnRegistrar')
 let nuevoCaprinocultor = {}
 
+let name_user = document.getElementById('name_user')
+let lastname_user = document.getElementById('lastname_user')
+let phone_user = document.getElementById('phone_user')
+let document_user = document.getElementById('document_user')
+let direccion = document.getElementById('direccion')
+let objetivoProduccion = document.getElementById('objetivoProduccion')
+let claveConfir = document.getElementById('claveConfir')
+let clave = document.getElementById('clave')
 
 
 if (btnRegistrar) {
@@ -13,18 +21,9 @@ if (btnRegistrar) {
 
 function AgregarCaprinocultor() {
 
-    let name_user = document.getElementById('name_user')
-    let lastname_user = document.getElementById('lastname_user')
-    let phone_user = document.getElementById('phone_user')
-    let document_user = document.getElementById('document_user')
-    let cargo = document.getElementById('cargo')
-    let direccion = document.getElementById('direccion')
-    let objetivoProduccion = document.getElementById('objetivoProduccion')
-    let claveConfir = document.getElementById('claveConfir')
-    let clave = document.getElementById('clave')
 
 
-    if (objetivoProduccion.value=="0" || cargo.value=="0"|| document_user.value.trim() == "" || phone_user.value.trim() == "" || lastname_user.value.trim() == "" || name_user.value.trim() == ""|| direccion.value.trim() == "") {
+    if (objetivoProduccion.value=="0" || document_user.value.trim() == "" || phone_user.value.trim() == "" || lastname_user.value.trim() == "" || name_user.value.trim() == ""|| direccion.value.trim() == "") {
         DatosIncompletos()
     }else if(clave.value.trim().length<=3 || clave.value.trim().length>=5 ){
         Swal.fire({
@@ -43,7 +42,8 @@ function AgregarCaprinocultor() {
             timer: 1200
         })
     }else {
-        nuevoCaprinocultor = { cargo: cargo.value, direccion: direccion.value, objetivo_produccion: objetivoProduccion.options[objetivoProduccion.selectedIndex].text, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, password:clave.value }
+        //SE QUEMA EL CARGO PORQUE SOLAMENTE SE VAN A REGISTRAR CAPRINOCULTORES POR EL MOMENTO
+        nuevoCaprinocultor = { cargo: 2, direccion: direccion.value, objetivo_produccion: objetivoProduccion.options[objetivoProduccion.selectedIndex].text, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, password:clave.value }
         Swal.fire({
             title: 'Listo',
             text: `¿Registrar nuevo caprinocultor?`,
@@ -77,6 +77,7 @@ function AgregarCaprinocultor() {
                 Swal.fire({
                     icon: 'success',
                     title: `Nuevo caprinocultor registrado `,
+                    confirmButtonColor: '#f69100',
                     showConfirmButton: true,
                     
                     allowOutsideClick: () => {

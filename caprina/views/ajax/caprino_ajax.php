@@ -11,23 +11,25 @@ class CaprinoAjax
 
     public function __construct()
     {
-        /*   $this->controlador=new ControladorProductos(); */
     }
+    //TRAER TODOS LOS CAPRINOS
     static public function GetCaprino($data)
     {
         $datoscaprino = ControladorCaprino::ctrGetCaprino($data);
         $rta = json_encode($datoscaprino);
         print_r($rta);
     }
+
+    //POSTEAR CAPRINO
     public function PostCaprino($data)
     {
-
         $datoscaprino = ControladorCaprino::ctrPostCaprino($data);
         echo $datoscaprino;
             /*   $respuesta = array($datoscaprino);
         echo json_encode($respuesta) */;
     }
 
+    //TRAER CAPRINO INDIVIDUAL PARA EL REGISTRO DE TRATAMIENTOS 
     static public function GetCaprinoInd($data)
     {
         $datoscaprino = ControladorCaprino::ctrGetCaprinoInd($data);
@@ -35,22 +37,23 @@ class CaprinoAjax
         print_r($rta);
     }
 
+    //POST TRATAMIENTO, SE REGISTRA LA DESCRIPCION Y LA FECHA DEL TRATAMIENTO
     public function postTratamiento($descripcion, $id_usuario, $fecha_inicio)
     {
-
         $RtaCabecera = ControladorCaprino::ctrPostTratamiento($descripcion, $id_usuario, $fecha_inicio);
         $response = array("idTratamiento" => $RtaCabecera);
         echo json_encode($response);
     }
 
 
+    //SE REGISTRA LOS CAPRINOS AL TRATAMIENTO CREADO ANTERIORMENTE
     public function postCaprinosEnTratamiento($idtratamiento, $caprinos)
     {
         $RtaDetallefact = ControladorCaprino::ctrPostCaprinosTratamiento($idtratamiento, $caprinos);
         echo json_encode($RtaDetallefact);
     }
 
-    
+    //TRAER LOS CAPRINOS PERTENECIENTES A UN USUARIO EN ESPECIFICO
     public function GetCaprinoUsuario($data)
     {
         $respuesta = ControladorCaprino::ctrGetCaprinoUsuario($data);
@@ -80,7 +83,7 @@ if (isset($_POST['codigo'])) {
     $codigoC->GetCaprinoInd($data);
 }
 
-/* --------------------------cabecera---------------------------------- */
+/* --------------------POST DE LA DESCRIPCION Y LA FECHA DE TRATAMIENTOS---------------------------------- */
 if (isset($_POST['datosTratamiento'])) {
     $ajaxCabecera = new CaprinoAjax();
     $data = $_POST['datosTratamiento'];
@@ -88,23 +91,17 @@ if (isset($_POST['datosTratamiento'])) {
     $descripcion = $data['descripcion'];
     $fecha_inicio = $data['fecha_inicio'];
     $ajaxCabecera->postTratamiento($id_usuario, $descripcion, $fecha_inicio);
-}/*  else {
-    return ("nada de dato cabecera!!!");
-} */
-
-/* ---------------------------------detalle------ */
+}
 
 
+/* ---SE REGISTRA LOS CAPRINOS AL ID DEL TRATAMIENTO REGISTRADO EN EL TRATAMIENTO INMEDIATAMENTE ANTERIOR------ */
 if (isset($_POST['idtratatamiento']) && isset($_POST['caprinos'])) {
 
     $ajaxDetalle = new CaprinoAjax();
     $caprinos = JSON_decode($_POST['caprinos'], true);
     $idtratamiento = $_POST['idtratatamiento'];
     $ajaxDetalle->postCaprinosEnTratamiento($idtratamiento, $caprinos);
-} /* else {
-    return ("nada de dato detalle!!!");
-} */
-  
+}
 
 /* ------------------------------------------------ */
 

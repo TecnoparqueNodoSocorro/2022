@@ -4,8 +4,12 @@
 //require_once "controllers/caprinocultor_controller.php";
 
 session_start();
-if(isset( $_SESSION["id"])){
-$id = $_SESSION["id"];}
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
+}
+if (isset($_SESSION["id_cargo"])) {
+    $id_cargo = $_SESSION["id_cargo"];
+}
 
 ?>
 
@@ -29,7 +33,7 @@ $id = $_SESSION["id"];}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
     </script>
-<!-- Sweet alert y grafica -->
+    <!-- Sweet alert y grafica -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -38,9 +42,11 @@ $id = $_SESSION["id"];}
 
 <body>
 
-<!-- ID DEL EMPLEADO EN CAMPO OCULTO -->
+    <!-- ID DEL EMPLEADO EN CAMPO OCULTO -->
     <input type="hidden" name="" id="id_userOculto" value="<?php echo $id ?>">
 
+    <!-- ID DEL CARGP EN CAMPO OCULTO -->
+    <input type="hidden" name="" id="id_cargoOculto" value="<?php echo $id_cargo ?>">
 
     <nav class="navbar navbar-light">
         <div class="container-fluid">
@@ -118,9 +124,9 @@ $id = $_SESSION["id"];}
             </div> -->
 
             <?php
-                        $menu = new ControladorCaprinocultor();
-                        $menu->ctrMenu();
-                        ?>
+            $menu = new ControladorCaprinocultor();
+            $menu->ctrMenu();
+            ?>
         </div>
     </nav>
 
@@ -145,6 +151,10 @@ $id = $_SESSION["id"];}
             $_GET["page"] == "c_registroTratamientos" ||
             $_GET["page"] == "c_registroControlIndividual" ||
             $_GET["page"] == "c_registroCaprinos" ||
+            $_GET["page"] == "c_reporteControles" ||
+            $_GET["page"] == "c_reporteTratamientos" ||
+            $_GET["page"] == "c_reporteProduccion" ||
+
             $_GET["page"] == "login"
 
         ) {
@@ -162,14 +172,18 @@ $id = $_SESSION["id"];}
 
     <script src="views/js/a_registroCaprinocultor.js"></script>
     <script src="views/js/a_reporteControles.js"></script>
+    <script src="views/js/a_reporteTratamientos.js"></script>
+    <script src="views/js/c_reporteTratamientos.js"></script>
     <script src="views/js/c_registroCaprinos.js"></script>
     <!-- <script src="views/js/js.js"></script> -->
     <script src="views/js/login.js"></script>
+    <script src="views/js/c_reporteControles.js"></script>
     <script src="views/js/c_controlIndividual.js"></script>
     <script src="views/js/c_registroTratamientos.js"></script>
     <script src="views/js/c_registroSalidas.js"></script>
     <script src="views/js/c_registrarProduccion.js"></script>
-    <script src="views/js/a_reporteTratamientos.js"></script>
+    <script src="views/js/c_reporteProduccion.js"></script>
+
 
     <footer class="footer">
 

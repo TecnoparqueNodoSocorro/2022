@@ -5,6 +5,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
+
 ?>
 <div class="container">
     <h4>Registro de Caprinos</h4>
@@ -44,7 +45,7 @@ if (isset($_SESSION["validar_ingreso"])) {
         <div class="row justify-content-md-center mt-2">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <label class="form-label">
-                    <h6>Nacimiento Aprox.</h6>
+                    <h6>Fecha de nacimiento Aproximado</h6>
                 </label>
                 <input type="date" name="fecha_nac" id="fecha_nac" class="form-control" value="" required>
 
@@ -65,42 +66,37 @@ if (isset($_SESSION["validar_ingreso"])) {
 <!--     <h5 class="mt-2">Listado de Caprinos</h5> -->
 
 
-  <!--   <?php
-    $caprino = ControladorCaprino::ctrConsultarCaprino();
-    ?> -->
+   <?php
+    $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id);
+    ?>
 
     <!-- listado de caprinos -->
 
     <div class="table-responsive mt-3 mb-5">
         <table class="table table-warning table-bordered">
             <thead id="theadListarCaprinosPorUsuario">
-            <!--     <tr>
+             <tr>
                     <th>Código</th>
-                    <th>Estado</th>
                     <th>Raza</th>
                     <th>Origen</th>
                     <th>Fecha Nacimiento</th>
-                    <th>Motivo de Salida</th>
-                    <th>Fecha de Salida</th>
 
 
-                </tr> -->
+                </tr> 
             </thead>
             <tbody id="tbodyListarCaprinosPorUsuario">
 
-               <!--  <?php foreach ($caprino as $key => $value) : ?>
+                 <?php foreach ($caprino as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["codigo"]  ?></td>
-                        <td><?php echo ($value["estado"]==1 ?'Activo':'Inactivo') ?></td>
                         <td><?php echo $value["raza"] ?></td>
                         <td><?php echo $value["origen"] ?></td>
                         <td><?php echo $value["fecha_nacimiento"] ?></td>
-                        <td><?php echo $value["motivo_salida"] ?></td>
-                        <td><?php echo $value["fecha_salida"] ?></td>
+
 
                     </tr>
 
-                <?php endforeach ?> -->
+                <?php endforeach ?>
 
 
 

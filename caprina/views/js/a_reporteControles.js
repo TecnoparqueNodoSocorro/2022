@@ -1,26 +1,30 @@
 
 
 //------------------------------REPORTE DE CONTROLES DE LOS CAPRINOS---------------------------------------------
-let fecha_inicio = document.getElementById('fecha_inicio')
-let fecha_fin = document.getElementById('fecha_fin')
-let tbody_reporte_controles = document.getElementById('tbody_reporte_controles')
-let thead_reporte = document.getElementById('thead_reporte')
+//id del cargo capturado en campo oculto
+let id_cargoOculto = document.getElementById('id_cargoOculto')
+
+let fecha_inicioReporteAdministrador = document.getElementById('fecha_inicioReporteAdministrador')
+let fecha_finReporteAdministrador = document.getElementById('fecha_finReporteAdministrador')
+let tbody_reporte_controlesReporteAdministrador = document.getElementById('tbody_reporte_controlesReporteAdministrador')
+let thead_reporteReporteAdministrador = document.getElementById('thead_reporteReporteAdministrador')
 let btnReporteC = document.getElementById('btnReporteC')
-let seleccion_enfermedad = document.getElementById('seleccion_enfermedad')
+let seleccion_enfermedadReporteAdministrador = document.getElementById('seleccion_enfermedadReporteAdministrador')
 
 if (btnReporteC) {
     btnReporteC.addEventListener("click", () => {
-        tbody_reporte_controles.innerHTML = ``
+        tbody_reporte_controlesReporteAdministrador.innerHTML = ``
 
-        ReporteControles()
+        ReporteControles(fecha_inicioReporteAdministrador, fecha_finReporteAdministrador, tbody_reporte_controlesReporteAdministrador, thead_reporteReporteAdministrador, seleccion_enfermedadReporteAdministrador, id_cargoOculto, id_userOculto)
     })
 }
 
-function ReporteControles() {
+function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thead_reporte, seleccion_enfermedad, idCargo, idUsuario) {
+
     if (fecha_inicio.value.trim() == "" || fecha_fin.value.trim() == "" || seleccion_enfermedad.value == "0") {
         DatosIncompletos()
     } else {
-        fechas_reporte = { fecha_inicio: fecha_inicio.value, fecha_fin: fecha_fin.value, enfermedad: seleccion_enfermedad.value }
+        fechas_reporte = { fecha_inicio: fecha_inicio.value, fecha_fin: fecha_fin.value, enfermedad: seleccion_enfermedad.value, cargo: idCargo.value, usuario: idUsuario.value }
         console.log(fechas_reporte);
 
         if (seleccion_enfermedad.value == "enfermedad_respiratoria") {
@@ -28,6 +32,7 @@ function ReporteControles() {
                 let response = (JSON.parse(dato))
                 console.log(response);
                 response.forEach(x => {
+                    //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
                     thead_reporte.innerHTML = `<tr>
                         <th>Código del caprino</th>
                         <th>Propietario</th>
@@ -39,6 +44,7 @@ function ReporteControles() {
                         <th>Fecha de registro</th>
         
                     </tr>`
+                    //SE DIBUJA LA TABLA CONCATENANDO CADA UNO DE LOS RESULTADOS
                     tbody_reporte_controles.innerHTML += `
                         
                         <tr>
@@ -63,6 +69,7 @@ function ReporteControles() {
                 let response = (JSON.parse(dato))
                 console.log(response);
                 response.forEach(x => {
+                    //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
                     thead_reporte.innerHTML = `<tr>
                         <th>Código del caprino</th>
                         <th>Propietario</th>
@@ -72,6 +79,7 @@ function ReporteControles() {
                         <th>Fecha de registro</th>
         
                     </tr>`
+                    //SE DIBUJA LA TABLA CONCATENANDO CADA UNO DE LOS RESULTADOS
                     tbody_reporte_controles.innerHTML += `
                         <tr>
                         <td scope="row">${x.codigo_caprino}</td>
@@ -93,6 +101,8 @@ function ReporteControles() {
                 let response = (JSON.parse(dato))
                 console.log(response);
                 response.forEach(x => {
+                    //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
+
                     thead_reporte.innerHTML = `<tr>
                         <th>Código del caprino</th>
                         <th>Propietario</th>
@@ -101,6 +111,8 @@ function ReporteControles() {
                         <th>Enfermedad por mordeduras</th>    
                         <th>Fecha de registro</th>
                     </tr>`
+                    //SE DIBUJA LA TABLA CONCATENANDO CADA UNO DE LOS RESULTADOS
+
                     tbody_reporte_controles.innerHTML += `
                         <tr>
                         <td scope="row">${x.codigo_caprino}</td>
@@ -121,6 +133,8 @@ function ReporteControles() {
                 let response = (JSON.parse(dato))
                 console.log(response);
                 response.forEach(x => {
+                    //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
+
                     thead_reporte.innerHTML = `<tr>
                         <th>Código del caprino</th>
                         <th>Propietario</th>
@@ -132,6 +146,8 @@ function ReporteControles() {
                         <th>Fecha de registro</th>
         
                     </tr>`
+                    //SE DIBUJA LA TABLA CONCATENANDO CADA UNO DE LOS RESULTADOS
+
                     tbody_reporte_controles.innerHTML += `
                         <tr>
                         <td scope="row">${x.codigo_caprino}</td>
