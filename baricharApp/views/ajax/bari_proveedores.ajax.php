@@ -11,10 +11,7 @@ class ProveedoresAjax
         $NewProveedor = ControladorProveedor::CtrNewProveedor($data);
         $respuesta= array("data"=>$NewProveedor);
         echo json_encode($respuesta);
-    }
-
-
-    
+    }   
 }
 
 //editar proveedor-------------------------------------------------------------

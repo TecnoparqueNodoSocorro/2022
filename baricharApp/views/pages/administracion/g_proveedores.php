@@ -214,47 +214,47 @@
                     <form id="ContactForm" method="post" action="">
                         <br>
                         <div class="row">
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6  col-md-4">
                                 <label>Nombre del provedor</label>
                                 <input type="text" class="form_input " name="nombre" id="nombre" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6  col-md-4">
                                 <label>Nit</label>
                                 <input type="textr" class="form_input " name="nit" id="nit" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <label>Direccion</label>
                                 <input type="text" class="form_input " name="direccion" id="direccion" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <label>Telefono</label>
                                 <input type="number" class="form_input" name="telefono" id="telefono" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <label>Email</label>
                                 <input type="mail" class="form_input " name="email" id="email" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6  col-md-4">
                                 <label>Max productos publicados </label>
                                 <input type="number" class="form_input " name="max_p" id="max_p" />
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-sm-6 col-md-6">
                                 <label>Logo</label>
                                 <input type="file" class="form_input " name="logo" id="logo" />
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-sm-6 col-md-6">
                                 <label>Vigencia de servicio</label>
                                 <input type="date" class="form_input " name="vigencia" id="vigencia" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <label>Usuario</label>
                                 <input type="text" class="form_input" name="user" id="user" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <label>Contraseña</label>
                                 <input type="password" class="form_input" name=" pass_1" id="pass_1" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <label>Repetir contraseña</label>
                                 <input type="password" class="form_input" name=" pass_2" id="pass_2" />
                             </div>
@@ -263,7 +263,7 @@
                                 <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
                             </div>
                         </div>
-
+                        <br>
                         <div>
                             <button type="button" class="btn btn-success" id="btn_guardar"> Guardar</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>

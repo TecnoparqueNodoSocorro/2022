@@ -3,17 +3,13 @@
     <div class="home_bottomS">
 
         <div class="container-fluid" id="tablas">
-
-
-
-
             <div class="container">
                 <!-- aqui imagen representativa  -->
-                <h4 style="padding: 0;">Gestion de presentacion de articulos de la aplicacion </h4>
+                <h4 style="padding: 0;">Gestion de contenidos de la aplicacion </h4>
 
                 <div class="row">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_pagina">
-                        Adicionar
+                        + Adicionar
                     </button>
                 </div>
             </div>
@@ -28,7 +24,6 @@
                             <th>Categoria</th>
                             <th>Item</th>
                             <th>Titulo</th>
-                            <th>Detalle</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
@@ -54,7 +49,6 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
 
@@ -80,7 +74,6 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
                         <tr>
@@ -104,7 +97,6 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
                         <tr>
@@ -128,7 +120,6 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
                         <tr>
@@ -152,7 +143,6 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
                         <tr>
@@ -174,7 +164,6 @@
                                 xxx
                             </td>
                             <td>Mark</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
                         <tr>
@@ -196,7 +185,6 @@
                                 xxx
                             </td>
                             <td>Mark</td>
-                            <td>Otto</td>
                             <td>@mdo</td>
                         </tr>
                     </tbody>
@@ -219,7 +207,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">Agregar nuevo Articulo a la presentacion de la pagina</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">+ Agregar nuevo Articulo a la pagina</h5>
 
             </div>
             <div class="modal-body">
@@ -229,62 +217,60 @@
                     <form id="ContactForm" method="post" action="">
                         <br>
                         <div class="row">
-                            <div class="col-12  col-md-4">
+                            <div class=" col-sm-6">
                                 <label>Sesion</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="guests" id="categoria">
+                                    <select class="form_select" name="session" id="session">
                                         <option selected>---Sesiones---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
                                         <option value="C3">Iluminacion sonido y animación</option>
-
-
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-sm-6">
                                 <label>Categoria</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="guests" id="categoria">
+                                    <select class="form_select" name="categoria" id="categoria">
                                         <option selected>---Categorias---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
                                         <option value="C3">Iluminacion sonido y animación</option>
-
-
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class=" col-sm-6">
                                 <label>Item</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="guests" id="categoria">
+                                    <select class="form_select" name="item" id="item">
                                         <option selected>---Items---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
                                         <option value="C3">Iluminacion sonido y animación</option>
-
-
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12  col-md-6">
+                            <div class="col-sm-12  col-md-6">
                                 <label>Imagen del articulo</label>
-                                <input type="file" class="form_input " name="product_img" id="product_img1" />
+                                <input type="file" class="form_input " name="product_img" id="product_img" />
                             </div>
-                            <div class="col-12  col-md-6">
-                                <p>Recomendaciones de la imagen:</p>
+                            <div class="col-sm-12">
+                                <p>Recomendaciones de la imagen:</br> <small>Menos de 600kb</small></p>
 
                             </div>
+                            <div class="col-sm-12  ">
+                                <label>Titulo del Articulo</label>
+                                <input type="text" class="form_input " name="titulo_prod" id="titulo_prod" />
+                            </div>
 
-                            <div class="col-12">
+
+                            <div class="col-sm-12">
                                 <label>Descripcion</label>
                                 <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
                             </div>
 
-
-                            <div class="col-6">
-
+                            <br>
+                            <div class="col-12">
                                 <button type="button" class="btn btn-success"> Guardar</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                             </div>
