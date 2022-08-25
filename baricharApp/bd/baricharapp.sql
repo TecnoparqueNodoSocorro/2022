@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2022 a las 00:00:18
+-- Tiempo de generación: 25-08-2022 a las 18:54:29
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -105,16 +105,26 @@ CREATE TABLE `productos` (
 
 CREATE TABLE `proveedores` (
   `id` int(11) NOT NULL,
-  `nit` varchar(300) NOT NULL,
   `nombre` varchar(500) NOT NULL,
-  `rep_legal` varchar(300) NOT NULL,
+  `nit` varchar(300) NOT NULL,
   `telefono` varchar(50) NOT NULL,
   `correo` varchar(300) NOT NULL,
+  `maxprod` int(10) NOT NULL,
   `direccion` varchar(300) NOT NULL,
   `descripcion` varchar(600) NOT NULL,
   `logo` varchar(300) NOT NULL,
-  `clasificacion` varchar(300) NOT NULL
+  `vigencia` date NOT NULL,
+  `usuario` varchar(15) NOT NULL,
+  `pasww1` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`id`, `nombre`, `nit`, `telefono`, `correo`, `maxprod`, `direccion`, `descripcion`, `logo`, `vigencia`, `usuario`, `pasww1`) VALUES
+(1, 'juan', '', '', '', 0, '', '', '', '0000-00-00', 'judaver', '123456789'),
+(2, 'tortas ', '829001846-6', '3145563439', 'juan@gmail.com', 10, 'el socorro tecnoparque', 'descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--', '', '2022-08-18', 'judaver', '4765');
 
 --
 -- Índices para tablas volcadas
@@ -146,7 +156,7 @@ ALTER TABLE `pg_categorias`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

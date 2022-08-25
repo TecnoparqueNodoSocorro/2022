@@ -4,19 +4,48 @@ require_once('../../models/model_proveedores.php');
 
 class ProveedoresAjax
 {
-    public $controlador;
-    //crear proveedor 
-
+    /* public $controlador; */
+    //crear proveedor ----------------------------------------------------------
     public function CrearProveedor($data)
     {
-        $NewProveedor = ControladorProveedor::CtrCrearProveedor($data);
+        $NewProveedor = ControladorProveedor::CtrNewProveedor($data);
         $respuesta= array("data"=>$NewProveedor);
         echo json_encode($respuesta);
     }
+
+
+    
 }
 
-//editar proveedor
+//editar proveedor-------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ********************************************************* */
 /* ********************************************************* */
 if (isset($_POST['datos_proveedor'])) {
     $ajaxproveedor = new ProveedoresAjax();
