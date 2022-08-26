@@ -202,7 +202,7 @@
 
     </div>
 </div>
-
+<!-- modal -->
 <div class="modal fade" id="modal_pagina" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
@@ -271,7 +271,7 @@
 
                             <br>
                             <div class="col-12">
-                                <button type="button" class="btn btn-success"> Guardar</button>
+                                <button type="button" class="btn btn-success" id="btnguardar"> Guardar</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>

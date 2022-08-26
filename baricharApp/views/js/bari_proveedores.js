@@ -19,17 +19,17 @@ let c_btn_cerrar = document.querySelector("#btn_cerrar");
 
 //listener
 
-c_btn_guardar.addEventListener("click", crearProveedor);
+c_btn_guardar.addEventListener("click", crearProveedor)
 
 /* *********************************************************************************************************************** */
 // crear proveedor
 /* *********************************************************************************************************************** */
 function crearProveedor() {
 
-    /*    if (c_pass_1.value != c_pass_2.value) {
+       if (c_pass_1.value != c_pass_2.value) {
            alert("error!!! Las contraseñas no coinciden");
        }
-       else { */
+       else {
    const  datos_proveedor = {
         nombre: c_nombre.value,
         nit: c_nit.value,
@@ -47,7 +47,7 @@ function crearProveedor() {
     postajax(datos_proveedor);
 }
 
-/* }; */
+};
 
 function postajax(datos_proveedor) {
     $.post("views/ajax/bari_proveedores.ajax.php", {datos_proveedor}, function (data) {
