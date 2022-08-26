@@ -260,7 +260,7 @@
                             </div>
                             <div class="col-12">
                                 <label>Breve descripcion de la empresa</label>
-                                <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
+                                <textarea class="form_textarea_full" name="descr_prov" id="descr_prov"></textarea>
                             </div>
                         </div>
                         <br>

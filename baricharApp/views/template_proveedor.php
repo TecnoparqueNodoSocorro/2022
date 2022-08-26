@@ -103,24 +103,7 @@
     <!-- js con los datos de los formularios -->
     <script type="text/javascript" src="views/js/script.js"></script>
 
-    <!-- js menu inicio -->
 
-    <script type="text/javascript">
-        function visualiza_primero() {
-            document.getElementById('primero').style.visibility = 'visible';
-            document.getElementById('primero').style.display = 'block';
-            document.getElementById('segundo').style.visibility = 'hidden';
-            document.getElementById('segundo').style.display = 'none';
-        };
-
-        function visualiza_segundo() {
-            document.getElementById('segundo').style.visibility = 'visible';
-            document.getElementById('segundo').style.display = 'block';
-            document.getElementById('primero').style.visibility = 'hidden';
-            document.getElementById('primero').style.display = 'none';
-        };
-    </script>
-    <!-- js menu fin -->
 
     <script type="text/javascript">
         var $ = jQuery.noConflict();

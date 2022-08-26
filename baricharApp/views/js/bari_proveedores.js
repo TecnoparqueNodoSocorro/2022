@@ -9,7 +9,7 @@ let c_vigencia = document.getElementById("vigencia");
 let c_user = document.getElementById("user");
 let c_pass_1 = document.getElementById("pass_1");
 let c_pass_2 = document.getElementById("pass_2");
-let c_descr_producto = document.getElementById("descr_producto");
+let c_descr_emp = document.getElementById("descr_prov");
 let c_btn_guardar = document.querySelector("#btn_guardar");
 let c_btn_cerrar = document.querySelector("#btn_cerrar");
 
@@ -42,7 +42,7 @@ function crearProveedor() {
         user: c_user.value,
         pass_1: c_pass_1.value,
         pass_2: c_pass_2.value,
-        descr: c_descr_producto.value,
+        descr: c_descr_emp.value,
     }
     postajax(datos_proveedor);
 }

@@ -165,4 +165,5 @@
 <script src="views/js/bari_pagina.js"></script>
 <script src="views/js/bari_proveedores.js"></script>
 <script src="views/js/bari_user.js"></script>
+
 </html>

@@ -202,4 +202,5 @@
 </body>
 <script src="views/js/bari_user.js"></script>
 <script src="views/js/bari_productos.js"></script>
+
 </html>

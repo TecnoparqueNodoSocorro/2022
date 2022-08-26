@@ -220,7 +220,7 @@
                             <div class=" col-sm-6">
                                 <label>Sesion</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="session" id="session">
+                                    <select class="form_select" name="pag_session" id="pag_session">
                                         <option selected>---Sesiones---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
@@ -231,7 +231,7 @@
                             <div class="col-sm-6">
                                 <label>Categoria</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="categoria" id="categoria">
+                                    <select class="form_select" name="pag_cat" id="pag_cat">
                                         <option selected>---Categorias---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
@@ -242,7 +242,7 @@
                             <div class=" col-sm-6">
                                 <label>Item</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="item" id="item">
+                                    <select class="form_select" name="pag_item" id="pag_item">
                                         <option selected>---Items---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
@@ -252,7 +252,7 @@
                             </div>
                             <div class="col-sm-12  col-md-6">
                                 <label>Imagen del articulo</label>
-                                <input type="file" class="form_input " name="product_img" id="product_img" />
+                                <input type="file" class="form_input " name="pag_img" id="pag_img" />
                             </div>
                             <div class="col-sm-12">
                                 <p>Recomendaciones de la imagen:</br> <small>Menos de 600kb</small></p>
@@ -260,18 +260,18 @@
                             </div>
                             <div class="col-sm-12  ">
                                 <label>Titulo del Articulo</label>
-                                <input type="text" class="form_input " name="titulo_prod" id="titulo_prod" />
+                                <input type="text" class="form_input " name="titulo_pag" id="titulo_pag" />
                             </div>
 
 
                             <div class="col-sm-12">
                                 <label>Descripcion</label>
-                                <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
+                                <textarea class="form_textarea_full" name="descr_pag" id="descr_pag"></textarea>
                             </div>
 
                             <br>
                             <div class="col-12">
-                                <button type="button" class="btn btn-success" id="btnguardar"> Guardar</button>
+                                <button type="button" class="btn btn-success" id="pag_btnguardar"> Guardar</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>

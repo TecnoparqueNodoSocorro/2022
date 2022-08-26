@@ -222,7 +222,7 @@
                             <div class="col-12  col-md-4">
                                 <label>Seleccione la categoria producto o Servicio</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="guests" id="categoria">
+                                    <select class="form_select" name="guests" id="cat">
                                         <option selected>---Categorias---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>

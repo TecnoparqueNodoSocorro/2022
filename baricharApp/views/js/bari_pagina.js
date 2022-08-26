@@ -1,32 +1,33 @@
 //variables
-let session = document.getElementById("session");
-let categoria = document.getElementById("categoria");
-let item = document.getElementById("item");
-let product_img = document.getElementById("product_img");
-let titulo_prod = document.getElementById("titulo_prod");
-let descr_producto = document.getElementById("descr_producto");
-let btnguardar = document.querySelector("#btnguardar");
+let pag_session = document.getElementById("pag_session");
+let pag_categ = document.getElementById("pag_cat");
+let pag_item = document.getElementById("pag_item");
+let pag_img = document.getElementById("pag_img");
+let pag_titulo = document.getElementById("titulo_pag");
+let pag_descr = document.getElementById("descr_pag");
+let pag_datosarticulo={};
+let pag_btnguardar = document.querySelector("#pag_btnguardar");
 
 //listener
 
-btnguardar.addEventListener("click", CrearArticulo)
+pag_btnguardar.addEventListener("click", CrearArticulo)
 
 // crear articulo
 function CrearArticulo() {
-    datosarticulo = {
-        session_create: session.value,
-        categoria_create: categoria.value,
-        item_create: item.value,
-        product_img_create: product_img.value,
-        titulo_prod_create: titulo_prod.value,
-        descr_producto_create: descr_producto.value,
+   pag_datosarticulo = {
+        session_create: pag_session.value,
+        categoria_create: pag_categ.value,
+        item_create: pag_item.value,
+        product_img_create: pag_img.value,
+        titulo_prod_create: pag_titulo.value,
+        descr_producto_create: pag_descr.value,
     }
 
-    postajax(datosarticulo);
+    postajax(pag_datosarticulo);
 }
 
-function postajax(datosarticulo) {
-    $.post("views/ajax/bari_pagina.ajax.php", { datosarticulo }, function (data) {
+function postajax(pag_datosarticulo) {
+    $.post("views/ajax/bari_pagina.ajax.php", { pag_datosarticulo }, function (data) {
         let response = $.parceJSON(data);
         console.log(response);
     })
