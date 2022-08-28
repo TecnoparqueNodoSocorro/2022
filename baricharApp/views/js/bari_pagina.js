@@ -1,26 +1,27 @@
 //variables
-let pag_session = document.getElementById("pag_session");
-let pag_categ = document.getElementById("pag_cat");
-let pag_item = document.getElementById("pag_item");
-let pag_img = document.getElementById("pag_img");
-let pag_titulo = document.getElementById("titulo_pag");
-let pag_descr = document.getElementById("descr_pag");
-let pag_datosarticulo={};
-let pag_btnguardar = document.querySelector("#pag_btnguardar");
+let p_session = document.getElementById("pag_session");
+let p_cat = document.getElementById("pag_cat");
+let p_item = document.getElementById("pag_item");
+let p_img = document.getElementById("pag_img");
+let p_titulo = document.getElementById("pag_titulo");
+let p_descr = document.getElementById("pag_descr");
+//
+let p_datosarticulo={};
+let p_btnguardar = document.querySelector("#pag_btnguardar");
 
 //listener
 
-pag_btnguardar.addEventListener("click", CrearArticulo)
+p_btnguardar.addEventListener("click", CrearArticulo)
 
 // crear articulo
 function CrearArticulo() {
-   pag_datosarticulo = {
-        session_create: pag_session.value,
-        categoria_create: pag_categ.value,
-        item_create: pag_item.value,
-        product_img_create: pag_img.value,
-        titulo_prod_create: pag_titulo.value,
-        descr_producto_create: pag_descr.value,
+   p_datosarticulo = {
+        session_create: p_session.value,
+        categoria_create: p_cat.value,
+        item_create: p_item.value,
+        product_img_create: p_img.value,
+        titulo_prod_create: p_titulo.value,
+        descr_producto_create: p_descr.value,
     }
 
     postajax(pag_datosarticulo);

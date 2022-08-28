@@ -260,13 +260,13 @@
                             </div>
                             <div class="col-sm-12  ">
                                 <label>Titulo del Articulo</label>
-                                <input type="text" class="form_input " name="titulo_pag" id="titulo_pag" />
+                                <input type="text" class="form_input " name="pag_titulo" id="pag_titulo" />
                             </div>
 
 
                             <div class="col-sm-12">
                                 <label>Descripcion</label>
-                                <textarea class="form_textarea_full" name="descr_pag" id="descr_pag"></textarea>
+                                <textarea class="form_textarea_full" name="pag_descr" id="pag_descr"></textarea>
                             </div>
 
                             <br>

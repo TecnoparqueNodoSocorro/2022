@@ -10,8 +10,9 @@ let c_user = document.getElementById("user");
 let c_pass_1 = document.getElementById("pass_1");
 let c_pass_2 = document.getElementById("pass_2");
 let c_descr_emp = document.getElementById("descr_prov");
+//
 let c_btn_guardar = document.querySelector("#btn_guardar");
-let c_btn_cerrar = document.querySelector("#btn_cerrar");
+
 
 // elementos del js
 
