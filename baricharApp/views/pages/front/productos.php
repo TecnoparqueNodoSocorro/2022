@@ -73,19 +73,19 @@
                         <div class="container">
                             <div class="form_row_full">
                                 <label>NOMBRE</label>
-                                <input type="text" readonly class="form-control-plaintext" value="Nombre" name="nombre_pro" id="nombre_pro" />
+                                <input type="text" readonly class="form-control-plaintext" value="Nombre" name="front_nombre_pro" id="front_nombre_pro" />
                             </div>
                             <div class="form_row_full">
                                 <label>CATEGORIA</label>
-                                <input type="text" readonly class="form-control-plaintext" value="Categoria" name="categoria_pro" id="categoria_pro" />
+                                <input type="text" readonly class="form-control-plaintext" value="Categoria" name="front_categoria_pro" id="front_categoria_pro" />
                             </div>
                             <div class="form_row_full">
                                 <label>PRECIO</label>
-                                <input type="number" readonly class="form-control-plaintext" value="50000" name="precio_pro" id="precio_pro" />
+                                <input type="number" readonly class="form-control-plaintext" value="50000" name="front_precio_pro" id="front_precio_pro" />
                             </div>
                             <div class="form_row_full">
                                 <label>DESCRIPCION</label>
-                                <input type="text" readonly class="form-control-plaintext" value="Descripcion" name="descripcion_pro" id="descripcion_pro" />
+                                <input type="text" readonly class="form-control-plaintext" value="Descripcion" name="front_descripcion_pro" id="front_descripcion_pro" />
                             </div>
                             <div class="form_row_full">
                                 <label>FOTOS</label>

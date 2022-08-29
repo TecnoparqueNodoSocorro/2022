@@ -7,8 +7,7 @@ class CreateArticuloAjax{
 public function CrearArticulo ($data)
 {
 $NewArticulo= Controladorpagina::CtrNewArticulo($data);
-$respuesta= array("data"=>$NewArticulo);
-echo json_encode($respuesta);
+echo $NewArticulo;
 }
 
 }
@@ -18,8 +17,8 @@ echo json_encode($respuesta);
 
 
 
-if(isset($_POST['datosarticulo'])){
+if(isset($_POST['pag_datosarticulo'])){
 $ajaxarticulo=new CreateArticuloAjax();
-$data= $_POST['datosarticulo'];
+$data= $_POST['pag_datosarticulo'];
 $ajaxarticulo->CrearArticulo($data);
 }

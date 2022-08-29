@@ -265,7 +265,7 @@
                         </div>
                         <br>
                         <div>
-                            <button type="button" class="btn btn-success" id="btn_guardar"> Guardar</button>
+                            <button type="button" class="btn btn-success" id="admin_btn_guardar"> Guardar</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
                         </div>
                     </form>

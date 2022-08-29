@@ -200,6 +200,7 @@
         main_menu.init("main_menu", "menuhover");
     </script>
 </body>
+<!-- js propios -->
 <script src="views/js/bari_user.js"></script>
 <script src="views/js/bari_productos.js"></script>
 

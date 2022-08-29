@@ -7,11 +7,14 @@ let p_titulo = document.getElementById("pag_titulo");
 let p_descr = document.getElementById("pag_descr");
 //
 let p_datosarticulo={};
-let p_btnguardar = document.querySelector("#pag_btnguardar");
+
+    let p_btnguardar = document.querySelector("#pag_btnguardar");
 
 //listener
+if (p_btnguardar){
+    p_btnguardar.addEventListener("click", CrearArticulo)
+}
 
-p_btnguardar.addEventListener("click", CrearArticulo)
 
 // crear articulo
 function CrearArticulo() {
@@ -23,15 +26,15 @@ function CrearArticulo() {
         titulo_prod_create: p_titulo.value,
         descr_producto_create: p_descr.value,
     }
+    postajaxP(p_datosarticulo);
+};
 
-    postajax(pag_datosarticulo);
-}
-
-function postajax(pag_datosarticulo) {
+function postajaxP(pag_datosarticulo) {
     $.post("views/ajax/bari_pagina.ajax.php", { pag_datosarticulo }, function (data) {
-        let response = $.parceJSON(data);
-        console.log(response);
-    })
+       /*  let response = JSON.parse(data);
+        console.log(response); */
+        console.log(data);
+    });
 
 }
 

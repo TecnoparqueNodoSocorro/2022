@@ -15,7 +15,6 @@
                         <div class="container">
                             <img id="imgproveedor" src="views/images/proveedores/proveedor1.jpg">
                         </div>
-
                     </div>
 
                     <div class="col-12 col-md-10">
@@ -49,6 +48,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -94,41 +94,41 @@
 
                             <div class="col-12  col-md-4">
                                 <label>Direccion</label>
-                                <input type="text" class="form_input " name="direccion" id="direccion" />
+                                <input type="text" class="form_input " name="emp_direccion" id="emp_direccion" />
                             </div>
                             <div class="col-12  col-md-4">
                                 <label>Telefono</label>
-                                <input type="number" class="form_input" name="telefono" id="telefono" />
+                                <input type="number" class="form_input" name="emp_telefono" id="emp_telefono" />
                             </div>
                             <div class="col-12  col-md-4">
                                 <label>Email</label>
-                                <input type="mail" class="form_input " name="email" id="email" />
+                                <input type="mail" class="form_input " name="emp_email" id="emp_email" />
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label>Logo <Small>(Reemplazar)</Small></label>
-                                <input type="file" class="form_input " name="logo" id="logo" />
+                                <input type="file" class="form_input " name="emp_logo" id="emp_logo" />
                             </div>
                             <br>
-                         
+
                             <div class="row">
                                 <p class="clear"><strong>Cambiar Contraseña</strong></p>
                                 <hr>
                                 <div class="col-12  col-md-4">
                                     <label>Contraseña actual</label>
-                                    <input type="text" class="form_input" name="user" id="user" />
+                                    <input type="text" class="form_input" name="emp_user" id="emp_user" />
                                 </div>
                                 <div class="col-12  col-md-4">
                                     <label>Contraseña Nueva</label>
-                                    <input type="password" class="form_input" name=" pass_1" id="pass_1" />
+                                    <input type="password" class="form_input" name="emp_pass_1" id="emp_pass_1" />
                                 </div>
                                 <div class="col-12  col-md-4">
                                     <label>Confirmar contraseña</label>
-                                    <input type="password" class="form_input" name=" pass_2" id="pass_2" />
+                                    <input type="password" class="form_input" name="emp_pass_2" id="emp_pass_2" />
                                 </div>
                                 <div class="col-12">
                                     <label>Breve descripcion de la empresa</label>
-                                    <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
+                                    <textarea class="form_textarea_full" name="emp_descr" id="emp_descr"></textarea>
                                 </div>
                             </div>
 

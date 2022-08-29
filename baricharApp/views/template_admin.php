@@ -20,7 +20,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="views/css/styles.css" />
+
 </head>
 
 <body>
@@ -161,9 +163,11 @@
         var main_menu = new main_menu.dd("main_menu");
         main_menu.init("main_menu", "menuhover");
     </script>
+    <!-- js propios -->
+    <script src="views/js/bari_pagina.js"></script>
+    <script src="views/js/bari_user.js"></script>
+    <script src="views/js/bari_proveedores.js"></script>
 </body>
-<script src="views/js/bari_pagina.js"></script>
-<script src="views/js/bari_proveedores.js"></script>
-<script src="views/js/bari_user.js"></script>
+
 
 </html>

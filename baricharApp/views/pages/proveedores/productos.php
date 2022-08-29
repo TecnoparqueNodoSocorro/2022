@@ -213,8 +213,6 @@
 
             </div>
             <div class="modal-body">
-
-
                 <div class="container">
                     <form id="ContactForm" method="post" action="">
                         <br>
@@ -222,7 +220,7 @@
                             <div class="col-12  col-md-4">
                                 <label>Seleccione la categoria producto o Servicio</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="guests" id="cat">
+                                    <select class="form_select" name="prov_p_categ" id="prov_p_categ">
                                         <option selected>---Categorias---</option>
                                         <option value="C1">Iglesias, hoteles y bodas</option>
                                         <option value="C2">Maquillaje y peinado</option>
@@ -242,23 +240,23 @@
                             </div>
                             <div class="col-12  col-md-4">
                                 <label>Nombre del producto o Servicio</label>
-                                <input type="text" class="form_input " name="product_nuevo" id="product_nombre" />
+                                <input type="text" class="form_input " name="prov_p_nombre" id="prov_p_nombre" />
                             </div>
                             <div class="col-12  col-md-4">
                                 <label>Precio</label>
-                                <input type="number" class="form_input " name="product_precio" id="product_precio" />
+                                <input type="number" class="form_input " name="prov_p_precio" id="prov_p_precio" />
                             </div>
                             <div class="col-12  col-md-6">
                                 <label>Imagen (1)</label>
-                                <input type="file" class="form_input " name="product_img" id="product_img1" />
+                                <input type="file" class="form_input " name="prov_p_imagen1" id="prov_p_imagen1" />
                             </div>
                             <div class="col-12  col-md-6">
                                 <label>Imagen (2)</label>
-                                <input type="file" class="form_input " name="product_img" id="product_img2" />
+                                <input type="file" class="form_input " name="prov_p_imagen2" id="prov_p_imagen2" />
                             </div>
                             <div class="col-12">
                                 <label>Breve descripcion de su producto o servicio</label>
-                                <textarea class="form_textarea_full" name="descr_producto" id="descr_producto"></textarea>
+                                <textarea class="form_textarea_full" name="prov_p_descripciom" id="prov_p_descripciom"></textarea>
                             </div>
 
                             <div class="col-6">

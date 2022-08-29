@@ -21,7 +21,7 @@ class ModelProveedor
 
 
         if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return "ok";
             $stmt->closeCursor();
             $stmt = null;
         } else {

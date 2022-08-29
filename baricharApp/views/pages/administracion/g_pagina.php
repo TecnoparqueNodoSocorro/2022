@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="table-responsive" id="proveedores">
+            <div class="table-responsive" id="paginas">
                 <table class="table caption-top">
 
                     <thead>

@@ -17,6 +17,6 @@ class ControladorPlantilla
     public function ctrCargarPlantillaproveedor()
     {
         /* include se usa par ainvocar el archivo que contiene el codigo */
-        include "views/template_proveedor.php";
+        include "<script>views/template_proveedor.php</script>";
     }
 }

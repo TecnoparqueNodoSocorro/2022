@@ -11,7 +11,7 @@ let c_pass_1 = document.getElementById("pass_1");
 let c_pass_2 = document.getElementById("pass_2");
 let c_descr_emp = document.getElementById("descr_prov");
 //
-let c_btn_guardar = document.querySelector("#btn_guardar");
+let c_btn_guardar = document.querySelector("#admin_btn_guardar");
 
 
 // elementos del js
@@ -20,7 +20,9 @@ let c_btn_guardar = document.querySelector("#btn_guardar");
 
 //listener
 
-c_btn_guardar.addEventListener("click", crearProveedor)
+if (c_btn_guardar){c_btn_guardar.addEventListener("click", crearProveedor)}
+
+
 
 /* *********************************************************************************************************************** */
 // crear proveedor
@@ -52,9 +54,10 @@ function crearProveedor() {
 
 function postajax(datos_proveedor) {
     $.post("views/ajax/bari_proveedores.ajax.php", {datos_proveedor}, function (data) {
-        console.log({ datos_proveedor });
-        let response = $.parseJSON(data);
-        console.log(response);
+    /*     console.log({ datos_proveedor });
+        let responses = JSON.parse(data);
+        console.log(responses); */
+        console.log(data);
     })
 }
 

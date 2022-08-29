@@ -4,18 +4,24 @@ require_once('../../models/model_proveedores.php');
 
 class ProveedoresAjax
 {
-    /* public $controlador; */
+  
     //crear proveedor ----------------------------------------------------------
     public function CrearProveedor($data)
     {
         $NewProveedor = ControladorProveedor::CtrNewProveedor($data);
-        $respuesta= array("data"=>$NewProveedor);
-        echo json_encode($respuesta);
+     
+        echo $NewProveedor;
+    }   
+
+
+//seleccionar proveedor-------------------------------------------------------------
+    public function SelecProveedor($data)
+    {
+        $SelectProveedor = ControladorProveedor::CtrSelectProveedor($data);
+        $respuesta= array("data"=>$SelectProveedor);
+        echo $respuesta;
     }   
 }
-
-//editar proveedor-------------------------------------------------------------
-
 
 
 
