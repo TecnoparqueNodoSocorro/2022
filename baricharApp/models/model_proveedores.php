@@ -38,7 +38,7 @@ class ModelProveedor
     {
         $stmt = conexion::conectar()->prepare("select * from $tabla");
         if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
             $stmt = null;
         } else {

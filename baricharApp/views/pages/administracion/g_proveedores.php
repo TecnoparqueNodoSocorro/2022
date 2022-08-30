@@ -16,9 +16,12 @@
                 </div>
             </div>
 
-
+            <?php
+            $proveedores = ControladorProveedor::CtrSelectAllProveedor();
+            /*   print_r($proveedores); */
+            ?>
             <div class="table-responsive  table-bordered table-sm" id="proveedores">
-                <table class="table caption-top">
+                <table class="table caption-top ">
 
                     <thead>
                         <tr>
@@ -30,160 +33,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
 
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
+                        <?php
+                        foreach ($proveedores as $key => $value) : ?>
 
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
+                            <tr>
 
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Opciones
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento1()"><i class=" bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
+                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento2()"><i class=" bi bi-lock-fill"> Bloquear</i></a></li>
+                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento3()"><i class=" bi bi-pen"> Editar</i></a></li>
+                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento4()"><i class=" bi bi-search"> Ver</i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
 
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
+                                <td> <img src="<?php echo $value["logo"] ?>"> </td>
+                                <td> <?php echo $value["nombre"] ?> </td>
+                                <td> <?php echo $value["vigencia"] ?> </td>
+                                <td> <?php echo $value["estado"] ?> </td>
+                            </tr>
+                        <?php endforeach ?>
 
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill"> Bloquear</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search"> Ver</i></a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>
-                                <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                            </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
                     </tbody>
                     <br><br><br>
                 </table>
@@ -278,4 +154,75 @@
 
     </div>
 </div>
+
+<div class="modal" id="modal_actualizar" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Actualizar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="m_actualizar">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal_bloq_desb" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Bloquear-Desbloquear</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="m_bloquear_desb">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal_editar" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="m_editar">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal_datos" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ver datos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="m_datos">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
 </div>

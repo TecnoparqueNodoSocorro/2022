@@ -61,27 +61,51 @@ function postajax(datos_proveedor) {
     })
 }
 
+let md_datos = document.getElementById("m_datos");
+let md_editar = document.getElementById("m_editar");
+let md_bloq_desb = document.getElementById("m_bloquear_desb");
+let md_actualizar = document.getElementById("m_actualizar");
+
+
 
 
 /* *********************************************************************************************************************** */
-// editar proveedor
+// actualizar vigencia
 /* *********************************************************************************************************************** */
-
-
-
-/* *********************************************************************************************************************** */
-// cambiar vigencia
-/* *********************************************************************************************************************** */
-
-
-
-
-
-
-
-
-
+function evento1() {
+console.log("actualizar")
+    $('#modal_actualizar').modal('show');
+    var id_actualizar = $(this).data("id");
+    md_actualizar.innerHTML = `id_actualizar`;
+}
 
 /* *********************************************************************************************************************** */
 // bloquear-habilitar proveedor
 /* *********************************************************************************************************************** */
+function evento2() {
+    console.log("bloquear")
+    $('#modal_bloq_desb').modal('show');
+    var id_bloquear = $(this).data("id");
+    md_bloq_desb.innerHTML = `id_bloquear`;
+}
+
+/* *********************************************************************************************************************** */
+// editar proveedor
+/* *********************************************************************************************************************** */
+function evento3() {
+    console.log("editar")
+    $('#modal_editar').modal('show');
+    var id_editar = $(this).data("id");
+    md_editar.innerHTML =`id_editar `
+}
+
+/* *********************************************************************************************************************** */
+// ver datos del  proveedor
+/* *********************************************************************************************************************** */
+
+function evento4() {
+    console.log("ver")
+    $('#modal_datos').modal('show');
+    var id_ver = $(this).data("id");
+    md_datos.innerHTML = `id_ver `
+}

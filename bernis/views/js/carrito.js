@@ -145,19 +145,19 @@ function enviomensaje() {
   /*  console.log( arrayOrden); */
 
   arrayOrden.forEach(element => {
- /*    console.log(element); */
+    /*    console.log(element); */
     var re = / /g;
     var datastring = element.nombre.replace(re, '');
-    arrayfinal.push("("+ element.cant+")" + datastring);
+    arrayfinal.push("(" + element.cant + ")" + datastring);
   });
 
 
- let listado = (arrayfinal.join("").toString());
-let total=totalCompraCarrito;
-let msg = listado + "<<<total("+ total+")>>>";
+  let listado = (arrayfinal.join("").toString());
+  let total = totalCompraCarrito;
+  let msg = listado + "<<<total(" + total + ")>>>";
 
-  window.open("https://wa.me/573124624763?text="+ msg);
-/* console.log(msg); */
+  window.open("https://wa.me/573124624763?text=" + msg);
+  /* console.log(msg); */
 }
 
 

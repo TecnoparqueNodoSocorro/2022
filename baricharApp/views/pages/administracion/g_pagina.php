@@ -220,11 +220,11 @@
                             <div class=" col-sm-6">
                                 <label>Sesion</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="pag_session" id="pag_session">
+                                    <select class="form_select" name="pag_sesion" id="pag_sesion">
                                         <option selected>---Sesiones---</option>
-                                        <option value="C1">Iglesias, hoteles y bodas</option>
-                                        <option value="C2">Maquillaje y peinado</option>
-                                        <option value="C3">Iluminacion sonido y animación</option>
+                                        <option value="menu">menu</option>
+                                        <option value="menu2">menu2</option>
+                                        <option value="menu3">menu3</option>
                                     </select>
                                 </div>
                             </div>
@@ -232,10 +232,8 @@
                                 <label>Categoria</label>
                                 <div class="select_container">
                                     <select class="form_select" name="pag_cat" id="pag_cat">
-                                        <option selected>---Categorias---</option>
-                                        <option value="C1">Iglesias, hoteles y bodas</option>
-                                        <option value="C2">Maquillaje y peinado</option>
-                                        <option value="C3">Iluminacion sonido y animación</option>
+                                        <option   selected>---Categorias---</option>
+                               
                                     </select>
                                 </div>
                             </div>
@@ -244,9 +242,10 @@
                                 <div class="select_container">
                                     <select class="form_select" name="pag_item" id="pag_item">
                                         <option selected>---Items---</option>
-                                        <option value="C1">Iglesias, hoteles y bodas</option>
-                                        <option value="C2">Maquillaje y peinado</option>
-                                        <option value="C3">Iluminacion sonido y animación</option>
+
+
+
+                            
                                     </select>
                                 </div>
                             </div>
