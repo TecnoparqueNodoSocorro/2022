@@ -30,6 +30,8 @@ if(isset($_SESSION["id_empleado"])){
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body>
@@ -85,6 +87,8 @@ if(isset($_SESSION["id_empleado"])){
             $_GET["page"] == "reporteEncargado" ||
             $_GET["page"] == "pagoEncargados" ||
             $_GET["page"] == "reporteActividadesEncargado" ||
+            $_GET["page"] == "a_reporteGeneral" ||
+
             $_GET["page"] == "home" ||
             $_GET["page"] == "login" ||
             $_GET["page"] == "error" ||
@@ -108,6 +112,7 @@ if(isset($_SESSION["id_empleado"])){
     <script src="views/js/reporteEncargados.js"></script>
     <script src="views/js/login.js"></script>
     <script src="views/js/reporteActividadesEncargado.js"></script>
+    <script src="views/js/a_reporteGeneral.js"></script>
 
     <footer class="footer">
 

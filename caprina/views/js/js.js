@@ -1,6 +1,5 @@
 //datos quemados
-let id_usuario = 1;
-let id_cap = 1
+let id_usuario = id_userOculto.value;
 
 /* 
 //------------------------------REGISTRO DE CAPRINOCULTOR---------------------------------

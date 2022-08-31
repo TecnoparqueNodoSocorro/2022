@@ -53,25 +53,37 @@ if (btnGenerar) {
 
     btnGenerar.addEventListener("click", () => {
         if (fecFinal.value == "" || fecIni == "") {
-            console.log("error");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Datos incompletos',
+            })
         } else {
             // limpiar tabla
 
             LimpiarTabla()
 
             dataConsulta = { id_cosecha: cosecha_encargado.value, id_empleado: id_encargado, fecha_inicio: fecIni.value, fecha_fin: fecFinal.value }
-            console.log(dataConsulta);
+            //console.log(dataConsulta);
+            //ajax para calcular los dias trabajados entre 2 fechas y restar los dìas que no se trabajò
             $.post("views/ajax/generar_reporte_encargado_ajax.php", { dataConsulta }, function (dato) {
                 let response = JSON.parse(dato);
-                 console.log(response);
+                // console.log(response);
                 dias_laborados = CalcularFecha(fecIni.value, fecFinal.value)
-                console.log(days);
-                consultaEncargado = { id_usuario: id_encargado }
+                //console.log(days);
+                consultaEncargado = { id_usuario: id_encargado,fecha_inicio: fecIni.value, fecha_fin: fecFinal.value }
+                //consultar los pagos anteriores y si tiene trae la cantidad 
                 $.post("views/ajax/calcular_pagos_encargados_ajax.php", { consultaEncargado }, function (dato) {
-                    let rta = parseInt(dato);
+                    let rta = JSON.parse(dato);
+                    console.log(rta);
+                    if(rta == false){
+                        saldoEncargado = 0
+                    }else{
+                        saldoEncargado = rta.total_pagado
+                    }
                     //console.log(rta);
                     //CAPTURO EL VALOR CANCELADO AL ENCARGADO EN DOS VARIABLES, UNA PARA FORMATEAR AL FORMATO DE PESO COLOMBIANO Y LA OTRA PARA TRABAJAR
-                    saldoEncargado = rta
+                  
                     console.log(saldoEncargado);
 
                     response.forEach(element => {
@@ -80,7 +92,7 @@ if (btnGenerar) {
                            <td>${encargadoNombre}</td>
                            <td>${days - parseInt(element.dias_no_asistidos)}</td>
                            <td>${element.dias_no_asistidos}</td>
-                           <td>$ ${(new Intl.NumberFormat('cop-CO').format(days * pago_a_encargado))}</td>
+                           <td>$ ${(new Intl.NumberFormat('cop-CO').format((days-parseInt(element.dias_no_asistidos)) * pago_a_encargado))}</td>
                            <td>$ ${(new Intl.NumberFormat('cop-CO').format(saldoEncargado))}</td>
                            <td>$ ${(new Intl.NumberFormat('cop-CO').format(((days - parseInt(element.dias_no_asistidos)) * pago_a_encargado) - saldoEncargado))}</td>
                            </tr>
@@ -104,7 +116,7 @@ function CalcularFecha(d1, d2) {
     let day1 = new Date(d1);
     let day2 = new Date(d2);
     let difference = Math.abs(day2 - day1);
-    days = difference / (1000 * 3600 * 24)
+    days = (difference / (1000 * 3600 * 24))
     console.log(days)
 }
 

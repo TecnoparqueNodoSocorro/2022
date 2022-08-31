@@ -3,7 +3,7 @@ let user = document.getElementById('username')
 let pass = document.getElementById('pass')
 let btn = document.getElementById('btnIniciar')
 
-let id_userOculto=document.getElementById('id_userOculto')
+let id_userOculto = document.getElementById('id_userOculto')
 
 let login = {}
 if (btn) {
@@ -16,21 +16,22 @@ if (btn) {
                 confirmButtonColor: '#f69100',
             })
         } else {
+            //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
             login = { user: user.value, password: pass.value }
-
+            //ENVIA DEL JSON AL AJAX
             $.post("views/ajax/login_ajax.php", { login }, function (dato) {
                 let response = JSON.parse(dato)
                 //console.log(response);
-                if(response==false){
+                if (response == false) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Credenciales incorrectas',
                         confirmButtonColor: '#f69100',
                     })
-                }else{
-                console.log("ok");
-                location.href = 'index.php?page=home'
+                } else {
+                    console.log("ok");
+                    location.href = 'index.php?page=home'
 
                 }
             })
@@ -39,66 +40,70 @@ if (btn) {
 }
 
 //-------------------CERRAR SESIÓN------------------------------
-let btnCerrarSesion =document.getElementById("btnCerrarSesion")
-if(btnCerrarSesion){
+let btnCerrarSesion = document.getElementById("btnCerrarSesion")
+if (btnCerrarSesion) {
 
-btnCerrarSesion.addEventListener("click", () => {
-    Swal.fire({
-        title: 'Cerrar Sesión',
-        text: `¿Seguro que desea cerrar sesión?`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Cerrar Sesión',
-        allowOutsideClick: () => {
-            const popup = Swal.getPopup()
-            popup.classList.remove('swal2-show')
-            setTimeout(() => {
-                popup.classList.add('animate__animated', 'animate__headShake')
-            })
-            setTimeout(() => {
-                popup.classList.remove('animate__animated', 'animate__headShake')
-            }, 500)
-            return false
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.post("controllers/cerrar_sesion.php", { login }, function (dato) {
-                console.log(dato);
-            })
-            location.href = 'index.php?page=login'
-            Swal.fire({
-                icon: 'success',
-                title: `${dato}`,
-                confirmButtonColor: '#f69100',
-                showConfirmButton: true,
-                timer:1200,
-                allowOutsideClick: () => {
-                    const popup = Swal.getPopup()
-                    popup.classList.remove('swal2-show')
-                    setTimeout(() => {
-                        popup.classList.add('animate__animated', 'animate__headShake')
-                    })
-                    setTimeout(() => {
-                        popup.classList.remove('animate__animated', 'animate__headShake')
-                    }, 500)
-                    return false
-                }
-            }).then((result) => {
-                setTimeout(function () {
-                    location.href = 'index.php?page=login'
+    btnCerrarSesion.addEventListener("click", () => {
+        Swal.fire({
+            title: 'Cerrar Sesión',
+            text: `¿Seguro que desea cerrar sesión?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Cerrar Sesión',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                    //ENVIA DEL JSON AL AJAX PARA CERRAR LA SESIÓN AL CONTROLADOR DE CERRAR SESIÓN
+                $.post("controllers/cerrar_sesion.php", { login }, function (dato) {
+                    console.log(dato);
+                })
 
-                }, 1200);
-                if (result.isConfirmed) {
+                //SE REDIRECCIONA AL LOGIN 
+                location.href = 'index.php?page=login'
+                Swal.fire({
+                    icon: 'success',
+                    title: `${dato}`,
+                    confirmButtonColor: '#f69100',
+                    showConfirmButton: true,
+                    timer: 1200,
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    //ESTA PARTE ESTÁ INACTIVA PORQUE SE PUEDEN GENERAR ERRORES AL MOMENTO DE CERRAR SESIÓN SI EL USUARIO RECARGA LA PAGINA
+                    setTimeout(function () {
+                        location.href = 'index.php?page=login'
 
-                    location.href = 'index.php?page=login'
+                    }, 1200);
+                    if (result.isConfirmed) {
 
-                }
-            })
-        }
+                        location.href = 'index.php?page=login'
+
+                    }
+                })
+            }
+        })
     })
-})
 }
 
 

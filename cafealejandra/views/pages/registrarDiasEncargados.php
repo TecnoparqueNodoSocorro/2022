@@ -19,9 +19,9 @@ if (isset($_SESSION["validar_rol"])) {
     <?php
     $cosecha = ControladorCosecha::ConsultarCosechaActiva();
     ?>
-    <label class="form-label">
+<!--     <label class="form-label">
         <h4 class="text-warning">Cosecha</h4>
-    </label>
+    </label> -->
     <select class="form-select" name="cosecha_trabajo" id="dias_encargados">
         <option selected>--Seleccione la cosecha--</option>
         <?php foreach ($cosecha as $key => $value) : ?>

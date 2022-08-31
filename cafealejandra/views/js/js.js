@@ -107,6 +107,10 @@ let lastname_user = document.getElementById('lastname_user')
 let phone_user = document.getElementById('phone_user')
 let document_user = document.getElementById('document_user')
 let cargo_user = document.getElementById('cargo_user')
+let clave = document.getElementById('clave')
+let claveConfirm = document.getElementById('claveConfirm')
+
+
 let btnRegister = document.getElementById('btnRegister')
 
 //LISTAR LOS EMPLEADOS POR COSECHA
@@ -118,14 +122,14 @@ let tablaBodyEmpleados = document.getElementById('tableBodyListarEmpleadosCosech
 if (cosecha_user) {
     cosecha_user.addEventListener("change", () => {
 
-       // LIMPIAR LA TABLA CADA QUE HACE CHANGE EL SELECT
+        // LIMPIAR LA TABLA CADA QUE HACE CHANGE EL SELECT
         limpiarTablas()
         const data = { id_cosecha: cosecha_user.value }
         $.post("views/ajax/reporte_empleado_ajax.php", { data }, function (dato) {
             let response = JSON.parse(dato)
             console.log(response);
-            response.forEach(x=>{
-                tablaHeadEmpleados.innerHTML=`
+            response.forEach(x => {
+                tablaHeadEmpleados.innerHTML = `
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
@@ -134,7 +138,7 @@ if (cosecha_user) {
                     <th>Cargo</th>
                 </tr>
             `
-                tablaBodyEmpleados.innerHTML+=`
+                tablaBodyEmpleados.innerHTML += `
             <tr>
             <td>${x.nombres}</td>
             <td>${x.apellidos}</td>
@@ -151,15 +155,27 @@ if (cosecha_user) {
 
 }
 
-function limpiarTablas(){
-    tablaBodyEmpleados.innerHTML =""
-    tablaHeadEmpleados.innerHTML =""
+function limpiarTablas() {
+    tablaBodyEmpleados.innerHTML = ""
+    tablaHeadEmpleados.innerHTML = ""
 }
 
 
 
 
-
+function valideKey(evt){
+			
+    // code is the decimal ASCII representation of the pressed key.
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code==8) { // backspace.
+      return true;
+    } else if(code>=48 && code<=57) { // is a number.
+      return true;
+    } else{ // other keys.
+      return false;
+    }
+}
 
 
 if (btnRegister) {
@@ -173,9 +189,21 @@ if (btnRegister) {
                 title: 'Oops...',
                 text: 'Datos incompletos',
             })
-        } else {
+        } else if(clave.value.trim().length !=4){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'La clave tiene que ser de 4 numeros',
+            })
+        }else if( claveConfirm.value != clave.value){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Las claves no coinciden',
+            })
+        }else {
 
-            empleado_nuevo = { cargo: cargo_user.value, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, cosecha: cosecha_user.value }
+            empleado_nuevo = { clave:clave.value,cargo: cargo_user.value, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, cosecha: cosecha_user.value }
 
 
 
@@ -445,19 +473,31 @@ if (empleado) {
 if (btnGenerarCant) {
     btnGenerarCant.addEventListener("click", () => {
         if (fecInicio.value.trim() == "" || fecFin.value.trim() == "") {
-            console.log("datos incompletos")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Datos incompletos',
+            })
         } else {
             //SE CREAN DOS OBJETOS PARA LAS DOS PETICIONES QUE SE NECESITAN
             reporteAvanzado = { id_empleado: reporte_empleado, id_cosecha: reporte_cosecha, fecha_inicio: fecInicio.value, fecha_fin: fecFin.value }
             reporteAvanzadoPagos = { id_empleado: reporte_empleado, fecha_inicio: fecInicio.value, fecha_fin: fecFin.value }
-            console.log(reporteAvanzado);
-            console.log(reporteAvanzadoPagos);
-            //SE CONSULTAN LOS PAGOS ANTERIORES DEL EMPLEADO 
+            //console.log(reporteAvanzado);
+            //console.log(reporteAvanzadoPagos);
+            //SE CONSULTAN LOS PAGOS ANTERIORES DEL EMPLEADO ENTRE LAS FECHAS SELECCIONADAS
             $.post("views/ajax/reporte_consultar_pagosanteriores_ajax.php", { reporteAvanzadoPagos }, function (dato) {
                 res = JSON.parse(dato)
+                if (res == false) {
+                    //VARIABLE PARA GUARDAR LA CANTIDAD QUE YA SE LE HA PAGADO
 
-                //VARIABLE PARA GUARDAR LA CANTIDAD QUE YA SE LE HA PAGADO
-                pagoAbonado = res.total_pagado;
+                    pagoAbonado = 0
+                } else {
+                    //VARIABLE PARA GUARDAR LA CANTIDAD QUE YA SE LE HA PAGADO
+
+                    pagoAbonado = res.total_pagado;
+
+                }
+                //pagoAbonado = res.total_pagado;
 
 
                 //SE CONSULTAN LOS DATOS DEL RECOLECTOR KILOS TOTALES RECOGIDOS EN LA COSECHA, EL VALOR POR KILO, ETC
@@ -615,7 +655,7 @@ if (registro_pago) {
             resultado = totalPagarOperacion - cantidadPagar.value
 
             //SE GUARDAN LOS RESULTADOS EN UN OBJETO PARA REGISTRAR EL PAGO
-            pago = { cantidad: cantidadPagar.value, id_usuario: id_usuario_pagos }
+            pago = { cantidad: cantidadPagar.value, id_usuario: id_usuario_pagos, id_cosecha: valor }
 
             Swal.fire({
                 title: 'Registrar kilos',
@@ -638,6 +678,10 @@ if (registro_pago) {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
+                    $.post("views/ajax/registrar_pago_recolector_ajax.php", { pago }, function (dato) {
+                        let response = dato
+                        console.log(response);
+                    })
                     Swal.fire({
                         icon: 'success',
                         title: `Nuevo saldo al recolector: ${numbre_usuario_pagos}  es de:  $${(new Intl.NumberFormat('cop-CO').format(resultado))} pesos `,
@@ -656,10 +700,7 @@ if (registro_pago) {
                         }
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            $.post("views/ajax/registrar_pago_recolector_ajax.php", { pago }, function (dato) {
-                                let response = dato
-                                console.log(response);
-                            })
+
                             location.href = 'index.php?page=registroPagos'
 
                         }
@@ -771,12 +812,7 @@ if (buscar_recolectores) {
             let response = JSON.parse(dato)
             // console.log(response);
             response.forEach(x => {
-                /*    date = new Date();
-                   console.log(date.toISOString().split('T')[0]);
-                   fechaActual = date.toISOString().split('T')[0]
-                   console.log(x.fecha_inicio); */
-                /*    dias_trabajados = CalcularFecha(x.fecha_Inicio, fechaActual)
-                   console.log(dias_trabajados); */
+
                 tbodyEncargados.innerHTML += `
                 <tr>
                 <td><button type="button" class="pagoEncargado btn btn-warning" data-pago="${x.pago_encargado}" data-id="${x.id}" data-fecha="${x.fecha_inicio}" data-nombre="${x.nombres}" data-apellido="${x.apellidos}" data-bs-toggle="modal" data-bs-target="#myModalEm"><i class="bi bi-plus-circle"></i></button></td>
@@ -798,16 +834,17 @@ if (buscar_recolectores) {
                     fechaInicial = el.dataset.fecha
                     jsonPagoEncargado = { id_usuario: el.dataset.id, id_cosecha: el.dataset.cosecha }
                     pagoAencargado = el.dataset.pago
+                    console.log(pagoAencargado);
                     date = new Date();
                     fechaActual = date.toISOString().split('T')[0]
                     // console.log(fechaActual, fechaInicial);
 
 
                     // consultaPagos = { id_usuario: el.dataset.id }
-                    consultaEncargado = { id_usuario: id_encargado_pago }
+                    consultaEncargadoInd = { id_usuario: id_encargado_pago }
                     consultaDias = { id_usuario: id_encargado_pago }
                     //SE CONSULTA CUANTO LE HAN PAGADO AL RECOLECTOR
-                    $.post("views/ajax/calcular_pagos_encargados_ajax.php", { consultaEncargado }, function (dato) {
+                    $.post("views/ajax/calcular_pagos_encargados_ajax.php", { consultaEncargadoInd }, function (dato) {
                         //CONSULTAR LA CANTIDAD DE DIAS QUE EL ENCARGADO NO HA TRABAJADO
 
 
@@ -816,12 +853,13 @@ if (buscar_recolectores) {
                         // console.log(typeof response);
                         $.post("views/ajax/consultar_cantidad_dias_notrabajados_ajax.php", { consultaDias }, function (datas) {
                             let rta = JSON.parse(datas)
-                            console.log(rta);
+                            //  console.log(rta);
+                            //dias trabajados, se calcula la cantidad de dias entre dos fechas y se le resta la cantidad de dias que se registraron como no asistencia
                             diasTrabajados.value = (CalcularFechaPagos(fechaInicial, fechaActual)) - rta
 
                             if (response == 0) {
                                 //SI NO TIENE PAGOS SE DEVUELVE UN 0 Y SE CALCULA EL TOTAL A PAGAR
-                                totalPagarEncargado.value = '$' + (new Intl.NumberFormat('cop-CO').format((diasTrabajados.value * parseInt(pagoAencargado))))
+                                totalPagarEncargado.value = '$' + (new Intl.NumberFormat('cop-CO').format((diasTrabajados.value * (parseInt(pagoAencargado)))))
 
                                 totalPagarEncargadoOperacion = diasTrabajados.value * parseInt(pagoAencargado)
                             } else {
@@ -850,7 +888,7 @@ if (btnPagarEncargado) {
         } else {
             resultadoEncargado = totalPagarEncargadoOperacion - parseInt(cantidadPagarEncargado.value)
             console.log(resultadoEncargado);
-            pagoEncargado = { pago: cantidadPagarEncargado.value, id_usuario: id_encargado_pago }
+            pagoEncargado = { pago: cantidadPagarEncargado.value, id_usuario: id_encargado_pago, id_cosecha: buscar_recolectores.value }
 
 
             Swal.fire({
@@ -932,7 +970,7 @@ function CalcularFechaPagos(d1, d2) {
     let difference = Math.abs(day2 - day1);
     days = difference / (1000 * 3600 * 24)
 
-    console.log(days)
+    // console.log(days)
     return days
 }
 
@@ -946,6 +984,7 @@ if (reportePagos) {
     reportePagos.addEventListener("change", () => {
         tablaReporte.innerHTML = ``
         ObjreportePago = { id_cosecha: reportePagos.value }
+        console.log(ObjreportePago);
         $.post("views/ajax/reporte_pagos_ajax.php", { ObjreportePago }, function (dato) {
             let response = JSON.parse(dato)
 

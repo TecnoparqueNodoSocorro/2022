@@ -9,7 +9,14 @@ class UsuarioAjax
     {
         $usuario = ControladorUsuario::ctrAgregarUsuario($data);
         $respuesta = array($usuario);
-        echo json_encode($respuesta). "Hola";
+        echo json_encode($respuesta);
+    }
+    static public function GetReporteGeneral($data)
+    {
+        $datos = ControladorUsuario::ctrReporteGeneral($data);
+        /* $respuesta = array($datos);
+        echo json_encode($respuesta); */
+        echo json_encode($datos);
     }
 }
 
@@ -17,7 +24,10 @@ if (isset($_POST['empleado_nuevo'])) {
     $nuevoUsuario = new UsuarioAjax();
     $data = $_POST['empleado_nuevo'];
     $nuevoUsuario->usuarioCosecha($data);
-    return "dfgdfgfd";
-} else {
-    return ("Error");
+} 
+//REPORTE GENERAL 
+if (isset($_POST['ReporteGeneral'])) {
+    $postCosecha = new UsuarioAjax();
+    $data = $_POST['ReporteGeneral'];
+    $postCosecha->GetReporteGeneral($data);
 }

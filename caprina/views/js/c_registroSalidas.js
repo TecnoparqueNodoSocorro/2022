@@ -12,6 +12,7 @@ if (btnRegistrarS) {
         if (codigo_salida.value == "0" || fecha_salida.value.trim() == "" || motivo_salida.value == "--Seleccione el motivo--") {
             DatosIncompletos()
         } else {
+             //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
             salidas = { usuario: id_usua, codigo: codigo_salida.value, motivo: motivo_salida.options[motivo_salida.selectedIndex].text, fecha: fecha_salida.value }
 
             Swal.fire({
@@ -37,6 +38,16 @@ if (btnRegistrarS) {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
+                    //SI LA RESPUESTA AL MODAL ES ACEPTADA  //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
+                    $.post("views/ajax/salidas_ajax.php", { salidas }, function (dato) {
+                        let response = (dato)
+                        console.log(response);
+                        //AL SEGUNDO Y MEDIO REDIRECCIONA O RECARGA LA PAGINA
+                        setTimeout(function () {
+                            location.href = 'index.php?page=c_registroSalidas'
+                        }, 1200);
+
+                    })
                     Swal.fire({
 
                         icon: 'success',
@@ -57,14 +68,7 @@ if (btnRegistrarS) {
                     })
                     console.log(salidas);
 
-                    $.post("views/ajax/salidas_ajax.php", { salidas }, function (dato) {
-                        let response = (dato)
-                        console.log(response);
-                        setTimeout(function () {
-                            location.href = 'index.php?page=c_registroSalidas'
-                        }, 1200);
-
-                    })
+                  
                 }
 
             })

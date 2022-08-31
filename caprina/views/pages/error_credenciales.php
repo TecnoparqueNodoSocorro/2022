@@ -2,11 +2,11 @@
     <div class="container rounded mt-5">
         <hr>
         <div class="text-center">
-          <!--   <?php
+             <?php
             session_destroy();
-            ?> -->
+            ?>  
             <h1>Error de credenciales</h1>
-            <a href="index.php?page=login" class="btn btn-warning mb-3"> Iniciar Sesión</a>
+            <a href="index.php?page=home" class="btn btn-warning mb-3"> Iniciar Sesión</a>
         </div>
     </div>
 </div>

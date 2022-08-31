@@ -1,4 +1,5 @@
 /* ADMINISTRADOR  3 */
+///////////////////////////////REGISTRAR DIA NO LABORADO POR ENCARGADO/////////////////////////////
 
 //console.log("dias encargados");
 let bodyEncargados = document.getElementById("bodyEncargados")
@@ -72,25 +73,61 @@ if (btnCalcularEncargado) {
                 confirmButtonColor: '#d33',
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Registrar',
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
-
-
-                    Swal.fire({
-
-                        icon: 'success',
-                        title: `Día agregado`,
-                        showConfirmButton: false,
-                        timer: 1200
-                    })
                     $.post("views/ajax/reporte_dias_encargados_ajax.php", { datos }, function (dato) {
                         let response = JSON.parse(dato)
                         console.log(response);
-                        setTimeout(function () {
+                        //se valida si la fecha que se intenta registrar ya se encuentra registrada
+                        if (response == "Fecha ya registrada") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: ` ${diasNo.value} ${response}`,
+                                showConfirmButton: false,
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'success',
+                                title: `Día agregado`,
+                                showConfirmButton: true,
+                                allowOutsideClick: () => {
+                                    const popup = Swal.getPopup()
+                                    popup.classList.remove('swal2-show')
+                                    setTimeout(() => {
+                                        popup.classList.add('animate__animated', 'animate__headShake')
+                                    })
+                                    setTimeout(() => {
+                                        popup.classList.remove('animate__animated', 'animate__headShake')
+                                    }, 500)
+                                    return false
+                                }
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.href = 'index.php?page=registrarDiasEncargados'
+                                }
+                            })
+                            setTimeout(function () {
+                                location.href = 'index.php?page=registrarDiasEncargados'
+                            }, 1200);
+                        }
+                        /* setTimeout(function () {
                             location.href = 'index.php?page=registrarDiasEncargados'
-
-                        }, 1200);
+                        }, 1200); */
                     })
+
+
+
 
 
 

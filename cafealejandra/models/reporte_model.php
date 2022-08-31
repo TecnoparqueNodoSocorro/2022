@@ -38,10 +38,11 @@ class ModelReporte
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    //CONSULTAR LOS PAGOS A LOS RECOLECTORES ENTRE UN RANGO DE FECHAS
     static public function mdlReporteRecolectorPagos($tabla, $dato)
     {
-        $stmt = conexion::conectar()->prepare("SELECT  SUM(pagos) AS 'total_pagado' FROM $tabla WHERE id_empleado=:id_emp AND fecha BETWEEN :fechaIni AND :fechaFin GROUP BY id_empleado;
-        ");
+        $stmt = conexion::conectar()->prepare("SELECT  SUM(pagos) AS 'total_pagado' FROM $tabla WHERE id_empleado=:id_emp AND fecha BETWEEN :fechaIni AND :fechaFin GROUP BY id_empleado;");
         $stmt->bindParam(":id_emp", $dato["id_empleado"]);
         $stmt->bindParam(":fechaIni",  $dato["fecha_inicio"]);
         $stmt->bindParam(":fechaFin",  $dato["fecha_fin"]);

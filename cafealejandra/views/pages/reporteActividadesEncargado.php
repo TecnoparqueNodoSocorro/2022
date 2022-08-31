@@ -23,6 +23,22 @@
         </table>
 
     </div>
+    <h5>Pagos realizados anteriormente</h5>
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha del registro</th>
+                    <th scope="col">Cantidad de pago</th>
+
+                </tr>
+            </thead>
+            <tbody id="tbodyEncargadosPagos">
+
+            </tbody>
+        </table>
+
+    </div>
 
 
 

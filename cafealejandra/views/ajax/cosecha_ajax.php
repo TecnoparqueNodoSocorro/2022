@@ -12,13 +12,26 @@ class CosechaAjax
         $respuesta = array($datoscosecha);
         echo json_encode($respuesta);
     }
+
+    /* static public function ReporteCosechaPagos($data)
+    {
+        $datos = ControladorCosecha::ctrReporteGeneralCosecha($data);
+        $respuesta = array($datos);
+        echo json_encode($respuesta);
+        echo json_encode($datos);
+    } */
 }
 
 if (isset($_POST['cosecha'])) {
     $postCosecha = new CosechaAjax();
     $data = $_POST['cosecha'];
-
     $postCosecha->PostCosecha($data);
-} else {
-    return ("Error");
 }
+
+
+/* //REPORTE GENERAL 
+if (isset($_POST['ReporteGeneralPagos'])) {
+    $postCosecha = new CosechaAjax();
+    $data = $_POST['ReporteGeneralPagos'];
+    $postCosecha->ReporteCosechaPagos($data);
+} */

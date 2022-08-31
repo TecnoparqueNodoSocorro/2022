@@ -78,6 +78,21 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
                 <input type="number" name="document_user" id="document_user" class="form-control" value="" required>
             </div>
         </div>
+        <div class="row justify-content-md-center">
+            <div class="col col-xs-6 col-md-6 col-lg-6">
+                <label class="form-label">
+                    <h6 class="text-white">Clave</h6>
+                </label>
+                <input type="password" onkeypress="return valideKey(event)" name="clave" id="clave" class="form-control" value="" required>
+
+            </div>
+            <div class="col col-xs-6 col-md-6 col-lg-6">
+                <label class="form-label">
+                    <h6 class="text-white">Confirmar clave</h6>
+                </label>
+                <input type="password" name="claveConfirm"  onkeypress="return valideKey(event)" id="claveConfirm" class="form-control" value="" required>
+            </div>
+        </div>
 
 
         <div class="formulario mt-3" style="text-align:center">
@@ -102,7 +117,7 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
         <table class="table table-bordered">
             <thead id="tableHeadListarEmpleadosCosecha">
                 <tr>
-               <!--      <th>Nombre</th>
+                    <!--      <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Documento</th>
                     <th>Teléfono</th>
@@ -111,7 +126,7 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
             </thead>
             <tbody id="tableBodyListarEmpleadosCosecha">
 
-               <!--  <?php foreach ($usuarios as $key => $value) : ?>
+                <!--  <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value["nombres"] ?></td>
                         <td><?php echo $value["apellidos"] ?></td>

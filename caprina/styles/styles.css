@@ -269,3 +269,17 @@ select:focus,
         margin-top: 30px !important;
     }
 } */
+
+/* letra de las tablas */
+@media (max-width: 500px) and (min-width: 160px) {
+
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+      font-size: 3vw;
+    }
+  
+  }

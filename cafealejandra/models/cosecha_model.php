@@ -75,8 +75,27 @@ class ModelCosecha
             print_r($stmt->errorInfo());
             $stmt->closeCursor();
             $stmt = null;
-        }
+        }   
 
         
     }
+  
+/*     //reporte pagos anteriores para el reporte general
+    static public function mdlReporteGeneralPagos($tabla,$data)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT SUM(pagos) AS 'pagos' * FROM $tabla  WHERE pagos.id_empleado = :id");
+
+       $stmt->bindParam(":id", $data["id"]);
+       if ($stmt->execute()) {
+           return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+           $stmt->closeCursor();
+           $stmt = null;
+       } else {
+           echo "\nPDO::errorInfo():\n" . $data . "modelo";
+           print_r($stmt->errorInfo());
+           $stmt->closeCursor();
+           $stmt = null;
+       }
+    } */
 }

@@ -19,7 +19,6 @@ class ControladorEncargado
         } else {
             return $respuesta;
         }
-     
     }
     static public function ctrConsultarDiasNoTrabajados($data)
     {

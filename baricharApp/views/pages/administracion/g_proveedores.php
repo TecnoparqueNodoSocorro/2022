@@ -40,17 +40,17 @@
                             <tr>
 
                                 <td>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Opciones
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento1()"><i class=" bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento2()"><i class=" bi bi-lock-fill"> Bloquear</i></a></li>
-                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento3()"><i class=" bi bi-pen"> Editar</i></a></li>
-                                            <li><a class="dropdown-item" data_id="<?php echo $value["id"] ?>" href="#" onclick="evento4()"><i class=" bi bi-search"> Ver</i></a></li>
-                                        </ul>
-                                    </div>
+
+                                    <button type="button" data-id="<?php echo $value["id"] ?>" class="boton btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Opciones
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" data-id_update="<?php echo $value["id"] ?>" href="#" onclick="evento1()"><i class=" bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
+                                        <li><a class="dropdown-item" data-id_estado="<?php echo $value["id"] ?>" href="#" onclick="evento2()"><i class=" bi bi-lock-fill"> Bloq/Desbl</i></a></li>
+                                        <li><a class="dropdown-item" data-id_editar="<?php echo $value["id"] ?>" href="#" onclick="evento3()"><i class=" bi bi-pen"> Editar</i></a></li>
+                                        <li><a class="dropdown-item" data-id_ver="<?php echo $value["id"] ?>" href="#" onclick="evento4()"><i class=" bi bi-search"> Ver</i></a></li>
+                                    </ul>
+
                                 </td>
 
                                 <td> <img src="<?php echo $value["logo"] ?>"> </td>
@@ -81,11 +81,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">Agregar nuevo proveedor</h5>
-
             </div>
             <div class="modal-body">
-
-
                 <div class="container">
                     <form id="ContactForm" method="post" action="">
                         <br>
@@ -155,15 +152,24 @@
     </div>
 </div>
 
-<div class="modal" id="modal_actualizar" tabindex="-1">
-    <div class="modal-dialog">
+<div class="modal fade" id="modal_actualizar" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Actualizar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body" id="m_actualizar">
-                <p>Modal body text goes here.</p>
+            <div class="modal-body">
+                <div class="container">
+                    <p id="m_actualizar"></p>
+                    <h3> <strong>Joyeria la esmeralda</strong> </h3>
+                    <p><strong>Vigencia actual: 05/05/2022</strong></p>
+                    <hr>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Nueva Vigencia</span>
+                        <input type="date" class="form-control"  id="vigencianueva" aria-describedby="basic-addon1">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -173,14 +179,15 @@
     </div>
 </div>
 
-<div class="modal" id="modal_bloq_desb" tabindex="-1">
-    <div class="modal-dialog">
+<div class="modal fade" id="modal_bloq_desb" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Bloquear-Desbloquear</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body" id="m_bloquear_desb">
+            <div class="modal-body">
+                <p id="m_bloquear_desb"></p>
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
@@ -191,15 +198,75 @@
     </div>
 </div>
 
-<div class="modal" id="modal_editar" tabindex="-1">
-    <div class="modal-dialog">
+<div class="modal fade" id="modal_editar" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Editar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="m_editar">
-                <p>Modal body text goes here.</p>
+            <div class="modal-body">
+                <div class="container">
+                    <form id="edit_ContactForm" method="post" action="">
+                        <br>
+                        <div class="row">
+                            <p id="m_editar"></p>
+                            <div class="col-sm-6  col-md-4">
+                                <label>Nombre del provedor</label>
+                                <input type="text" class="form_input " name="edit_nombre" id="edit_nombre" />
+                            </div>
+                            <div class="col-sm-6  col-md-4">
+                                <label>Nit</label>
+                                <input type="textr" class="form_input " name="edit_nit" id="edit_nit" />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label>Direccion</label>
+                                <input type="text" class="form_input " name="edit_direccion" id="edit_direccion" />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label>Telefono</label>
+                                <input type="number" class="form_input" name="edit_telefono" id="edit_telefono" />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label>Email</label>
+                                <input type="mail" class="form_input " name="edit_email" id="edit_email" />
+                            </div>
+                            <div class="col-sm-6  col-md-4">
+                                <label>Max productos publicados </label>
+                                <input type="number" class="form_input " name="edit_max_p" id="edit_max_p" />
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Logo</label>
+                                <input type="file" class="form_input " name="edit_logo" id="edit_logo" />
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Vigencia de servicio</label>
+                                <input type="date" class="form_input " name="edit_vigencia" id="edit_vigencia" />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label>Usuario</label>
+                                <input type="text" class="form_input" name="edit_user" id="edit_user" />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label>Contraseña</label>
+                                <input type="password" class="form_input" name="edit_pass_1" id="edit_pass_1" />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <label>Repetir contraseña</label>
+                                <input type="password" class="form_input" name="edit_pass_2" id="edit_pass_2" />
+                            </div>
+                            <div class="col-12">
+                                <label>Breve descripcion de la empresa</label>
+                                <textarea class="form_textarea_full" name="edit_descr_prov" id="edit_descr_prov"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <button type="button" class="btn btn-success" id="edit_admin_btn_guardar"> Guardar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="edit_btn_cerrar">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -209,14 +276,15 @@
     </div>
 </div>
 
-<div class="modal" id="modal_datos" tabindex="-1">
-    <div class="modal-dialog">
+<div class="modal fade" id="modal_passw" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Ver datos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="m_datos">
+            <div class="modal-body">
+                <p id="m_passw"></p>
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">

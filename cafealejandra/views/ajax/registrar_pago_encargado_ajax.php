@@ -19,6 +19,4 @@ if (isset($_POST['pagoEncargado'])) {
     $data = $_POST['pagoEncargado'];
 
     $Pago->PagoPostEncargado($data);
-} else {
-    return ("Error");
-}
+} 

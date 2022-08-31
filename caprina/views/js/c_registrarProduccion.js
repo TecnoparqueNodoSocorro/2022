@@ -9,7 +9,9 @@ if (btnAdicionar) {
         if (codigo_caprino.value == "0" || cantidad_leche.value.trim() == "" || fecha_prod.value.trim() == "") {
             DatosIncompletos()
         } else {
+                //ENVIA DEL JSON AL AJAX
             produccion = { codigo_caprino: codigo_caprino.value, cantidad: cantidad_leche.value, fecha: fecha_prod.value, usuario: id_usuario }
+             //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
             $.post("views/ajax/produccion_ajax.php", { produccion }, function (dato) {
                 let response = (dato)
                 console.log(response);

@@ -48,4 +48,14 @@ class ControladorCosecha
         $rta = ModelCosecha::mdlReporteCosecha($tabla, $data);
         return $rta;
     }
+
+
+
+   /*  //REPORTE GENERAL
+    static public function ctrReporteGeneralPagos($data)
+    {
+        $tabla = "pagos";
+        $rta = ModelCosecha::mdlReporteGeneralPagos($tabla, $data);
+        return $rta;
+    } */
 }

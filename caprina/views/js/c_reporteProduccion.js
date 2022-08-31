@@ -3,11 +3,12 @@
 let fecha1_gra = document.getElementById('fecha1_gra')
 let fecha2_gra = document.getElementById('fecha2_gra')
 let btnGenerarGrafica = document.getElementById('btnGenerarGrafica')
-let datosGrafico
 
+/* 
+let datosGrafico
 let fechas = []
 let cantidades = []
-
+ */
 //se declara la varible chart de manera global para poder destruir el grafico al crear otro grafica
 let chart
 

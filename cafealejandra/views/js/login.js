@@ -32,12 +32,18 @@ function Login() {
                     title: 'Oops...',
                     text: 'Credenciales incorrectas',
                 })
+            } else if (response == "cosecha inactiva") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error, contante al administrador ',
+                })
             }
             else {
-                location.reload();
-                logincampos.innerHTML = 'bienvenido'
-                return;
-
+                  location.reload();
+                  logincampos.innerHTML = 'bienvenido'
+                  return;
+   
             }
 
         })

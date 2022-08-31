@@ -6,6 +6,7 @@ if (codigo_caprino_control) {
     codigo_caprino_control.addEventListener("change", () => {
         LimpiarTabla()
         console.log(codigo_caprino_control.value);
+        //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX EN ESTE CASO  EL CODIGO DEL CAPRINO PARA EL CONTROL INDIVIDUAL
         controlIndividual = { codigo_caprino_control: codigo_caprino_control.value }
         traerDatosCaprino()
     })
@@ -13,7 +14,7 @@ if (codigo_caprino_control) {
 
 function traerDatosCaprino() {
 
-
+    //ENVIA DEL JSON AL AJAX
     $.post("views/ajax/caprino_ajax.php", { controlIndividual }, function (dato) {
         let response = JSON.parse(dato)
         console.log(response);
@@ -32,7 +33,7 @@ function traerDatosCaprino() {
             el.addEventListener("click", (e) => {
 
                 console.log(codigo_caprino_control.value);
-
+                //TEXTO DEL MODAL CON EL CODIGO DE CADA CAPRINO
                 let headControl = document.getElementById('headControl')
                 headControl.innerHTML = `Caprino con codigo: ${codigo_caprino_control.value}`
 
@@ -75,13 +76,14 @@ function RegistrarEnfermedades() {
     if (peso_kilos.value.trim() == "" || condicion.value == "Seleccione la condición") {
         DatosIncompletos()
     } else {
+        //SE HACE POR APARTE EL REGISTRO DE ENFERMEDADES PORQUE PUEDE QUE UN CARPINO NO TENGA NINGUNA ENFERMEDAD
         GuardarRegistro()
     }
 }
 
 
 function GuardarRegistro() {
-
+ //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX, EN ESTE CASO LAS ENFERMEDADES DE CADA CARPINO, SI NO TIENE ENFERMEDADES SE ENVÍA VACÍO 
     const caprinoRegistro = { peso: peso_kilos.value, condicion: condicion.value, enfermedad_respiratoria: textER.value, enfermedad_gastrointestinal: textEG.value, enfermedad_mordeduras: textEM.value, usuario: id_users, caprino: codigo_caprino_control.value }
     Swal.fire({
         title: 'Listo',
@@ -94,6 +96,7 @@ function GuardarRegistro() {
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
+            //SI SE ACEPTA LA ALERTA SE ENVIA EL JSON AL AJAX
             $.post("views/ajax/caprino_control_ajax.php", { caprinoRegistro }, function (dato) {
                 let response = (dato)
                 console.log(response);
@@ -159,7 +162,7 @@ function validaCheckbox() {
     let check1 = checkboxRes.checked;
     let check2 = checkboxGas.checked;
     let check3 = checkboxMor.checked;
-
+//SE VALIDA QUE SI ES EL CHECK ESTÁ INACTIVO EL INPUT DE LA ENFERMEDAD ESTÁ DISABLED, SI SE ACTIVA Y SE DESACTIVA BORRA EL CONTENIDO DEL INPUT
     if (check1) {
         textER.disabled = false
     } else {

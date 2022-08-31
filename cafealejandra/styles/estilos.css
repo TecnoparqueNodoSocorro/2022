@@ -142,7 +142,7 @@ h1,
 h2,
 .h2 {
   font-size: calc(1.325rem + 0.9vw);
-/*   color: #5b3924; */
+  /*   color: #5b3924; */
 }
 
 @media (min-width: 1200px) {
@@ -171,7 +171,7 @@ h3,
 h4,
 .h4 {
   font-size: calc(1.275rem + 0.3vw);
-/*   color: #5b3924; */
+  /*   color: #5b3924; */
 
 }
 
@@ -180,7 +180,7 @@ h4,
   h4,
   .h4 {
     font-size: 1.5rem;
-/*     color: #5b3924; */
+    /*     color: #5b3924; */
 
   }
 }
@@ -223,7 +223,7 @@ p {
 
 .haven {
   position: absolute;
- 
+
 
 }
 
@@ -237,7 +237,7 @@ p {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
- /*  background-color: #2f170fe6; */
+  /*  background-color: #2f170fe6; */
 }
 
 .navbar-brand {
@@ -352,9 +352,9 @@ svg {
   margin-bottom: 2%;
 }
 
-.home{
-width: 100%;
-height: 100%;
+.home {
+  width: 100%;
+  height: 100%;
 }
 
 .modal,
@@ -366,7 +366,7 @@ height: 100%;
 
 
 
-
+/* 
 @media (max-width: 996px) {
   .hidden-996 {
     display: none;
@@ -407,7 +407,7 @@ height: 100%;
   .hidden-399 {
     display: none;
   }
-}
+} */
 * {
   margin: 0;
   padding: 0;
@@ -449,6 +449,7 @@ height: 100%;
   line-height: 1;
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 .table,
 .table-fluid,
 .table-xxl,
@@ -462,6 +463,7 @@ height: 100%;
   background-color: #c7b69f;
 
 }
+
 .page-section {
 
   margin: 0px auto;
@@ -503,4 +505,18 @@ height: 100%;
   width: 100%;
   height: 7%;
   border-radius: 20px 20px 0px 0px;
+}
+
+/* letra de las tablas */
+@media (max-width: 500px) and (min-width: 160px) {
+
+  tbody,
+  td,
+  tfoot,
+  th,
+  thead,
+  tr {
+    font-size: 3vw;
+  }
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2022 a las 21:42:25
+-- Tiempo de generación: 31-08-2022 a las 17:26:02
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -128,7 +128,9 @@ INSERT INTO `registro_control` (`id`, `codigo_caprino`, `id_usuario`, `peso`, `c
 (64, 'a33', 32, 47, 1, 'enfermedad respiratoria', '', '', '2022-08-23'),
 (65, 'a33', 32, 11, 4, '', '', 'enfermedad por mordedura', '2022-08-23'),
 (66, 'c33', 34, 20, 5, '', '', 'enfermedad por mordedura', '2022-08-23'),
-(67, 'A20', 29, 25, 5, '', 'Gastro', '', '2022-08-24');
+(67, 'A20', 29, 25, 5, '', 'Gastro', '', '2022-08-24'),
+(68, '1', 29, 85, 4, 'enfermedad respiratoria', 'enfermedad gastro intestinal', 'enfermedad por mordedura', '2022-08-24'),
+(69, '1', 29, 66, 1, '', '', '', '2022-08-24');
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,8 @@ INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `num_documento`, `num_tele
 (29, 'Pedro', 'Rojas', '2222', '121212', 'san gil', 'Carne', 2222, 2),
 (32, 'Carlos', 'Perez', '5555', '985454', 'San gil', 'Doble Propósito', 5555, 2),
 (33, 'Luis', 'Vargas', '4444', '12212454', 'San gil', 'Carne', 4444, 2),
-(34, 'Hector', '4564', '3333', '45645', '4545', 'Carne', 3333, 2);
+(34, 'Hector', '4564', '3333', '45645', '4545', 'Carne', 3333, 2),
+(35, 'Juan', 'Sandoval', '321313213', '13121231', 'San gil', 'Leche', 8888, 2);
 
 --
 -- Índices para tablas volcadas
@@ -296,7 +299,7 @@ ALTER TABLE `registro_caprino`
 -- AUTO_INCREMENT de la tabla `registro_control`
 --
 ALTER TABLE `registro_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_produccion`
@@ -320,7 +323,7 @@ ALTER TABLE `registro_tratamientos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

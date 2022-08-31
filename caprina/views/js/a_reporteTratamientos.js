@@ -5,17 +5,18 @@ let btnReporteH = document.getElementById('btnReporteH')
 let tbodyreporteTratamiento = document.getElementById('tbodyreporteTratamiento')
 if (btnReporteH) {
     btnReporteH.addEventListener("click", () => {
-      ListarTratamientos(fecha_inicioH,fecha_finH,id_userOculto,id_cargoOculto, tbodyreporteTratamiento)
+        ListarTratamientos(fecha_inicioH, fecha_finH, id_userOculto, id_cargoOculto, tbodyreporteTratamiento)
     })
 }
 
-function ListarTratamientos(fecha_ini,fecha_fin, idUser, idCargo,tabla ){
+function ListarTratamientos(fecha_ini, fecha_fin, idUser, idCargo, tabla) {
     if (fecha_ini.value.trim() == "" || fecha_fin.value.trim() == "") {
         DatosIncompletos()
     } else {
         tabla.innerHTML = ``
-
-        reporte_tratamientos = { fecha_inicio: fecha_ini.value, fecha_fin: fecha_fin.value, id_usuario:idUser.value, id_cargo:idCargo.value }
+        //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
+        reporte_tratamientos = { fecha_inicio: fecha_ini.value, fecha_fin: fecha_fin.value, id_usuario: idUser.value, id_cargo: idCargo.value }
+        //ENVIA DEL JSON AL AJAX
         console.log(reporte_tratamientos);
         $.post("views/ajax/reportes_ajax.php", { reporte_tratamientos }, (dato) => {
             let response = (JSON.parse(dato))

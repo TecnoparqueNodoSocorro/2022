@@ -12,6 +12,13 @@ class ConsultaPagoEncargadoAjax
         $respuesta = json_encode($datosEncargado);
         echo ($respuesta);
     }
+    //PARA EL PAGO A ENCARGADO SE CONSULTAS LOS PAGOS ANTERIORES DE UN ENCARGADO EN ESPECIFICO
+    static public function ConsultarPagosEncargadosInd($data)
+    {
+        $datosEncargado = ControladorPagos::ctrConsultarPagosEncargadoInd($data);
+        $respuesta = json_encode($datosEncargado);
+        echo ($respuesta);
+    }
 }
 
 if (isset($_POST['consultaEncargado'])) {
@@ -19,6 +26,10 @@ if (isset($_POST['consultaEncargado'])) {
     $data = $_POST['consultaEncargado'];
 
     $calcularPago->ConsultarPagosEncargados($data);
-} else {
-    return ("Error");
-}
+} 
+if (isset($_POST['consultaEncargadoInd'])) {
+    $calcularPago = new ConsultaPagoEncargadoAjax();
+    $data = $_POST['consultaEncargadoInd'];
+
+    $calcularPago->ConsultarPagosEncargadosInd($data);
+} 

@@ -19,12 +19,11 @@ class ControladorReporte
         $respuesta = ModelReporte::mdlReporteEncargado($tabla, $dato);
         return $respuesta;
     }
-
-    static public function ctrReporteRecolectorPagos($dato)
+    //CONSULTAR PAGOS ANTERIORES A LOS RECOLECTORES
+    static public function ctrReporteRecolectorPagos($data)
     {
         $tabla = "pagos";
-        $respuesta = ModelReporte::mdlReporteRecolectorPagos($tabla, $dato);
+        $respuesta = ModelReporte::mdlReporteRecolectorPagos($tabla, $data);
         return ($respuesta);
     }
-   
 }

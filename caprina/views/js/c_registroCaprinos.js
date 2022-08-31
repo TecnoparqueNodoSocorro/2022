@@ -25,9 +25,10 @@ function RegistrarCaprinos() {
 
         DatosIncompletos()
     } else {
+        //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
         nuevoCaprino = { codigo: codigo.value, raza: raza.options[raza.selectedIndex].text, origen: origen.options[origen.selectedIndex].text, fecha_nacimiento: fecha_nac.value, usuario: id_usuario }
         console.log(nuevoCaprino);
-
+        //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
         $.post("views/ajax/caprino_ajax.php", { nuevoCaprino }, function (dato) {
             let response = (dato)
             console.log(response);
@@ -51,10 +52,12 @@ function RegistrarCaprinos() {
 
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        //SI SE CONFIRME REGARLA PAGINA
                         location.href = 'index.php?page=c_registroCaprinos'
                     }
                 })
             } else if (response == 0) {
+                //AL AGREGAR UN CODIGO DE UN CAPRINO Y YA EXISTE EL CODIGO 
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

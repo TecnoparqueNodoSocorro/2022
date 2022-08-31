@@ -13,7 +13,7 @@ if (btnReporteControlesReporteUsuario) {
 
         //limpiar la tabla cada que se genere un reporte
         tbody_reporte_controlesReporteUsuario.innerHTML = ``
-
+        //se llama la función para generar el reporte, funcion se encuentra en a_reporteControles.js
         ReporteControles(fecha_inicioReporteUsuario, fecha_finReporteUsuario, tbody_reporte_controlesReporteUsuario,
             thead_reporteReporteUsuario, seleccion_enfermedadReporteUsuario, id_cargoOculto, id_userOculto)
     })
