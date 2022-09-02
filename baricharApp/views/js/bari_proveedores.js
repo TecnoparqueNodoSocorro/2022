@@ -13,7 +13,7 @@ let c_descr_emp = document.getElementById("descr_prov");
 //
 let c_btn_guardar = document.querySelector("#admin_btn_guardar");
 
-// elementos del js
+
 
 //listener
 
@@ -75,50 +75,17 @@ btnfull.forEach((el) => {
 /* *********************************************************************************************************************** */
 // actualizar vigencia
 /* *********************************************************************************************************************** */
-function evento1() {
-    console.log("actualizar")
+function p_actualizar() {
+    console.log("actualizar");
     $('#modal_actualizar').modal('show');
     /*    md_actualizar.innerHTML = `${id}`; */
+
     let vigencianueva = document.getElementById("vigencianueva");
-    ActualizarVigencia(id, vigencianueva);
+    let m_btn_guardar_vig = document.getElementById("btn_guardar_vig");
+    if (m_btn_guardar_vig) { m_btn_guardar_vig.addEventListener("click", ActualizarVigencia(id, vigencianueva)) }
+
+
 }
-
-/* *********************************************************************************************************************** */
-// bloquear-habilitar proveedor
-/* *********************************************************************************************************************** */
-function evento2() {
-    console.log("bloquear")
-    $('#modal_bloq_desb').modal('show');
-    md_bloq_desb.innerHTML = `${id}`;
-    Bloq_DesbProveedor(id);
-}
-
-/* *********************************************************************************************************************** */
-// editar proveedor
-/* *********************************************************************************************************************** */
-function evento3() {
-    console.log("editar")
-    $('#modal_editar').modal('show');
-    md_editar.innerHTML = `${id}`;
-    EditarProveedor(id);
-}
-
-/* *********************************************************************************************************************** */
-// editar pasww  proveedor
-/* *********************************************************************************************************************** */
-function evento4() {
-    console.log("ver")
-    $('#modal_passw').modal('show');
-    m_passw.innerHTML = `${id}`;
-    CambiarContrasena(id);
-}
-
-
-
-/* *********************************************************************************************************************** */
-/* *********************************************************************************************************************** */
-/* funciones modals */
-
 function ActualizarVigencia(id, vigencianueva) {
 
     if (id) {
@@ -135,7 +102,17 @@ function ActualizarVigencia(id, vigencianueva) {
     }
 }
 
-/* ************************************************************************************************************************* */
+/* *********************************************************************************************************************** */
+// bloquear-habilitar proveedor
+/* *********************************************************************************************************************** */
+function p_bloq_desbloq() {
+    console.log("bloquear")
+    $('#modal_bloq_desb').modal('show');
+    md_bloq_desb.innerHTML = `${id}`;
+    let m_btn_guardar_bloq_desb = document.getElementById("btn_guardar_bloq_desb");
+    if (m_btn_guardar_bloq_desb) { m_btn_guardar_bloq_desb.addEventListener("click", Bloq_DesbProveedor(id)) }
+   
+}
 function Bloq_DesbProveedor(id) {
     if (id == 1) {
         //convertir a cero
@@ -153,7 +130,6 @@ function Bloq_DesbProveedor(id) {
         CambiarEstado(data_NewEstado);
     }
 
-
 }
 function CambiarEstado(data_NewEstado) {
     $.post("views/ajax/bari_proveedores.ajax.php", { data_NewEstado }, function (data) {
@@ -161,7 +137,17 @@ function CambiarEstado(data_NewEstado) {
     })
 }
 
-/* ************************************************************************************************************************* */
+/* *********************************************************************************************************************** */
+// editar proveedor
+/* *********************************************************************************************************************** */
+function p_editar() {
+    console.log("editar")
+    $('#modal_editar').modal('show');
+    md_editar.innerHTML = `${id}`;
+    let m_btn_guardar_editar = document.getElementById("btn_guardar_editar");
+    if (m_btn_guardar_editar) { m_btn_guardar_editar.addEventListener("click", EditarProveedor(id)) }
+   
+}
 function EditarProveedor(id) {
     if (id) {
         data_editprov = {
@@ -176,20 +162,34 @@ function EditarProveedor(id) {
     }
 }
 
+/* *********************************************************************************************************************** */
+// editar pasww  proveedor
+/* *********************************************************************************************************************** */
+function p_passw() {
+    console.log("paswword")
+    $('#modal_passw').modal('show');
+    m_passw.innerHTML = `${id}`;
+    let m_btn_guardar_passw = document.getElementById("btn_g_passw");
+    let datapsw1 = document.getElementById("edt_pass1").value;
+    let datapsw2 = document.getElementById("edt_pass2").value;
+   
 
-/* ************************************************************************************************************************* */
-function CambiarContrasena(data) {
-    if (new_pass1 == new_pass2) {
+    if (m_btn_guardar_passw) { m_btn_guardar_passw.addEventListener("click", CambiarContrasena(datapsw1,datapsw2)) }
+    
+}
+
+function CambiarContrasena(data1, data2) {
+    if (data1 == data2) {
         data_Newpass = {
             id: id,
-            Newpass: new_pass1
+            Newpass: data1
         }
         $.post("views/ajax/bari_proveedores.ajax.php", { data_Newpass }, function (data) {
             console.log(data);
         })
     }
     else {
-        alert("contraseñas no coinciden");
+        alert("contraseñas no coinciden en el modal");
     }
 
 

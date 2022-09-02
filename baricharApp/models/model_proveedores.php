@@ -72,7 +72,7 @@ class ModelProveedor
     static public function MdlUpdateProveedor($tabla, $datos)
     {
         try {
-            $stmt = conexion::conectar()->prepare("update  $tabla  SET  nombre=:nombre ,nit=:nit ,telefono:=telefono ,correo:=correo ,maxprod=:maxprod ,direccion:=direccion,descripcion=:descripcion,logo:=logo,vigencia=:vigencia,usuario:=usuario,pasww1=;pasww1 WHERE id=:idproveedor");
+            $stmt = conexion::conectar()->prepare("update  $tabla  SET  nombre=:nombre ,nit=:nit ,telefono:=telefono ,correo:=correo ,maxprod=:maxprod ,direccion:=direccion,descripcion=:descripcion,logo:=logo,vigencia=:vigencia,usuario:=usuario WHERE id=:idproveedor");
             $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":nit", $datos["nit"], PDO::PARAM_STR);
             $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
@@ -82,9 +82,7 @@ class ModelProveedor
             $stmt->bindParam(":descripcion", $datos["descr"], PDO::PARAM_STR);
             $stmt->bindParam(":logo", $datos["logo"], PDO::PARAM_STR);
             $stmt->bindParam(":vigencia", $datos["vigencia"]);
-            $stmt->bindParam(":usuario", $datos["user"], PDO::PARAM_STR);
-            $stmt->bindParam(":pasww1", $datos["pass_1"], PDO::PARAM_STR);
-
+       
             return 1;
         } catch (Exception $e) {
             echo 'Excepción capturada: ',  $e->getMessage(), "\n";
@@ -93,8 +91,20 @@ class ModelProveedor
     }
 
     //actualizar vigencia
+static public function MdlNewVigencia($tabla,$data){
+
+}
+
 
     //cambiar estado
+static public function MdlNewEstado($tabla,$data){
 
-    
+}
+
+
+// cambiar password
+static public function MdlNewPasssw($data,$tabla){
+
+}
+
 }

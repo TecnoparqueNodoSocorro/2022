@@ -33,33 +33,26 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php
                         foreach ($proveedores as $key => $value) : ?>
-
                             <tr>
-
                                 <td>
-
                                     <button type="button" data-id="<?php echo $value["id"] ?>" class="boton btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
                                         Opciones
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" data-id_update="<?php echo $value["id"] ?>" href="#" onclick="evento1()"><i class=" bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
-                                        <li><a class="dropdown-item" data-id_estado="<?php echo $value["id"] ?>" href="#" onclick="evento2()"><i class=" bi bi-lock-fill"> Bloq/Desbl</i></a></li>
-                                        <li><a class="dropdown-item" data-id_editar="<?php echo $value["id"] ?>" href="#" onclick="evento3()"><i class=" bi bi-pen"> Editar</i></a></li>
-                                        <li><a class="dropdown-item" data-id_ver="<?php echo $value["id"] ?>" href="#" onclick="evento4()"><i class=" bi bi-search"> Ver</i></a></li>
+                                        <li><a class="dropdown-item" data-id_update="<?php echo $value["id"] ?>" href="#" onclick="p_actualizar()"><i class=" bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
+                                        <li><a class="dropdown-item" data-id_estado="<?php echo $value["id"] ?>" href="#" onclick=" p_bloq_desbloq()"><i class=" bi bi-lock-fill"> Bloq/Desbl</i></a></li>
+                                        <li><a class="dropdown-item" data-id_editar="<?php echo $value["id"] ?>" href="#" onclick="p_editar()"><i class=" bi bi-pen"> Editar</i></a></li>
+                                        <li><a class="dropdown-item" data-id_ver="<?php echo $value["id"] ?>" href="#" onclick="p_passw()"><i class=" bi bi-search"> Password</i></a></li>
                                     </ul>
-
                                 </td>
-
                                 <td> <img src="<?php echo $value["logo"] ?>"> </td>
                                 <td> <?php echo $value["nombre"] ?> </td>
                                 <td> <?php echo $value["vigencia"] ?> </td>
                                 <td> <?php echo $value["estado"] ?> </td>
                             </tr>
                         <?php endforeach ?>
-
                     </tbody>
                     <br><br><br>
                 </table>
@@ -72,10 +65,9 @@
     <div class="slider_trans_black"></div>
     <div id="random">
         <div style="background-image: url(views/images/slider/slide14.jpg);"></div>
-
     </div>
 </div>
-
+<!--  -->
 <div class="modal fade" id="modal_proveedores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
@@ -167,18 +159,21 @@
                     <hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nueva Vigencia</span>
-                        <input type="date" class="form-control"  id="vigencianueva" aria-describedby="basic-addon1">
+                        <input type="date" class="form-control" id="vigencianueva" aria-describedby="basic-addon1">
                     </div>
                 </div>
+                <div>
+                    <button type="button" class="btn btn-success" id="btn_guardar_vig"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
+
+            <br>
         </div>
+
     </div>
 </div>
-
+<!--  -->
 <div class="modal fade" id="modal_bloq_desb" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -189,15 +184,17 @@
             <div class="modal-body">
                 <p id="m_bloquear_desb"></p>
                 <p>Modal body text goes here.</p>
+                <br>
+                <div>
+                    <button type="button" class="btn btn-success" id="btn_guardar_bloq_desb"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
+
         </div>
     </div>
 </div>
-
+<!--  -->
 <div class="modal fade" id="modal_editar" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -247,35 +244,25 @@
                                 <label>Usuario</label>
                                 <input type="text" class="form_input" name="edit_user" id="edit_user" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
-                                <label>Contraseña</label>
-                                <input type="password" class="form_input" name="edit_pass_1" id="edit_pass_1" />
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <label>Repetir contraseña</label>
-                                <input type="password" class="form_input" name="edit_pass_2" id="edit_pass_2" />
-                            </div>
+
                             <div class="col-12">
                                 <label>Breve descripcion de la empresa</label>
                                 <textarea class="form_textarea_full" name="edit_descr_prov" id="edit_descr_prov"></textarea>
                             </div>
                         </div>
-                        <br>
-                        <div>
-                            <button type="button" class="btn btn-success" id="edit_admin_btn_guardar"> Guardar</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="edit_btn_cerrar">Cerrar</button>
-                        </div>
                     </form>
                 </div>
+                <br>
+                <div>
+                    <button type="button" class="btn btn-success" id="btn_guardar_editar"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
+
         </div>
     </div>
 </div>
-
+<!--  -->
 <div class="modal fade" id="modal_passw" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -285,12 +272,22 @@
             </div>
             <div class="modal-body">
                 <p id="m_passw"></p>
-                <p>Modal body text goes here.</p>
+                <p>Ingrese la nueva contraseña.</p>
+                <div class="col-sm-6 col-md-4">
+                    <label>Contraseña</label>
+                    <input type="password" class="form_input" name="edt_pass1" id="edt_pass1" />
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <label>Repetir contraseña</label>
+                    <input type="password" class="form_input" name="edt_pass2" id="edt_pass2" />
+                </div>
+                <br>
+                <div>
+                    <button type="button" class="btn btn-success" id="btn_g_passw"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
+
         </div>
     </div>
 </div>
