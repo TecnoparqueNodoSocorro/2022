@@ -13,7 +13,7 @@ let c_descr_emp = document.getElementById("descr_prov");
 //
 let c_btn_guardar = document.querySelector("#admin_btn_guardar");
 
-
+let id;
 
 //listener
 
@@ -78,24 +78,23 @@ btnfull.forEach((el) => {
 function p_actualizar() {
     console.log("actualizar");
     $('#modal_actualizar').modal('show');
-    /*    md_actualizar.innerHTML = `${id}`; */
-
-    let vigencianueva = document.getElementById("vigencianueva");
+    md_actualizar.innerHTML = `${id}`;
+    document.getElementById("vigencianueva").value="";
     let m_btn_guardar_vig = document.getElementById("btn_guardar_vig");
-    if (m_btn_guardar_vig) { m_btn_guardar_vig.addEventListener("click", ActualizarVigencia(id, vigencianueva)) }
-
-
+    m_btn_guardar_vig.addEventListener("click", ActualizarVigencia);
 }
-function ActualizarVigencia(id, vigencianueva) {
+function ActualizarVigencia() {
 
     if (id) {
+        let vigencianueva = document.getElementById("vigencianueva");
         data_VigNew = {
             id: id,
-            vignew: vigencianueva
+            vignew: vigencianueva.value
         }
 
         $.post("views/ajax/bari_proveedores.ajax.php", { data_VigNew }, function (data) {
             console.log(data);
+            $('#modal_actualizar').modal('hide');
         })
     } else {
         console.log("no paso ningun id");
@@ -109,12 +108,24 @@ function p_bloq_desbloq() {
     console.log("bloquear")
     $('#modal_bloq_desb').modal('show');
     md_bloq_desb.innerHTML = `${id}`;
+
     let m_btn_guardar_bloq_desb = document.getElementById("btn_guardar_bloq_desb");
-    if (m_btn_guardar_bloq_desb) { m_btn_guardar_bloq_desb.addEventListener("click", Bloq_DesbProveedor(id)) }
-   
+    if (m_btn_guardar_bloq_desb) { m_btn_guardar_bloq_desb.addEventListener("click", Bloq_DesbProveedor) }
+
 }
-function Bloq_DesbProveedor(id) {
-    if (id == 1) {
+
+function estadoActual() {
+    data_VigNew = {
+        id: id
+    }
+    $.post("views/ajax/bari_proveedores.ajax.php", { data_proveedor }, function (data) {
+        console.log(data);
+    })
+}
+
+function Bloq_DesbProveedor() {
+    let estadoactual = document.getElementById("estadoactual");
+    if (estadoactual == 1) {
         //convertir a cero
         data_NewEstado = {
             id: id,
@@ -137,6 +148,7 @@ function CambiarEstado(data_NewEstado) {
     })
 }
 
+
 /* *********************************************************************************************************************** */
 // editar proveedor
 /* *********************************************************************************************************************** */
@@ -146,7 +158,7 @@ function p_editar() {
     md_editar.innerHTML = `${id}`;
     let m_btn_guardar_editar = document.getElementById("btn_guardar_editar");
     if (m_btn_guardar_editar) { m_btn_guardar_editar.addEventListener("click", EditarProveedor(id)) }
-   
+
 }
 function EditarProveedor(id) {
     if (id) {
@@ -172,10 +184,10 @@ function p_passw() {
     let m_btn_guardar_passw = document.getElementById("btn_g_passw");
     let datapsw1 = document.getElementById("edt_pass1").value;
     let datapsw2 = document.getElementById("edt_pass2").value;
-   
 
-    if (m_btn_guardar_passw) { m_btn_guardar_passw.addEventListener("click", CambiarContrasena(datapsw1,datapsw2)) }
-    
+
+    if (m_btn_guardar_passw) { m_btn_guardar_passw.addEventListener("click", CambiarContrasena(datapsw1, datapsw2)) }
+
 }
 
 function CambiarContrasena(data1, data2) {

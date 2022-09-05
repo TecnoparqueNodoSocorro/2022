@@ -183,6 +183,8 @@
             </div>
             <div class="modal-body">
                 <p id="m_bloquear_desb"></p>
+             
+                <input id="estadoactual" type="hidden"></input>
                 <p>Modal body text goes here.</p>
                 <br>
                 <div>

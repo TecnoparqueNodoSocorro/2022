@@ -20,6 +20,9 @@ class ControladorProveedor
         $RtaSelectprovedor = ModelProveedor::MdlSelectProveedor($tabla, $id_proveedor);
         return $RtaSelectprovedor;
     }
+
+
+
     /* modals */
 
 
@@ -51,4 +54,7 @@ class ControladorProveedor
         $RtaPassw = ModelProveedor::MdlNewPasssw($data, $tabla);
         return $RtaPassw;
     }
+
+    //bases
+    // traer estado actual 
 }

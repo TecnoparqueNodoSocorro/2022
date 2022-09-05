@@ -57,6 +57,15 @@ if (isset($_POST['datos_proveedor'])) {
     $data = $_POST['datos_proveedor'];
     $ajaxproveedor->CrearProveedor($data);
 }
+
+if (isset($_POST['data_proveedor'])) {
+    $ajaxDataproveedor = new ProveedoresAjax();
+    $data = $_POST['datos_proveedor'];
+    $ajaxDataproveedor->SelecProveedor($data);
+}
+
+
+
 /* ********************************************************* */
 
 if (isset($_POST['data_VigNew'])) {
@@ -79,6 +88,6 @@ if (isset($_POST['data_editprov'])) {
 
 if (isset($_POST['data_Newpass'])) {
     $passwnew = new ProveedoresAjax();
-    $data = $_POST['data_VigNew'];
+    $data = $_POST['data_Newpass'];
     $passwnew->NewPasswProv($data);
 }

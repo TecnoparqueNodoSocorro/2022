@@ -71,7 +71,7 @@ class ModelProveedor
 
     static public function MdlUpdateProveedor($tabla, $datos)
     {
-        try {
+        
             $stmt = conexion::conectar()->prepare("update  $tabla  SET  nombre=:nombre ,nit=:nit ,telefono:=telefono ,correo:=correo ,maxprod=:maxprod ,direccion:=direccion,descripcion=:descripcion,logo:=logo,vigencia=:vigencia,usuario:=usuario WHERE id=:idproveedor");
             $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":nit", $datos["nit"], PDO::PARAM_STR);
@@ -82,29 +82,67 @@ class ModelProveedor
             $stmt->bindParam(":descripcion", $datos["descr"], PDO::PARAM_STR);
             $stmt->bindParam(":logo", $datos["logo"], PDO::PARAM_STR);
             $stmt->bindParam(":vigencia", $datos["vigencia"]);
-       
-            return 1;
-        } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-            return -1;
+        if ($stmt->execute()) {
+            return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+         } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
         }
     }
 
     //actualizar vigencia
 static public function MdlNewVigencia($tabla,$data){
-
+       
+    try {
+        $stmt = conexion::conectar()->prepare("UPDATE $tabla set vigencia =:newvigencia WHERE id=:idproveedor");
+        $stmt->bindParam(":newvigencia", $data["vignew"], PDO::PARAM_STR);
+        $stmt->bindParam(":idproveedor", $data["id"]);
+        $stmt->execute();
+            return "New vigencia";
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return -1;
+        }
 }
 
 
     //cambiar estado
 static public function MdlNewEstado($tabla,$data){
-
+        try {
+ $stmt = conexion::conectar()->prepare("UPDATE $tabla SET estado=:newestado WHERE id=:idprov");
+            $stmt->bindParam(":newestado", $data["NewEstado"], PDO::PARAM_STR);
+            $stmt->bindParam(":idprov", $data["id"], PDO::PARAM_STR);
+            $stmt->execute();
+            return "ok new estado";
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return -1;
+        }
 }
 
 
 // cambiar password
 static public function MdlNewPasssw($data,$tabla){
-
+        try {
+ $stmt = conexion::conectar()->prepare("UPDATE $tabla SET passw1=:newpass WHERE is=:idprov");
+            $stmt->bindParam(":idprov", $data["id"], PDO::PARAM_STR);
+            $stmt->bindParam(":newpass", $data["data_Newpass"], PDO::PARAM_STR);
+            $stmt->execute();
+            return "ok new passw";
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return -1;
+        }
 }
 
 }
+
+//maestro crud para tablas 
+/* SELECT COUNT(*)
+FROM information_schema.columns
+WHERE table_name = 'mitabla'
+ */
