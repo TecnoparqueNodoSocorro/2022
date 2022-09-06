@@ -155,7 +155,7 @@
                 <div class="container">
                     <p id="m_actualizar"></p>
                     <h3> <strong>Joyeria la esmeralda</strong> </h3>
-                    <p><strong>Vigencia actual: 05/05/2022</strong></p>
+                    <p ><strong></strong>Vigencia actual <strong id="vigenciactual">00/00/0000</strong> </p>
                     <hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nueva Vigencia</span>
@@ -183,7 +183,7 @@
             </div>
             <div class="modal-body">
                 <p id="m_bloquear_desb"></p>
-             
+
                 <input id="estadoactual" type="hidden"></input>
                 <p>Modal body text goes here.</p>
                 <br>

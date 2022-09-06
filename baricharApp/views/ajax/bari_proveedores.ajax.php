@@ -11,12 +11,17 @@ class ProveedoresAjax
         echo $NewProveedor;
     }
     //seleccionar proveedor------------------------------------------
-    public function SelecProveedor($data)
+    public function InfoProveedor($data)
     {
-        $SelectProveedor = ControladorProveedor::CtrSelectProveedor($data);
-        $respuesta = array("data" => $SelectProveedor);
-        echo $respuesta;
+
+        $SelectProveedor = ControladorProveedor::CtrInfoProveedor($data);
+        //$respuesta = array("data" => $SelectProveedor);
+       // echo $respuesta;
+       $datos = json_encode($SelectProveedor);
+       echo($datos);
     }
+
+    
     /* modales */
 
     //-------------------------------------------------------------
@@ -51,17 +56,20 @@ class ProveedoresAjax
 
 /* ********************************************************* */
 /* ********************************************************* */
-
+ //crear proveedor
 if (isset($_POST['datos_proveedor'])) {
-    $ajaxproveedor = new ProveedoresAjax();
+    $ajaxproveedor = new ProveedoresAjax(); 
+     
     $data = $_POST['datos_proveedor'];
     $ajaxproveedor->CrearProveedor($data);
 }
 
-if (isset($_POST['data_proveedor'])) {
-    $ajaxDataproveedor = new ProveedoresAjax();
-    $data = $_POST['datos_proveedor'];
-    $ajaxDataproveedor->SelecProveedor($data);
+    //informacion proveedor----
+if (isset($_POST['info_proveedor'])) {
+    $ajaxInfoproveedor = new ProveedoresAjax();
+    $data = $_POST['info_proveedor'];
+    $ajaxInfoproveedor->InfoProveedor($data);
+  
 }
 
 
@@ -91,3 +99,4 @@ if (isset($_POST['data_Newpass'])) {
     $data = $_POST['data_Newpass'];
     $passwnew->NewPasswProv($data);
 }
+

@@ -12,10 +12,13 @@ let c_pass_2 = document.getElementById("pass_2");
 let c_descr_emp = document.getElementById("descr_prov");
 //
 let c_btn_guardar = document.querySelector("#admin_btn_guardar");
-
+let vigenciactual = document.querySelector("vigenciactual");
 let id;
 
 //listener
+
+
+
 
 if (c_btn_guardar) { c_btn_guardar.addEventListener("click", crearProveedor) }
 
@@ -75,14 +78,34 @@ btnfull.forEach((el) => {
 /* *********************************************************************************************************************** */
 // actualizar vigencia
 /* *********************************************************************************************************************** */
+ 
 function p_actualizar() {
     console.log("actualizar");
     $('#modal_actualizar').modal('show');
+
+     /* vigenciactual = infoproveedor();
+    console.log(vigenciactual); */
+
+    /*  */
+
+   
+      let info_proveedor = {
+          id: id
+      }
+      console.log(info_proveedor);
+      $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
+          responses = JSON.parse(data);
+        
+      })
+      
+    /*  */
+
     md_actualizar.innerHTML = `${id}`;
-    document.getElementById("vigencianueva").value="";
+    document.getElementById("vigencianueva").value = "";
     let m_btn_guardar_vig = document.getElementById("btn_guardar_vig");
     m_btn_guardar_vig.addEventListener("click", ActualizarVigencia);
 }
+
 function ActualizarVigencia() {
 
     if (id) {
@@ -95,11 +118,14 @@ function ActualizarVigencia() {
         $.post("views/ajax/bari_proveedores.ajax.php", { data_VigNew }, function (data) {
             console.log(data);
             $('#modal_actualizar').modal('hide');
+            location.reload();
         })
     } else {
         console.log("no paso ningun id");
     }
 }
+
+
 
 /* *********************************************************************************************************************** */
 // bloquear-habilitar proveedor
@@ -114,14 +140,6 @@ function p_bloq_desbloq() {
 
 }
 
-function estadoActual() {
-    data_VigNew = {
-        id: id
-    }
-    $.post("views/ajax/bari_proveedores.ajax.php", { data_proveedor }, function (data) {
-        console.log(data);
-    })
-}
 
 function Bloq_DesbProveedor() {
     let estadoactual = document.getElementById("estadoactual");
@@ -203,6 +221,16 @@ function CambiarContrasena(data1, data2) {
     else {
         alert("contraseñas no coinciden en el modal");
     }
+}
+/* ******************************************************** */
 
+function infoproveedor() {
+    info_proveedor = {
+        id: id
+    }
+    console.log(info_proveedor);
+    $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
+        responses = JSON.parse(data);
+    })
 
 }

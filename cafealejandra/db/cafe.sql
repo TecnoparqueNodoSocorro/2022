@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-08-2022 a las 17:15:01
+-- Tiempo de generación: 06-09-2022 a las 15:28:35
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -106,7 +106,7 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `id_cosecha`, `nombres`, `apellidos`, `id_cargo`, `num_telefono`, `num_documento`, `contrasena`) VALUES
-(20, 0, 'administrador', 'admin', 3, 0, 13862306, '4765'),
+(20, 0, 'administrador', 'admin', 3, 0, 123456789, '11111'),
 (22, 26, 'omar ', 'peña', 1, 12345, 11111, '12345'),
 (23, 26, 'pilar ', 'sanchez', 1, 22222, 22222, '12345'),
 (24, 26, 'alanix', 'hormiga', 1, 4444, 44444, '12345'),
@@ -203,69 +203,6 @@ INSERT INTO `registro` (`id`, `id_cosecha`, `id_empleado`, `id_cargo`, `fecha_re
 (47, 29, 37, 1, '2022-08-28', 20),
 (48, 29, 38, 1, '2022-08-17', 20),
 (49, 26, 22, 1, '2022-08-17', 50);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vw_dia_no_asistido`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `vw_dia_no_asistido` (
-`id_empleado` int(20)
-,`id_cosecha` int(20)
-,`dia_no_asistido` bigint(21)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vw_sumakilos`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `vw_sumakilos` (
-`id_empleado` int(11)
-,`id_cosecha` int(11)
-,`sum_kilos` decimal(32,0)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vw_sumpagos`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `vw_sumpagos` (
-`id_empleado` int(20)
-,`id_cosecha` int(11)
-,`sum_pagos` decimal(41,0)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vw_dia_no_asistido`
---
-DROP TABLE IF EXISTS `vw_dia_no_asistido`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_dia_no_asistido`  AS SELECT `dias_no_asistidos`.`id_empleado` AS `id_empleado`, `dias_no_asistidos`.`id_cosecha` AS `id_cosecha`, count(`dias_no_asistidos`.`dia_no_asistido`) AS `dia_no_asistido` FROM `dias_no_asistidos` GROUP BY `dias_no_asistidos`.`id_empleado`, `dias_no_asistidos`.`id_cosecha``id_cosecha`  ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vw_sumakilos`
---
-DROP TABLE IF EXISTS `vw_sumakilos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_sumakilos`  AS SELECT `registro`.`id_empleado` AS `id_empleado`, `registro`.`id_cosecha` AS `id_cosecha`, sum(`registro`.`kilos`) AS `sum_kilos` FROM `registro` GROUP BY `registro`.`id_empleado`, `registro`.`id_cosecha``id_cosecha`  ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vw_sumpagos`
---
-DROP TABLE IF EXISTS `vw_sumpagos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_sumpagos`  AS SELECT `pagos`.`id_empleado` AS `id_empleado`, `pagos`.`id_cosecha` AS `id_cosecha`, sum(`pagos`.`pagos`) AS `sum_pagos` FROM `pagos` GROUP BY `pagos`.`id_empleado`, `pagos`.`id_cosecha``id_cosecha`  ;
 
 --
 -- Índices para tablas volcadas

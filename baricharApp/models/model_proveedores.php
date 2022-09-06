@@ -51,12 +51,14 @@ class ModelProveedor
 
     // consultar 1
 
-    static public function MdlSelectProveedor($tabla, $id_proveedor)
+    static public function MdlInfoProveedor($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("select * from $tabla where id_proveedor=:idproveedor");
-        $stmt->bindParam(":idproveedor", $id_proveedor);
+        
+     
+        $stmt = conexion::conectar()->prepare("select * from $tabla where id =:idproveedor");
+        $stmt->bindParam(":idproveedor", $data["id"]);
         if ($stmt->execute()) {
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stmt->fetchObject();
             $stmt->closeCursor();
             $stmt = null;
         } else {

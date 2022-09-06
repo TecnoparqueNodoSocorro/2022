@@ -14,11 +14,13 @@ class ControladorProveedor
         $RtaSelectAllproveedores = ModelProveedor::MdlSelectAllProveedores($tabla);
         return $RtaSelectAllproveedores;
     }
-    static public function CtrSelectProveedor($id_proveedor)
+
+    static public function CtrInfoProveedor($data)
     {
+    
         $tabla = "proveedores";
-        $RtaSelectprovedor = ModelProveedor::MdlSelectProveedor($tabla, $id_proveedor);
-        return $RtaSelectprovedor;
+        $RtaInfoprovedor = ModelProveedor::MdlInfoProveedor($tabla, $data);
+        return $RtaInfoprovedor;
     }
 
 
@@ -55,6 +57,5 @@ class ControladorProveedor
         return $RtaPassw;
     }
 
-    //bases
-    // traer estado actual 
+  
 }

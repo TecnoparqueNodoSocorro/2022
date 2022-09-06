@@ -72,7 +72,7 @@ function eliminarProdecarro(e) {
 /* leer contenido del html al que le dimos click  */
 function leerDatosProducto(producto) {
   /* console.log(producto); */
-  // crear objeto con la informaicon del producto sseleccionado
+  // crear objeto con la informacion del producto seleccionado
   const DatosProducto = {
     imagen: producto.querySelector("img").src,
     titulo: producto.querySelector("#nombreprod").textContent,
