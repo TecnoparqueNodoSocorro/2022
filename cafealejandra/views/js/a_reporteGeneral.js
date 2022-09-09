@@ -1,4 +1,4 @@
-//console.log("reprote general");
+////console.log("reprote general");
 
 let selectReporte = document.getElementById('selectReporteGeneral')
 let selectCargoReporteG = document.getElementById('selectCargoReporteG')
@@ -15,7 +15,7 @@ let headReporteGeneral = document.getElementById('headReporteGeneral')
 /* selectReporte ? selectReporte.addEventListener("change", () => { }) : ""
 
 selectCargoReporteG ? selectCargoReporteG.addEventListener("change", () => {
-    console.log(selectCargoReporteG.value);
+    //console.log(selectCargoReporteG.value);
 }) : ""
 
  */
@@ -101,7 +101,7 @@ function GenerarReporte() {
             case "2":
                 $.post("views/ajax/usuarios_ajax.php", { ReporteGeneral }, function (dato) {
                     let response = JSON.parse(dato)
-                    console.log(response);
+                    //console.log(response);
                     encargados = 0
                     total_pagar = response.reduce((x, y) => x += (parseInt(y.total_a_pagar)), 0)
                     total_pagado = response.reduce((x, y) => x += (parseInt(y.suma_de_pagos)), 0)
@@ -168,7 +168,7 @@ function LimpiarTablaReporte() {
 /*   ReporteGeneral = { id: selectReporte.value }
   $.post("views/ajax/cosecha_ajax.php", { ReporteGeneral }, function (dato) {
       let response = JSON.parse(dato)
-     // console.log(response);
+     // //console.log(response);
       response.forEach(x => {
           tbodyReporteGeneral.innerHTML+=`
           <tr>
@@ -183,10 +183,10 @@ function LimpiarTablaReporte() {
   if(selectCargoReporteG == "1") {
 
          ReporteGeneral = { id: selectReporte.value }
-        console.log(ReporteGeneral);
+        //console.log(ReporteGeneral);
         $.post("views/ajax/usuarios_ajax.php", { ReporteGeneral }, function (dato) {
             let response = JSON.parse(dato)
-            console.log(response);
+            //console.log(response);
         })
     }
   

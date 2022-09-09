@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-09-2022 a las 15:28:35
+-- Tiempo de generación: 09-09-2022 a las 16:09:33
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -106,22 +106,22 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `id_cosecha`, `nombres`, `apellidos`, `id_cargo`, `num_telefono`, `num_documento`, `contrasena`) VALUES
-(20, 0, 'administrador', 'admin', 3, 0, 123456789, '11111'),
-(22, 26, 'omar ', 'peña', 1, 12345, 11111, '12345'),
+(20, 0, 'administrador', 'admin', 3, 0, 13862306, '4765'),
+(22, 26, 'omar ', 'peña', 1, 12345, 11111, '9639'),
 (23, 26, 'pilar ', 'sanchez', 1, 22222, 22222, '12345'),
 (24, 26, 'alanix', 'hormiga', 1, 4444, 44444, '12345'),
 (25, 26, 'sebastian', 'sandoval', 1, 55555, 55555, '12345'),
 (26, 26, 'sergio', 'pérez', 2, 77777, 77777, '12345'),
-(27, 26, 'pablo', 'perez', 1, 8888, 88888, '12345'),
-(28, 27, 'prueba', 'prueba', 2, 123123123, 3333, '3333'),
-(29, 26, 'prueba', 'prueba', 1, 7778, 1234, '1234'),
+(27, 26, 'pablo', 'perez', 1, 8888, 88888, ''),
+(28, 27, 'prueba', 'prueba', 2, 123123123, 3333, ''),
+(29, 26, 'prueba', 'prueba', 1, 7778, 1234, ''),
 (30, 28, 'Hector', 'Herrera', 2, 2222, 2222, '2222'),
 (31, 28, 'Carlos', 'Herrera', 1, 1111, 2323, '2323'),
-(32, 28, 'camilo', 'camilo', 1, 7474, 7474, ''),
+(32, 28, 'camilo', 'camilo', 1, 7474, 7474, '6666'),
 (33, 28, 'luis', '7474', 1, 7447, 7447, ''),
 (34, 29, 'recolector', '11', 1, 1111, 1212, ''),
 (35, 29, 'encargado', '22', 2, 222, 2323, ''),
-(36, 29, 'Julio', 'julio', 2, 7878, 7878, ''),
+(36, 29, 'Julio', 'julio', 2, 7878, 7878, '6666'),
 (37, 29, 'recolector2', '222', 1, 2222, 2222, ''),
 (38, 29, 'recolector3', '333', 1, 333, 3333, ''),
 (39, 29, 'alana', 'asdas', 1, 212312, 1231231, ''),
@@ -203,6 +203,69 @@ INSERT INTO `registro` (`id`, `id_cosecha`, `id_empleado`, `id_cargo`, `fecha_re
 (47, 29, 37, 1, '2022-08-28', 20),
 (48, 29, 38, 1, '2022-08-17', 20),
 (49, 26, 22, 1, '2022-08-17', 50);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vw_dia_no_asistido`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vw_dia_no_asistido` (
+`id_empleado` int(20)
+,`id_cosecha` int(20)
+,`dia_no_asistido` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vw_sumakilos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vw_sumakilos` (
+`id_empleado` int(11)
+,`id_cosecha` int(11)
+,`sum_kilos` decimal(32,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vw_sumpagos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vw_sumpagos` (
+`id_empleado` int(20)
+,`id_cosecha` int(11)
+,`sum_pagos` decimal(41,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vw_dia_no_asistido`
+--
+DROP TABLE IF EXISTS `vw_dia_no_asistido`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_dia_no_asistido`  AS SELECT `dias_no_asistidos`.`id_empleado` AS `id_empleado`, `dias_no_asistidos`.`id_cosecha` AS `id_cosecha`, count(`dias_no_asistidos`.`dia_no_asistido`) AS `dia_no_asistido` FROM `dias_no_asistidos` GROUP BY `dias_no_asistidos`.`id_empleado`, `dias_no_asistidos`.`id_cosecha``id_cosecha`  ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vw_sumakilos`
+--
+DROP TABLE IF EXISTS `vw_sumakilos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_sumakilos`  AS SELECT `registro`.`id_empleado` AS `id_empleado`, `registro`.`id_cosecha` AS `id_cosecha`, sum(`registro`.`kilos`) AS `sum_kilos` FROM `registro` GROUP BY `registro`.`id_empleado`, `registro`.`id_cosecha``id_cosecha`  ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vw_sumpagos`
+--
+DROP TABLE IF EXISTS `vw_sumpagos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_sumpagos`  AS SELECT `pagos`.`id_empleado` AS `id_empleado`, `pagos`.`id_cosecha` AS `id_cosecha`, sum(`pagos`.`pagos`) AS `sum_pagos` FROM `pagos` GROUP BY `pagos`.`id_empleado`, `pagos`.`id_cosecha``id_cosecha`  ;
 
 --
 -- Índices para tablas volcadas

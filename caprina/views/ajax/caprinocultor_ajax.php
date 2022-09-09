@@ -17,6 +17,13 @@ class CaprinocultorAjax
         echo json_encode($respuesta); */
         echo $datoscaprinocultor;
     }
+    static public function CambioClave ($data)
+    {
+        $datos = ControladorCaprinocultor::ctrCambioClave($data);
+        /* $respuesta = array($datos);
+        echo json_encode($respuesta); */
+        echo json_encode($datos);
+    }
 }
 //GUARDAR CAPRINOCULTOR
 if (isset($_POST['nuevoCaprinocultor'])) {
@@ -24,6 +31,10 @@ if (isset($_POST['nuevoCaprinocultor'])) {
     $data = $_POST['nuevoCaprinocultor'];
 
     $postCaprinocultor->PostCaprinocultores($data);
-} else {
-    return ("Error");
+}
+//cambio clave
+if (isset($_POST['newPass'])) {
+    $postCaprinocultor = new CaprinocultorAjax();
+    $data = $_POST['newPass'];
+    $postCaprinocultor->CambioClave($data);
 }

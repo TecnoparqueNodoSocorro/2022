@@ -27,11 +27,11 @@ function RegistrarCaprinos() {
     } else {
         //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
         nuevoCaprino = { codigo: codigo.value, raza: raza.options[raza.selectedIndex].text, origen: origen.options[origen.selectedIndex].text, fecha_nacimiento: fecha_nac.value, usuario: id_usuario }
-        console.log(nuevoCaprino);
+      //  console.log(nuevoCaprino);
         //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
         $.post("views/ajax/caprino_ajax.php", { nuevoCaprino }, function (dato) {
             let response = (dato)
-            console.log(response);
+          //  console.log(response);
 
             if (response == 1) {
                 Swal.fire({

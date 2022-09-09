@@ -25,12 +25,12 @@ function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thea
         DatosIncompletos()
     } else {
         fechas_reporte = { fecha_inicio: fecha_inicio.value, fecha_fin: fecha_fin.value, enfermedad: seleccion_enfermedad.value, cargo: idCargo.value, usuario: idUsuario.value }
-        console.log(fechas_reporte);
+      //  console.log(fechas_reporte);
 
         if (seleccion_enfermedad.value == "enfermedad_respiratoria") {
             $.post("views/ajax/reportes_ajax.php", { fechas_reporte }, function (dato) {
                 let response = (JSON.parse(dato))
-                console.log(response);
+              //  console.log(response);
                 response.forEach(x => {
                     //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
                     thead_reporte.innerHTML = `<tr>
@@ -67,7 +67,7 @@ function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thea
         if (seleccion_enfermedad.value == "enfermedad_gastrointestinal") {
             $.post("views/ajax/reportes_ajax.php", { fechas_reporte }, function (dato) {
                 let response = (JSON.parse(dato))
-                console.log(response);
+               // console.log(response);
                 response.forEach(x => {
                     //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
                     thead_reporte.innerHTML = `<tr>
@@ -99,7 +99,7 @@ function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thea
         if (seleccion_enfermedad.value == "enfermedad_mordedura") {
             $.post("views/ajax/reportes_ajax.php", { fechas_reporte }, function (dato) {
                 let response = (JSON.parse(dato))
-                console.log(response);
+                //console.log(response);
                 response.forEach(x => {
                     //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
 
@@ -131,7 +131,7 @@ function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thea
         if (seleccion_enfermedad.value == "todas") {
             $.post("views/ajax/reportes_ajax.php", { fechas_reporte }, function (dato) {
                 let response = (JSON.parse(dato))
-                console.log(response);
+               // console.log(response);
                 response.forEach(x => {
                     //SE DIBUJA EL ENCABEZADO DE LA TABLA UNA SOLA VEZ
 

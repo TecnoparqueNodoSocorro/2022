@@ -30,7 +30,7 @@ if (isset($_SESSION["validar_rol"])) {
     </select>
 
     <div class="table-responsive mt-4">
-        <table class="table">
+        <table class="table table-sm">
             <thead>
                 <tr>
                     <th>Opciones</th>

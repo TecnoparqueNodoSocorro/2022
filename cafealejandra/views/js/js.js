@@ -37,7 +37,7 @@ if (btnIniciarCosecha) {
                     })
                     $.post("views/ajax/cosecha_ajax.php", { cosecha }, function (dato) {
                         let response = (dato)
-                        console.log(response);
+                        //console.log(response);
                         setTimeout(function () {
                             location.href = 'index.php?page=gestionCosechas'
 
@@ -59,7 +59,7 @@ let cerrarCosecha = document.getElementById('btnCerrarCosecha')
 
 if (num_cosecha) {
     num_cosecha.addEventListener("change", () => {
-        console.log(num_cosecha.value);
+        //console.log(num_cosecha.value);
 
     })
 }
@@ -86,14 +86,14 @@ if (cerrarCosecha) {
                 if (result.isConfirmed) {
                     $.post("views/ajax/finalizar_cosecha_ajax.php", { datos }, function (dato) {
                         let response = (dato)
-                        console.log(response);
+                        //console.log(response);
                         location.href = 'index.php?page=finalizarCosecha'
 
                     })
                 }
             })
         }
-        // console.log(datos);
+        // //console.log(datos);
 
     })
 }
@@ -115,6 +115,11 @@ let btnRegister = document.getElementById('btnRegister')
 
 //LISTAR LOS EMPLEADOS POR COSECHA
 
+//variablees cambiar calve
+
+let newclave = document.getElementById("newclave")
+let newclaveConfirm = document.getElementById("newclaveConfirm")
+
 
 let tablaHeadEmpleados = document.getElementById('tableHeadListarEmpleadosCosecha')
 let tablaBodyEmpleados = document.getElementById('tableBodyListarEmpleadosCosecha')
@@ -127,32 +132,124 @@ if (cosecha_user) {
         const data = { id_cosecha: cosecha_user.value }
         $.post("views/ajax/reporte_empleado_ajax.php", { data }, function (dato) {
             let response = JSON.parse(dato)
-            console.log(response);
+            //console.log(response);
             response.forEach(x => {
                 tablaHeadEmpleados.innerHTML = `
                 <tr>
                     <th>Nombre</th>
-                    <th>Apellido</th>
                     <th>Documento</th>
                     <th>Teléfono</th>
                     <th>Cargo</th>
+                    <th>Cambio clave</th>
+
                 </tr>
             `
                 tablaBodyEmpleados.innerHTML += `
             <tr>
-            <td>${x.nombres}</td>
-            <td>${x.apellidos}</td>
+            <td>${x.nombres + " " + x.apellidos}</td>
             <td>${x.num_documento}</td>
             <td>${x.num_telefono}</td>
             <td>${(x.id_cargo == 1) ? 'Recolector' : 'Encargado'}</td>
+            <td>    <button type="button" data-id="${x.id}" data-nombre="${x.nombres + " " + x.apellidos}" class="editPass btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="bi bi-key"></i>
+            </button></td>
+
             </tr>
 
                 `
+                // VARIABLES PARA GUARDAR LOS DATOS
+                const editPass = document.querySelectorAll(".editPass")
+                editPass.forEach((el) => {
+                    //SE EXTRAEN LOS ATRIBUTOS DATA PARA PODER USARLOS FUERA DEL FOREACH
+                    el.addEventListener("click", (e) => {
 
+                        ////console.log(el.dataset.id);
+                        id = el.dataset.id
+                        document.getElementById("modal-titulo").innerText = el.dataset.nombre
+
+                    })
+                })
             })
         })
     })
 
+}
+
+
+let btncambiarClave = document.getElementById('cambiarClave')
+btncambiarClave ? btncambiarClave.addEventListener("click", cambiarClave) : ""
+function cambiarClave() {
+    if (newclave.value.trim().length != 4) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La clave tiene que ser de 4 numeros',
+        })
+    } else if (newclaveConfirm.value !== newclave.value) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Las claves no coinciden',
+        })
+    } else {
+        newPass = { id: id, pass: newclaveConfirm.value }
+        //console.log(newPass);
+        Swal.fire({
+            title: 'Listo',
+            text: `¿Cambiar clave?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Cambiar',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post("views/ajax/usuarios_ajax.php", { newPass }, function (dato) {
+                    let response = (dato)
+                    //console.log(response);
+                })
+                setTimeout(function () {
+                    location.href = 'index.php?page=gestionUsuarios'
+
+                }, 1200);
+                Swal.fire({
+
+                    icon: 'success',
+                    title: `Clave cambiada exitosamente`,
+                    showConfirmButton: true,
+                    timer: 1200,
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+
+                    }
+                })
+            }
+        })
+
+    }
 }
 
 function limpiarTablas() {
@@ -163,25 +260,12 @@ function limpiarTablas() {
 
 
 
-function valideKey(evt){
-			
-    // code is the decimal ASCII representation of the pressed key.
-    var code = (evt.which) ? evt.which : evt.keyCode;
-    
-    if(code==8) { // backspace.
-      return true;
-    } else if(code>=48 && code<=57) { // is a number.
-      return true;
-    } else{ // other keys.
-      return false;
-    }
-}
 
 
 if (btnRegister) {
     btnRegister.addEventListener("click", () => {
         //    capturar el texto del select
-        //     console.log(cosecha_user.options[cosecha_user.selectedIndex].text);
+        //     //console.log(cosecha_user.options[cosecha_user.selectedIndex].text);
 
         if (cargo_user.value.trim() == "--Seleccione el cargo--" || document_user.value.trim() == "" || phone_user.value.trim() == "" || lastname_user.value.trim() == "" || name_user.value.trim() == "" || cosecha_user.value.trim() == "--Seleccione la cosecha--") {
             Swal.fire({
@@ -189,21 +273,21 @@ if (btnRegister) {
                 title: 'Oops...',
                 text: 'Datos incompletos',
             })
-        } else if(clave.value.trim().length !=4){
+        } else if (clave.value.trim().length != 4) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'La clave tiene que ser de 4 numeros',
             })
-        }else if( claveConfirm.value != clave.value){
+        } else if (claveConfirm.value != clave.value) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Las claves no coinciden',
             })
-        }else {
+        } else {
 
-            empleado_nuevo = { clave:clave.value,cargo: cargo_user.value, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, cosecha: cosecha_user.value }
+            empleado_nuevo = { clave: clave.value, cargo: cargo_user.value, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, cosecha: cosecha_user.value }
 
 
 
@@ -226,7 +310,7 @@ if (btnRegister) {
                     })
                     $.post("views/ajax/usuarios_ajax.php", { empleado_nuevo }, function (dato) {
                         let response = (dato)
-                        console.log(response);
+                        //console.log(response);
                         setTimeout(function () {
                             location.href = 'index.php?page=gestionUsuarios'
 
@@ -252,9 +336,9 @@ if (btnRegister) {
                if (result.isConfirmed) {
                    $.post("views/ajax/usuarios_ajax.php", { empleado_nuevo }, function (dato) {
                        let response = (dato)
-                       console.log(response);
+                       //console.log(response);
                        location.href = 'index.php?page=gestionUsuarios'
-
+ 
                    })
                }
            }) */
@@ -272,18 +356,18 @@ let tabla = document.getElementById('tbody')
 let valor
 let data = {}
 if (usuarios_cosecha) {
-
+ 
     usuarios_cosecha.addEventListener("change", () => {
         tabla.innerHTML = ``;
         valor = usuarios_cosecha.value
         data = { id_cosecha: valor }
-        // console.log(data);
-
+        // //console.log(data);
+ 
         $.post("views/ajax/reporte_empleado_ajax.php", { data }, function (dato) {
             let response = (dato)
-            // console.log(response);
+            // //console.log(response);
             let registros = JSON.parse(response);
-            console.log(registros);
+            //console.log(registros);
             for (let index = 0; index < registros.length; index++) {
                 const element = registros[index];
                 tabla.innerHTML += `
@@ -297,7 +381,7 @@ if (usuarios_cosecha) {
           `
             }
         })
-
+ 
     })
 } */
 //-----------------------------------------------REGISTRO DE TRABAJO DIARIO DE RECOLECTOR--------------------/-------------------------------------------------------------------
@@ -329,12 +413,12 @@ if (cosecha_trabajo) {
         valor = cosecha_trabajo.value
         dataReporte = { id_cosecha: valor }
         bodyRegistro.innerHTML = ``;
-        //console.log(dataReporte);
+        ////console.log(dataReporte);
         $.post("views/ajax/recolectores_cosecha_ajax.php", { dataReporte }, function (dato) {
             let response = (dato)
-            // console.log(response);
+            // //console.log(response);
             registros = JSON.parse(response);
-            console.log(registros);
+            //console.log(registros);
             let i = 0
             for (let registro of registros) {
                 i++;
@@ -354,7 +438,7 @@ if (cosecha_trabajo) {
                 //SE EXTRAEN LOS ATRIBUTOS DATA PARA PODER USARLOS FUERA DEL FOREACH
                 el.addEventListener("click", (e) => {
 
-                    //console.log(el.dataset.id);
+                    ////console.log(el.dataset.id);
                     id = el.dataset.id
                     cargo = el.dataset.cargo
                     nombre = el.dataset.nombre
@@ -397,7 +481,7 @@ if (agregar_trabajo) {
                     })
                     $.post("views/ajax/registro_trabajo_ajax.php", { registroTrabajo }, function (dato) {
                         let response = (dato)
-                        console.log(response);
+                        //console.log(response);
                         setTimeout(function () {
                             location.href = 'index.php?page=registroTrabajos'
 
@@ -409,7 +493,7 @@ if (agregar_trabajo) {
             })
 
 
-            //console.log(registroTrabajo);
+            ////console.log(registroTrabajo);
 
         }
 
@@ -463,7 +547,7 @@ if (empleado) {
         // extraigo el nombre para usarlo en la tabla siguiente
         nombreEmpleado = empleado.options[empleado.selectedIndex].text
         reporte_empleado = empleado.value
-        console.log(empleado.value);
+        //console.log(empleado.value);
 
     })
 }
@@ -482,8 +566,8 @@ if (btnGenerarCant) {
             //SE CREAN DOS OBJETOS PARA LAS DOS PETICIONES QUE SE NECESITAN
             reporteAvanzado = { id_empleado: reporte_empleado, id_cosecha: reporte_cosecha, fecha_inicio: fecInicio.value, fecha_fin: fecFin.value }
             reporteAvanzadoPagos = { id_empleado: reporte_empleado, fecha_inicio: fecInicio.value, fecha_fin: fecFin.value }
-            //console.log(reporteAvanzado);
-            //console.log(reporteAvanzadoPagos);
+            ////console.log(reporteAvanzado);
+            ////console.log(reporteAvanzadoPagos);
             //SE CONSULTAN LOS PAGOS ANTERIORES DEL EMPLEADO ENTRE LAS FECHAS SELECCIONADAS
             $.post("views/ajax/reporte_consultar_pagosanteriores_ajax.php", { reporteAvanzadoPagos }, function (dato) {
                 res = JSON.parse(dato)
@@ -503,9 +587,9 @@ if (btnGenerarCant) {
                 //SE CONSULTAN LOS DATOS DEL RECOLECTOR KILOS TOTALES RECOGIDOS EN LA COSECHA, EL VALOR POR KILO, ETC
                 $.post("views/ajax/reporte_avanzado_ajax.php", { reporteAvanzado }, function (dato) {
                     let response = (JSON.parse(dato))
-                    console.log(response);
-                    console.log(pagoAbonado);
-                    console.log((parseInt(pagoAbonado)));
+                    //console.log(response);
+                    //console.log(pagoAbonado);
+                    //console.log((parseInt(pagoAbonado)));
                     /*     response.forEach(element => {
     
                             bodyReporte.innerHTML = `
@@ -582,7 +666,7 @@ if (registro_pago) {
         valor = registro_pago.value
         //SE GUARDA EN UN JSON PARA USARLO COMO PARAMETRO EN LA PETICION AJAX
         data = { id_cosecha: valor }
-        //console.log(registro_pago.value);
+        ////console.log(registro_pago.value);
         $.post("views/ajax/usuarios_cosecha_ajax.php", { data }, function (dato) {
             let response = JSON.parse(dato)
             //SE ITERA EL RESPONSE PARA RELLENAR LA TABLA
@@ -680,7 +764,7 @@ if (registro_pago) {
                 if (result.isConfirmed) {
                     $.post("views/ajax/registrar_pago_recolector_ajax.php", { pago }, function (dato) {
                         let response = dato
-                        console.log(response);
+                        //console.log(response);
                     })
                     Swal.fire({
                         icon: 'success',
@@ -749,7 +833,7 @@ if (reporteKilos) {
             data: { reporte },
             dataType: 'json',
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 // LLEVAR EL CONTEO DE TODOS LOS KILOS DE LA COSECHA
                 conteo = response.reduce((x, y) => x += (parseInt(y.total_kilos)), 0)
                 // SE LLEVA EL CONTEO TOTAL DE EMPLEADOS EN LA COSECHA
@@ -757,9 +841,9 @@ if (reporteKilos) {
                 response.forEach(data => {
                     empleados++
                 })
-                console.log(empleados);
+                //console.log(empleados);
                 response.forEach(element => {
-                    // console.log(element);
+                    // //console.log(element);
                     tbodyReporte.innerHTML += `
                   <tr>
                   <td><strong>${element.Nombre}</strong> </td>
@@ -810,7 +894,7 @@ if (buscar_recolectores) {
         dataCosecha = { id_cosecha: buscar_recolectores.value }
         $.post("views/ajax/reporte_encargado_ajax.php", { dataCosecha }, function (dato) {
             let response = JSON.parse(dato)
-            // console.log(response);
+            // //console.log(response);
             response.forEach(x => {
 
                 tbodyEncargados.innerHTML += `
@@ -834,10 +918,10 @@ if (buscar_recolectores) {
                     fechaInicial = el.dataset.fecha
                     jsonPagoEncargado = { id_usuario: el.dataset.id, id_cosecha: el.dataset.cosecha }
                     pagoAencargado = el.dataset.pago
-                    console.log(pagoAencargado);
+                    //console.log(pagoAencargado);
                     date = new Date();
                     fechaActual = date.toISOString().split('T')[0]
-                    // console.log(fechaActual, fechaInicial);
+                    // //console.log(fechaActual, fechaInicial);
 
 
                     // consultaPagos = { id_usuario: el.dataset.id }
@@ -850,10 +934,10 @@ if (buscar_recolectores) {
 
 
                         let response = parseInt(dato);
-                        // console.log(typeof response);
+                        // //console.log(typeof response);
                         $.post("views/ajax/consultar_cantidad_dias_notrabajados_ajax.php", { consultaDias }, function (datas) {
                             let rta = JSON.parse(datas)
-                            //  console.log(rta);
+                            //  //console.log(rta);
                             //dias trabajados, se calcula la cantidad de dias entre dos fechas y se le resta la cantidad de dias que se registraron como no asistencia
                             diasTrabajados.value = (CalcularFechaPagos(fechaInicial, fechaActual)) - rta
 
@@ -887,7 +971,7 @@ if (btnPagarEncargado) {
             })
         } else {
             resultadoEncargado = totalPagarEncargadoOperacion - parseInt(cantidadPagarEncargado.value)
-            console.log(resultadoEncargado);
+            //console.log(resultadoEncargado);
             pagoEncargado = { pago: cantidadPagarEncargado.value, id_usuario: id_encargado_pago, id_cosecha: buscar_recolectores.value }
 
 
@@ -933,7 +1017,7 @@ if (btnPagarEncargado) {
                         if (result.isConfirmed) {
                             $.post("views/ajax/registrar_pago_encargado_ajax.php", { pagoEncargado }, function (dato) {
                                 let response = dato
-                                console.log(response);
+                                //console.log(response);
                             })
                             location.href = 'index.php?page=pagoEncargados'
 
@@ -970,7 +1054,7 @@ function CalcularFechaPagos(d1, d2) {
     let difference = Math.abs(day2 - day1);
     days = difference / (1000 * 3600 * 24)
 
-    // console.log(days)
+    // //console.log(days)
     return days
 }
 
@@ -984,17 +1068,17 @@ if (reportePagos) {
     reportePagos.addEventListener("change", () => {
         tablaReporte.innerHTML = ``
         ObjreportePago = { id_cosecha: reportePagos.value }
-        console.log(ObjreportePago);
+        //console.log(ObjreportePago);
         $.post("views/ajax/reporte_pagos_ajax.php", { ObjreportePago }, function (dato) {
             let response = JSON.parse(dato)
 
-            console.log(response);
+            //console.log(response);
             response.forEach(x => {
                 tablaReporte.innerHTML += `
                 <tr>
                 <td>${x.nombres} ${x.apellidos}</td>
                 <td>${x.num_documento}</td>
-                <td>${x.pagos}</td>
+                <td>$${new Intl.NumberFormat('cop-CO').format(x.pagos)}</td>
                 <td>${x.fecha}</td>
 
                 </tr>

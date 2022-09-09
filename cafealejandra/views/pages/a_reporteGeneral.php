@@ -48,7 +48,7 @@ if (isset($_SESSION["validar_rol"])) {
 
 
     <div class="table-responsive mt-3">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-sm">
             <thead id="theadReporte">
                 <!--    <tr>
                     <th>Nombre</th>

@@ -5,7 +5,7 @@ let btnTraer = document.getElementById('btnTraer')
 if (codigo_caprino_control) {
     codigo_caprino_control.addEventListener("change", () => {
         LimpiarTabla()
-        console.log(codigo_caprino_control.value);
+        //console.log(codigo_caprino_control.value);
         //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX EN ESTE CASO  EL CODIGO DEL CAPRINO PARA EL CONTROL INDIVIDUAL
         controlIndividual = { codigo_caprino_control: codigo_caprino_control.value }
         traerDatosCaprino()
@@ -17,7 +17,7 @@ function traerDatosCaprino() {
     //ENVIA DEL JSON AL AJAX
     $.post("views/ajax/caprino_ajax.php", { controlIndividual }, function (dato) {
         let response = JSON.parse(dato)
-        console.log(response);
+       // console.log(response);
         tbodyControl.innerHTML += `
         <tr>
         <td><button type="button" id="controlInfo" class="getInfo btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalDatos">
@@ -32,7 +32,7 @@ function traerDatosCaprino() {
             //SE EXTRAEN LOS ATRIBUTOS DATA PARA PODER USARLOS FUERA DEL FOREACH
             el.addEventListener("click", (e) => {
 
-                console.log(codigo_caprino_control.value);
+              //  console.log(codigo_caprino_control.value);
                 //TEXTO DEL MODAL CON EL CODIGO DE CADA CAPRINO
                 let headControl = document.getElementById('headControl')
                 headControl.innerHTML = `Caprino con codigo: ${codigo_caprino_control.value}`
@@ -99,7 +99,7 @@ function GuardarRegistro() {
             //SI SE ACEPTA LA ALERTA SE ENVIA EL JSON AL AJAX
             $.post("views/ajax/caprino_control_ajax.php", { caprinoRegistro }, function (dato) {
                 let response = (dato)
-                console.log(response);
+               // console.log(response);
                 setTimeout(function () {
                     location.href = 'index.php?page=c_registroControlIndividual'
                 }, 1200);

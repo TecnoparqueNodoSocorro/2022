@@ -41,7 +41,7 @@ if (btnRegistrarS) {
                     //SI LA RESPUESTA AL MODAL ES ACEPTADA  //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
                     $.post("views/ajax/salidas_ajax.php", { salidas }, function (dato) {
                         let response = (dato)
-                        console.log(response);
+                        //console.log(response);
                         //AL SEGUNDO Y MEDIO REDIRECCIONA O RECARGA LA PAGINA
                         setTimeout(function () {
                             location.href = 'index.php?page=c_registroSalidas'
@@ -66,7 +66,7 @@ if (btnRegistrarS) {
                             return false
                         }
                     })
-                    console.log(salidas);
+                   // console.log(salidas);
 
                   
                 }

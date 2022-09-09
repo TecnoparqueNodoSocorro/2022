@@ -38,7 +38,7 @@ class ModelCaprinoControl
         $stmt = null; */
     }
 
-    //----------CONSULTAR LA CANTIDAD DE CONTROLES PARA EL ESTADO CAPRINO-----------------
+    //----------CONSULTAR LA CANTIDAD DE CONTROLES PARA EL ESTADO CAPRINO ADMIN-----------------
     static public function mdlCantidadDeControles($tabla)
     {
         $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla");
@@ -47,8 +47,17 @@ class ModelCaprinoControl
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
+    //----------CONSULTAR LA CANTIDAD DE CONTROLES PARA EL ESTADO CAPRINO CAPRINOCULTOR-----------------
+    static public function mdlCantidadDeControlesPorCaprinocultor($tabla, $id)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario = $id");
+        $stmt->execute();
+        return $stmt->fetchColumn();
+        /*  $stmt->closeCursor();
+        $stmt = null; */
+    }
 
-    //----------CONSULTAR LA CANTIDAD DE CONTROLES DEL DIA DE PRESENTE PARA EL ESTADO CAPRINO-----------------
+    //----------CONSULTAR LA CANTIDAD DE CONTROLES DEL DIA DE PRESENTE PARA EL ESTADO CAPRINO-ADMIN----------------
     static public function mdlCantidadDeControlesHoy($tabla)
     {
         //VARIABLE HOY PARA CALCULAR ELDÍA ACTUAL Y PODER EJECUTAR LA CONSULTA
@@ -60,6 +69,19 @@ class ModelCaprinoControl
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
+
+        //----------CONSULTAR LA CANTIDAD DE CONTROLES DEL DIA DE PRESENTE PARA EL ESTADO CAPRINO-CAPRINOCULTOR----------------
+        static public function mdlCantidadDeControlesHoyPorCaprinocultor($tabla, $id)
+        {
+            //VARIABLE HOY PARA CALCULAR ELDÍA ACTUAL Y PODER EJECUTAR LA CONSULTA
+            $hoy = date("Ymd");
+    
+            $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE fecha = $hoy AND id_usuario = $id ");
+            $stmt->execute();
+            return $stmt->fetchColumn();
+            /*  $stmt->closeCursor();
+            $stmt = null; */
+        }
     //------------CONSULTAR LOS CONTROLES POR USUARIOS-----------------------------------------
     static public function mdlConsultarControlesPorUsuario($tabla, $usuario)
     {

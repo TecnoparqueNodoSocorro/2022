@@ -24,7 +24,7 @@ function Login() {
     } else {
         $.post("views/ajax/login_ajax.php", { login }, function (dato) {
             let response = JSON.parse(dato)
-            console.log(response);
+            //console.log(response);
 
             if (response.length === 0) {
                 Swal.fire({
@@ -50,3 +50,17 @@ function Login() {
     }
 }
 
+//FUNCION SE LE AGREGA A LOS INPUT DE LA CONTRASEÑA DEL REGISTRO DE USUARIOS PARA QUE SOLO PERMITA EL INGRESO DE NUMEROS
+function valideKey(evt){
+			
+    // code is the decimal ASCII representation of the pressed key.
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code==8) { // backspace.
+      return true;
+    } else if(code>=48 && code<=57) { // is a number.
+      return true;
+    } else{ // other keys.
+      return false;
+    }
+}

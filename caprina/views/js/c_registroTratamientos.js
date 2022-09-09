@@ -14,7 +14,7 @@ let codigo = {}
 if (caprino_tratamiento_select) {
     caprino_tratamiento_select.addEventListener("change", () => {
         codigo = { codigo: caprino_tratamiento_select.value }
-        //console.log(codigo);
+        ////console.log(codigo);
 
     })
 }
@@ -38,7 +38,7 @@ if (btnAgregarCT) {
 function TraerCaprino() {
     $.post("views/ajax/caprino_ajax.php", { codigo }, function (dato) {
         let response = JSON.parse(dato)
-        //console.log(response);
+        ////console.log(response);
         if (response == false) {
             return Swal.fire({
                 icon: 'error',
@@ -55,13 +55,13 @@ function TraerCaprino() {
         if (caprinosSeleccion.length === 0) {
             caprinosSeleccion.push(response)
             listar()
-            //   console.log(caprinosSeleccion);
+            //   //console.log(caprinosSeleccion);
 
             //findindex devuelve -1 porque no hay registro duplicado entonces agrega al array el response
         } else if (indice === -1) {
             caprinosSeleccion.push(response)
             listar()
-            //console.log(caprinosSeleccion);
+            ////console.log(caprinosSeleccion);
 
         } else {
 
@@ -74,7 +74,7 @@ function TraerCaprino() {
 
         }
 
-        // console.log(caprinosSeleccion);
+        // //console.log(caprinosSeleccion);
 
         function listar() {
             tbodyTratamientos.innerHTML = ``
@@ -100,7 +100,7 @@ function TraerCaprino() {
                     //buscamos el indice para poder usarlo para borrar
                     index = caprinosSeleccion.findIndex(x => x.codigo == codigoEliminar);
                     //verificamos el indice
-                    // console.log(index);
+                    // //console.log(index);
                     //modal de confirmación
                     Swal.fire({
                         title: 'Eliminar',
@@ -125,7 +125,7 @@ function TraerCaprino() {
                         if (result.isConfirmed) {
                             //ya teniendo el indice borramos la ubicacion 
                             caprinosSeleccion.splice(index, 1);
-                            //console.log(caprinosSeleccion);
+                            ////console.log(caprinosSeleccion);
                             listar()
 
                         }
@@ -148,7 +148,7 @@ if (btnGuardarT) {
             DatosIncompletos()
         } else {
             //   caprinos = { descripcion_tratamiento: tratamiento.value, caprinos_tratamiento: caprinosSeleccion, fecha_inicio: fecha_inicio_tratamiento.value }
-            //   console.log(caprinos);
+            //   //console.log(caprinos);
             GuardarIDtraramiento()
         }
 
@@ -165,10 +165,10 @@ async function GuardarIDtraramiento() {
 
     if (caprinosSeleccion.length > 0) {
         const idTratamiento = await $.post("views/ajax/caprino_ajax.php", { datosTratamiento });
-        console.log(idTratamiento);
+        //console.log(idTratamiento);
         let response = JSON.parse(idTratamiento)
         let id = parseInt(response.idTratamiento)
-        // console.log(typeof id);
+        // //console.log(typeof id);
         guardarCaprinosTratamiento(id, caprinosSeleccion)
         Swal.fire({
             title: 'Listo',
@@ -203,10 +203,10 @@ async function GuardarIDtraramiento() {
 function guardarCaprinosTratamiento(id, caprinosSeleccion) {
     //SE CONVIERTE EL JSON EN UNA CADENA DE TEXTO PARA PODER ENVIARLA Y EN EL AJAX VOLVERLA A DECODIFICAR
     let caprinosTratamiento = JSON.stringify(caprinosSeleccion)
-    console.log(caprinosTratamiento);
+    //console.log(caprinosTratamiento);
     $.post("views/ajax/caprino_ajax.php", { idtratatamiento: id, caprinos: caprinosTratamiento }, function (dato) {
         let res = JSON.parse(dato);
-        console.log(res);
+        //console.log(res);
 
 
     })

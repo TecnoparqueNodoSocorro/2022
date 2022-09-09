@@ -50,7 +50,7 @@ class ModelCaprinocultor
     static public function mdlConsultarCaprinocultor($tabla)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC ");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_cargo = 2 ORDER BY id DESC ");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();
@@ -66,4 +66,24 @@ class ModelCaprinocultor
         $total = $stmt->fetchColumn();
         return $total;
     }
+    //cambio clave
+    static public function mdlCambioClave($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("UPDATE $tabla SET clave = :pass WHERE id = :id");
+        $stmt->bindParam(":id",  $data["id"], PDO::PARAM_STR);
+        $stmt->bindParam(":pass",  $data["pass"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+
 }

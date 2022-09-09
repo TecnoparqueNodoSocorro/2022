@@ -26,6 +26,25 @@ class ModelUsuario
             $stmt = null;
         }
     }
+    static public function mdlCambioClave($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("UPDATE $tabla SET contrasena = :pass WHERE id = :id");
+        $stmt->bindParam(":id",  $data["id"], PDO::PARAM_STR);
+        $stmt->bindParam(":pass",  $data["pass"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+
 
 
 
@@ -166,4 +185,3 @@ class ModelUsuario
         }
     }
 }
-

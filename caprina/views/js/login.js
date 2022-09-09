@@ -29,10 +29,23 @@ if (btn) {
                         text: 'Credenciales incorrectas',
                         confirmButtonColor: '#f69100',
                     })
-                } else {
-                    console.log("ok");
-                    location.href = 'index.php?page=home'
+                } else if (response.id_cargo == "1") {
 
+                 //   console.log("ok");
+                    location.href = 'index.php?page=a_estadoCaprino'
+
+                }else if (response.id_cargo == "2") {
+
+                 //   console.log("ok");
+                    location.href = 'index.php?page=c_estadoCaprino'
+
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Contante al administrador',
+                        confirmButtonColor: '#f69100',
+                    })
                 }
             })
         }
@@ -65,9 +78,9 @@ if (btnCerrarSesion) {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                    //ENVIA DEL JSON AL AJAX PARA CERRAR LA SESIÓN AL CONTROLADOR DE CERRAR SESIÓN
+                //ENVIA DEL JSON AL AJAX PARA CERRAR LA SESIÓN AL CONTROLADOR DE CERRAR SESIÓN
                 $.post("controllers/cerrar_sesion.php", { login }, function (dato) {
-                    console.log(dato);
+                   console.log(dato);
                 })
 
                 //SE REDIRECCIONA AL LOGIN 

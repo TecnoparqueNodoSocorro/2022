@@ -200,9 +200,18 @@ class ControladorUsuario
         if ($data["cargo"] == "1") {
             $rta = ModelUsuario::mdlReporteGeneral($tabla, $data);
             return $rta;
-        }else if($data["cargo"] == "2"){
+        } else if ($data["cargo"] == "2") {
             $rta = ModelUsuario::mdlReporteGeneralEncargados($tabla, $data);
             return $rta;
         }
+    }
+
+
+    //cambio clave
+    static public function ctrCambioClave($data)
+    {
+        $tabla = "empleados";
+        $rta = ModelUsuario::mdlCambioClave($tabla, $data);
+        return $rta;
     }
 }

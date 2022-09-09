@@ -1,7 +1,7 @@
 /* ADMINISTRADOR  3 */
 ///////////////////////////////REGISTRAR DIA NO LABORADO POR ENCARGADO/////////////////////////////
 
-//console.log("dias encargados");
+////console.log("dias encargados");
 let bodyEncargados = document.getElementById("bodyEncargados")
 let nombre_encargado = document.getElementById("nombre_encargado")
 //registro de pago captura dato  encargado
@@ -16,14 +16,14 @@ let dias_encargados = document.getElementById("dias_encargados")
 if (dias_encargados) {
     dias_encargados.addEventListener("change", () => {
         bodyEncargados.innerHTML = ``;
-        // console.log(dias_encargados.value);
+        // //console.log(dias_encargados.value);
         data = { id_cosecha: dias_encargados.value }
-        // console.log(data);
+        // //console.log(data);
         $.post("views/ajax/encargados_cosechas_ajax.php", { data }, function (dato) {
             let response = JSON.parse(dato)
-            // console.log(response);
+            // //console.log(response);
             response.forEach(element => {
-                // console.log(element);
+                // //console.log(element);
                 data = element;
                 bodyEncargados.innerHTML += `
                <tr>
@@ -42,7 +42,7 @@ if (dias_encargados) {
                         nombre_encargado.innerText = `${el.dataset.nombre}`
                         id = el.dataset.id
                         nombre = el.dataset.nombre
-                        console.log(id);
+                        //console.log(id);
                     })
                 })
             });
@@ -64,7 +64,7 @@ if (btnCalcularEncargado) {
             })
         } else {
             datos = { id_empleado: id, id_cosecha: dias_encargados.value, dia: diasNo.value }
-            console.log(datos);
+            //console.log(datos);
             Swal.fire({
                 title: 'Registrar dia no laborado',
                 text: `¿Seguro que desea registrar que el día: ${diasNo.value}  el empleado ${nombre} no trabajó?`,
@@ -88,7 +88,7 @@ if (btnCalcularEncargado) {
                 if (result.isConfirmed) {
                     $.post("views/ajax/reporte_dias_encargados_ajax.php", { datos }, function (dato) {
                         let response = JSON.parse(dato)
-                        console.log(response);
+                        //console.log(response);
                         //se valida si la fecha que se intenta registrar ya se encuentra registrada
                         if (response == "Fecha ya registrada") {
                             Swal.fire({

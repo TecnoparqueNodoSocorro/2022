@@ -14,7 +14,7 @@ if (btnAdicionar) {
              //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
             $.post("views/ajax/produccion_ajax.php", { produccion }, function (dato) {
                 let response = (dato)
-                console.log(response);
+               // console.log(response);
             })
             Swal.fire({
                 title: 'Listo',

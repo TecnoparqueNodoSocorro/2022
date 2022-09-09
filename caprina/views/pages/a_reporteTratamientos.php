@@ -33,7 +33,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
     </div>
     <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered">
+        <table class="table table-warning table-bordered  table-sm">
             <thead>
                 <tr>
                     <th>Código del caprino</th>

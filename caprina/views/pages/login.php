@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] == "ok") {
+        echo '<script>window.location="index.php?page=home" </script>';
+    }
+}
+?>
 <div class="container">
     <div class="row" style="justify-content:center ">
         <div class="col col-sm-12 col-md-12 col-lg-8 col-xl-6">
@@ -21,22 +28,21 @@
                     </div>
                     <div class="input-group mt-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
-                        <input type="password" class="form-control" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
+                        <input type="password" onkeypress="return valideKey(event)" class="form-control" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
                     </div>
 
-                    <!-- ------------------------------------------------------BORRAR----------------------------------------------------------------- -->
                     <button type="button" id="btnIniciar" class="btn btn-warning mt-3 mb-5">Ingresar</button>
-                    ADMINISTRADOR
-                    <input type="text" class="form-control" disabled value="2111">
-                    CLAVE
-                    <input type="text" class="form-control" disabled value="1111">
-                    CAPRINOCULTOR
-                    <input type="text" class="form-control" disabled value="2222">
-                    CLAVE
-                    <input type="text" class="form-control" disabled value="2222">
-                    <!-- ------------------------------------------------------BORRAR----------------------------------------------------------------- -->
+
 
                 </form>
+                <!-- ------------------------------------------------------BORRAR----------------------------------------------------------------- -->
+
+                ADMINISTRADOR 2111
+                CLAVE 1111 <br>
+                CAPRINOCULTOR 2222
+                CLAVE 2222
+                <!-- ------------------------------------------------------BORRAR----------------------------------------------------------------- -->
+
             </div>
 
         </div>

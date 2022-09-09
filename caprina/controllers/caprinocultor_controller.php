@@ -57,7 +57,7 @@ class ControladorCaprinocultor
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-          <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=home"> <i class="bi bi-house"></i> Home</a>
+          <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=a_estadoCaprino"> <i class="bi bi-house"></i> Home</a>
           </li>
           <li class="nav-item">
           <a class=" nav-link text-uppercase" href="index.php?page=a_registroCaprinocultor"> <i class="bi bi-person"></i>
@@ -108,6 +108,9 @@ class ControladorCaprinocultor
 
           <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+              <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=c_estadoCaprino"> <i class="bi bi-house"></i> Home</a>
+              </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
               Registros</a>
@@ -177,6 +180,13 @@ class ControladorCaprinocultor
     {
         $tabla = "usuarios";
         $consulta = ModelCaprinocultor::mdlCantidadDeCaprinocultores($tabla);
+        return $consulta;
+    }
+    //------------------cambio clave----------------------
+    static public function ctrCambioClave($data)
+    {
+        $tabla = "usuarios";
+        $consulta = ModelCaprinocultor::mdlCambioClave($tabla, $data);
         return $consulta;
     }
 }

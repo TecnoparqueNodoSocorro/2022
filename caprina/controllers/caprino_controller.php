@@ -26,18 +26,32 @@ class ControladorCaprino
     $consulta = ModelCaprino::mdlConsultarCaprino($tabla);
     return $consulta;
   }
-//------------------CONSULTAR CANTIDAD DE CAPRINOS-----------------------
+//------------------CONSULTAR CANTIDAD DE CAPRINOS- ESTADO GENERAL ADMIN----------------------
   static public function ctrConsultarCantidadDeCaprinos()
   {
     $tabla = "registro_caprino";
     $consulta = ModelCaprino::mdlConsultarCantidadDeCaprinos($tabla);
     return $consulta;
   }
-//------------------CONSULTAR CANTIDAD DE CAPRINOS POR RAZAS-----------------------
+  //------------------CONSULTAR CANTIDAD DE CAPRINOS- ESTADO GENERAL CAPRINOCULTOR----------------------
+  static public function ctrConsultarCantidadDeCaprinosPorCaprinocultor($id)
+  {
+    $tabla = "registro_caprino";
+    $consulta = ModelCaprino::mdlConsultarCantidadDeCaprinosPorCaprinocultor($tabla, $id);
+    return $consulta;
+  }
+//------------------CONSULTAR CANTIDAD DE CAPRINOS POR RAZAS-ADMIN----------------------
 static public function ctrConsultarCantidadDeCaprinosPorRaza()
 {
   $tabla = "registro_caprino";
   $consulta = ModelCaprino::mdlConsultarCantidadDeCaprinosPorRaza($tabla);
+  return $consulta;
+}
+//------------------CONSULTAR CANTIDAD DE CAPRINOS POR RAZAS-CAPRINOCULTOR----------------------
+static public function ctrConsultarCantidadDeCaprinosPorRazaPorCaprinocultor($id)
+{
+  $tabla = "registro_caprino";
+  $consulta = ModelCaprino::mdlConsultarCantidadDeCaprinosPorRazaPorCaprinocultor($tabla, $id);
   return $consulta;
 }
 //------------------CONSULTAR CANTIDAD DE CAPRINOS ACTIVOS----------------------
@@ -80,13 +94,20 @@ static public function ctrConsultarCantidadDeCaprinosPorRaza()
     return $crearIdFactura;
   }
 
-  //CALCULAR TODOS LOS TRATAMIENTOS
+  //CALCULAR TODOS LOS TRATAMIENTOS ADMIN
   static public function ctrCantidadTratamientos()
   {
     $tabla = "registro_tratamientos";
     $crearIdFactura = ModelCaprino::mdlCantidadTratamientos($tabla);
     return $crearIdFactura;
   }
+    //CALCULAR TODOS LOS TRATAMIENTOS CAPRINOCULTOR
+    static public function ctrCantidadTratamientosPorCaprinocultor($id)
+    {
+      $tabla = "registro_tratamientos";
+      $crearIdFactura = ModelCaprino::mdlCantidadTratamientosPorCaprinocultor($tabla, $id);
+      return $crearIdFactura;
+    }
 //-----------------POST CAPRINOS EN TRATAMIENTO--------------------
   static public function ctrPostCaprinosTratamiento($idtratamiento, $caprinos)
   {

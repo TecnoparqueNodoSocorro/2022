@@ -13,4 +13,7 @@ $('#myModalEm').on('hidden.bs.modal', function (event) {
     $("#myModalEncargado count").val("");
  });
 
- 
+
+ $('#exampleModal').on('hidden.bs.modal', function (event) {
+   $("#exampleModal input").val("");
+});

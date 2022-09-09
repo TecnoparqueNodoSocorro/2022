@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-08-2022 a las 17:26:02
+-- Tiempo de generación: 07-09-2022 a las 18:56:26
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -94,7 +94,8 @@ INSERT INTO `registro_caprino` (`id`, `codigo`, `id_usuario`, `raza`, `fecha_nac
 (69, 'j67', 29, 'Nubiana', '2022-07-06', 'Otro', 1, '', NULL),
 (70, 'hr23', 29, 'Nubiana', '2022-08-12', 'Comprado', 1, '', NULL),
 (71, 'k90', 29, 'Santandereano', '2022-08-23', 'Otro', 0, 'Muerte Natural', '2022-08-24'),
-(73, 'A20', 29, 'Booer', '2022-08-24', 'Comprado', 1, '', NULL);
+(73, 'A20', 29, 'Booer', '2022-08-24', 'Comprado', 1, '', NULL),
+(74, '01', 2, 'Alpino', '2022-09-04', 'Comprado', 1, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -130,7 +131,8 @@ INSERT INTO `registro_control` (`id`, `codigo_caprino`, `id_usuario`, `peso`, `c
 (66, 'c33', 34, 20, 5, '', '', 'enfermedad por mordedura', '2022-08-23'),
 (67, 'A20', 29, 25, 5, '', 'Gastro', '', '2022-08-24'),
 (68, '1', 29, 85, 4, 'enfermedad respiratoria', 'enfermedad gastro intestinal', 'enfermedad por mordedura', '2022-08-24'),
-(69, '1', 29, 66, 1, '', '', '', '2022-08-24');
+(69, '1', 29, 66, 1, '', '', '', '2022-08-24'),
+(70, 'd45', 29, 85, 2, 'enfermedad respiratoria', '', 'enfermedad por mordedura', '2022-09-07');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,11 @@ INSERT INTO `registro_produccion` (`id`, `id_usuario`, `codigo_caprino`, `cantid
 (34, 29, '1', 20, '2022-08-25'),
 (35, 29, 'a23', 1000, '2022-08-25'),
 (36, 29, 'a23', 10, '2022-08-08'),
-(37, 29, 'a22', 20, '2022-08-23');
+(37, 29, 'a22', 20, '2022-08-23'),
+(38, 29, '1', 25, '2022-08-30'),
+(39, 29, 'a22', 25, '2022-09-10'),
+(40, 29, 'a11', 525, '2022-09-12'),
+(41, 29, 'a11', 52, '2022-09-05');
 
 -- --------------------------------------------------------
 
@@ -293,19 +299,19 @@ ALTER TABLE `caprinos_en_tratamiento`
 -- AUTO_INCREMENT de la tabla `registro_caprino`
 --
 ALTER TABLE `registro_caprino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_control`
 --
 ALTER TABLE `registro_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_produccion`
 --
 ALTER TABLE `registro_produccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_salidas`

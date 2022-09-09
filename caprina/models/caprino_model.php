@@ -39,7 +39,7 @@ class ModelCaprino
         $stmt = null; */
     }
 
-    // -------------CONSULTAR LA CANTIDAD DE CAPRINOS PARA EL ESTADO CAPRINO--------
+    // -------------CONSULTAR LA CANTIDAD DE CAPRINOS PARA EL ESTADO CAPRINO ADMIN--------
     static public function mdlConsultarCantidadDeCaprinos($tabla)
     {
 
@@ -49,8 +49,17 @@ class ModelCaprino
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
+    // -------------CONSULTAR LA CANTIDAD DE CAPRINOS PARA EL ESTADO CAPRINO- CAPRINOCULTOR-------
+    static public function mdlConsultarCantidadDeCaprinosPorCaprinocultor($tabla, $id)
+    {
 
-    // -----------------CONSULTAR LA CANTIDAD DE TRATAMIENTOS PARA EL ESTADO CAPRINO----------
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario=$id");
+        $stmt->execute();
+        return $stmt->fetchColumn();
+        /*  $stmt->closeCursor();
+        $stmt = null; */
+    }
+    // -----------------CONSULTAR LA CANTIDAD DE TRATAMIENTOS PARA EL ESTADO CAPRINO- ADMIN---------
     static public function mdlCantidadTratamientos($tabla)
     {
 
@@ -61,7 +70,17 @@ class ModelCaprino
         $stmt = null; */
     }
 
-    //---CONSULTAR LA CANTIDAD DE CAPRINOS POR RAZA PARA EL ESTADO CAPRINO---
+        // -----------------CONSULTAR LA CANTIDAD DE TRATAMIENTOS PARA EL ESTADO CAPRINO--CAPRINOCULTOR--------
+        static public function mdlCantidadTratamientosPorCaprinocultor($tabla, $id)
+        {
+    
+            $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario = $id");
+            $stmt->execute();
+            return $stmt->fetchColumn();
+            /*  $stmt->closeCursor();
+            $stmt = null; */
+        }
+    //---CONSULTAR LA CANTIDAD DE CAPRINOS POR RAZA PARA EL ESTADO CAPRINO ADMIN---
     static public function mdlConsultarCantidadDeCaprinosPorRaza($tabla)
     {
 
@@ -71,6 +90,19 @@ class ModelCaprino
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
+
+    
+    //---CONSULTAR LA CANTIDAD DE CAPRINOS POR RAZA PARA EL ESTADO CAPRINO CAPRINOCULTOR---
+    static public function mdlConsultarCantidadDeCaprinosPorRazaPorCaprinocultor($tabla, $id)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) AS 'cantidad',raza FROM $tabla WHERE id_usuario = $id GROUP BY raza");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        /*  $stmt->closeCursor();
+        $stmt = null; */
+    }
+
 
     //---------MODELO CONSULTAR LOS CAPRINOS ACTIVOS  POR CAPRINOCULTOR--------
     static public function mdlConsultarCaprinoActivo($tabla, $id)

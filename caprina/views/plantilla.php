@@ -17,7 +17,7 @@ if (isset($_SESSION["id_cargo"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Caprinsoft</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <link rel="stylesheet" href="styles/styles.css?v=<?php echo (rand()); ?>" />
@@ -50,7 +50,7 @@ if (isset($_SESSION["id_cargo"])) {
 
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="index.php?page=home">Gestión Caprina</a>
+            <a class="navbar-brand text-white" href="<?php echo $id_cargo==1?'index.php?page=a_estadoCaprino' :'index.php?page=c_estadoCaprino' ?>">Gestión Caprina</a>
             <!-- <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <div class="boton">
                     <i class="bi bi-chevron-double-left"></i>
@@ -146,6 +146,7 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "a_reporteControles" ||
             $_GET["page"] == "a_reporteTratamientos" ||
             $_GET["page"] == "a_estadoCaprino" ||
+            $_GET["page"] == "c_estadoCaprino" ||
             $_GET["page"] == "c_registroProduccion" ||
             $_GET["page"] == "c_registroSalidas" ||
             $_GET["page"] == "c_registroTratamientos" ||
@@ -154,6 +155,7 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "c_reporteControles" ||
             $_GET["page"] == "c_reporteTratamientos" ||
             $_GET["page"] == "c_reporteProduccion" ||
+            $_GET["page"] == "error_credenciales" ||
 
             $_GET["page"] == "login"
 
@@ -173,6 +175,8 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/a_registroCaprinocultor.js"></script>
     <script src="views/js/a_reporteControles.js"></script>
     <script src="views/js/a_reporteTratamientos.js"></script>
+    <script src="views/js/a_cambioClave.js"></script>
+
     <script src="views/js/c_reporteTratamientos.js"></script>
     <script src="views/js/c_registroCaprinos.js"></script>
     <!-- <script src="views/js/js.js"></script> -->
@@ -187,7 +191,7 @@ if (isset($_SESSION["id_cargo"])) {
 
     <footer class="footer">
 
-        <p class="navbar-brand mb-3">Caprinsoft</p>
+        <p class="navbar-brand mb-3" style="font-size: 0.8rem;">Designed by Tecnoparque Nodo Socorro 2022 ©</p>
 
 
     </footer>

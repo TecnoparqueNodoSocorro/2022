@@ -90,7 +90,7 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
                 <label class="form-label">
                     <h6 class="text-white">Confirmar clave</h6>
                 </label>
-                <input type="password" name="claveConfirm"  onkeypress="return valideKey(event)" id="claveConfirm" class="form-control" value="" required>
+                <input type="password" name="claveConfirm" onkeypress="return valideKey(event)" id="claveConfirm" class="form-control" value="" required>
             </div>
         </div>
 
@@ -137,6 +137,41 @@ $cosecha = ControladorCosecha::ConsultarCosechaActiva()
 
                 <?php endforeach ?>
  -->
+                <!-- Button trigger modal -->
+
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark" id="modal-titulo"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row justify-content-md-center">
+                                    <div class="col col-xs-6 col-md-6 col-lg-6">
+                                        <label class="form-label">
+                                            <h6 class="text-dark">Nueva clave</h6>
+                                        </label>
+                                        <input type="password" onkeypress="return valideKey(event)" name="newclave" id="newclave" class="form-control" value="" required>
+
+                                    </div>
+                                    <div class="col col-xs-6 col-md-6 col-lg-6">
+                                        <label class="form-label">
+                                            <h6 class="text-dark">Confirmar clave</h6>
+                                        </label>
+                                        <input type="password" name="newclaveConfirm" onkeypress="return valideKey(event)" id="newclaveConfirm" class="form-control" value="" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" id="cambiarClave" class="btn btn-primary">Cambiar clave</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </tbody>
         </table>

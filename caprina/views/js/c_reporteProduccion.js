@@ -22,7 +22,7 @@ if (btnGenerarGrafica) {
 
             $.post("views/ajax/reportes_ajax.php", { grafico }, function (dato) {
                 res = JSON.parse(dato)
-                console.log(res)
+                //console.log(res)
                 //se extraen las fechas recorriendo el response y agregandolas en cada iteracion a un array
                 const labels = res.map(function (e) {
                     return e.fecha_registro;

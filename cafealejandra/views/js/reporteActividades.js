@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   $.post('views/ajax/reporte_actividades_ajax.php', { id_empleado }, function (dato) {
    
     response = JSON.parse(dato)
-    console.log(response);
+  //  console.log(response);
     //registroEmpleado = response[0]
     response.forEach(element => {
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $.post('views/ajax/consultar_pagos_recolector_ajax.php', { id_empleado }, function (dato) {
     response = JSON.parse(dato)
-    console.log(response);
+    //console.log(response);
     response.forEach(x => {
       theadPagos.innerHTML = `
       <tr>

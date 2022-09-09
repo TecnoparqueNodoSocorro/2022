@@ -53,13 +53,13 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <label class="form-label">
                         <h6>Clave (4 numeros)</h6>
                     </label>
-                    <input type="number" name="clave" id="clave" class="form-control" value="" required>
+                    <input type="password" name="clave" onkeypress="return valideKey(event)" id="clave" class="form-control" value="" required>
                 </div>
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
                         <h6>Confirmar clave</h6>
                     </label>
-                    <input type="number" name="claveConfir" id="claveConfir" class="form-control" value="" required>
+                    <input type="password" name="claveConfir" onkeypress="return valideKey(event)" id="claveConfir" class="form-control" value="" required>
                 </div>
             </div>
             <div class="row justify-content-md-center">

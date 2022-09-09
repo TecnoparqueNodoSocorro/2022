@@ -17,10 +17,10 @@ function ListarTratamientos(fecha_ini, fecha_fin, idUser, idCargo, tabla) {
         //JSON CON LOS DATOS QUE SE ENVIAN AL AJAX
         reporte_tratamientos = { fecha_inicio: fecha_ini.value, fecha_fin: fecha_fin.value, id_usuario: idUser.value, id_cargo: idCargo.value }
         //ENVIA DEL JSON AL AJAX
-        console.log(reporte_tratamientos);
+       // console.log(reporte_tratamientos);
         $.post("views/ajax/reportes_ajax.php", { reporte_tratamientos }, (dato) => {
             let response = (JSON.parse(dato))
-            console.log(response);
+           // console.log(response);
             response.forEach(x => {
                 tabla.innerHTML += `
                 <tr>

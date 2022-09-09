@@ -116,7 +116,7 @@ if(isset($_SESSION["id_empleado"])){
 
     <footer class="footer">
 
-        <p class="text-warning">Café Alejandra </p>
+        <p class="text-warning" style="font-size: 0.8rem;">Designed by Tecnoparque Nodo Socorro 2022 ©</p>
 
     </footer>
 </body>

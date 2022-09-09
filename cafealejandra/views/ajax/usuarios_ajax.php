@@ -18,6 +18,13 @@ class UsuarioAjax
         echo json_encode($respuesta); */
         echo json_encode($datos);
     }
+    static public function CambioClave ($data)
+    {
+        $datos = ControladorUsuario::ctrCambioClave($data);
+        /* $respuesta = array($datos);
+        echo json_encode($respuesta); */
+        echo json_encode($datos);
+    }
 }
 
 if (isset($_POST['empleado_nuevo'])) {
@@ -30,4 +37,10 @@ if (isset($_POST['ReporteGeneral'])) {
     $postCosecha = new UsuarioAjax();
     $data = $_POST['ReporteGeneral'];
     $postCosecha->GetReporteGeneral($data);
+}
+//cambio clave
+if (isset($_POST['newPass'])) {
+    $postCosecha = new UsuarioAjax();
+    $data = $_POST['newPass'];
+    $postCosecha->CambioClave($data);
 }
