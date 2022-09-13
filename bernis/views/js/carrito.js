@@ -156,7 +156,7 @@ function enviomensaje() {
   let total = totalCompraCarrito;
   let msg = listado + "<<<total(" + total + ")>>>";
 
-  window.open("https://wa.me/573124624763?text=" + msg);
+  window.open("https://wa.me/573118956343?text=" + msg);
   /* console.log(msg); */
 }
 
