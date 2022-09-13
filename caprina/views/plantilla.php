@@ -26,8 +26,8 @@ if (isset($_SESSION["id_cargo"])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
-
+<!-- css datatable -->
+<link rel="stylesheet" href="views/assets/datatables.css">
 
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -50,7 +50,8 @@ if (isset($_SESSION["id_cargo"])) {
 
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="<?php echo $id_cargo==1?'index.php?page=a_estadoCaprino' :'index.php?page=c_estadoCaprino' ?>">Gestión Caprina</a>
+            <a class="navbar-brand text-white" href="<?php echo $id_cargo == 1 ? 'index.php?page=a_estadoCaprino' : 'index.php?page=c_estadoCaprino' ?>">Gestión Caprina</a>
+            <!-- LINKS DEL MENU PARA LOS 3 ROLES -->
             <!-- <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <div class="boton">
                     <i class="bi bi-chevron-double-left"></i>
@@ -187,7 +188,8 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/c_registroSalidas.js"></script>
     <script src="views/js/c_registrarProduccion.js"></script>
     <script src="views/js/c_reporteProduccion.js"></script>
-
+    <!-- datatable -->
+    <script src="views/assets/datatables.js"></script>
 
     <footer class="footer">
 

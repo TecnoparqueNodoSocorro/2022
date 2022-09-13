@@ -36,7 +36,7 @@ function cambiarClave() {
         })
     } else {
         newPass = { id: id, pass: newclaveConfirm.value }
-        console.log(newPass);
+        //console.log(newPass);
         Swal.fire({
             title: 'Listo',
             text: `¿Cambiar clave?`,

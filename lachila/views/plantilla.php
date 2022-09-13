@@ -27,11 +27,6 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" type="text/css">
-
-
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
@@ -51,7 +46,9 @@ if (isset($_SESSION["id_cargo"])) {
 
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="<?php echo $id_cargo==2 ? 'index.php?page=a_home': 'index.php?page=e_home' ?>">Sistema de Gestión</a>
+            <!-- <a class="navbar-brand text-white" href="<?php /*  $id_cargo==2 ? 'index.php?page=a_home':( $id_cargo==1 ? 'index.php?page=e_home':'index.php?page=env_home') */ ?>">Sistema de Gestión</a> -->
+            <a class="navbar-brand text-white" href="<?php echo $id_cargo==2 ? 'index.php?page=a_home':'index.php?page=e_home' ?>" >Sistema LaChila</a>
+
             <!--  <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <div class="boton">
                     <i class="bi bi-chevron-double-left"></i>
@@ -149,15 +146,13 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "a_home" ||
             $_GET["page"] == "a_gestionUsuarios" ||
             $_GET["page"] == "a_gestionLotes" ||
-    
             $_GET["page"] == "e_gestionLotesUsuarios" ||
             $_GET["page"] == "e_registroActividades" ||
             $_GET["page"] == "e_home" ||
             $_GET["page"] == "a_informeInvima" ||
             $_GET["page"] == "a_informeLotes" ||
             $_GET["page"] == "error_credenciales" ||
-
-
+            // $_GET["page"] == "env_home" ||
             $_GET["page"] == "login"
 
         ) {
@@ -186,12 +181,15 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/e_gestionLotesEmp.js"></script>
     <script src="views/js/a_cambioClave.js"></script>
 
+    <script src="views/js/env_envasado.js"></script>
+    <script src="views/js/cerrarSesion.js"></script>
+
+    <script src="views/js/a_home.js"></script>
+
+
 
     <script src="views/js/login.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js">
-    </script>
+
 
 
     <footer class="footer">

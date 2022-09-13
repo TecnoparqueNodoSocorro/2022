@@ -11,7 +11,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 <div class="container" style="background-color:#eeb3b3; border-radius:5px;">
     <div class="row">
         <div class="col-8 mt-1">
-            <h5> Gestión de Lotes Administrador</h5>
+            <h4> Gestión de Lotes Administrador</h4>
         </div>
 
         <div class="col-4">
@@ -21,7 +21,10 @@ if (isset($_SESSION["validar_ingreso"])) {
                 <i class="bi bi-plus-circle"></i> Nuevo
             </button>
 
+            <?php
+            $materias = ControladorMaterias::ctrGetMaterias();
 
+            ?>
             <!-- Modal crear nuevo lote-->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -35,7 +38,15 @@ if (isset($_SESSION["validar_ingreso"])) {
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="" class="form-label">Materia (Prima)</label>
-                                        <input type="text" class="form-control" name="materia" id="materia" aria-describedby="helpId" placeholder="">
+                                        <select class="form-select mb-2" name="" id="materia" aria-label="Default select example">
+                                            <option selected value="0">--Seleccione el sabor--</option>
+                                            <?php foreach ($materias as $key => $value) : ?>
+
+                                                <option value="<?php echo $value["id"] ?>"> <?php echo $value["nombre"] ?> </option>
+
+                                            <?php endforeach ?>
+
+                                        </select>
                                     </div>
                                     <div class="col-6">
                                         <label for="" class="form-label">Código</label>
@@ -126,7 +137,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                             <th>Código</th>
                             <th>Materia</th>
                             <th>F. Inicio</th>
-                            <th>Peso Ini. Materia KG </th>
+                            <th>Peso inicial </th>
                         </tr>
                     </thead>
 
@@ -200,6 +211,8 @@ if (isset($_SESSION["validar_ingreso"])) {
                                     <thead>
                                         <tr>
                                             <th>Usuario</th>
+                                            <th>Día registro</th>
+
                                             <th>Brix</th>
                                             <th>Alcohol</th>
                                             <th>PH</th>
@@ -207,7 +220,6 @@ if (isset($_SESSION["validar_ingreso"])) {
                                             <th>AC</th>
                                             <th>Temp.</th>
                                             <th>Humed.</th>
-                                            <th>Día registro</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbodyRegistrosLotesF1">
@@ -253,7 +265,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                             <th>Código</th>
                             <th>Materia</th>
                             <th>F. Inicio</th>
-                            <th>Peso Inicial Materia en Kg</th>
+                            <th>Peso inicial</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -329,6 +341,8 @@ if (isset($_SESSION["validar_ingreso"])) {
                                         <thead>
                                             <tr>
                                                 <th>Usuario</th>
+                                                <th>Día registro</th>
+
                                                 <th>Brix</th>
                                                 <th>Alcohol</th>
                                                 <th>PH</th>
@@ -336,7 +350,6 @@ if (isset($_SESSION["validar_ingreso"])) {
                                                 <th>AC</th>
                                                 <th>Temp.</th>
                                                 <th>Humed.</th>
-                                                <th>Día registro</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbodyRegistrosLotesF2">
@@ -378,10 +391,10 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <thead>
                         <tr>
                             <th>Opciones</th>
-                            <th>Id</th>
+                            <th>Código</th>
                             <th>Materia</th>
                             <th>F. Inicio</th>
-                            <th>Peso Inicial Materia en Kg</th>
+                            <th>Peso inicial</th>
                         </tr>
                     </thead>
 
@@ -414,33 +427,71 @@ if (isset($_SESSION["validar_ingreso"])) {
                         </div>
                         <div class="modal-body">
                             <div class="container">
-                                <!--    <div class="row  mt-3">
 
-                                    <div class="table-responsive mt-3">
-                                        <table class="table table-danger table-bordered table-sm">
-                                            <thead>
-                                                <tr>
+                                <!-- Agregar envases -->
+
+                                <div class="mb-3">
+                                    <?php
+                                    $envases = ControladorEnvases::ctrGetEnvases();
+                                    // print_r($envases)
+                                    ?>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="" class="form-label">Envase</label>
+                                            <select class="form-select mb-2" name="" id="envaseEnv" aria-label="Default select example">
+                                                <option selected value="0">--Seleccione el envase--</option>
+                                                <?php foreach ($envases as $key => $value) : ?>
+
+                                                    <option value="<?php echo $value["id"] ?>"> <?php echo $value["capacidad"] ?><?php echo $value["unidad_medida"] ?> </option>
+
+                                                <?php endforeach ?>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="form-label">Cantidad</label>
+                                            <input type="number" class="form-control" name="fInicio" id="cantidad" aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="text-align: right;">
+                                        <div class="col-12">
+                                            <button type="button" name="" id="btnAgregarCantidad" class="btn btn-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+                                <!-- Agregar envases -->
+
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-danger table-bordered table-sm">
+                                        <thead id="theadEnvAdmin">
+                                            <!--   <tr>
 
                                                     <th>Id</th>
                                                     <th>Materia</th>
                                                     <th>F. Inicio</th>
                                                     <th>Peso Inicial Materia en Kg</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
+                                                </tr> -->
+                                        </thead>
+                                        <tbody id="tbodyEnvAdmin">
+                                            <!--  <tr>
 
                                                     <td>1</td>
                                                     <td>Manzana</td>
                                                     <td>11/07/2022</td>
                                                     <td>76</td>
-                                                </tr>
+                                                </tr> -->
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div> -->
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <div class="col-12 mt-3">
                                     <a class="btn btn-primary" id="finishProcess" onclick="finalizarFaseEnvasado()" type="button">Finalizar Proceso</a>
                                 </div>
@@ -514,17 +565,40 @@ if (isset($_SESSION["validar_ingreso"])) {
                         </div>
 
                         <div class="modal-body" style="text-align: center;">
+                            <h4>Produccion del lote</h4>
 
 
+                            <div class="table-responsive mt-1">
+                                <table class="table table-danger table-bordered table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Presentación</th>
+                                            <th>Cantidad</th>
+                                            <th>Total</th>
+                                         
 
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="envasesLote">
+
+                                    </tbody>
+                                
+                                </table>
+                                <span>Total de producción en litros: <strong><span id="ctaLitros"></span></strong></span>
+                            </div>
+
+
+          
+
+
+                            <div class="table-responsive mt-5 mb-2">
                             <h4>Registro del lote</h4>
-
-
-                            <div class="table-responsive mt-3 mb-5">
                                 <table class="table table-danger table-bordered table-sm">
                                     <thead>
                                         <tr>
                                             <th>Usuario</th>
+                                            <th>Día registro</th>
                                             <th>Fase</th>
                                             <th>Brix</th>
                                             <th>Alcohol</th>
@@ -533,7 +607,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                                             <th>AC</th>
                                             <th>Temp.</th>
                                             <th>Humed.</th>
-                                            <th>Día registro</th>
+
 
                                         </tr>
                                     </thead>

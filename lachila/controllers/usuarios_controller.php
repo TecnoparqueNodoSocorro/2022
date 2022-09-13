@@ -13,9 +13,9 @@ class ControladorUsuarios
     // return $respuesta;
     if ($respuesta == false) {
       return "";
-    } else if($respuesta->estado=="0"){
-    return "Usuario inactivo";
-    }else {
+    } else if ($respuesta->estado == "0") {
+      return "Usuario inactivo";
+    } else {
       //SI LA RESPUESTA DEL MODELO ES DIFERENTE A FALSO FUE PORQUE ENCONTRÓ COINCIDENCIA EN LOS DATOS QUE SE ENVIARION
 
       //SE CREA LA SESSION
@@ -28,7 +28,7 @@ class ControladorUsuarios
       $_SESSION["estado"] = $respuesta->estado;
       $_SESSION["nombres"] = $respuesta->nombres;
       $_SESSION["apellidos"] = $respuesta->apellidos;
-    
+
       return $respuesta;
       //------------------------------------------
     }
@@ -95,8 +95,7 @@ class ControladorUsuarios
       </div>
        
           ';
-        }
-        if ($_SESSION["id_cargo"] == "2") {
+        } else if ($_SESSION["id_cargo"] == "2") {
           //SI EL ID DE CARGO ES 2 SE DIBUJA EL MENU DEL ADMINISTRADOR
           echo '
       
@@ -175,7 +174,47 @@ class ControladorUsuarios
           </div>
       </div>
           ';
-        }
+        }/*  else if($_SESSION["id_cargo"] == "3"){
+          echo '
+      
+          <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+              <div class="boton">
+                  <i class="bi bi-chevron-double-left"></i>
+              </div>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+              <h2 class="offcanvas-title" id="offcanvasNavbarLabel">LaChila</h2>
+              <button type="button" class="btn btn-outline-link" data-bs-dismiss="offcanvas" aria-label="Close">
+                  <div class="botonClose">
+                      <i class="bi bi-chevron-double-right"></i>
+                  </div>
+              </button>
+          </div>
+
+          <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                      <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=env_home"> <i class="bi bi-house"></i> Home</a>
+                  </li>                
+
+                  <li class="nav-item">
+                      <a class=" nav-link text-uppercase" id="btnCerrarSesion" href="#"><i class="bi bi-box-arrow-left"></i>
+                          Cerrar sesión</a>
+                  </li>
+
+
+
+
+
+
+
+              </ul>
+          </div>
+      </div>
+          ';
+        
+        } */
       } else {
         echo '';
       }
@@ -215,11 +254,11 @@ class ControladorUsuarios
       echo $respuesta;
     }
   }
-    //cambio clave
-    static public function ctrCambiarClave($data)
-    {
-      $tabla = "usuarios";
-      $respuesta = ModelUsuarios::mdlCambioClave($tabla, $data);
-      return $respuesta;
-    }
+  //cambio clave
+  static public function ctrCambiarClave($data)
+  {
+    $tabla = "usuarios";
+    $respuesta = ModelUsuarios::mdlCambioClave($tabla, $data);
+    return $respuesta;
+  }
 }

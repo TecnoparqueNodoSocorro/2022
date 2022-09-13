@@ -63,7 +63,7 @@ class ModelUsuarios
     static public function mdlGetUsuarios($tabla)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_cargo=1 ORDER BY id DESC ");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_cargo != 2 ORDER BY id DESC ");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();

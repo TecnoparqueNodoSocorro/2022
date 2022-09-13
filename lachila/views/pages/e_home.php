@@ -9,8 +9,9 @@ if (isset($_SESSION["validar_ingreso"])) {
 }
 ?>
 
-<div class="container" style="    background-image: url(../images/background.png); background-color:#eeb3b3; border-radius:5px;">
+<div class="container" style="background-color:#eeb3b3; border-radius:5px;">
     <?php
+    // parametros son el la fase de fermentacion y el id del usuario logueado
     $datos = ControladorVariables::ctrDatosHomeEmp(1, $id);
     $datos2f = ControladorVariables::ctrDatosHomeEmp(2, $id);
     ?>
@@ -31,7 +32,37 @@ if (isset($_SESSION["validar_ingreso"])) {
 
         <!-- tab primera fermentacion -->
         <div class="tab-pane active  mt-1 mb-5" id="home1f" role="tabpanel" aria-labelledby="home1f-tab" style="text-align:left">
-            <?php foreach ($datos as $key => $value) : ?>
+            <div class="table-responsive mt-3 mb-5">
+                <table class="table table-danger table-bordered table-striped">
+                    <thead>
+                        <tr>
+                         
+                            <th>Código lote</th>
+                            <th>Materia</th>
+                            <th>Último registro</th>
+                            <th>Cantidad</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach ($datos as $key => $value) : ?>
+                            <tr>
+                                <td><?php echo $value["codigo_lote"] ?></td>
+                                <td><?php echo $value["materia"] ?></td>
+                                <td><?php echo $value["fecha_registro"] ?></td>
+                                <td><?php echo $value["cantidad_registros"] ?></td>
+
+
+                            </tr>
+
+                        <?php endforeach ?>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!--     <?php foreach ($datos as $key => $value) : ?>
                 <ul class="list-group pb-3">
 
                     <li class="list-group-item d-flex  justify-content-between align-items-center">
@@ -48,11 +79,39 @@ if (isset($_SESSION["validar_ingreso"])) {
                     </li>
                 </ul>
 
-            <?php endforeach ?>
+            <?php endforeach ?> -->
         </div>
         <!-- tab 2 fermentacion -->
         <div class="tab-pane   mt-1 mb-5" id="home2f" role="tabpanel" aria-labelledby="home2f-tab" style="text-align:left">
-            <?php foreach ($datos2f as $key => $value) : ?>
+            <div class="table-responsive mt-3 mb-5">
+                <table class="table table-danger table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Materia</th>
+                            <th>Código lote</th>
+                            <th>Fecha inicio</th>
+                            <th>Cantidad</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach ($datos2f as $key => $value) : ?>
+                            <tr>
+                                <td><?php echo $value["codigo_lote"] ?></td>
+                                <td><?php echo $value["materia"] ?></td>
+                                <td><?php echo $value["fecha_registro"] ?></td>
+                                <td><?php echo $value["cantidad_registros"] ?></td>
+
+
+                            </tr>
+
+                        <?php endforeach ?>
+
+                    </tbody>
+                </table>
+            </div>
+            <!--    <?php foreach ($datos2f as $key => $value) : ?>
                 <ul class="list-group pb-3">
 
                     <li class="list-group-item d-flex  justify-content-between align-items-center">
@@ -69,7 +128,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                     </li>
                 </ul>
 
-            <?php endforeach ?>
+            <?php endforeach ?> -->
         </div>
     </div>
 </div>

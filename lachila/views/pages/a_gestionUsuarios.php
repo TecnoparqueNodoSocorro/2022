@@ -73,16 +73,16 @@ if (isset($_SESSION["validar_ingreso"])) {
 
                 <input type="date" name="nacimiento_user" id="nacimiento_user" class="form-control" value="" required>
             </div>
-            <!--       <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+            <div class="col-12 col-xs-6 col-md-6 col-lg-6">
 
                 <h6>Cargo</h6>
 
                 <select class="form-select" name="cargo_user" id="cargo_user" aria-label="Default select example">
                     <option selected value="0">Seleccione el cargo</option>
                     <option value="1">Empleado</option>
-                    <option value="2">Administrador</option>
+                  <!--   <option value="3">Envasador</option> -->
                 </select>
-            </div> -->
+            </div>
 
         </div>
 
@@ -111,8 +111,10 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <th>Acciones</th>
                     <th>Estado</th>
                     <th>Nombre</th>
-                    <th>Documento</th>
+                    <th>#Docu</th>
                     <th>Teléfono</th>
+                    <!-- <th>Cargo</th> -->
+
 
                 </tr>
             </thead>
@@ -121,14 +123,16 @@ if (isset($_SESSION["validar_ingreso"])) {
                 <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
                         <td> <button type="button" class="ExtraerId btn btn-sm btn-danger" id="traerid" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" data-estado="<?php echo $value["estado"] ?>" data-id="<?php echo $value["id"] ?>"> <?php echo $value["estado"] == 1  ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-check-lg"></i>' ?></button>
-                       
-                        <button type="button" data-id="<?php echo $value["id"] ?>" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" class="editPass btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                            <button type="button" data-id="<?php echo $value["id"] ?>" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" class="editPass btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="bi bi-key"></i>
-                            </button></td>
-                        <td class="fw-bold <?php echo $value["estado"] == 1 ? 'text-primary' : 'text-dark' ?>"><?php echo $value["estado"] == 1 ? 'Activo' : 'Inactivo' ?></td>
+                            </button>
+                        </td>
+                        <td class="fw-bold <?php echo $value["estado"] == 1 ? 'text-primary' : 'text-danger' ?>"><?php echo $value["estado"] == 1 ? 'Activo' : 'Inactivo' ?></td>
                         <td><?php echo $value["nombres"] . " " . $value["apellidos"] ?></td>
                         <td><?php echo $value["num_documento"] ?></td>
                         <td><?php echo $value["num_telefono"] ?></td>
+                        <!-- <td><?php echo $value["id_cargo"]=="1"?'Empleado' :''?><?php echo $value["id_cargo"]=="3"?'Envasador':'' ?></td> -->
                     </tr>
 
                 <?php endforeach ?>

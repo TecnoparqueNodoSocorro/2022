@@ -22,6 +22,14 @@ class LotesAjax
         echo json_encode($respuesta);
         // return $datos;
     }
+    //GET LOTE
+    static public function GetLote($data)
+    {
+        $datos = ControladorLotes::ctrGetLote($data);
+        $respuesta = ($datos);
+        echo json_encode($respuesta);
+        // return $datos;
+    }
     // PASAR LOTE A LA SIGUIENTE FERMENTACION O FASE
     static public function UpdateLote($data)
     {
@@ -69,6 +77,13 @@ if (isset($_POST['codigolote'])) {
     $data = $_POST['codigolote'];
     $postData->UpdateLote($data);
 }
+//TRAER UN LOTE EN ESPECIFICO
+if (isset($_POST['getLote'])) {
+    $postData = new LotesAjax();
+    $data = $_POST['getLote'];
+    $postData->GetLote($data);
+}
+
 
 //TRAER TODOS LOS REGISTROS DE UN LOTE EN ESPECIFICO PARA EL HISTORIAL DEL ADMINISTRADOR
 if (isset($_POST['codigo_loteA'])) {

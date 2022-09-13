@@ -155,7 +155,8 @@
                 <div class="container">
                     <p id="m_actualizar"></p>
                     <h3> <strong>Joyeria la esmeralda</strong> </h3>
-                    <p ><strong></strong>Vigencia actual <strong id="vigenciactual">00/00/0000</strong> </p>
+                    <p><strong></strong>Vigencia actual</p>
+                    <p id="vigenciactual">00/00/0000</p>
                     <hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nueva Vigencia</span>

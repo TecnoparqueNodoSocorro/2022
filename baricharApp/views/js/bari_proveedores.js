@@ -14,7 +14,7 @@ let c_descr_emp = document.getElementById("descr_prov");
 let c_btn_guardar = document.querySelector("#admin_btn_guardar");
 let vigenciactual = document.querySelector("vigenciactual");
 let id;
-
+let info_proveedor;
 //listener
 
 
@@ -75,31 +75,41 @@ btnfull.forEach((el) => {
     })
 })
 
+
+/* **************************************************** */
+
+function infoproveedor() {
+    info_proveedor = {
+        id: id
+    }
+    console.log(info_proveedor);
+    $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
+        responses = JSON.parse(data);
+    })
+}
+
 /* *********************************************************************************************************************** */
 // actualizar vigencia
 /* *********************************************************************************************************************** */
- 
+
 function p_actualizar() {
     console.log("actualizar");
     $('#modal_actualizar').modal('show');
 
-     /* vigenciactual = infoproveedor();
-    console.log(vigenciactual); */
-
+    /* vigenciactual = infoproveedor();
+   console.log(vigenciactual); */
     /*  */
-
-   
-      let info_proveedor = {
-          id: id
-      }
-      console.log(info_proveedor);
-      $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
-          responses = JSON.parse(data);
-        
-      })
+    let info_proveedor = {
+        id: id
+    }
+    /*  console.log(info_proveedor); */
+    $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
+        responses = JSON.parse(data);
+        console.log(responses);
+    document.getElementById("vigenciactual").innerHTML= responses.vigencia;
       
+    })
     /*  */
-
     md_actualizar.innerHTML = `${id}`;
     document.getElementById("vigencianueva").value = "";
     let m_btn_guardar_vig = document.getElementById("btn_guardar_vig");
@@ -223,14 +233,3 @@ function CambiarContrasena(data1, data2) {
     }
 }
 /* ******************************************************** */
-
-function infoproveedor() {
-    info_proveedor = {
-        id: id
-    }
-    console.log(info_proveedor);
-    $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
-        responses = JSON.parse(data);
-    })
-
-}

@@ -15,7 +15,17 @@ let tbodyRegistrosLotesF1 = document.getElementById('tbodyRegistrosLotesF1')
 //tabla registros f2
 let tbodyRegistrosLotesF2 = document.getElementById('tbodyRegistrosLotesF2')
 
+
+//TABLA REGISTROS DE ENVASES
+let theadEnvAdmin = document.getElementById('theadEnvAdmin')
+let tbodyEnvAdmin = document.getElementById('tbodyEnvAdmin')
+
+//TABLA QUE MUESTRA LAS PRESENTACIONES Y CANTIDADES DE LOS LOTES QUE ESTAN EN HISTORIAL
+let envasesLote = document.getElementById('envasesLote')
 //CARGAR LAS TABLAS AL CARGAR LA PAGINA
+
+//VARIABLE EN LA QUE SE VA A ACUMULAR TODO LA CANTIDAD DE LITROS
+let ctaLitros = document.getElementById("ctaLitros")
 
 document.addEventListener("DOMContentLoaded", () => {
     TraerLotesF1()
@@ -48,14 +58,14 @@ function TraerLotesF1() {
             if (tbody1f) {
                 tbody1f.innerHTML += `
             <tr>
-            <td><button type="button" id="btnFerme1" data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarCodigo1 btn btn-sm btn-danger"
+            <td><button type="button" id="btnFerme1" data-materia="${element.materia}"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarCodigo1 btn btn-sm btn-danger"
             data-bs-toggle="modal" data-bs-target="#consultar">
             <i class="bi bi-plus-circle"></i>
         </button></td>
             <td>${element.codigo}</td>
             <td>${element.materia}</td>
             <td>${element.fecha_inicio}</td>
-            <td>${element.peso_inicial}</td>
+            <td>${element.peso_inicial} kg</td>
             </tr>
             `
             }
@@ -72,8 +82,11 @@ function TraerLotesF1() {
                 //atributos data, CODIGO DEL LOTE Y FASE PARA USARLO EN EL AVANCE DE FASE Y EN EL LISTADO DE REGISTROS DEL LOTE
                 codigo = el.dataset.codigo
                 estado = el.dataset.estado
+                materia = el.dataset.materia
+
                 //titulo del modal
-                numero_lote_f1.innerText = `Lote: ${codigo} Fase: ${estado} `
+                numero_lote_f1.innerText = `Lote:${codigo} Fase:${estado} Materia:${materia} `
+
                 //json que va al ajax
                 GetRegistrosPorFerm = { cod: codigo, state: estado }
                 //llamado al ajax
@@ -85,6 +98,7 @@ function TraerLotesF1() {
                         tbodyRegistrosLotesF1.innerHTML += `
                         <tr>
                         <td>${x.nombres + " " + x.apellidos}</td>
+                        <td>${x.fecha_registro}</td>
                         <td>${x.brix}</td>
                         <td>${x.alcohol}</td>
                         <td>${x.ph}</td>
@@ -92,7 +106,6 @@ function TraerLotesF1() {
                         <td>${x.ac}</td>
                         <td>${x.temperatura}</td>
                         <td>${x.humedad}</td>
-                        <td>${x.fecha_registro}</td>
                         </tr>      
                         `
                     })
@@ -117,14 +130,14 @@ function TraerLotesF2() {
             if (tbody2f) {
                 tbody2f.innerHTML += `
             <tr>
-            <td><button type="button" id="btnFerme2"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarCodigo2 btn btn-sm btn-danger"
+            <td><button type="button" id="btnFerme2" data-materia="${element.materia}"   data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarCodigo2 btn btn-sm btn-danger"
             data-bs-toggle="modal" data-bs-target="#consultar2fase">
             <i class="bi bi-plus-circle"></i>
         </button></td>
             <td>${element.codigo}</td>
             <td>${element.materia}</td>
             <td>${element.fecha_inicio}</td>
-            <td>${element.peso_inicial}</td>
+            <td>${element.peso_inicial} kg</td>
             </tr>
             `
             }
@@ -140,8 +153,11 @@ function TraerLotesF2() {
 
                 codigo = el.dataset.codigo
                 estado = el.dataset.estado
+                materia = el.dataset.materia
+
                 //titulo del modal
-                numero_lote_f2.innerText = `Lote: ${codigo} Fase: ${estado} `
+                numero_lote_f2.innerText = `Lote:${codigo} Fase:${estado} Materia:${materia} `
+
 
 
                 //json que va al ajax
@@ -157,6 +173,8 @@ function TraerLotesF2() {
                         tbodyRegistrosLotesF2.innerHTML += `
                        <tr>
                        <td>${x.nombres + " " + x.apellidos}</td>
+                       <td>${x.fecha_registro}</td>
+
                        <td>${x.brix}</td>
                        <td>${x.alcohol}</td>
                        <td>${x.ph}</td>
@@ -164,7 +182,6 @@ function TraerLotesF2() {
                        <td>${x.ac}</td>
                        <td>${x.temperatura}</td>
                        <td>${x.humedad}</td>
-                       <td>${x.fecha_registro}</td>
                        </tr>      
                        `
                     })
@@ -189,14 +206,14 @@ function TraerLotesF3() {
             if (tbody3f) {
                 tbody3f.innerHTML += `
             <tr>
-            <td><button type="button" id="btnFerme3"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}"  class="guardarCodigo3 btn btn-sm btn-danger"
+            <td><button type="button" id="btnFerme3" data-id="${element.idlote}" data-materia="${element.materia}" data-estado="${element.fermentacion}" data-codigo="${element.codigo}"  class="guardarCodigo3 btn btn-sm btn-danger"
             data-bs-toggle="modal" data-bs-target="#envase">
             <i class="bi bi-plus-circle"></i>
         </button></td>
             <td>${element.codigo}</td>
             <td>${element.materia}</td>
             <td>${element.fecha_inicio}</td>
-            <td>${element.peso_inicial}</td>
+            <td>${element.peso_inicial} kg</td>
             </tr>
             `
             }
@@ -208,8 +225,13 @@ function TraerLotesF3() {
             el.addEventListener("click", (e) => {
                 codigo = el.dataset.codigo
                 estado = el.dataset.estado
+                materia = el.dataset.materia
+                id = el.dataset.id
+               // console.log(id);
                 //titulo del modal
-                numero_lote_f3.innerText = `Lote: ${codigo} Fase: ${estado} `
+                numero_lote_f3.innerText = `Lote:${codigo} Fase:${estado} Materia:${materia} `
+                //listar envases, bloqueado
+                ListarEnvases(id, theadEnvAdmin, tbodyEnvAdmin)
 
             })
         })
@@ -226,14 +248,14 @@ function TraerLotesF4() {
 
     $.post("views/ajax/lotes_ajax.php", { dataFase }, function (dato) {
         let response = JSON.parse(dato)
-        //console.log(response);
+        // console.log(response);
 
         response.forEach(element => {
             if (tbody4f) {
 
                 tbody4f.innerHTML += `
             <tr>
-            <td><button type="button" data-estado="${element.fermentacion}" data-codigo="${element.codigo_lote}" id="btnHistA" class="btnHistorialA btn btn-sm btn-danger" data-bs-toggle="modal"
+            <td><button type="button" data-id="${element.id}" data-materia="${element.materia}"  data-estado="${element.fermentacion}" data-codigo="${element.codigo_lote}" id="btnHistA" class="btnHistorialA btn btn-sm btn-danger" data-bs-toggle="modal"
             data-bs-target="#detalles">
             <i class="bi bi-plus-circle"></i>
         </button></td>
@@ -252,18 +274,50 @@ function TraerLotesF4() {
             el.addEventListener("click", (e) => {
                 //blanquea la tabla
                 HistorialLote.innerHTML = ""
+                envasesLote.innerHTML = ""
                 // console.log(el.dataset.id);
                 //atributos data, CODIGO DEL LOTE Y FASE PARA USARLO EN EL LISTADO DE REGISTROS DEL LOTE
                 codigo = el.dataset.codigo
-                estado = el.dataset.estado
-                //titulo del modal
-                numero_lote_f4.innerText = `Lote: ${codigo} Fase: ${estado} `
+                id = el.dataset.id
 
-                console.log(codigo);
+                estado = el.dataset.estado
+                materia = el.dataset.materia
+
+                //titulo del modal
+                numero_lote_f4.innerText = `Lote:${codigo} Fase:${estado} Materia:${materia} `
+
+
+            //    console.log(id);
+                //------------------------TRAER LOS REGISTRO DE ENVASEs LOTE--------------------------------------------------
+                envasado = { id: id }
+                $.post("views/ajax/envasado_ajax.php", { envasado }, function (dato) {
+                    let response = JSON.parse(dato)
+                   // console.log(response);
+
+                    //CALCULAR LA CANTIDAD DE MILILITROS Y PASARLO A LITROS
+                    litros = (response.reduce((x, y) => x += (parseInt(y.totalProduccion)), 0) / 1000).toFixed(2)
+                    ctaLitros.innerText = `${litros} Litros`
+                    response.forEach(x => {
+                        //TABLA QUE MUESTRA LAS PRESENTACIONES Y LAS CANTIDADES DE LOS ENVASADOS
+                        envasesLote.innerHTML += `
+                        <tr>
+                        <td>${x.capacidad}ml</td>
+                        <td>${x.total}</td>
+                        <td>${x.totalProduccion}ml</td>
+                        </tr>
+                        `
+
+                    })
+                })
+
+                //--------------- //--------------- //--------------- //--------------- //--------------- //--------------- //---------------
+
+
+                //------------------------TRAER LOS REGISTRO DE VARIABLES LOTE--------------------------------------------------
                 codigo_loteA = { codigo: codigo, fermentacion: 4 }
                 $.post("views/ajax/lotes_ajax.php", { codigo_loteA }, function (dato) {
                     let response = JSON.parse(dato)
-                    console.log(response);
+                    // console.log(response);
 
                     response.forEach(x => {
                         numero_lote_f1.innerText = x.codigo
@@ -272,6 +326,7 @@ function TraerLotesF4() {
                         HistorialLote.innerHTML += `
                         <tr>
                         <td>${x.nombres + " " + x.apellidos}</td>
+                        <td>${x.fecha_registro}</td>
                         <td>${x.fase_lote}</td>
                         <td>${x.brix}</td>
                         <td>${x.alcohol}</td>
@@ -280,12 +335,13 @@ function TraerLotesF4() {
                         <td>${x.ac}</td>
                         <td>${x.temperatura}</td>
                         <td>${x.humedad}</td>
-                        <td>${x.fecha_registro}</td>
+                       
 
                         </tr>
                         `
                     })
                 })
+                //--------------- //--------------- //--------------- //--------------- //--------------- //--------------- //---------------
             })
         })
     })
@@ -315,5 +371,38 @@ $('#consultar2fase').on('hidden.bs.modal', function () {
 })
 $('#exampleModal').on('hidden.bs.modal', function () {
     $(this).find("input, textarea").val('').end()
+    $(this).find("select").val('0').end()
+
 })
 //-------------------//-------------------//-------------------//-------------------//-------------------//-------------------
+
+//FUNCION DE LISTAR LOS REGISTROS DE LOS ENVASADOS FILTRANDO POR LOTE
+function ListarEnvases(idlote, thead, tbody) {
+    //limpiar tabla
+    thead.innerHTML = ""
+    tbody.innerHTML = ""
+    getEnv = { id: idlote }
+   // console.log(getEnv)
+    $.post("views/ajax/envasado_ajax.php", { getEnv }, function (dato) {
+        response = JSON.parse(dato)
+     //   console.log(response);
+        response.forEach(x => {
+            thead.innerHTML = `
+            <tr>
+            <th>Código Lote</th>
+            <th>Envase</th>
+            <!-- <th>Usuario</th>-->
+            <th>Cantidad</th>
+            </tr>
+            `
+            tbody.innerHTML += `
+            <tr>
+            <td>${x.codigo}</td>
+            <td>${x.capacidad}ml</td>
+            <!-- <td>${x.nombres + " " + x.apellidos}</td>-->
+            <td>${x.cantidad} </td>
+            </tr>
+            `
+        })
+    })
+}

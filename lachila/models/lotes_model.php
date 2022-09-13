@@ -9,7 +9,7 @@ class ModelLotes
     // ----------REGISTRAR NUEVO- LOTE----------
     static public function mdlPostLote($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( codigo, materia, fecha_inicio, peso_inicial, peso_neto, p_desperdicio, adicion) 
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( codigo, id_materia, fecha_inicio, peso_inicial, peso_neto, p_desperdicio, adicion) 
         VALUES( :cod, :materia, :fecha, :peso, :peso_n, :peso_d, :adicion) ");
         $stmt->bindParam(":cod", $data["codigo"], PDO::PARAM_STR);
         $stmt->bindParam(":materia", $data["materia"], PDO::PARAM_STR);
@@ -20,11 +20,29 @@ class ModelLotes
         $stmt->bindParam(":adicion",  $data["adicion"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
+            
+            $stmt->closeCursor();
+            $stmt = null;
             return "ok";
+        } else {
+           /*  echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo()); */
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    //TRAER UN LOTE EN ESPECIFICO
+    static public function mdlGetLote($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT *, materias.nombre AS materia FROM $tabla INNER JOIN materias on $tabla.id_materia = materias.id WHERE $tabla.id=:id ");
+        $stmt->bindParam(":id", $data["id"]);
+        if ($stmt->execute()) {
+            return $stmt->fetch(PDO::FETCH_OBJ);
+
             $stmt->closeCursor();
             $stmt = null;
         } else {
-            echo "\nPDO::errorInfo():\n";
+            echo "\nPDO::errorInfo():\n modelo";
             print_r($stmt->errorInfo());
             $stmt->closeCursor();
             $stmt = null;
@@ -33,7 +51,7 @@ class ModelLotes
     //LISTAR LOS LOSTES DE MANERA DINÁMICA
     static public function mdlGetLotes($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fermentacion = :fer ORDER BY id DESC ");
+        $stmt = conexion::conectar()->prepare("SELECT *, $tabla.id AS idlote, materias.nombre AS materia FROM $tabla INNER JOIN materias ON $tabla.id_materia=materias.id WHERE fermentacion = :fer ORDER BY materia, codigo ");
         $stmt->bindParam(":fer", $data["fermentacion"]);
         if ($stmt->execute()) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,9 +69,12 @@ class ModelLotes
     //LISTAR LOS REGISTROS DE LOS LOTES QUE ESTAN EN ESTADO DE HISTORIAL
     static public function mdlGetLotesHistorial($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT lotes.fermentacion,  lotes.fecha_fin, lotes.codigo AS'codigo_lote', lotes.materia FROM $tabla
-         INNER JOIN lotes ON lotes.codigo=$tabla.codigo_lote  WHERE lotes.fermentacion = :fer GROUP BY lotes.id
-        ORDER BY $tabla.id DESC");
+        $stmt = conexion::conectar()->prepare("SELECT lotes.id, lotes.fermentacion,  lotes.fecha_fin, lotes.codigo AS codigo_lote, materias.nombre AS materia
+        FROM $tabla
+        INNER JOIN lotes ON $tabla.codigo_lote=lotes.codigo
+        INNER JOIN materias ON lotes.id_materia= materias.id
+        WHERE lotes.fermentacion = :fer GROUP BY lotes.id
+        ORDER BY lotes.fecha_fin DESC");
 
         $stmt->bindParam(":fer", $data["fermentacion"]);
         if ($stmt->execute()) {
@@ -70,8 +91,10 @@ class ModelLotes
     //LISTAR LOS REGISTROS DE LOS LOTES QUE ESTAN EN ESTADO DE HISTORIAL FILTRANDO POR LOTE
     static public function mdLGetInfoLote($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT  lotes.fecha_fin, lotes.codigo AS'codigo_lote', $tabla.fase_lote, $tabla.temperatura, $tabla.humedad, $tabla.id,  $tabla.brix, $tabla.alcohol, $tabla.ph,
-             $tabla.tds, $tabla.ac, $tabla.fecha_registro, usuarios.nombres, usuarios.apellidos  FROM $tabla
+        $stmt = conexion::conectar()->prepare("SELECT  lotes.fecha_fin, lotes.codigo AS'codigo_lote', 
+        $tabla.fase_lote, $tabla.temperatura, $tabla.humedad, $tabla.id,  $tabla.brix, $tabla.alcohol, $tabla.ph,
+             $tabla.tds, $tabla.ac, $tabla.fecha_registro, usuarios.nombres, usuarios.apellidos 
+              FROM $tabla
              INNER JOIN lotes ON lotes.codigo=$tabla.codigo_lote 
             INNER JOIN usuarios on usuarios.id = $tabla.id_usuario  WHERE lotes.fermentacion = :fer AND lotes.codigo=:lote
             ORDER BY $tabla.id DESC");
@@ -117,13 +140,17 @@ class ModelLotes
     //LISTAR LOS REGISTROS DE LOS LOTES POR USUARIO Y QUE ESTEN EN FASE 4 PARA EL HISTORIAL DEL  EMPLEADO
     static public function mdLGetInfoLotePorUsuario($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT lotes.fermentacion, lotes.fecha_fin, lotes.codigo AS'codigo_lote', $tabla.temperatura, $tabla.humedad, $tabla.id,  $tabla.brix, $tabla.alcohol, $tabla.ph,
-            $tabla.tds, $tabla.ac, $tabla.fecha_registro, usuarios.nombres, usuarios.apellidos FROM $tabla 
+        $stmt = conexion::conectar()->prepare("SELECT lotes.fermentacion, lotes.fecha_fin, lotes.codigo AS'codigo_lote',
+       $tabla.fase_lote,  $tabla.temperatura, $tabla.humedad, $tabla.id,  $tabla.brix, $tabla.alcohol, $tabla.ph,
+            $tabla.tds, $tabla.ac, $tabla.fecha_registro, usuarios.nombres, usuarios.apellidos 
+            FROM $tabla 
             INNER JOIN usuarios ON usuarios.id=:usuario 
             INNER JOIN lotes ON lotes.codigo=$tabla.codigo_lote
+            INNER JOIN materias ON lotes.id_materia = materias.id
             WHERE $tabla.id_usuario=:usuario 
             AND $tabla.codigo_lote=:codigo
-            AND lotes.fermentacion=:fer ");
+            AND lotes.fermentacion=:fer 
+            ORDER BY $tabla.fecha_registro DESC");
 
         $stmt->bindParam(":codigo", $data["idCodigo"]);
         $stmt->bindParam(":usuario", $data["idUsuario"]);
@@ -149,7 +176,10 @@ class ModelLotes
     static public function mdlGetLotesHistorialPorUsuario($tabla, $data)
     {
         $stmt = conexion::conectar()->prepare("SELECT lotes.fermentacion, lotes.codigo as 'codigo_lote', $tabla.id as 'registro_id',
-             lotes.fecha_fin, lotes.materia from $tabla INNER JOIN lotes ON lotes.codigo = $tabla.codigo_lote 
+             lotes.fecha_fin, materias.nombre as 'materia'
+             from $tabla
+            INNER JOIN lotes ON lotes.codigo = $tabla.codigo_lote 
+            INNER JOIN materias ON lotes.id_materia = materias.id
              where $tabla.id_usuario=:user AND lotes.fermentacion=:fer group by lotes.id");
 
         $stmt->bindParam(":fer", $data["fermentacion"]);
@@ -198,6 +228,26 @@ class ModelLotes
             return "ok";
         } else {
             echo "\nPDO::errorInfo():\n" . $data . "modelo";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+
+    //LISTAR LOS LOSTES QUE ESTAN EN F3 PARA REGISTRAR EL PROCESO DE ENVASADO
+    static public function mdlGetLotesEnv($tabla)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT $tabla.id, $tabla.codigo,$tabla.fecha_inicio, materias.nombre AS materia FROM $tabla 
+        INNER JOIN materias ON $tabla.id_materia=materias.id 
+        WHERE $tabla.fermentacion = 3 
+        ORDER BY materia, $tabla.codigo ");
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n modelo";
             print_r($stmt->errorInfo());
             $stmt->closeCursor();
             $stmt = null;

@@ -40,7 +40,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                         <td><?php echo $value["num_telefono"] ?></td>
                         <td><?php echo $value["direccion"] ?></td>
                         <td><?php echo $value["objetivo_produccion"] ?></td>
-                        <td><button type="button" data-id="<?php echo $value["id"] ?>" class="editPass btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <td><button type="button" data-id="<?php echo $value["id"] ?>" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" class="editPass btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="bi bi-key"></i>
                             </button></td>
 

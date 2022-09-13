@@ -139,7 +139,7 @@ class ModelPagos
     //LISTAR TODOS LOS PAGOS
     static public function mdlReportePagos($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN empleados ON empleados.id =$tabla.id_empleado WHERE $tabla.id_cosecha=:id_cos ");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla INNER JOIN empleados ON empleados.id =$tabla.id_empleado WHERE $tabla.id_cosecha=:id_cos ORDER BY $tabla.fecha DESC");
         $stmt->bindParam(":id_cos",  $data["id_cosecha"]);
 
 

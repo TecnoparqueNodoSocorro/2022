@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-09-2022 a las 16:09:33
+-- Tiempo de generación: 13-09-2022 a las 16:13:10
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -44,7 +44,8 @@ INSERT INTO `cosechas` (`id`, `fecha_inicio`, `pago_kilo`, `pago_encargado`, `es
 (26, '2022-08-14', 5000, 15000, 1, NULL),
 (27, '2022-08-18', 2000, 20000, 1, NULL),
 (28, '2022-08-01', 5000, 10000, 1, NULL),
-(29, '2022-08-02', 5000, 10000, 1, NULL);
+(29, '2022-08-02', 5000, 10000, 0, NULL),
+(30, '2022-09-13', 5000, 20000, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,9 @@ INSERT INTO `empleados` (`id`, `id_cosecha`, `nombres`, `apellidos`, `id_cargo`,
 (38, 29, 'recolector3', '333', 1, 333, 3333, ''),
 (39, 29, 'alana', 'asdas', 1, 212312, 1231231, ''),
 (40, 27, 'pedro encargado', '34234', 2, 4563456, 45645, ''),
-(41, 28, '6666', '666', 1, 666, 666, '6666');
+(41, 28, '6666', '666', 1, 666, 666, '6666'),
+(42, 29, 'Hector', 'Herrera', 1, 32131212, 1100973339, '4545'),
+(43, 30, 'Carlos', 'Parra', 1, 565645, 1100973339, '6565');
 
 -- --------------------------------------------------------
 
@@ -162,7 +165,11 @@ INSERT INTO `pagos` (`id`, `id_empleado`, `id_cosecha`, `pagos`, `fecha`) VALUES
 (71, 34, 29, 25000, '2022-08-30'),
 (72, 23, 26, 10000, '2022-08-30'),
 (73, 37, 29, 5000, '2022-08-30'),
-(74, 40, 27, 10000, '2022-08-31');
+(74, 40, 27, 10000, '2022-08-31'),
+(75, 35, 29, 20000, '2022-09-09'),
+(76, 36, 29, 200000, '2022-09-09'),
+(77, 42, 29, 65000, '2022-09-12'),
+(78, 43, 30, 50000, '2022-09-12');
 
 -- --------------------------------------------------------
 
@@ -202,70 +209,11 @@ INSERT INTO `registro` (`id`, `id_cosecha`, `id_empleado`, `id_cargo`, `fecha_re
 (46, 29, 37, 1, '2022-08-16', 30),
 (47, 29, 37, 1, '2022-08-28', 20),
 (48, 29, 38, 1, '2022-08-17', 20),
-(49, 26, 22, 1, '2022-08-17', 50);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vw_dia_no_asistido`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `vw_dia_no_asistido` (
-`id_empleado` int(20)
-,`id_cosecha` int(20)
-,`dia_no_asistido` bigint(21)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vw_sumakilos`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `vw_sumakilos` (
-`id_empleado` int(11)
-,`id_cosecha` int(11)
-,`sum_kilos` decimal(32,0)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vw_sumpagos`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `vw_sumpagos` (
-`id_empleado` int(20)
-,`id_cosecha` int(11)
-,`sum_pagos` decimal(41,0)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vw_dia_no_asistido`
---
-DROP TABLE IF EXISTS `vw_dia_no_asistido`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_dia_no_asistido`  AS SELECT `dias_no_asistidos`.`id_empleado` AS `id_empleado`, `dias_no_asistidos`.`id_cosecha` AS `id_cosecha`, count(`dias_no_asistidos`.`dia_no_asistido`) AS `dia_no_asistido` FROM `dias_no_asistidos` GROUP BY `dias_no_asistidos`.`id_empleado`, `dias_no_asistidos`.`id_cosecha``id_cosecha`  ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vw_sumakilos`
---
-DROP TABLE IF EXISTS `vw_sumakilos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_sumakilos`  AS SELECT `registro`.`id_empleado` AS `id_empleado`, `registro`.`id_cosecha` AS `id_cosecha`, sum(`registro`.`kilos`) AS `sum_kilos` FROM `registro` GROUP BY `registro`.`id_empleado`, `registro`.`id_cosecha``id_cosecha`  ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vw_sumpagos`
---
-DROP TABLE IF EXISTS `vw_sumpagos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_sumpagos`  AS SELECT `pagos`.`id_empleado` AS `id_empleado`, `pagos`.`id_cosecha` AS `id_cosecha`, sum(`pagos`.`pagos`) AS `sum_pagos` FROM `pagos` GROUP BY `pagos`.`id_empleado`, `pagos`.`id_cosecha``id_cosecha`  ;
+(49, 26, 22, 1, '2022-08-17', 50),
+(50, 29, 42, 1, '2022-08-29', 23),
+(51, 29, 42, 1, '2022-09-02', 90),
+(52, 30, 43, 1, '2022-09-12', 50),
+(53, 30, 43, 1, '2022-09-01', 20);
 
 --
 -- Índices para tablas volcadas
@@ -309,7 +257,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `cosechas`
 --
 ALTER TABLE `cosechas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `dias_no_asistidos`
@@ -321,19 +269,19 @@ ALTER TABLE `dias_no_asistidos`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

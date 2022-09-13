@@ -30,7 +30,7 @@ function GenerarGrafica() {
 
         $.post("views/ajax/variables_ajax.php", { DatosGrafica }, function (dato) {
             let response = JSON.parse(dato)
-            console.log(response);
+            //console.log(response);
 
             //GENERAR GRAFICO FUNCIONANDO 100%
             //se extraen las fechas recorriendo el response y agregandolas en cada iteracion a un array
@@ -93,10 +93,10 @@ function GenerarGraficaF2() {
         document.getElementById("div_graficaF2").style.display = "block";
         //las variables del codigo y fase del lote se extraen al momento de darle click al boton de abrir el modal
         DatosGrafica = { cod: codigo, state: estado, inicio: fec_inicioF2.value, fin: fec_finF2.value }
-        console.log(DatosGrafica);
+       // console.log(DatosGrafica);
         $.post("views/ajax/variables_ajax.php", { DatosGrafica }, function (dato) {
             let response = JSON.parse(dato)
-            console.log(response);
+          //  console.log(response);
 
             //GENERAR GRAFICO FUNCIONANDO 100%
             //se extraen las fechas recorriendo el response y agregandolas en cada iteracion a un array

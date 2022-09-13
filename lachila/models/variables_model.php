@@ -37,10 +37,10 @@ class ModelVariables
 
     //TRAER VARIABLES
 
-    //LISTAR LOS REGISTROS DE LOS LOTES POR USUARIO Y QUE ESTEN EN FASE 4 PARA EL HISTORIAL DEL  EMPLEADO
+    //LISTAR LOS REGISTROS DE LOS LOTES POR USUARIO
     static public function mdlGetRegistros($tabla, $id)
     {
-        $stmt = conexion::conectar()->prepare("SELECT *, $tabla.codigo_lote AS 'codigo_lote' FROM $tabla INNER JOIN usuarios ON usuarios.id=$tabla.id_usuario  WHERE $tabla.id_usuario=$id ORDER BY $tabla.fecha_registro DESC");
+        $stmt = conexion::conectar()->prepare("SELECT *, $tabla.codigo_lote AS 'codigo_lote' FROM $tabla INNER JOIN usuarios ON usuarios.id=$tabla.id_usuario  WHERE $tabla.id_usuario=$id ORDER BY $tabla.id DESC");
 
 
         if ($stmt->execute()) {
@@ -101,12 +101,12 @@ class ModelVariables
     //GENERAR INFORMACION DE LOS LOTES PARA EL HOME ADMIN
     static public function mdlDatosHome($tabla, $fase)
     {
-        $stmt = conexion::conectar()->prepare("SELECT $tabla.codigo_lote, l.materia, l.fecha_inicio, 
-        COUNT($tabla.id) as cantidad_registros
-        FROM lotes l
-        INNER JOIN $tabla
-        on l.codigo=$tabla.codigo_lote 
-        WHERE l.fermentacion=$fase GROUP BY l.codigo ORDER BY $tabla.fecha_registro DESC");
+        $stmt = conexion::conectar()->prepare("SELECT l.id, $tabla.codigo_lote, m.nombre AS materia, l.fecha_inicio, 
+        COUNT($tabla.fecha_registro) as cantidad_registros
+        FROM $tabla
+        INNER JOIN lotes l on l.codigo=$tabla.codigo_lote 
+        INNER JOIN materias m ON l.id_materia=m.id
+        WHERE l.fermentacion=$fase AND $tabla.fase_lote=$fase GROUP BY l.codigo ORDER BY m.nombre, l.codigo");
 
 
 
@@ -124,12 +124,13 @@ class ModelVariables
     //GENERAR INFORMACION DE LOS LOTES PARA EL HOME empleado
     static public function mdlDatosHomeEmpl($tabla, $fase, $id)
     {
-        $stmt = conexion::conectar()->prepare("SELECT $tabla.codigo_lote, 
-        COUNT($tabla.fecha_registro) AS cantidad_registros, max($tabla.fecha_registro) as fecha_registro, l.materia 
+        $stmt = conexion::conectar()->prepare("SELECT l.id,  $tabla.codigo_lote, 
+        COUNT($tabla.fecha_registro) AS cantidad_registros, max($tabla.fecha_registro) as fecha_registro, m.nombre AS materia
         FROM $tabla INNER JOIN lotes l on l.codigo=$tabla.codigo_lote 
-        WHERE l.fermentacion=$fase AND $tabla.id_usuario=$id 
+        INNER JOIN materias m ON l.id_materia = m.id
+        WHERE l.fermentacion=$fase AND $tabla.fase_lote=$fase AND $tabla.id_usuario=$id 
         GROUP BY $tabla.codigo_lote 
-        ORDER BY fecha_registro DESC;");
+        ORDER BY m.nombre, l.codigo;");
 
 
 

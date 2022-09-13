@@ -10,7 +10,18 @@ class ControladorLotes
   {
     $tabla = "lotes";
     $respuesta = ModelLotes::mdlPostLote($tabla, $data);
-    echo $respuesta;
+    if ($respuesta == "ok") {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+  //get LOTE
+  static public function ctrGetLote($data)
+  {
+    $tabla = "lotes";
+    $respuesta = ModelLotes::mdlGetLote($tabla, $data);
+    return $respuesta;
   }
   //LISTAR LOTES DE MANERA DINÁMICA
   static public function ctrGetLotes($data)
@@ -70,5 +81,11 @@ class ControladorLotes
     $respuesta = ModelLotes::mdLGetInfoLotePorUsuario($tabla, $data);
     return $respuesta;
   }
-
+  //LISTAR LOS LOSTES QUE ESTAN EN F3 PARA REGISTRAR EL PROCESO DE ENVASADO
+  static public function ctrGetLoteEnv()
+  {
+    $tabla = "lotes";
+    $respuesta = ModelLotes::mdlGetLotesEnv($tabla);
+    return $respuesta;
+  }
 }

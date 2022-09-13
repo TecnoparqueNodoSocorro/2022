@@ -13,7 +13,6 @@ class ProveedoresAjax
     //seleccionar proveedor------------------------------------------
     public function InfoProveedor($data)
     {
-
         $SelectProveedor = ControladorProveedor::CtrInfoProveedor($data);
         //$respuesta = array("data" => $SelectProveedor);
        // echo $respuesta;

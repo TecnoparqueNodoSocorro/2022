@@ -36,14 +36,14 @@ function TraerLotesF1Emp() {
             if (tbody1fEmp) {
                 tbody1fEmp.innerHTML += `
             <tr>
-            <td><button type="button" id="btnFerme1" data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarId btn btn-sm btn-danger"
+            <td><button type="button" id="btnFerme1" data-materia="${element.materia}" data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarId btn btn-sm btn-danger"
             data-bs-toggle="modal" data-bs-target="#AgregarVariables1F">
             <i class="bi bi-plus-circle"></i>
         </button></td>
             <td>${element.codigo}</td>
             <td>${element.materia}</td>
             <td>${element.fecha_inicio}</td>
-            <td>${element.peso_inicial}</td>
+            <td>${element.peso_inicial} kg</td>
             </tr>
             `
             }
@@ -55,8 +55,10 @@ function TraerLotesF1Emp() {
             el.addEventListener("click", (e) => {
                 codigo = el.dataset.codigo
                 faseLote = el.dataset.estado
-                console.log(codigo);
-                tituloLoteF1.innerText = `codigo: ${codigo} fase:${faseLote}`
+                materia = el.dataset.materia
+
+              //  console.log(codigo);
+                tituloLoteF1.innerText = `Código:${codigo} Fase:${faseLote} Materia:${materia}`
             })
         })
     })
@@ -74,14 +76,14 @@ function TraerLotesF2Emp() {
             if (tbody2fEmp) {
                 tbody2fEmp.innerHTML += `
             <tr>
-            <td><button type="button" id="btnFerme2"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarId btn btn-sm btn-danger"
+            <td><button type="button" id="btnFerme2" data-materia="${element.materia}"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}" class="guardarId btn btn-sm btn-danger"
             data-bs-toggle="modal" data-bs-target="#AgregarVariables2F">
             <i class="bi bi-plus-circle"></i>
         </button></td>
             <td>${element.codigo}</td>
             <td>${element.materia}</td>
             <td>${element.fecha_inicio}</td>
-            <td>${element.peso_inicial}</td>
+            <td>${element.peso_inicial} kg</td>
             </tr>
             `
             }
@@ -93,7 +95,9 @@ function TraerLotesF2Emp() {
             el.addEventListener("click", (e) => {
                 codigo = el.dataset.codigo
                 faseLote = el.dataset.estado
-                tituloLoteF2.innerText = `codigo: ${codigo} fase:${faseLote}`
+                materia = el.dataset.materia
+
+                tituloLoteF2.innerText = `Código:${codigo} Fase:${faseLote} Materia:${materia}`
 
             })
         })
@@ -112,14 +116,14 @@ function TraerLotesF3Emp() {
             if (tbody3fEmp) {
                 tbody3fEmp.innerHTML += `
             <tr>
-            <!--   <td><button type="button" id="btnFerme3"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}"  class="guardarId btn btn-sm btn-danger"
+            <!--   <td><button type="button" id="btnFerme3" data-materia="${element.materia}"  data-estado="${element.fermentacion}" data-codigo="${element.codigo}"  class="guardarId btn btn-sm btn-danger"
             data-bs-toggle="modal" data-bs-target="#envaseUsuario">
             <i class="bi bi-plus-circle"></i>
         </button></td> -->
             <td>${element.codigo}</td>
             <td>${element.materia}</td>
             <td>${element.fecha_inicio}</td>
-            <td>${element.peso_inicial}</td>
+            <td>${element.peso_inicial} kg</td>
             </tr>
             `
             }
@@ -131,7 +135,9 @@ function TraerLotesF3Emp() {
             el.addEventListener("click", (e) => {
                 codigo = el.dataset.codigo
                 faseLote = el.dataset.estado
-                tituloLoteF3.innerText = `codigo: ${codigo} fase:${faseLote}`
+                materia = el.dataset.materia
+
+                tituloLoteF3.innerText = `Código:${codigo} Fase:${faseLote} Materia:${materia}`
 
             })
         })
@@ -160,7 +166,7 @@ function TraerLotesF4Emp() {
 
                 tbody4fEmp.innerHTML += `
             <tr>
-            <td><button type="button" id="btnHistorialU" data-estado="${element.fermentacion}" data-codigo="${element.codigo_lote}" class="HistorialUsuario btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#historialUsuario">
+            <td><button type="button" id="btnHistorialU" data-materia="${element.materia}" data-estado="${element.fermentacion}" data-codigo="${element.codigo_lote}" class="HistorialUsuario btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#historialUsuario">
             <i class="bi bi-plus-circle"></i>
         </button></td>
             <td>${element.codigo_lote}</td>
@@ -179,26 +185,32 @@ function TraerLotesF4Emp() {
                 tbodyHistorialEmpleados.innerHTML = ""
                 codigo = el.dataset.codigo
                 faseLote = el.dataset.estado
+                materia = el.dataset.materia
 
-                tituloLoteF4.innerText = `codigo: ${codigo} fase:${faseLote}`
+
+                tituloLoteF4.innerText = `Código:${codigo} Fase:${faseLote} Materia:${materia}`
 
                 // console.log(id);
                 //el codigo se saca desde los atributos data enteriores, el id del usuario viene de las variables de sesion de php
                 codigo_loteE = { idCodigo: codigo, idUsuario: usuarioLogueado, fermentacion: 4 }
                 $.post("views/ajax/lotes_ajax.php", { codigo_loteE }, function (dato) {
                     let response = JSON.parse(dato)
-                    //console.log(response);
+                   // console.log(response);
                     response.forEach(x => {
-                        console.log(x);
+                       // console.log(x);
                         tbodyHistorialEmpleados.innerHTML += `
                         <tr>
-                        <td>${x.nombres + " " + x.apellidos}</td>
+                        <td>${x.fecha_registro}</td>
+                        <td>${x.fase_lote == 1 ? '1Fer' : (x.fase_lote == 2 ? '2Fer' : '')}</td>
                         <td>${x.brix}</td>
                         <td>${x.alcohol}</td>
                         <td>${x.ph}</td>
                         <td>${x.tds}</td>
                         <td>${x.ac}</td>
-                        <td>${x.fecha_registro}</td>
+                        <td>${x.temperatura}</td>
+                        <td>${x.humedad}</td>
+
+                     
                         </tr>
                         
                         `

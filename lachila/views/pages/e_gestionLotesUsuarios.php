@@ -8,10 +8,10 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=login"; </script>';
 }
 ?>
-<div class="container"  style="background-color:#eeb3b3; border-radius:5px;">
+<div class="container" style="background-color:#eeb3b3; border-radius:5px;">
 
 
-    <h5> Información de Lotes</h5>
+    <h4> Información de Lotes</h4>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" style="background-color:#eeb3b3;" role="1f">
         <li class="nav-item" role="presentation">
@@ -46,15 +46,15 @@ if (isset($_SESSION["validar_ingreso"])) {
 
             <!-- tabla que muestra los lotes que estan en primera fermentacion -->
             <div class="table-responsive mt-3">
-                <table class="table table-danger table-bordered">
+                <table class="table table-danger table-sm table-bordered">
                     <thead>
                         <tr>
                             <th>Opciones</th>
 
-                            <th>Id</th>
+                            <th>Código</th>
                             <th>Materia</th>
                             <th>F. Inicio</th>
-                            <th>Peso Inicial Materia</th>
+                            <th>Peso inicial </th>
                         </tr>
                     </thead>
                     <tbody id="tbody1fEmp">
@@ -156,15 +156,15 @@ if (isset($_SESSION["validar_ingreso"])) {
         <div class="tab-pane  mt-1 mb-5" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="text-align:left">
             <h6 style="color: #a20202">Segunda fermentación</h6>
             <div class="table-responsive mt-3">
-                <table class="table table-danger table-bordered">
+                <table class="table table-danger table-sm table-bordered">
                     <thead>
                         <tr>
                             <th>Opciones</th>
 
-                            <th> Id</th>
+                            <th>Código</th>
                             <th>Materia</th>
                             <th>F. Inicio</th>
-                            <th>Peso Inicial Materia/th>
+                            <th>Peso inicial </th>
                         </tr>
                     </thead>
                     <tbody id="tbody2fEmp">
@@ -269,7 +269,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             <h6 style="color: #a20202"> Fase Envasado</h6>
             <!-- tabla envase -->
             <div class="table-responsive mt-3">
-                <table class="table table-danger table-bordered">
+                <table class="table table-danger table-sm table-bordered">
                     <thead>
                         <tr>
                             <!--                             <th>Opciones</th>
@@ -277,7 +277,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                             <th>Código</th>
                             <th>Materia</th>
                             <th>F. Inicio</th>
-                            <th>Peso Inicial Materia</th>
+                            <th>Peso Inicial</th>
                         </tr>
                     </thead>
                     <tbody id="tbody3fEmp">
@@ -306,7 +306,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                             <div class="container">
                                 <div class="row  mt-3">
                                     <div class="table-responsive mt-3">
-                                        <table class="table table-danger table-bordered">
+                                        <table class="table table-danger table-sm table-bordered">
                                             <thead>
                                                 <tr>
 
@@ -355,11 +355,11 @@ if (isset($_SESSION["validar_ingreso"])) {
         <div class="tab-pane  mt-1 mb-5" id="messages" role="tabpanel" aria-labelledby="messages-tab" style="text-align:left">
             <h6 style="color: #a20202">Historial</h6>
             <div class="table-responsive mt-3">
-                <table class="table table-danger table-bordered">
+                <table class="table table-danger table-sm table-bordered">
                     <thead>
                         <tr>
                             <th>Registros</th>
-                            <th>Código del lote</th>
+                            <th>Código</th>
                             <th>Materia</th>
                             <th>Fecha de cierre</th>
                             <!--   <th>Brix</th>
@@ -401,26 +401,29 @@ if (isset($_SESSION["validar_ingreso"])) {
                         <div class="modal-body" style="text-align: center;">
 
 
-                                <h4>Registro del lote</h4>
+                            <h4>Registro del lote</h4>
 
-                                <!-- tabla registro del lote -->
-                                <div class="table-responsive mt-3">
-                                    <table class="table table-danger table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Usuario</th>
-                                                <th>Brix</th>
-                                                <th>Alcohol</th>
-                                                <th>PH</th>
-                                                <th>TDS</th>
-                                                <th>AC</th>
-                                                <th>Fecha</th>
+                            <!-- tabla registro del lote -->
+                            <div class="table-responsive mt-3">
+                                <table class="table table-danger table-sm table-bordered table-sm">
+                                    <thead>
+                                        <tr>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbodyHistorialEmpleados">
+                                            <th>Fecha</th>
+                                            <th>Fase</th>
+                                            <th>Brix</th>
+                                            <th>Alcohol</th>
+                                            <th>PH</th>
+                                            <th>TDS</th>
+                                            <th>AC</th>
+                                            <th>Temp.</th>
+                                            <th>Humed.</th>
 
-                                            <!-- <tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyHistorialEmpleados">
+
+                                        <!-- <tr>
                                                 <td>Mark</td>
                                                 <td>4</td>
                                                 <td>23</td>
@@ -430,9 +433,9 @@ if (isset($_SESSION["validar_ingreso"])) {
                                                 <td>01/01/2022</td>
                                             </tr> -->
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
                         <div class="modal-footer">

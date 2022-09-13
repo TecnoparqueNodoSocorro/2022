@@ -8,6 +8,7 @@ let nacimiento_user = document.getElementById('nacimiento_user')
 let pass_user = document.getElementById('pass_user')
 let confirm_pass = document.getElementById('confirm_pass')
 let tbodyListarEmpleados = document.getElementById('tbodyListarEmpleados')
+let cargo = document.getElementById('cargo_user')
 
 let traerid = document.getElementById('traerid')
 
@@ -23,7 +24,7 @@ if (btnRegistrar) {
 }
 
 function AgregarUsuario() {
-    if (document_user.value.trim() == "" || phone_user.value.trim() == "" || lastname_user.value.trim() == "" || name_user.value.trim() == "" || nacimiento_user.value.trim() == "") {
+    if (cargo.value=="0" || document_user.value.trim() == "" || phone_user.value.trim() == "" || lastname_user.value.trim() == "" || name_user.value.trim() == "" || nacimiento_user.value.trim() == "") {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -45,7 +46,7 @@ function AgregarUsuario() {
             confirmButtonColor: '#a20202',
         })
     } else {
-        empleado_nuevo = { cargo: 1, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, fecha_nacimiento: nacimiento_user.value, clave: pass_user.value }
+        empleado_nuevo = { cargo: cargo.value, documento: document_user.value, telefono: phone_user.value, apellidos: lastname_user.value, nombres: name_user.value, fecha_nacimiento: nacimiento_user.value, clave: pass_user.value }
         Swal.fire({
             title: 'Listo',
             text: `¿Registrar nuevo empleado?`,

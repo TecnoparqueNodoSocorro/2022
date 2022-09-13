@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tbodyEncargadosPagos.innerHTML += `
       <tr>
       <td>${x.fecha}</td>
-      <td>${x.pagos}</td>
+      <td>$${(new Intl.NumberFormat('cop-CO').format(x.pagos))}</td>
 
       </tr>
       `

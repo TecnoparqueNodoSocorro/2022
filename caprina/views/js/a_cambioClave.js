@@ -12,13 +12,15 @@ editPass.forEach((el) => {
 
         //console.log(el.dataset.id);
         id = el.dataset.id
-console.log(id);
+        document.getElementById("modal-titulo").innerText = el.dataset.nombre
+
+        //console.log(id);
     })
 })
 
 
 let btnCambiarClave = document.getElementById('cambiarClave')
-btnCambiarClave ? btnCambiarClave.addEventListener("click", cambiarClave) :""
+btnCambiarClave ? btnCambiarClave.addEventListener("click", cambiarClave) : ""
 function cambiarClave() {
     if (newclave.value.trim().length != 4) {
         Swal.fire({
@@ -35,7 +37,7 @@ function cambiarClave() {
     } else {
         newPass = { id: id, pass: newclaveConfirm.value }
         console.log(newPass);
-         Swal.fire({
+        Swal.fire({
             title: 'Listo',
             text: `¿Cambiar clave?`,
             icon: 'question',
@@ -85,13 +87,13 @@ function cambiarClave() {
                     if (result.isConfirmed) {
                         location.reload()
 
-                     }
+                    }
                 })
             }
         })
- 
+
     }
 }
 $('#exampleModal').on('hidden.bs.modal', function (event) {
     $("#exampleModal input").val("");
- });
+});

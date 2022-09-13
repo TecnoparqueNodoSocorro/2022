@@ -52,7 +52,7 @@ function PostVariables(brix, alcohol, ph, tds, ac, temp, hume) {
 
     } else {
         variables = { brix: brix.value, alcohol: alcohol.value, ph: ph.value, tds: tds.value, ac: ac.value, temperatura: temp.value, humedad: hume.value, usuario: usuarioLogueado, codigo: codigo, fase:faseLote }
-        console.log(variables);
+        //console.log(variables);
         Swal.fire({
             title: 'Listo',
             text: `¿Registrar variables al lote ${codigo} ?`,

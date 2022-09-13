@@ -30,9 +30,9 @@ function finalizarPrimeraF() {
                 let response = (dato)
                 console.log(response);
 
-                /*   setTimeout(function () {
-                      location.href = 'index.php?page=a_gestionLotes'
-                  }, 1500); */
+                setTimeout(function () {
+                    location.href = 'index.php?page=a_gestionLotes'
+                }, 1500);
             })
             Swal.fire({
                 icon: 'success',
@@ -94,14 +94,14 @@ function finalizarSegundaF() {
             const codigolote = { codigolote: codigo, fermentacion: estado }
 
             // SE HACE EL LLAMADO A AJAX
-            console.log(codigolote);
+            //  console.log(codigolote);
             $.post("views/ajax/lotes_ajax.php", { codigolote }, function (dato) {
                 let response = (dato)
                 console.log(response);
 
-                /*   setTimeout(function () {
-                      location.href = 'index.php?page=a_gestionLotes'
-                  }, 1500); */
+                setTimeout(function () {
+                    location.href = 'index.php?page=a_gestionLotes'
+                }, 1500);
             })
             Swal.fire({
                 icon: 'success',
@@ -167,9 +167,9 @@ function finalizarFaseEnvasado() {
                 let response = (dato)
                 console.log(response);
 
-                /*   setTimeout(function () {
-                      location.href = 'index.php?page=a_gestionLotes'
-                  }, 1500); */
+                setTimeout(function () {
+                    location.href = 'index.php?page=a_gestionLotes'
+                }, 1500);
             })
             Swal.fire({
                 icon: 'success',
