@@ -31,9 +31,15 @@ if (isset($_SESSION["validar_ingreso"])) {
 
         <!-- tabla del reporte generado -->
 
+        
+
+
+
+
+
     </div>
     <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered  table-sm">
+        <table class="table table-warning table-bordered  table-sm" id="reptratamientos">
             <thead>
                 <tr>
                     <th>Código del caprino</th>
@@ -46,7 +52,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             </thead>
             <tbody id="tbodyreporteTratamiento">
 
-             
+
 
             </tbody>
         </table>
