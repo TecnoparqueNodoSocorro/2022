@@ -9,7 +9,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 }
 ?>
 <div class="container">
-    <h4 class="mt-2"> Reporte de Tratamientos</h4>
+    <h4 class="mt-2"> Reporte Administrativo de Tratamientos</h4>
     <div class="container mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;">
         <div class="row justify-content-md-center mt-2">
             <div class="col-6 col-xs-12 col-md-6 col-lg-6 mt-1">
@@ -31,7 +31,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
         <!-- tabla del reporte generado -->
 
-        
+
 
 
 
@@ -39,7 +39,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
     </div>
     <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered  table-sm" id="reptratamientos">
+        <table class="table table-warning table-bordered  table-sm dt_tabla">
             <thead>
                 <tr>
                     <th>Código del caprino</th>
@@ -51,10 +51,8 @@ if (isset($_SESSION["validar_ingreso"])) {
                 </tr>
             </thead>
             <tbody id="tbodyreporteTratamiento">
-
-
-
             </tbody>
         </table>
     </div>
 </div>
+

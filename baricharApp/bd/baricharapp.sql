@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-08-2022 a las 23:54:18
+-- Tiempo de generación: 14-09-2022 a las 17:01:39
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -166,19 +166,19 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id`, `nombre`, `nit`, `telefono`, `correo`, `maxprod`, `direccion`, `descripcion`, `logo`, `vigencia`, `estado`, `usuario`, `pasww1`) VALUES
-(1, 'juan', '', '', '', 0, '', '', '', '0000-00-00', 0, 'judaver', '123456789'),
-(2, 'tortas ', '829001846-6', '3145563439', 'juan@gmail.com', 10, 'el socorro tecnoparque', 'descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--', '', '2022-08-18', 0, 'judaver', '4765'),
-(3, '', '', '', '', 0, '', '', '', '0000-00-00', 0, 'judaver', '123456789'),
+(1, 'juan', '', '', '', 0, '', '', '', '2022-10-31', 1, 'judaver', '123456789'),
+(2, 'tortas ', '829001846-6', '3145563439', 'juan@gmail.com', 10, 'el socorro tecnoparque', 'descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--', '', '2022-09-16', 0, 'judaver', '4765'),
+(3, '', '', '', '', 0, '', '', '', '2022-09-30', 0, 'judaver', '123456789'),
 (4, 'datos de prueba', '829001846', '1244234', 'jdvertel@sena.edu.co', 2, 'datos de prueba', 'datos de prueba', '', '2022-08-03', 0, 'judaver', '123456789'),
-(5, '', '', '', '', 0, '', '', '', '0000-00-00', 0, 'judaver', '123456789'),
+(5, '', '', '', '', 0, '', '', '', '2022-09-30', 0, 'judaver', '123456789'),
 (6, 'prueba4', '12345', '123123', 'prueba4@HOT.COM', 2, 'prueba4', 'prueba4\nprueba4\nprueba4\nprueba4\n', 'C:\\fakepath\\baricharapp.sql', '2022-08-11', 0, 'judaver', '12345'),
-(7, 'rerre', 'erer', '', '', 0, '', 'prueba despues del if', '', '0000-00-00', 0, 'judaver', '123456'),
+(7, 'rerre', 'erer', '', '', 0, '', 'prueba despues del if', '', '2022-09-28', 0, 'judaver', '123456'),
 (8, 'tortas ', '23234234', '23234', 'jdvertel@sena.edu.co', 2, 'sdrsdr', 'sdrsdrererer', '', '2022-08-19', 0, 'judaver', '12345'),
 (9, 'tortas ', '23234234', '23234', 'jdvertel@sena.edu.co', 2, 'sdrsdr', 'sdrsdrererer', '', '2022-08-19', 0, 'judaver', '12345'),
 (10, 'proveedor nuevo1', '123456', '142536', 'jdvertel@sena.edu.co', 2, 'calle ', 'reseña', 'C:\\fakepath\\baricharapp.sql', '2022-08-11', 0, 'judaver', '4765'),
-(11, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '0000-00-00', 0, 'judaver', '123'),
-(12, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '0000-00-00', 0, 'judaver', '123'),
-(13, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '0000-00-00', 0, 'judaver', '123');
+(11, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-30', 0, 'judaver', '123'),
+(12, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-25', 0, 'judaver', '123'),
+(13, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-30', 0, 'judaver', '123');
 
 --
 -- Índices para tablas volcadas

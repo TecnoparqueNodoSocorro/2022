@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2022 a las 21:33:44
+-- Tiempo de generación: 14-09-2022 a las 16:49:31
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -50,7 +50,13 @@ INSERT INTO `caprinos_en_tratamiento` (`id`, `id_usuario`, `codigo_caprino`, `id
 (69, 29, 'a11', 92),
 (70, 29, 'A20', 92),
 (71, 29, 'a22', 92),
-(72, 29, 'a23', 92);
+(72, 29, 'a23', 92),
+(73, 29, 'a11', 93),
+(74, 29, 'hr23', 93),
+(75, 29, 'd45', 93),
+(76, 29, '0004545', 94),
+(77, 29, 'a22', 94),
+(78, 29, 'hr23', 94);
 
 -- --------------------------------------------------------
 
@@ -91,11 +97,12 @@ INSERT INTO `registro_caprino` (`id`, `codigo`, `id_usuario`, `raza`, `fecha_nac
 (66, 'a22', 29, 'Saanen', '2022-08-23', 'Comprado', 1, '', NULL),
 (67, 'a11', 29, 'Saanen', '2022-08-20', 'Otro', 1, '', NULL),
 (68, 'd45', 29, 'Togenburn', '2022-08-12', 'Nacido', 1, '', NULL),
-(69, 'j67', 29, 'Nubiana', '2022-07-06', 'Otro', 1, '', NULL),
+(69, 'j67', 29, 'Nubiana', '2022-07-06', 'Otro', 0, 'Autoconsumo', '2022-08-17'),
 (70, 'hr23', 29, 'Nubiana', '2022-08-12', 'Comprado', 1, '', NULL),
 (71, 'k90', 29, 'Santandereano', '2022-08-23', 'Otro', 0, 'Muerte Natural', '2022-08-24'),
 (73, 'A20', 29, 'Booer', '2022-08-24', 'Comprado', 1, '', NULL),
-(74, '01', 2, 'Alpino', '2022-09-04', 'Comprado', 1, '', NULL);
+(74, '01', 2, 'Alpino', '2022-09-04', 'Comprado', 1, '', NULL),
+(75, '0004545', 29, 'Alpino', '2022-07-01', 'Comprado', 1, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,7 +139,10 @@ INSERT INTO `registro_control` (`id`, `codigo_caprino`, `id_usuario`, `peso`, `c
 (67, 'A20', 29, 25, 5, '', 'Gastro', '', '2022-08-24'),
 (68, '1', 29, 85, 4, 'enfermedad respiratoria', 'enfermedad gastro intestinal', 'enfermedad por mordedura', '2022-08-24'),
 (69, '1', 29, 66, 1, '', '', '', '2022-08-24'),
-(70, 'd45', 29, 85, 2, 'enfermedad respiratoria', '', 'enfermedad por mordedura', '2022-09-07');
+(70, 'd45', 29, 85, 2, 'enfermedad respiratoria', '', 'enfermedad por mordedura', '2022-09-07'),
+(71, 'a23', 29, 20, 2, '', '', '', '2022-09-13'),
+(72, '0004545', 29, 13, 3, '', '', '', '2022-09-13'),
+(73, 'A20', 29, 20, 4, 'enfermedad respiratoria aguda RR56', '', '', '2022-09-13');
 
 -- --------------------------------------------------------
 
@@ -206,7 +216,9 @@ INSERT INTO `registro_tratamientos` (`id`, `id_usuario`, `descripcion`, `fecha_i
 (89, 29, 'we', '2022-08-22'),
 (90, 29, 'parvo', '2022-08-24'),
 (91, 29, 'Prueba ultima', '2022-08-31'),
-(92, 29, 'Vacunación todo', '2022-08-24');
+(92, 29, 'Vacunación todo', '2022-08-24'),
+(93, 29, 'TRATAMIENTO DE PRUEBA 1', '2022-09-12'),
+(94, 29, 'advendazol 1 cm x 50klg peso vivo', '2022-09-12');
 
 -- --------------------------------------------------------
 
@@ -293,19 +305,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `caprinos_en_tratamiento`
 --
 ALTER TABLE `caprinos_en_tratamiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_caprino`
 --
 ALTER TABLE `registro_caprino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_control`
 --
 ALTER TABLE `registro_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_produccion`
@@ -323,7 +335,7 @@ ALTER TABLE `registro_salidas`
 -- AUTO_INCREMENT de la tabla `registro_tratamientos`
 --
 ALTER TABLE `registro_tratamientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
