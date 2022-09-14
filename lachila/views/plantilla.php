@@ -73,7 +73,6 @@ if (isset($_SESSION["id_cargo"])) {
                             <a class=" nav-link text-uppercase" href="index.php?page=a_gestionUsuarios"> <i class="bi bi-person"></i>
                                 Gestión de Usuarios</a>
                         </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-uppercase " href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-basket"></i> Lotes</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
@@ -84,7 +83,6 @@ if (isset($_SESSION["id_cargo"])) {
                                     Gestión de Lotes Usuarios</a>
                             </div>
                         </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
                                 Informes</a>
@@ -94,20 +92,15 @@ if (isset($_SESSION["id_cargo"])) {
                                     Informe de Lotes </a>
                             </div>
                         </li>
-
-
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-activity"></i>
                                 Registros</a>
-
-
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <div class="dropp">
 
                                     <a class=" nav-link sub-nav" href="index.php?page=e_registroActividades"></i>
                                         Registro de Actividades </a>
-
                                 </div>
                             </div>
                         </li>
@@ -115,13 +108,6 @@ if (isset($_SESSION["id_cargo"])) {
                             <a class=" nav-link text-uppercase" href="index.php?page=login"><i class="bi bi-box-arrow-left"></i>
                                 Cerrar sesión</a>
                         </li>
-
-
-
-
-
-
-
                     </ul>
                 </div>
             </div> -->
@@ -164,11 +150,6 @@ if (isset($_SESSION["id_cargo"])) {
         include "pages/login.php";
     }
     ?>
-
-
-
-
-
     <script src="views/js/js.js"></script>
     <script src="views/js/script.js"></script>
     <script src="views/js/a_gestionLotesAdmin.js"></script>
@@ -180,18 +161,10 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/e_postVariables.js"></script>
     <script src="views/js/e_gestionLotesEmp.js"></script>
     <script src="views/js/a_cambioClave.js"></script>
-
     <script src="views/js/env_envasado.js"></script>
     <script src="views/js/cerrarSesion.js"></script>
-
     <script src="views/js/a_home.js"></script>
-
-
-
     <script src="views/js/login.js"></script>
-
-
-
     <footer class="footer">
 
         <p class="navbar-brand" style="font-size: 0.8rem;">Designed by Tecnoparque Nodo Socorro 2022 ©</p>

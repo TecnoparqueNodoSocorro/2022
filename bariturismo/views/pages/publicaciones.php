@@ -1,0 +1,1 @@
+<h1>pagina de publicaciones</h1>
