@@ -78,7 +78,7 @@ class ModelVariables
     //GENERACION DE LA GRÁFICA
     static public function mdlDatosGrafica($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT codigo_lote, temperatura, humedad,
+        $stmt = conexion::conectar()->prepare("SELECT codigo_lote, temperatura, humedad, brix, alcohol,
           fecha_registro FROM $tabla
           WHERE codigo_lote=:cod AND fase_lote=:estado AND fecha_registro BETWEEN :inicio AND :fin ORDER BY fecha_registro ASC");
         $stmt->bindParam(":cod",  $data["cod"]);

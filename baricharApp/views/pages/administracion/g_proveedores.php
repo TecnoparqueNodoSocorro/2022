@@ -20,12 +20,12 @@
             $proveedores = ControladorProveedor::CtrSelectAllProveedor();
             /*   print_r($proveedores); */
             ?>
-            <div class="table-responsive  table-bordered table-sm" id="proveedores">
-                <table class="table caption-top ">
+            <div class="table-responsive" id="proveedores">
+                <table class="table caption-top table-bordered table-sm">
 
                     <thead>
                         <tr>
-                            <th>Opciones</th>
+                            <th>Menú</th>
                             <th>logo</th>
                             <th>Nombre</th>
                             <th>Vigencia</th>
@@ -38,7 +38,7 @@
                             <tr>
                                 <td>
                                     <button type="button" data-id="<?php echo $value["id"] ?>" class="boton btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Opciones
+                                        <i class="bi bi-plus-circle-fill"></i>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" data-id_update="<?php echo $value["id"] ?>" href="#" onclick="p_actualizar()"><i class=" bi bi-calendar-check"> Actualizar Vigencia</i></a></li>
@@ -50,7 +50,7 @@
                                 <td> <img src="<?php echo $value["logo"] ?>"> </td>
                                 <td> <?php echo $value["nombre"] ?> </td>
                                 <td> <?php echo $value["vigencia"] ?> </td>
-                                <td> <?php echo $value["estado"] ?> </td>
+                                <td  class="fw-bold <?php echo $value["estado"] == "1" ? 'text-primary' : 'text-danger' ?>"> <?php echo $value["estado"] == "1" ? 'Activo' : 'Inactivo' ?> </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -148,30 +148,27 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Actualizar</h5>
+                <h5 class="modal-title" id="modalTituloVigencia"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <p id="m_actualizar"></p>
-                    <h3> <strong>Joyeria la esmeralda</strong> </h3>
-                    <p><strong></strong>Vigencia actual</p>
-                    <p id="vigenciactual">00/00/0000</p>
+                    <!-- <p id="m_actualizar"></p> -->
+                    <!-- <h3> <strong>Joyeria la esmeralda</strong> </h3> -->
+                    <strong><span>Vigencia actual</span>
+                        <span class="text-primary" id="vigenciactual"></span></strong>
                     <hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nueva Vigencia</span>
                         <input type="date" class="form-control" id="vigencianueva" aria-describedby="basic-addon1">
                     </div>
                 </div>
-                <div>
-                    <button type="button" class="btn btn-success" id="btn_guardar_vig"> Guardar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
-                </div>
             </div>
-
-            <br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btn_guardar_vig"> Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+            </div>
         </div>
-
     </div>
 </div>
 <!--  -->
@@ -179,20 +176,22 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Bloquear-Desbloquear</h5>
+                <h5 class="modal-title" id="tituloModalEstado"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                <p id="m_bloquear_desb"></p>
+
 
                 <input id="estadoactual" type="hidden"></input>
-                <p>Modal body text goes here.</p>
+                <span>Estado actual del proveedor: </span>
+                <span id="m_bloquear_desb"></span>
                 <br>
-                <div>
-                    <button type="button" class="btn btn-success" id="btn_guardar_bloq_desb"> Guardar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
-                </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success mx-1 my-1" id="btn_guardar_bloq_desb"></button>
+                <button type="button" class="btn btn-danger mx-1 my-1" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+            </div>
+
 
         </div>
     </div>
@@ -210,7 +209,7 @@
                     <form id="edit_ContactForm" method="post" action="">
                         <br>
                         <div class="row">
-                            <p id="m_editar"></p>
+                         <!--    <p id="m_editar"></p> -->
                             <div class="col-sm-6  col-md-4">
                                 <label>Nombre del provedor</label>
                                 <input type="text" class="form_input " name="edit_nombre" id="edit_nombre" />
@@ -243,7 +242,7 @@
                                 <label>Vigencia de servicio</label>
                                 <input type="date" class="form_input " name="edit_vigencia" id="edit_vigencia" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-12 col-md-12 ">
                                 <label>Usuario</label>
                                 <input type="text" class="form_input" name="edit_user" id="edit_user" />
                             </div>
@@ -256,11 +255,11 @@
                     </form>
                 </div>
                 <br>
-                <div>
-                    <button type="button" class="btn btn-success" id="btn_guardar_editar"> Guardar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
-                </div>
             </div>
+            <div class="modal-footer"> <button type="button" class="btn btn-success" id="btn_guardar_editar"> Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+            </div>
+
 
         </div>
     </div>
@@ -274,23 +273,23 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p id="m_passw"></p>
-                <p>Ingrese la nueva contraseña.</p>
-                <div class="col-sm-6 col-md-4">
+               <!--  <p id="m_passw"></p> -->
+               <span><strong> Ingrese la nueva contraseña</strong></span>
+                <div class="col-sm-12 col-md-12 mt-2">
                     <label>Contraseña</label>
                     <input type="password" class="form_input" name="edt_pass1" id="edt_pass1" />
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-12 col-md-12">
                     <label>Repetir contraseña</label>
                     <input type="password" class="form_input" name="edt_pass2" id="edt_pass2" />
                 </div>
                 <br>
-                <div>
-                    <button type="button" class="btn btn-success" id="btn_g_passw"> Guardar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
-                </div>
-            </div>
 
+            </div>
+            <div class="modal-footer"> <button type="button" class="btn btn-success" id="btn_g_passw"> Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+            </div>
         </div>
+
     </div>
 </div>

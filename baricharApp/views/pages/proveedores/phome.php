@@ -132,19 +132,22 @@
                                 </div>
                             </div>
 
-                            <div>
-                                <button type="button" class="btn btn-success"> Guardar</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
+                        </div>
                     </form>
                 </div>
-
-
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success"> Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
+
+
+
+
 
         </div>
     </div>
-</div>
-<!-- <div class="modal-footer">
+    <!-- <div class="modal-footer">
     <h1>hola</h1>
 </div> -->

@@ -17,8 +17,27 @@ let id;
 let info_proveedor;
 //listener
 
+//TITULO DEL MODAL QUE MUESTRA EL ESTADO, PARA COLOCAR PROVEEDOR ACTIVO O INACTIVO EN EL TITULO
+let tituloModalEstado = document.getElementById('tituloModalEstado')
+//INPUT OCULTO AL CUAL SE LE AGREGA EL ESTADO PARA PODER REALIZAR LA CONSULTA SQL
+let estadoactual = document.getElementById("estadoactual");
 
+//TITULO DEL MODAL QUE MUESTRA LA VIGENCIA, PARA COLOCAR AL PROVEEDOR  EN EL TITULO
+let modalTituloVigencia = document.getElementById("modalTituloVigencia");
 
+//---------------VARIABLES PARA EDITAR UN PROVEEDOR-----------------------------------
+let edit_nombre = document.getElementById("edit_nombre")
+let edit_nit = document.getElementById("edit_nit")
+let edit_direccion = document.getElementById("edit_direccion")
+let edit_telefono = document.getElementById("edit_telefono")
+let edit_email = document.getElementById("edit_email")
+let edit_max_p = document.getElementById("edit_max_p")
+let edit_logo = document.getElementById("edit_logo")
+let edit_vigencia = document.getElementById("edit_vigencia")
+let edit_user = document.getElementById("edit_user")
+let edit_descr_prov = document.getElementById("edit_descr_prov")
+
+//-------------//--------------------//--------------//--------------//--------------//--------------//-------
 
 if (c_btn_guardar) { c_btn_guardar.addEventListener("click", crearProveedor) }
 
@@ -33,7 +52,7 @@ function crearProveedor() {
         alert("error!!! Las contraseñas no coinciden");
     }
     else {
-        const datos_proveedor = {
+        let datos_proveedor = {
             nombre: c_nombre.value,
             nit: c_nit.value,
             direccion: c_direccion.value,
@@ -106,11 +125,13 @@ function p_actualizar() {
     $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
         responses = JSON.parse(data);
         console.log(responses);
-    document.getElementById("vigenciactual").innerHTML= responses.vigencia;
-      
+        document.getElementById("vigenciactual").innerHTML = responses.vigencia;
+
+        modalTituloVigencia.innerText = `${responses.nombre} `
+
     })
     /*  */
-    md_actualizar.innerHTML = `${id}`;
+    //md_actualizar.innerHTML = `${id}`;
     document.getElementById("vigencianueva").value = "";
     let m_btn_guardar_vig = document.getElementById("btn_guardar_vig");
     m_btn_guardar_vig.addEventListener("click", ActualizarVigencia);
@@ -124,11 +145,34 @@ function ActualizarVigencia() {
             id: id,
             vignew: vigencianueva.value
         }
-
-        $.post("views/ajax/bari_proveedores.ajax.php", { data_VigNew }, function (data) {
-            console.log(data);
-            $('#modal_actualizar').modal('hide');
-            location.reload();
+        Swal.fire({
+            title: 'Listo',
+            text: `Cambiar vigencia?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#a20202',
+            confirmButtonText: 'Cambiar',
+            cancelButtonText: 'Cancelar',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post("views/ajax/bari_proveedores.ajax.php", { data_VigNew }, function (data) {
+                    console.log(data);
+                    $('#modal_actualizar').modal('hide');
+                    location.reload();
+                })
+            }
         })
     } else {
         console.log("no paso ningun id");
@@ -143,7 +187,48 @@ function ActualizarVigencia() {
 function p_bloq_desbloq() {
     console.log("bloquear")
     $('#modal_bloq_desb').modal('show');
-    md_bloq_desb.innerHTML = `${id}`;
+
+
+    //----------------------------------------------------------------
+    let info_proveedor = {
+        id: id
+    }
+    /*  console.log(info_proveedor); */
+    $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
+        responses = JSON.parse(data);
+        console.log(responses);
+        //responses.estado == "1" ? md_bloq_desb.classList.add('text-info') : md_bloq_desb.classList.add('text-danger');
+        estadoactual.value = responses.estado
+        tituloModalEstado.innerText = `${responses.nombre} se encuentra ${responses.estado == "1" ? 'Activo' : 'Inactivo'}`
+        //SE VALIDA EL ESTADO PARA MANEJAR EL TEXTO DEL SPAN Y EL TEXTO DEL BOTON
+        if (responses.estado == "1") {
+            //SI ESTADO ES IGUAL A 1 ENTONCES SE ESCRIBE QUE ESTÁ ACTIVO Y EL BOTON LA OPCION ES DESACTIVAR
+            md_bloq_desb.innerText = 'Activo'
+            m_btn_guardar_bloq_desb.innerText = 'Desactivar'
+            //SE QUITA LA CLASE ANTERIOR QUE SE LE COLOCÓ
+            md_bloq_desb.classList.remove('text-danger')
+            //DEPENDIENDO DEL ESTADO SE CAMBIA LA CLASE PARA CAMBIAR EL COLOR DEL TEXTO
+            md_bloq_desb.classList.add('text-primary')
+
+        } else {
+            //SI ES AL CONTRARIO CAMBIA LOS TEXTON
+            md_bloq_desb.innerText = 'Inactivo';
+            m_btn_guardar_bloq_desb.innerText = 'Activar'
+            //SE QUITA LA CLASE ANTERIOR QUE SE LE COLOCÓ
+            md_bloq_desb.classList.remove('text-primary')
+            //DEPENDIENDO DEL ESTADO SE CAMBIA LA CLASE PARA CAMBIAR EL COLOR DEL TEXTO
+            md_bloq_desb.classList.add('text-danger')
+        }
+
+        /*  md_bloq_desb.innerText == 'Activo' ? md_bloq_desb.classList.add('text-info') : md_bloq_desb.classList.remove('text-info');
+         md_bloq_desb.innerText == 'Inactivo' ? md_bloq_desb.classList.add('text-danger') :  */
+
+
+    })
+
+
+    //----------------------------------------------------------------
+
 
     let m_btn_guardar_bloq_desb = document.getElementById("btn_guardar_bloq_desb");
     if (m_btn_guardar_bloq_desb) { m_btn_guardar_bloq_desb.addEventListener("click", Bloq_DesbProveedor) }
@@ -152,21 +237,111 @@ function p_bloq_desbloq() {
 
 
 function Bloq_DesbProveedor() {
-    let estadoactual = document.getElementById("estadoactual");
-    if (estadoactual == 1) {
+    console.log(estadoactual.value);
+
+    if (estadoactual.value == "1") {
         //convertir a cero
         data_NewEstado = {
             id: id,
             NewEstado: 0
         }
-        CambiarEstado(data_NewEstado);
+        Swal.fire({
+            title: 'Listo',
+            text: `¿Desactivar proveedor?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#a20202',
+            confirmButtonText: 'Desactivar',
+            cancelButtonText: 'Cancelar',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                CambiarEstado(data_NewEstado);
+                Swal.fire({
+                    icon: 'success',
+                    title: `Proveedor desactivado`,
+                    showConfirmButton: true,
+                    confirmButtonColor: '#a20202',
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+                    }
+                })
+            }
+        })
     } else {
         data_NewEstado = {
             id: id,
             NewEstado: 1
         }
-
-        CambiarEstado(data_NewEstado);
+        Swal.fire({
+            title: 'Listo',
+            text: `¿Activar proveedor?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#a20202',
+            confirmButtonText: 'Activar',
+            cancelButtonText: 'Cancelar',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                CambiarEstado(data_NewEstado);
+                Swal.fire({
+                    icon: 'success',
+                    title: `Proveedor activado`,
+                    showConfirmButton: true,
+                    confirmButtonColor: '#a20202',
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+                    }
+                })
+            }
+        })
     }
 
 }
@@ -183,20 +358,102 @@ function CambiarEstado(data_NewEstado) {
 function p_editar() {
     console.log("editar")
     $('#modal_editar').modal('show');
-    md_editar.innerHTML = `${id}`;
+    // md_editar.innerHTML = `${id}`;
+    let info_proveedor = {
+        id: id
+    }
+    //SE EXTRAE LOS DATOS DEL PROVEEDOR
+    $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
+        response = JSON.parse(data);
+        console.log(response);
+
+        //SE EXTRAEN LOS DATOS QUE ESTAN EN LA BASE DE DATOS Y SE LE ASIGNANA A LOS INPUT DEL MODAL DE EDITAR
+        edit_nombre.value = response.nombre
+        edit_nit.value = response.nit
+        edit_direccion.value = response.direccion
+        edit_telefono.value = response.telefono
+        edit_email.value = response.correo
+        edit_max_p.value = response.maxprod
+        edit_logo.value = response.logo
+        edit_vigencia.value = response.vigencia
+        edit_user.value = response.usuario
+        edit_descr_prov.value = response.descripcion
+    })
+
     let m_btn_guardar_editar = document.getElementById("btn_guardar_editar");
-    if (m_btn_guardar_editar) { m_btn_guardar_editar.addEventListener("click", EditarProveedor(id)) }
+    if (m_btn_guardar_editar) { m_btn_guardar_editar.addEventListener("click", EditarProveedor) }
 
 }
-function EditarProveedor(id) {
+function EditarProveedor() {
     if (id) {
-        data_editprov = {
+        /* data_editprov = {
             id: id
+        } */
+        //SE GUARDA EL VALUE DE LOS INPUT DEL MODAL DE EDITAR 
+        let dataEdit = {
+            nombre: edit_nombre.value,
+            nit: edit_nit.value,
+            direccion: edit_direccion.value,
+            telefono: edit_telefono.value,
+            email: edit_email.value,
+            max_p: edit_max_p.value,
+            logo: edit_logo.value,
+            vigencia: edit_vigencia.value,
+            user: edit_user.value,
+            descr: edit_descr_prov.value,
+            idproveedor: id
         }
-        $.post("views/ajax/bari_proveedores.ajax.php", { data_editprov }, function (data) {
-            let responses = JSON.parse(data);
-            console.log(responses);
+        // console.log(dataEdit);
+        Swal.fire({
+            title: 'Listo',
+            text: `¿Editar proveedor?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#a20202',
+            confirmButtonText: 'Editar',
+            cancelButtonText: 'Cancelar',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post("views/ajax/bari_proveedores.ajax.php", { dataEdit }, function (data) {
+                    let responses = (data);
+                    //console.log(responses);
+                })
+                Swal.fire({
+                    icon: 'success',
+                    title: `Proveedor editado`,
+                    showConfirmButton: true,
+                    confirmButtonColor: '#a20202',
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+                    }
+                })
+            }
         })
+
     } else {
         console.log("sin datos ")
     }
@@ -208,28 +465,81 @@ function EditarProveedor(id) {
 function p_passw() {
     console.log("paswword")
     $('#modal_passw').modal('show');
-    m_passw.innerHTML = `${id}`;
+
     let m_btn_guardar_passw = document.getElementById("btn_g_passw");
-    let datapsw1 = document.getElementById("edt_pass1").value;
-    let datapsw2 = document.getElementById("edt_pass2").value;
+    let datapsw1 = document.getElementById("edt_pass1");
+    let datapsw2 = document.getElementById("edt_pass2");
 
 
-    if (m_btn_guardar_passw) { m_btn_guardar_passw.addEventListener("click", CambiarContrasena(datapsw1, datapsw2)) }
+    if (m_btn_guardar_passw) { m_btn_guardar_passw.addEventListener("click", () => CambiarContrasena(datapsw1, datapsw2)) }
 
 }
 
 function CambiarContrasena(data1, data2) {
-    if (data1 == data2) {
+    //SE COMPARA EL VALOR DE LOS DOS PARAMETROS QUE SEA IGUAL
+    if (data1.value.trim() == data2.value.trim()) {
         data_Newpass = {
             id: id,
-            Newpass: data1
+            Newpass: data1.value
         }
-        $.post("views/ajax/bari_proveedores.ajax.php", { data_Newpass }, function (data) {
-            console.log(data);
+        Swal.fire({
+            title: 'Listo',
+            text: `Cambiar clave?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#a20202',
+            confirmButtonText: 'Cambiar',
+            cancelButtonText: 'Cancelar',
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
+                })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //AL DARLE CLICK A CAMBIAR SE ENVIAN LOS DATOS DEL JSON CON EL ID DEL USUARIO Y LA NUEVA CLAVE
+                $.post("views/ajax/bari_proveedores.ajax.php", { data_Newpass }, function (data) {
+                    console.log(data);
+                })
+                Swal.fire({
+                    icon: 'success',
+                    title: `Clave editada`,
+                    showConfirmButton: true,
+                    confirmButtonColor: '#a20202',
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+                    }
+                })
+            }
         })
+
     }
     else {
-        alert("contraseñas no coinciden en el modal");
+        Swal.fire({
+            icon: 'error',
+            title: `Las contraseñas no coinciden`,
+            showConfirmButton: true,
+            confirmButtonColor: '#a20202',
+        })
     }
 }
 /* ******************************************************** */

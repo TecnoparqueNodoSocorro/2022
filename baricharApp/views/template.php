@@ -26,6 +26,9 @@
 
 
     <link rel="stylesheet" href="views/css/styles.css" />
+    <!-- Sweet alert  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>

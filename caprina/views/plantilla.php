@@ -27,8 +27,8 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <!-- css datatable -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/r-2.3.0/sc-2.0.7/sl-1.4.0/datatables.min.css" />
+ 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/r-2.3.0/sc-2.0.7/sl-1.4.0/datatables.min.css" /> 
     <!--  -->
 
     <!-- iconos -->
@@ -190,7 +190,6 @@ if (isset($_SESSION["id_cargo"])) {
     <!-- datatable -->
     <script src="views/assets/datatables/js/jquery.dataTables.js"></script>
     <script src="views/assets/datatables.js"></script>
-
     <script src="views/assets/buttons/js/dataTables.buttons.js"></script>
     <script src="views/assets/buttons/js/buttons.bootstrap.js"></script>
     <script src="views/assets/buttons/js/buttons.html5.js"></script>

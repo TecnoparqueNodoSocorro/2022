@@ -2369,11 +2369,17 @@ span.swirl_right_transparent {
 	border-color: #575601 !important;
 }
 
-.btn-danger {
+
+.btn-danger2 {
 	color: #dc3545 !important;
 	background-color: transparent !important;
 
 }
+/* .btn-danger {
+	color: #dc3545 !important;
+	background-color: transparent !important;
+
+} */
 
 .btn-danger:hover {
 	color: #ffff !important;

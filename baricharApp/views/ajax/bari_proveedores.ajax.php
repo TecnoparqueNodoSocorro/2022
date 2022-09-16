@@ -87,9 +87,9 @@ if (isset($_POST['data_NewEstado'])) {
     $Estado->NewEstadoProv($data);
 }
 
-if (isset($_POST['data_editprov'])) {
+if (isset($_POST['dataEdit'])) {
     $EditProv = new ProveedoresAjax();
-    $data = $_POST['data_editprov'];
+    $data = $_POST['dataEdit'];
     $EditProv->EditProv($data);
 }
 

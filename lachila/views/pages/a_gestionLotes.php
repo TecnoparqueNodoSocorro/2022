@@ -236,7 +236,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 
                             <div class="col-12 mt-3">
-                                <a class="btn btn-primary" id="finalizarPrimeraF" onclick="finalizarPrimeraF()" type="button">Finalizar Proceso</a>
+                                <a class="btn btn-danger" id="finalizarPrimeraF" onclick="finalizarPrimeraF()" type="button">Finalizar primer fermentación</a>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -366,7 +366,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
                             </div>
                             <div class="col-12 mt-3">
-                                <a class="btn btn-primary" id="nextProcess" onclick="finalizarSegundaF()" type="button">Finalizar Proceso</a>
+                                <a class="btn btn-danger" id="nextProcess" onclick="finalizarSegundaF()" type="button">Finalizar segunda fermentación</a>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -436,7 +436,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                                     // print_r($envases)
                                     ?>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-12 col-sm-12 ">
                                             <label for="" class="form-label">Envase</label>
                                             <select class="form-select mb-2" name="" id="envaseEnv" aria-label="Default select example">
                                                 <option selected value="0">--Seleccione el envase--</option>
@@ -448,13 +448,13 @@ if (isset($_SESSION["validar_ingreso"])) {
 
                                             </select>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12 col-sm-12">
                                             <label for="" class="form-label">Cantidad</label>
                                             <input type="number" class="form-control" name="fInicio" id="cantidad" aria-describedby="helpId" placeholder="">
                                         </div>
                                     </div>
                                     <div class="row" style="text-align: right;">
-                                        <div class="col-12">
+                                        <div class="col-12 mt-2">
                                             <button type="button" name="" id="btnAgregarCantidad" class="btn btn-primary">Agregar</button>
                                         </div>
                                     </div>
@@ -493,7 +493,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                                     </table>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <a class="btn btn-primary" id="finishProcess" onclick="finalizarFaseEnvasado()" type="button">Finalizar Proceso</a>
+                                    <a class="btn btn-danger" id="finishProcess" onclick="finalizarFaseEnvasado()" type="button">Finalizar fase de envasado</a>
                                 </div>
                             </div>
                         </div>

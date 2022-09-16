@@ -227,7 +227,7 @@ function TraerLotesF3() {
                 estado = el.dataset.estado
                 materia = el.dataset.materia
                 id = el.dataset.id
-               // console.log(id);
+                // console.log(id);
                 //titulo del modal
                 numero_lote_f3.innerText = `Lote:${codigo} Fase:${estado} Materia:${materia} `
                 //listar envases, bloqueado
@@ -287,12 +287,12 @@ function TraerLotesF4() {
                 numero_lote_f4.innerText = `Lote:${codigo} Fase:${estado} Materia:${materia} `
 
 
-            //    console.log(id);
+                //    console.log(id);
                 //------------------------TRAER LOS REGISTRO DE ENVASEs LOTE--------------------------------------------------
                 envasado = { id: id }
                 $.post("views/ajax/envasado_ajax.php", { envasado }, function (dato) {
                     let response = JSON.parse(dato)
-                   // console.log(response);
+                    // console.log(response);
 
                     //CALCULAR LA CANTIDAD DE MILILITROS Y PASARLO A LITROS
                     litros = (response.reduce((x, y) => x += (parseInt(y.totalProduccion)), 0) / 1000).toFixed(2)
@@ -382,10 +382,10 @@ function ListarEnvases(idlote, thead, tbody) {
     thead.innerHTML = ""
     tbody.innerHTML = ""
     getEnv = { id: idlote }
-   // console.log(getEnv)
+    // console.log(getEnv)
     $.post("views/ajax/envasado_ajax.php", { getEnv }, function (dato) {
         response = JSON.parse(dato)
-     //   console.log(response);
+        console.log(response);
         response.forEach(x => {
             thead.innerHTML = `
             <tr>

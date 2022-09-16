@@ -30,7 +30,7 @@ function GenerarGrafica() {
 
         $.post("views/ajax/variables_ajax.php", { DatosGrafica }, function (dato) {
             let response = JSON.parse(dato)
-            //console.log(response);
+            console.log(response);
 
             //GENERAR GRAFICO FUNCIONANDO 100%
             //se extraen las fechas recorriendo el response y agregandolas en cada iteracion a un array
@@ -46,6 +46,14 @@ function GenerarGrafica() {
             const hume = response.map(function (e) {
                 return e.humedad;
             });
+            //se extraen el alcohol recorriendo el response y agregandolas en cada iteracion a un array
+            const alcohol = response.map(function (e) {
+                return e.alcohol;
+            });
+            //se extraen el brix recorriendo el response y agregandolas en cada iteracion a un array
+            const brix = response.map(function (e) {
+                return e.brix;
+            });
             //se trae el canvas
             const canvas = document.querySelector('#myChart');
             const ctx = canvas.getContext('2d');
@@ -54,19 +62,59 @@ function GenerarGrafica() {
             if (chart) {
                 chart.destroy();
             } chart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: fechas,
                     datasets: [{
                         label: 'Temperatura',
                         data: temp,
-                        backgroundColor: 'rgb(203, 50, 52)'
+                        backgroundColor: 'rgb(255, 59, 36)',
+                        label: 'Temperatura',
+                        borderColor: 'rgb(255, 59, 36)',
+
+                        pointStyle: 'circle',
+                        pointRadius: 2,
+                        pointHoverRadius: 3
                     },
                     {
                         label: 'Humedad',
                         data: hume,
-                        backgroundColor: 'rgb(62, 95, 138)'
+                        backgroundColor: 'rgb(255, 182, 56)',
+                        label: 'Humedad',
+                        borderColor: 'rgb(255, 182, 56)',
+                        pointStyle: 'circle',
+                        pointRadius: 4,
+                        pointHoverRadius: 5
+                    },
+                    {
+                        label: 'Alcohol',
+                        data: alcohol,
+                        borderColor: 'rgb(48, 255, 149)',
+                        label: 'Alcohol',
+                        borderColor: 'rgb(48, 255, 149)',
+                        pointStyle: 'circle',
+                        pointRadius: 4,
+                        pointHoverRadius: 5
+                    },
+                    {
+                        label: 'Brix',
+                        data: brix,
+                        backgroundColor: 'rgb(10, 130, 255)',
+                        label: 'Brix',
+                        borderColor: 'rgb(10, 130, 255)',
+                        pointStyle: 'circle',
+                        pointRadius: 4,
+                        pointHoverRadius: 5
                     }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+
+                        }
+                    }
                 }
             });
 
@@ -93,10 +141,10 @@ function GenerarGraficaF2() {
         document.getElementById("div_graficaF2").style.display = "block";
         //las variables del codigo y fase del lote se extraen al momento de darle click al boton de abrir el modal
         DatosGrafica = { cod: codigo, state: estado, inicio: fec_inicioF2.value, fin: fec_finF2.value }
-       // console.log(DatosGrafica);
+        // console.log(DatosGrafica);
         $.post("views/ajax/variables_ajax.php", { DatosGrafica }, function (dato) {
             let response = JSON.parse(dato)
-          //  console.log(response);
+            //  console.log(response);
 
             //GENERAR GRAFICO FUNCIONANDO 100%
             //se extraen las fechas recorriendo el response y agregandolas en cada iteracion a un array
@@ -120,7 +168,7 @@ function GenerarGraficaF2() {
             if (chart) {
                 chart.destroy();
             } chart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: fechas,
                     datasets: [{
@@ -133,7 +181,18 @@ function GenerarGraficaF2() {
                         data: hume,
                         backgroundColor: 'rgb(62, 95, 138)'
                     }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+                        }
+                    }
                 }
+
+
             });
 
 

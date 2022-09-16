@@ -9,6 +9,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 }
 ?>
 <div class="container" style="background-color:#eeb3b3; border-radius:5px;">
+<h3>Resumen lotes primera y segunda fermentación</h3>
     <?php
     $datos = ControladorVariables::ctrDatosHome(1);
     $datos2f = ControladorVariables::ctrDatosHome(2);

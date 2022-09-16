@@ -1,5 +1,3 @@
-
-
 @media screen and (max-width: 450px) {
    body {
       width: 100%
@@ -7,7 +5,7 @@
 
    .container_menupopup {
 
-           margin-top: 10%;
+      margin-top: 10%;
    }
 }
 
@@ -18,7 +16,7 @@
 
    .container_menupopup {
 
-            margin-top: 10%;
+      margin-top: 10%;
    }
 }
 
@@ -29,7 +27,7 @@
 
    .container_menupopup {
 
-        margin-top: 10%;
+      margin-top: 10%;
    }
 
 }
@@ -43,17 +41,19 @@
 
 @media (min-width: 400px) and (max-width: 559.99px) {
    .container_menupopup {
-          margin-top: 10%;
+      margin-top: 10%;
    }
 }
+
 @media (min-width: 560px) and (max-width: 680.99px) {
    .container_menupopup {
-        margin-top: 10%;
+      margin-top: 10%;
    }
 }
+
 @media (min-width: 681px) and (max-width: 704.99px) {
    .container_menupopup {
-           margin-top: 10%;
+      margin-top: 10%;
    }
 }
 
@@ -65,13 +65,13 @@
 
 @media (min-width: 714px) and (max-width: 767.99px) {
    .container_menupopup {
-        margin-top: 10%;
+      margin-top: 10%;
    }
 }
 
 @media (min-width: 768px) and (max-width: 965.99px) {
    .container_menupopup {
-           margin-top: 10%;
+      margin-top: 10%;
    }
 }
 
@@ -190,7 +190,7 @@ a {
 .menu_popup {
 
    margin: auto;
-/*    position: absolute; */
+   /*    position: absolute; */
 
    width: 80px;
    height: 80px;
@@ -473,40 +473,65 @@ a {
    right: 70px;
    bottom: 70px
 }
-#tablas{
+
+#tablas {
    background-color: #ffffff;
 }
-#proveedor{
+
+#proveedor {
    padding: 10px;
-/*    margin:10px; */
+   /*    margin:10px; */
    text-align: center;
 
 
 }
+
 .prov_item {
    padding: 10px;
-  /*  margin:5px; */
+   /*  margin:5px; */
 }
-#imagen_prov{
+
+#imagen_prov {
    padding: 15px;
 
 }
-#imgproveedor{
+
+#imgproveedor {
 
    height: 150px;
 }
-#imgproveedorlista{
-    height: 50px;
+
+#imgproveedorlista {
+   height: 50px;
 }
-.footer_socials{
+
+.footer_socials {
    padding: 30px;
 }
 
-.clear{
+.clear {
    margin-top: 5px;
    padding: 0px;
    text-align: center;
 }
-.titulo{
+
+.titulo {
    color: #ffffff;
 }
+
+@media (max-width: 600px) and (min-width: 160px) {
+
+   tbody,
+   td,
+   tfoot,
+   th,
+   thead,
+   tr {
+      font-size: 3.5vw;
+   }
+
+}
+/* .footer{
+margin-top: 50% !important;
+
+} */

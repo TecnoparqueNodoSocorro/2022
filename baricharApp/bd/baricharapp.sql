@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2022 a las 17:01:39
+-- Tiempo de generación: 16-09-2022 a las 17:56:26
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -61,7 +61,32 @@ CREATE TABLE `pagina` (
 --
 
 INSERT INTO `pagina` (`id`, `sesion`, `categoria`, `item`, `imagen`, `titulo`, `descripcion`, `estado`) VALUES
-(13, 'menu', 'Diversion', 'planes', 'C:\\fakepath\\cafe.sql', 'titulo', 'desricpocion', 1);
+(21, 'menu2', 'planesyservicios', 'barichara', 'C:\\fakepath\\logohd.png', 'prueba edit', '7878', 0),
+(22, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(24, 'menu3', 'enterate', 'gastronomiabodas', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', 'prueba', 'prueba 2', 1),
+(25, 'menu2', 'planesyservicios', 'planes', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', '23423', '4234', 1),
+(26, 'menu', 'Diversion', 'planes', 'C:\\fakepath\\cafe.sql', 'titulo', 'desricpocion', 1),
+(27, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(28, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(29, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(30, 'menu2', 'planesyservicios', 'planes', 'C:\\fakepath\\logohd.png', '4534', 'yrtytfytr', 1),
+(31, 'menu3', 'enterate', 'gastronomiabodas', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', 'prueba', 'prueba 2', 1),
+(32, 'menu2', 'planesyservicios', 'planes', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', '23423', '4234', 1),
+(33, 'menu', 'Diversion', 'planes', 'C:\\fakepath\\cafe.sql', 'titulo', 'desricpocion', 1),
+(34, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(35, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(36, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(37, 'menu2', 'planesyservicios', 'planes', 'C:\\fakepath\\logohd.png', '4534', 'yrtytfytr', 1),
+(38, 'menu3', 'enterate', 'gastronomiabodas', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', 'prueba', 'prueba 2', 1),
+(39, 'menu2', 'planesyservicios', 'planes', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', '23423', '4234', 1),
+(40, 'menu', 'Diversion', 'planes', 'C:\\fakepath\\cafe.sql', 'titulo', 'desricpocion', 1),
+(41, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(42, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(43, 'menu3', 'enterate', 'hotelesdeensueno', 'C:\\fakepath\\logohd.png', '7878', '7878', 1),
+(44, 'menu2', 'planesyservicios', 'planes', 'C:\\fakepath\\logohd.png', '4534', 'yrtytfytr', 1),
+(45, 'menu3', 'enterate', 'gastronomiabodas', 'C:\\fakepath\\Scanned-image31-05-2022-141827.pdf', 'prueba', 'prueba 2', 1),
+(47, 'menu', 'Diversion', 'planes', 'C:\\fakepath\\cafe (1).sql', '2342332423', '324234', 1),
+(48, 'menu', 'Diversion', 'pride', 'C:\\fakepath\\equipos.xlsx', '1242', '234234232423', 0);
 
 -- --------------------------------------------------------
 
@@ -166,19 +191,21 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id`, `nombre`, `nit`, `telefono`, `correo`, `maxprod`, `direccion`, `descripcion`, `logo`, `vigencia`, `estado`, `usuario`, `pasww1`) VALUES
-(1, 'juan', '', '', '', 0, '', '', '', '2022-10-31', 1, 'judaver', '123456789'),
-(2, 'tortas ', '829001846-6', '3145563439', 'juan@gmail.com', 10, 'el socorro tecnoparque', 'descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--', '', '2022-09-16', 0, 'judaver', '4765'),
-(3, '', '', '', '', 0, '', '', '', '2022-09-30', 0, 'judaver', '123456789'),
-(4, 'datos de prueba', '829001846', '1244234', 'jdvertel@sena.edu.co', 2, 'datos de prueba', 'datos de prueba', '', '2022-08-03', 0, 'judaver', '123456789'),
-(5, '', '', '', '', 0, '', '', '', '2022-09-30', 0, 'judaver', '123456789'),
-(6, 'prueba4', '12345', '123123', 'prueba4@HOT.COM', 2, 'prueba4', 'prueba4\nprueba4\nprueba4\nprueba4\n', 'C:\\fakepath\\baricharapp.sql', '2022-08-11', 0, 'judaver', '12345'),
+(1, 'juan', '323423', '', '', 0, 'SAN GIL', '', '', '2022-09-28', 1, 'judaver', '111'),
+(2, 'torta', '829001846-6', '3145563439', 'juan@gmail.com', 10, 'el socorro tecnoparque', 'descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--descripcion--', '', '2022-09-07', 1, 'judaver', '4765'),
+(3, '', '', '', '', 0, '', '', '', '2022-09-15', 1, 'judaver', '123456789'),
+(4, 'datos de prueba', '829001846', '1244234', 'jdvertel@sena.edu.co', 2, 'datos de prueba', 'datos de prueba', '', '2022-08-03', 1, 'judaver', '123456789'),
+(5, '', '', '', '', 0, '', '', '', '2022-09-30', 1, 'judaver', '123456789'),
+(6, 'prueba4', '12345', '123123', 'prueba4@HOT.COM', 2, 'prueba4', 'prueba4\nprueba4\nprueba4\nprueba4\n', 'C:\\fakepath\\baricharapp.sql', '2022-08-11', 1, 'judaver', '12345'),
 (7, 'rerre', 'erer', '', '', 0, '', 'prueba despues del if', '', '2022-09-28', 0, 'judaver', '123456'),
 (8, 'tortas ', '23234234', '23234', 'jdvertel@sena.edu.co', 2, 'sdrsdr', 'sdrsdrererer', '', '2022-08-19', 0, 'judaver', '12345'),
 (9, 'tortas ', '23234234', '23234', 'jdvertel@sena.edu.co', 2, 'sdrsdr', 'sdrsdrererer', '', '2022-08-19', 0, 'judaver', '12345'),
 (10, 'proveedor nuevo1', '123456', '142536', 'jdvertel@sena.edu.co', 2, 'calle ', 'reseña', 'C:\\fakepath\\baricharapp.sql', '2022-08-11', 0, 'judaver', '4765'),
 (11, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-30', 0, 'judaver', '123'),
 (12, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-25', 0, 'judaver', '123'),
-(13, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-30', 0, 'judaver', '123');
+(13, 'DFDS', '829001846-6', '3432', 'jdvertel@sena.edu.co', 4, 'el socorro tecnoparque', 'DFSDFSDFSDF', '', '2022-09-30', 0, 'judaver', '123'),
+(14, '', '', '', '', 0, '', '', '', '0000-00-00', 0, '', ''),
+(15, '', '', '', '', 0, '', '', '', '0000-00-00', 0, '', '');
 
 --
 -- Índices para tablas volcadas
@@ -222,7 +249,7 @@ ALTER TABLE `articulos`
 -- AUTO_INCREMENT de la tabla `pagina`
 --
 ALTER TABLE `pagina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `pg_categorias`
@@ -234,7 +261,7 @@ ALTER TABLE `pg_categorias`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

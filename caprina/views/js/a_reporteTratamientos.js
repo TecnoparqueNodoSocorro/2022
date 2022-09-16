@@ -49,9 +49,9 @@ function ListarTratamientos(fecha_ini, fecha_fin, idUser, idCargo, tabla) {
 
 /* datatable */
 
-var $datatableBT = $('.dt_tabla');
+/* var $datatableBT = $('.dt_tabla'); */
 
-$datatableBT.dataTable({
+/* $datatableBT.dataTable({
     "lengthMenu": [[25, 50, -1], [25, 50, "All"]],
     dom: "Blfrtip",
     buttons: [
@@ -104,4 +104,4 @@ $datatableBT.dataTable({
     'columnDefs': [
         { orderable: false, targets: [0] }
     ]
-});
+}); */

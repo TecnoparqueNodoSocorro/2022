@@ -25,7 +25,6 @@ if ($registro == "ok") {
 
 <?php
 $categorias = ControladorCategorias::ctrConsultar();
-
 ?>
 
 

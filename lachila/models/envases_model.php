@@ -41,7 +41,7 @@ class ModelEnvases
         INNER JOIN usuarios u ON u.id = $tabla.id_usuario 
         INNER JOIN envases e ON e.id =  $tabla.id_envase
         INNER JOIN lotes l ON l.id = :id
-        WHERE $tabla.id_lote = :id  ORDER BY $tabla.fecha_envasado DESC");
+        WHERE $tabla.id_lote = :id  ORDER BY $tabla.id DESC");
         $stmt->bindParam(":id",  $data["id"]);
 
         if ($stmt->execute()) {

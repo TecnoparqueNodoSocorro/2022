@@ -24,30 +24,7 @@ btnEnv.forEach((el) => {
         //limpiar tabla
         theadEnv.innerHTML = ""
         tbodyEnv.innerHTML = ""
-        getEnv = { id: id, id_usuario: usuarioLogueado }
-        //console.log(getEnv)
-        $.post("views/ajax/envasado_ajax.php", { getEnv }, function (dato) {
-            response = JSON.parse(dato)
-            //console.log(response);
-            response.forEach(x => {
-                theadEnv.innerHTML = `
-            <tr>
-            <th>Código Lote</th>
-            <th>Envase</th>
-           <!-- <th>Usuario</th>-->
-            <th>Cantidad</th>
-            </tr>
-            `
-                tbodyEnv.innerHTML += `
-            <tr>
-            <td>${x.codigo}</td>
-            <td>${x.capacidad}ml</td>
-            <!-- <td>${x.nombres + " " + x.apellidos}</td>-->
-            <td>${x.cantidad} </td>
-            </tr>
-            `
-            })
-        })
+
     })
 })
 btnAgregarCantidad ? btnAgregarCantidad.addEventListener("click", PostEnvasados) : ''
@@ -89,17 +66,13 @@ function PostEnvasados() {
                 $.post("views/ajax/envasado_ajax.php", { postEnvase }, function (dato) {
                     console.log(dato);
                 })
-                setTimeout(function () {
-                    location.reload()
-
-                }, 1200);
                 Swal.fire({
 
                     icon: 'success',
                     title: `Registro guardado`,
                     confirmButtonColor: '#d33',
                     showConfirmButton: true,
-                    timer: 1200,
+
                     allowOutsideClick: () => {
                         const popup = Swal.getPopup()
                         popup.classList.remove('swal2-show')
@@ -113,7 +86,12 @@ function PostEnvasados() {
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        location.reload()
+                        envase.value = "0"
+                        cantidad.value = ""
+                        ListarEnvases(id, theadEnvAdmin, tbodyEnvAdmin)
+
+                        // location.reload()
+
 
                     }
                 })
