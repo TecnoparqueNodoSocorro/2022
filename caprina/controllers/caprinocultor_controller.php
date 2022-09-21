@@ -115,6 +115,7 @@ class ControladorCaprinocultor
           <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
               Registros</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
+          
               <a class=" nav-link  sub-nav" href="index.php?page=c_registroCaprinos"> Registro de
                   Caprinos</a>
               <a class=" nav-link sub-nav" href="index.php?page=c_registroControlIndividual">
@@ -132,13 +133,16 @@ class ControladorCaprinocultor
           <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-list-stars"></i>
               Reportes</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
-            
+          <a class=" nav-link  sub-nav" href="index.php?page=c_reporteCaprinos"> Reporte de
+          Caprinos</a>
               <a class=" nav-link sub-nav" href="index.php?page=c_reporteControles">
                   Reporte de control Individual </a>
               <a class=" nav-link  sub-nav" href="index.php?page=c_reporteTratamientos"> Reporte de
                   Tratamientos</a>
               <a class=" nav-link sub-nav" href="index.php?page=c_reporteProduccion">
                   Reporte de Producción </a>
+                  <a class=" nav-link  sub-nav" href="index.php?page=c_reporteSalidas"> Reporte de
+                  Salidas</a>
           </div>
           </li>
           <li class="nav-item">

@@ -1,4 +1,3 @@
-
 <?php
 if (isset($_SESSION["validar_ingreso"])) {
     if ($_SESSION["id_cargo"] != "2") {
@@ -23,13 +22,11 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <option selected>Seleccione la raza</option>
                     <option value="1">Saanen</option>
                     <option value="2">Alpino</option>
-                    <option value="2">Santandereano</option>
-                    <option value="2">Nubiana</option>
-                    <option value="2">Togenburn</option>
-                    <option value="2">Booer</option>
-                    <option value="2">Otras</option>
-
-
+                    <option value="3">Santandereano</option>
+                    <option value="4">Nubiana</option>
+                    <option value="5">Togenburn</option>
+                    <option value="6">Booer</option>
+                    <option value="7">Otras</option>
                 </select>
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
@@ -37,14 +34,81 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <h6>Origen</h6>
                 </label>
                 <select class="form-select" name="origen" id="origen" aria-label="Default select example">
-                    <option selected>Seleccione el origen</option>
+                    <option selected value="0">Seleccione el origen</option>
                     <option value="1">Comprado</option>
                     <option value="2">Nacido</option>
-                    <option value="2">Otro</option>
+                    <option value="3">Otro</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- DIV PARA MOSTRAR EL CODIGO DE LA MADRE SE OCULTA O SE MUESTRA -->
+        <div class="row justify-content-md-center mt-2">
+            <div class="col-12" style="display:none" id="divCodigoMadre">
+                <label class="form-label">
+                    <h6>Código de la madre</h6>
+                </label>
+                <!-- <input type="text" name="fecha_nac" id="codigo_madre" class="form-control" value="" required> -->
+                <?php
+                $caprino = ControladorCaprino::ctrConsultarCaprinoHembra($id)
+                ?>
+                <select class="form-select mb-2" name="cosecha_user" id="caprinos_hembras" aria-label="Default select example">
+                    <option selected value="0">--Seleccione el código del caprino--</option>
+                    <?php foreach ($caprino as $key => $value) : ?>
+
+                        <option value="<?php echo $value["codigo"] ?>">Codigo: <?php echo $value["codigo"] ?> </option>
+
+                    <?php endforeach ?>
 
                 </select>
             </div>
         </div>
+        <!-- ----------------------------------------------------------------------- -->
+
+        <div class="row justify-content-md-center mt-2">
+            <div class="col-12" id="divGenero">
+                <label class="form-label">
+                    <h6>Género del caprino</h6>
+                </label>
+                <select class="form-select" name="origen" id="CaprinoGenero" aria-label="Default select example">
+                    <option selected value="0">Seleccione el género</option>
+                    <option value="macho">Macho</option>
+                    <option value="hembra">Hembra</option>
+                </select>
+            </div>
+        </div>
+
+
+        <!-- DIV QUE SE MUESTRA EN CASO DE SER MACHO -->
+        <div class="row justify-content-md-center mt-2">
+            <div class="col-12" style="display:none" id="DivGeneroMacho">
+                <label class="form-label">
+                    <h6>¿El caprino está castrado?</h6>
+                </label>
+                <select class="form-select" name="origen" id="CaprinoCapado" aria-label="Default select example">
+                    <option selected value="0">Seleccione si el caprino ya está castrado</option>
+                    <option value="Capado">Si</option>
+                    <option value="No capado">No</option>
+                </select>
+            </div>
+        </div>
+        <!-- ----------------------------------------------------------------------- -->
+
+        <!-- DIV QUE SE MUESTRA EN CASO DE SER HEMBRA -->
+        <div class="row justify-content-md-center mt-2">
+            <div class="col-12" style="display:none" id="DivGeneroHembra">
+                <label class="form-label">
+                    <h6>El caprino ya tuvo su primer parto</h6>
+                </label>
+                <select class="form-select" name="origen" id="CaprinoParto" aria-label="Default select example">
+                    <option selected value="0">Seleccione si el caprino ya tuvo su primer parto</option>
+                    <option value="Con partos">Si</option>
+                    <option value="Sin partos">No</option>
+                </select>
+            </div>
+        </div>
+        <!-- ----------------------------------------------------------------------- -->
+
         <div class="row justify-content-md-center mt-2">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <label class="form-label">
@@ -55,7 +119,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 col-lg-6">
                 <label class="form-label">
-                    <h6>Código</h6>
+                    <h6>Código del caprino</h6>
                 </label>
                 <input type="text" name="fecha_nac" id="codigo" class="form-control" value="" required>
             </div>
@@ -66,44 +130,5 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 
     </div>
-<!--     <h5 class="mt-2">Listado de Caprinos</h5> -->
 
-
-   <?php
-    $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id);
-    ?>
-
-    <!-- listado de caprinos -->
-
-    <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered  table-sm">
-            <thead id="theadListarCaprinosPorUsuario">
-             <tr>
-                    <th>Código</th>
-                    <th>Raza</th>
-                    <th>Origen</th>
-                    <th>Fecha Nacimiento</th>
-
-
-                </tr> 
-            </thead>
-            <tbody id="tbodyListarCaprinosPorUsuario">
-
-                 <?php foreach ($caprino as $key => $value) : ?>
-                    <tr>
-                        <td><?php echo $value["codigo"]  ?></td>
-                        <td><?php echo $value["raza"] ?></td>
-                        <td><?php echo $value["origen"] ?></td>
-                        <td><?php echo $value["fecha_nacimiento"] ?></td>
-
-
-                    </tr>
-
-                <?php endforeach ?>
-
-
-
-            </tbody>
-        </table>
-    </div>
 </div>

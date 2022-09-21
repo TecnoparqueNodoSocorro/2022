@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2022 a las 14:55:23
+-- Tiempo de generación: 20-09-2022 a las 15:52:18
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -70,7 +70,9 @@ INSERT INTO `envasado` (`id`, `id_lote`, `id_envase`, `id_usuario`, `cantidad`, 
 (84, 96, 3, 2, 25, '2022-09-14'),
 (85, 96, 4, 2, 20, '2022-09-16'),
 (86, 96, 5, 2, 1, '2022-09-16'),
-(87, 96, 5, 2, 1, '2022-09-16');
+(87, 96, 5, 2, 1, '2022-09-16'),
+(88, 101, 4, 2, 20, '2022-09-16'),
+(89, 101, 5, 2, 20, '2022-09-16');
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,8 @@ INSERT INTO `lotes` (`id`, `codigo`, `id_materia`, `fecha_inicio`, `peso_inicial
 (94, '001-arroz', 15, '2022-09-01', 36, 35, 58, 'Agua de panela', 4, '2022-09-13'),
 (96, '002-arroz', 15, '2022-08-30', 343, 43, 4, 'agua', 4, '2022-09-16'),
 (97, '001-ba', 6, '2022-09-13', 20, 20, 20, 'nada', 1, NULL),
-(101, '003-arroz', 2, '2022-09-01', 6, 6, 6, '6', 3, NULL);
+(101, '003-arroz', 2, '2022-09-01', 6, 6, 6, '6', 3, NULL),
+(104, '456', 2, '2022-09-22', 565, 657, 4, '56', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -216,8 +219,8 @@ INSERT INTO `registro_variables` (`id`, `codigo_lote`, `fase_lote`, `id_usuario`
 (215, '001-arroz', 2, 17, 15, 15, 15, 15, 15, 15, 15, '2022-09-16'),
 (216, '001-arroz', 2, 17, 25, 25, 25, 25, 25, 25, 25, '2022-09-15'),
 (217, '001-arroz', 2, 17, 35, 35, 35, 35, 35, 35, 35, '2022-09-14'),
-(218, '001-ba', 1, 17, 45, 45, 45, 45, 45, 45, 45, '2022-09-13'),
-(219, '001-ba', 1, 17, 68, 68, 68, 68, 68, 68, 68, '2022-09-13'),
+(218, '001-ba', 1, 17, 45, 45, 45, 45, 45, 45, 45, '2022-09-21'),
+(219, '001-ba', 1, 17, 68, 68, 68, 68, 68, 68, 68, '2022-09-20'),
 (220, '10', 2, 17, 42, 45, 47, 10, 45, 27, 85, '2022-09-13'),
 (221, '10', 2, 1, 36, 36, 36, 36, 36, 36, 36, '2022-09-13'),
 (222, '10', 2, 1, 88, 88, 5, 99, 45, 80, 80, '2022-09-13'),
@@ -243,7 +246,11 @@ INSERT INTO `registro_variables` (`id`, `codigo_lote`, `fase_lote`, `id_usuario`
 (242, '003-arroz', 1, 1, 34, 34, 34, 34, 34, 34, 34, '2022-09-23'),
 (243, '003-arroz', 1, 1, 45, 45, 45, 45, 45, 45, 45, '2022-09-24'),
 (244, '003-arroz', 1, 1, 54, 54, 54, 54, 54, 54, 54, '2022-09-25'),
-(245, '003-arroz', 1, 1, 76, 67, 67, 67, 67, 67, 67, '2022-09-26');
+(245, '003-arroz', 1, 1, 76, 67, 67, 67, 67, 67, 67, '2022-09-26'),
+(246, '001-ba', 1, 1, 12, 12, 12, 12, 12, 12, 12, '2022-09-18'),
+(247, '001-ba', 1, 1, 23, 23, 23, 23, 23, 23, 23, '2022-09-16'),
+(248, '001-ba', 1, 1, 54, 54, 2345, 54, 545, 65, 65, '2022-09-17'),
+(249, '001-ba', 1, 1, 98, 87, 76, 67, 76, 87, 87, '2022-09-19');
 
 -- --------------------------------------------------------
 
@@ -324,7 +331,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `envasado`
 --
 ALTER TABLE `envasado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT de la tabla `envases`
@@ -336,7 +343,7 @@ ALTER TABLE `envases`
 -- AUTO_INCREMENT de la tabla `lotes`
 --
 ALTER TABLE `lotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -348,7 +355,7 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `registro_variables`
 --
 ALTER TABLE `registro_variables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -50,7 +50,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                                     </div>
                                     <div class="col-6">
                                         <label for="" class="form-label">Código</label>
-                                        <input type="text" class="form-control" name="fInicio" id="codigo" aria-describedby="helpId" placeholder="">
+                                        <input type="text" class="form-control" name="codigo" id="codigo" aria-describedby="helpId" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">

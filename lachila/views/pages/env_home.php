@@ -79,7 +79,7 @@ $datos = ControladorLotes::ctrGetLoteEnv();
                         </div>
                         <div class="col-6">
                             <label for="" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" name="fInicio" id="cantidad" aria-describedby="helpId" placeholder="">
+                            <input type="number" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId" placeholder="">
                         </div>
                     </div>
                     <div class="row" style="text-align: right;">

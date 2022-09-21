@@ -162,6 +162,7 @@ class ModelReportes
     // -------REPORTE DE TRATAMIENTOS--------------
     static public function mdlReporteTratamientos($tabla, $data)
     {
+        
         $stmt = conexion::conectar()->prepare("SELECT u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
         INNER JOIN caprinos_en_tratamiento t ON  t.id_tratamiento=$tabla.id 
         INNER JOIN registro_caprino c ON t.codigo_caprino=c.codigo

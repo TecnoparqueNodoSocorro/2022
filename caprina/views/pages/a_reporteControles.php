@@ -8,7 +8,7 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
 ?>
-<div class="container">
+<div class="container" id="div_formulario">
     <h4 class="mt-2"> Reporte de Controles</h4>
     <div class="row justify-content-md-center mt-2">
         <div class="col-6 col-xs-12 col-md-6 col-lg-6 mt-1">
@@ -39,12 +39,12 @@ if (isset($_SESSION["validar_ingreso"])) {
         </div>
     </div>
 
-    <button class="btn btn-warning mt-2 mb-2" id="btnReporteC" type="submit">Generar reporte</button>
-
-    <!-- tabla del reporte generado -->
-
-    <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered  table-sm">
+    <button class="btn btn-warning mt-2 mb-2" id="btnReporteC" type="button">Generar reporte</button>
+</div>
+<!-- tabla del reporte generado -->
+<div class="container" style="display:grid ;">
+    <div class="table-responsive mt-3 mb-3">
+        <table class="table table-warning table-bordered  table-sm rc_tabla">
             <thead id="thead_reporteReporteAdministrador" class="table-light">
                 <!--    <tr>
                     <th>Código del caprino</th>
@@ -62,4 +62,6 @@ if (isset($_SESSION["validar_ingreso"])) {
             </tbody>
         </table>
     </div>
+    <button class="fw-bold btn btn-warning  mb-5" id="btn_nueva_consulta" type="button">Generar Nuevo Reporte</button>
+
 </div>

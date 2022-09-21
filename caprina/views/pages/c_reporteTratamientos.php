@@ -47,7 +47,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             </thead>
             <tbody id="tbodyreporteTratamientoRTPU">
 
-
+             
 
             </tbody>
         </table>

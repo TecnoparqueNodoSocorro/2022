@@ -107,7 +107,7 @@ function AgregarUsuario() {
 }
 
 //FUNCION SE LE AGREGA A LOS INPUT DE LA CONTRASEÑA DEL REGISTRO DE USUARIOS PARA QUE SOLO PERMITA EL INGRESO DE NUMEROS
-function valideKey(evt){
+/* function valideKey(evt){
 			
     // code is the decimal ASCII representation of the pressed key.
     var code = (evt.which) ? evt.which : evt.keyCode;
@@ -119,4 +119,7 @@ function valideKey(evt){
     } else{ // other keys.
       return false;
     }
-}
+} */
+$('.only_numbers').on('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});

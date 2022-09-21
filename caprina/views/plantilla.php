@@ -26,6 +26,7 @@ if (isset($_SESSION["id_cargo"])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
     <!-- datatable -->
     <link rel="stylesheet" href="views/assets/datatables.min.css">
     <script src="views/assets/pdfmake/pdfmake.min.js"></script>
@@ -161,8 +162,9 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "c_reporteControles" ||
             $_GET["page"] == "c_reporteTratamientos" ||
             $_GET["page"] == "c_reporteProduccion" ||
+            $_GET["page"] == "c_reporteCaprinos" ||
+            $_GET["page"] == "c_reporteSalidas" ||
             $_GET["page"] == "error_credenciales" ||
-
             $_GET["page"] == "login"
 
         ) {
@@ -176,12 +178,16 @@ if (isset($_SESSION["id_cargo"])) {
     ?>
 
 
+
+
     <script src="views/js/a_registroCaprinocultor.js"></script>
     <script src="views/js/a_reporteControles.js"></script>
     <script src="views/js/a_reporteTratamientos.js"></script>
     <script src="views/js/a_cambioClave.js"></script>
+
     <script src="views/js/c_reporteTratamientos.js"></script>
     <script src="views/js/c_registroCaprinos.js"></script>
+    <!-- <script src="views/js/js.js"></script> -->
     <script src="views/js/login.js"></script>
     <script src="views/js/c_reporteControles.js"></script>
     <script src="views/js/c_controlIndividual.js"></script>
@@ -189,12 +195,7 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/c_registroSalidas.js"></script>
     <script src="views/js/c_registrarProduccion.js"></script>
     <script src="views/js/c_reporteProduccion.js"></script>
-  
 
-
-
-  
-    <!--  -->
 
     <footer class="footer">
 

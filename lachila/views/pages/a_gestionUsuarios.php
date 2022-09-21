@@ -55,14 +55,14 @@ if (isset($_SESSION["validar_ingreso"])) {
 
                 <h6>Contraseña</h6>
 
-                <input type="password" name="pass_user" onkeypress="return valideKey(event)" id="pass_user" class="form-control" value="" required>
+                <input type="password" name="pass_user" id="pass_user" class="form-control only_numbers" value="" required>
 
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
 
                 <h6>Confirm. contraseña</h6>
 
-                <input type="password" name="confirm_pass" onkeypress="return valideKey(event)" id="confirm_pass" class="form-control" value="" required>
+                <input type="password" name="confirm_pass"  id="confirm_pass" class="form-control only_numbers" value="" required>
             </div>
         </div>
 

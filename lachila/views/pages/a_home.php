@@ -161,7 +161,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                         </div>
                         <div class="col-12">
                             <label for="" class="form-label">Código</label>
-                            <input type="text" readonly class="form-control" name="fInicio" id="codigoDetalle" aria-describedby="helpId" placeholder="">
+                            <input type="text" readonly class="form-control" name="codigoDetalle" id="codigoDetalle" aria-describedby="helpId" placeholder="">
                         </div>
                     </div>
                     <div class="row">
@@ -177,11 +177,11 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <div class="row">
                         <div class="col-6">
                             <label for="" class="form-label">P. Desperdicio </label>
-                            <input type="number" readonly class="form-control" name="pesoDesper" id="pesoDesperDetalle" aria-describedby="helpId" placeholder="">
+                            <input type="number" readonly class="form-control" name="pesoDesperDetalle" id="pesoDesperDetalle" aria-describedby="helpId" placeholder="">
                         </div>
                         <div class="col-6">
                             <label for="" class="form-label">Fecha de Inicio</label>
-                            <input type="date" readonly class="form-control" name="fInicio" id="fInicioDetalle" aria-describedby="helpId" placeholder="">
+                            <input type="date" readonly class="form-control" name="fInicioDetalle" id="fInicioDetalle" aria-describedby="helpId" placeholder="">
                         </div>
                     </div>
                     <div class="row">

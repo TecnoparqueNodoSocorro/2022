@@ -10,11 +10,12 @@ class ControladorLotes
   {
     $tabla = "lotes";
     $respuesta = ModelLotes::mdlPostLote($tabla, $data);
-    if ($respuesta == "ok") {
-      return 1;
+    return $respuesta;
+    /* if ($respuesta == 1) {
+      return $respuesta;
     } else {
       return 0;
-    }
+    } */
   }
   //get LOTE
   static public function ctrGetLote($data)

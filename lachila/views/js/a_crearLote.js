@@ -33,7 +33,7 @@ function CrearLote() {
         })
     } else {
         lote = { codigo: codigo.value, materia: materia.value, fecha_inicio: fInicio.value, adicion: adicion.value, peso_desperdiciado: pesoDesper.value, peso_neto: pesoNeto.value, peso_inicial: PesoIni.value }
-       // console.log(lote);
+        console.log(lote);
         Swal.fire({
             title: 'Listo',
             text: `¿Registrar nuevo lote?`,
@@ -56,9 +56,16 @@ function CrearLote() {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.post("views/ajax/lotes_ajax.php", { lote }, function (dato) {
-                    let response = (dato)
-                    //console.log(response);
-                    if (response == 1) {
+                    let response = dato.trim()
+                  
+                    if (response == "") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: `Código de lote ya existente`,
+                            showConfirmButton: true,
+                            confirmButtonColor: '#a20202'
+                        })
+                     } else  if (response == "creado") {
                         Swal.fire({
                             icon: 'success',
                             title: `Nuevo lote registrado `,
@@ -78,24 +85,19 @@ function CrearLote() {
                             }
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                location.href = 'index.php?page=a_gestionLotes'
+                                location.reload()
                             }
                         })
 
 
-                    } else if (response == 0) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: `Código de lote ya existente`,
-                            showConfirmButton: true,
-                            confirmButtonColor: '#a20202'
-                        })
                     }
+                    /* else{
+                    console.log("error");
+                     */
                 })
             }
-        }
-        )
-        }
+        })
+    }
 }
 
 

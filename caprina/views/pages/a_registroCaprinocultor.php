@@ -32,14 +32,14 @@ if (isset($_SESSION["validar_ingreso"])) {
             <div class="row justify-content-md-center">
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
-                        <h6>Núm de Teléfono</h6>
+                        <h6>Num de Teléfono</h6>
                     </label>
                     <input type="number" name="phone_user" id="phone_user" class="form-control" value="" required>
 
                 </div>
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
-                        <h6>Núm de documento</h6>
+                        <h6>Num de documento</h6>
                     </label>
                     <input type="number" name="document_user" id="document_user" class="form-control" value="" required>
                 </div>
@@ -53,13 +53,13 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <label class="form-label">
                         <h6>Clave (4 numeros)</h6>
                     </label>
-                    <input type="password" name="clave" onkeypress="return valideKey(event)" id="clave" class="form-control" value="" required>
+                    <input type="password" name="clave" id="clave" class="form-control only_numbers" value="" required>
                 </div>
                 <div class="col col-xs-6 col-md-6 col-lg-6">
                     <label class="form-label">
                         <h6>Confirmar clave</h6>
                     </label>
-                    <input type="password" name="claveConfir" onkeypress="return valideKey(event)" id="claveConfir" class="form-control" value="" required>
+                    <input type="password" name="claveConfir"  id="claveConfir" class="form-control only_numbers" value="" required>
                 </div>
             </div>
             <div class="row justify-content-md-center">

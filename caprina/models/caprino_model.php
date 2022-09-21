@@ -8,10 +8,13 @@ class ModelCaprino
     // ---------------------REGISTRAR CAPRINO--------------
     static public function registroCaprino($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo, id_usuario, raza, fecha_nacimiento, origen) VALUES( :codigo, :id_usuario, :raza, :fecha_nacimiento, :origen) ");
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo, id_usuario, genero, dato1, codigo_madre, raza, fecha_nacimiento, origen) 
+        VALUES( :codigo, :id_usuario,:genero, :dato, :codigo_madre, :raza, :fecha_nacimiento, :origen) ");
         $stmt->bindParam(":id_usuario", $data["usuario"]);
         $stmt->bindParam(":codigo", $data["codigo"]);
-
+        $stmt->bindParam(":genero",  $data["genero"], PDO::PARAM_STR);
+        $stmt->bindParam(":dato",  $data["dato"], PDO::PARAM_STR);
+        $stmt->bindParam(":codigo_madre",  $data["codigo_madre"], PDO::PARAM_STR);
         $stmt->bindParam(":raza",  $data["raza"], PDO::PARAM_STR);
         $stmt->bindParam(":fecha_nacimiento",  $data["fecha_nacimiento"], PDO::PARAM_STR);
         $stmt->bindParam(":origen",  $data["origen"], PDO::PARAM_STR);
@@ -43,7 +46,7 @@ class ModelCaprino
     static public function mdlConsultarCantidadDeCaprinos($tabla)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla");
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla  WHERE estado = 1 ");
         $stmt->execute();
         return $stmt->fetchColumn();
         /*  $stmt->closeCursor();
@@ -53,7 +56,7 @@ class ModelCaprino
     static public function mdlConsultarCantidadDeCaprinosPorCaprinocultor($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario=$id");
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario=$id AND estado =1 ");
         $stmt->execute();
         return $stmt->fetchColumn();
         /*  $stmt->closeCursor();
@@ -70,33 +73,33 @@ class ModelCaprino
         $stmt = null; */
     }
 
-        // -----------------CONSULTAR LA CANTIDAD DE TRATAMIENTOS PARA EL ESTADO CAPRINO--CAPRINOCULTOR--------
-        static public function mdlCantidadTratamientosPorCaprinocultor($tabla, $id)
-        {
-    
-            $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario = $id");
-            $stmt->execute();
-            return $stmt->fetchColumn();
-            /*  $stmt->closeCursor();
+    // -----------------CONSULTAR LA CANTIDAD DE TRATAMIENTOS PARA EL ESTADO CAPRINO--CAPRINOCULTOR--------
+    static public function mdlCantidadTratamientosPorCaprinocultor($tabla, $id)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_usuario = $id");
+        $stmt->execute();
+        return $stmt->fetchColumn();
+        /*  $stmt->closeCursor();
             $stmt = null; */
-        }
+    }
     //---CONSULTAR LA CANTIDAD DE CAPRINOS POR RAZA PARA EL ESTADO CAPRINO ADMIN---
     static public function mdlConsultarCantidadDeCaprinosPorRaza($tabla)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) AS 'cantidad',raza FROM $tabla GROUP BY raza");
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) AS 'cantidad',raza FROM $tabla WHERE estado = 1  GROUP BY raza");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
 
-    
+
     //---CONSULTAR LA CANTIDAD DE CAPRINOS POR RAZA PARA EL ESTADO CAPRINO CAPRINOCULTOR---
     static public function mdlConsultarCantidadDeCaprinosPorRazaPorCaprinocultor($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) AS 'cantidad',raza FROM $tabla WHERE id_usuario = $id GROUP BY raza");
+        $stmt = conexion::conectar()->prepare("SELECT COUNT(*) AS 'cantidad',raza FROM $tabla WHERE id_usuario = $id AND estado = 1 GROUP BY raza");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         /*  $stmt->closeCursor();
@@ -108,7 +111,18 @@ class ModelCaprino
     static public function mdlConsultarCaprinoActivo($tabla, $id)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT id,codigo, raza, origen, fecha_nacimiento FROM $tabla WHERE estado =1 AND id_usuario=$id ORDER BY codigo ASC ");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estado =1 AND id_usuario=$id ORDER BY codigo ASC ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        /*  $stmt->closeCursor();
+        $stmt = null; */
+    }
+
+    //---------MODELO CONSULTAR LOS CAPRINOS ACTIVOS  POR CAPRINOCULTOR--------
+    static public function mdlConsultarCaprinoHembraPorUsuario($tabla, $id)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estado =1 AND id_usuario=$id AND genero = 'hembra' ORDER BY codigo ASC ");
         $stmt->execute();
         return $stmt->fetchAll();
         /*  $stmt->closeCursor();
@@ -194,7 +208,7 @@ class ModelCaprino
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento) VALUES( :id, :codigo, :id_trat) ");
             $stmt->bindParam(":id_trat", $idtratamiento);
             $stmt->bindParam(":codigo", $value["codigo"]);
-            $stmt->bindParam(":id",$value["id_usuario"]);
+            $stmt->bindParam(":id", $value["id_usuario"]);
             $stmt->execute();
         }
         return "OK";

@@ -250,6 +250,7 @@ select:focus,
         margin-top: 55px !important;
     }
 }
+
 @media screen and (min-width: 400.56px) {
     .btnAgregarCaprinos {
         margin-top: 35px !important;
@@ -279,7 +280,17 @@ select:focus,
     th,
     thead,
     tr {
-      font-size: 3vw;
+        font-size: 3vw;
     }
-  
-  }
+
+}
+
+.page-item.active .page-link {
+    background-color: #f69100 !important;
+    border-color: #f69100 !important;
+}
+
+/* .btn-secondary {
+    background-color: #f69100 !important;
+    border-color: #6c757d !important;
+} */

@@ -28,7 +28,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                     </div>
                     <div class="input-group mt-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
-                        <input type="password" onkeypress="return valideKey(event)" class="form-control" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
+                        <input type="password"  class="form-control only_numbers" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
                     </div>
 
                     <button type="button" id="btnIniciar" class="btn btn-warning mt-3 mb-5">Ingresar</button>

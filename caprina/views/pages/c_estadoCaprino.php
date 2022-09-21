@@ -21,7 +21,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             ?>
 
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Caprines <span class="badge bg rounded-pill"><?php echo ($caprinos) ?></span>
+                Caprinos <span class="badge bg rounded-pill"><?php echo ($caprinos) ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Controles registrados <span class="badge bg rounded-pill"><?php echo ($controles) ?></span>

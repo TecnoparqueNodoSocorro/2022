@@ -9,7 +9,36 @@ class ModelLotes
     // ----------REGISTRAR NUEVO- LOTE----------
     static public function mdlPostLote($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( codigo, id_materia, fecha_inicio, peso_inicial, peso_neto, p_desperdicio, adicion) 
+        $stmt = conexion::conectar()->prepare("SELECT  COUNT(codigo) FROM $tabla WHERE codigo = :cod");
+        $stmt->bindParam(":cod", $data["codigo"], PDO::PARAM_STR);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        if ($count > 0) {
+            return "";
+        } else if ($count == 0) {
+            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( codigo, id_materia, fecha_inicio, peso_inicial, peso_neto, p_desperdicio, adicion) 
+            VALUES( :cod, :materia, :fecha, :peso, :peso_n, :peso_d, :adicion) ");
+            $stmt->bindParam(":cod", $data["codigo"], PDO::PARAM_STR);
+            $stmt->bindParam(":materia", $data["materia"], PDO::PARAM_STR);
+            $stmt->bindParam(":fecha", $data["fecha_inicio"]);
+            $stmt->bindParam(":peso",  $data["peso_inicial"]);
+            $stmt->bindParam(":peso_n",  $data["peso_neto"]);
+            $stmt->bindParam(":peso_d",  $data["peso_desperdiciado"]);
+            $stmt->bindParam(":adicion",  $data["adicion"], PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+
+                $stmt->closeCursor();
+                $stmt = null;
+                return "creado";
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        }
+        /*  $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( codigo, id_materia, fecha_inicio, peso_inicial, peso_neto, p_desperdicio, adicion) 
         VALUES( :cod, :materia, :fecha, :peso, :peso_n, :peso_d, :adicion) ");
         $stmt->bindParam(":cod", $data["codigo"], PDO::PARAM_STR);
         $stmt->bindParam(":materia", $data["materia"], PDO::PARAM_STR);
@@ -23,13 +52,13 @@ class ModelLotes
             
             $stmt->closeCursor();
             $stmt = null;
-            return "ok";
+            return 1;
         } else {
-           /*  echo "\nPDO::errorInfo():\n";
-            print_r($stmt->errorInfo()); */
+             echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo()); 
             $stmt->closeCursor();
             $stmt = null;
-        }
+        } */
     }
     //TRAER UN LOTE EN ESPECIFICO
     static public function mdlGetLote($tabla, $data)
