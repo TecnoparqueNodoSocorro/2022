@@ -411,6 +411,8 @@ function EditarProveedor() {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#a20202',
+            scrollbarPadding: false,
+                heightAuto: false,
             confirmButtonText: 'Editar',
             cancelButtonText: 'Cancelar',
             allowOutsideClick: () => {
@@ -433,6 +435,8 @@ function EditarProveedor() {
                 Swal.fire({
                     icon: 'success',
                     title: `Proveedor editado`,
+                    scrollbarPadding: false,
+                heightAuto: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#a20202',
                     allowOutsideClick: () => {
@@ -491,6 +495,8 @@ function CambiarContrasena(data1, data2) {
             cancelButtonColor: '#a20202',
             confirmButtonText: 'Cambiar',
             cancelButtonText: 'Cancelar',
+            scrollbarPadding: false,
+                heightAuto: false,
             allowOutsideClick: () => {
                 const popup = Swal.getPopup()
                 popup.classList.remove('swal2-show')
@@ -512,6 +518,8 @@ function CambiarContrasena(data1, data2) {
                     icon: 'success',
                     title: `Clave editada`,
                     showConfirmButton: true,
+                    scrollbarPadding: false,
+                heightAuto: false,
                     confirmButtonColor: '#a20202',
                     allowOutsideClick: () => {
                         const popup = Swal.getPopup()
@@ -538,6 +546,8 @@ function CambiarContrasena(data1, data2) {
             icon: 'error',
             title: `Las contraseñas no coinciden`,
             showConfirmButton: true,
+            scrollbarPadding: false,
+                heightAuto: false,
             confirmButtonColor: '#a20202',
         })
     }

@@ -1,7 +1,5 @@
 <?php
 require_once "views/pages/modal.php";
-
-
 ?>
 <!--          <div class="title_front">BARICHARAPP</div> -->
 
@@ -16,48 +14,34 @@ require_once "views/pages/modal.php";
             <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
             <img src="" alt="">
             <label class="menu-open-button" for="menu-open">
-                <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero"
-                    style="visibility:visible; display:block;" onclick="visualiza_segundo()">
-                <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo"
-                    style="visibility:hidden; display:none;" onclick="visualiza_primero()">
+                <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
+                <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
 
             </label>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/tortas.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img
-                    class="image" src="views/images/menupopup/viajes.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img
-                    class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
 
-            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img
-                    class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+            <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
 
         </nav>
 
@@ -101,32 +85,22 @@ require_once "views/pages/modal.php";
         <h5 style="text-align:center ;" class="text-light">Quienes Somos?</h2>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-md-2">
+                    <div class="col-2 col-md-2">
                         <div class="footer_socials">
                             <ul>
-                                <li><a href="https://twitter.com/PropuestaDMatri" target="_blank"><img
-                                            src="views/images/social/twitter.png" alt="" title="" /></a></li>
-                                <li><a href="https://www.facebook.com/expobodasbarichara/" target="_blank"><img
-                                            src="views/images/social/facebook.png" alt="" title="" /></a></li>
-                                <li><a href="https://www.instagram.com/expobodasbarichara/" target="_blank"><img
-                                            src="views/images/social/instagram.png" alt="" title="" /></a></li>
-                                <li><a href="https://www.youtube.com/channel/UCBx4pFER775V_jBuQ6nhOBQ"
-                                        target="_blank"><img src="views/images/social/youtube.png" alt=""
-                                            title="" /></a></li>
-                                <li><a href="https://www.tiktok.com/expobodasbarichara/" target="_blank"><img
-                                            src="views/images/social/tiktok.png" alt="" title="" /></a></li>
-                                <li><a href="whap" target="_blank"><img src="views/images/social/whapsap.png" alt=""
-                                            title="" /></a></li>
-                                <li><a href="https://www.matrimonio.com.co/wedding-planner/propuesta-de-matrimonio--e118629"
-                                        target="_blank"><img src="views/images/social/matrimonios.png" alt=""
-                                            title="" /></a></li>
+                                <li><a href="https://twitter.com/PropuestaDMatri" target="_blank"><img src="views/images/social/twitter.png" alt="" title="" /></a></li>
+                                <li><a href="https://www.facebook.com/expobodasbarichara/" target="_blank"><img src="views/images/social/facebook.png" alt="" title="" /></a></li>
+                                <li><a href="https://www.instagram.com/expobodasbarichara/" target="_blank"><img src="views/images/social/instagram.png" alt="" title="" /></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCBx4pFER775V_jBuQ6nhOBQ" target="_blank"><img src="views/images/social/youtube.png" alt="" title="" /></a></li>
+                                <li><a href="https://www.tiktok.com/expobodasbarichara/" target="_blank"><img src="views/images/social/tiktok.png" alt="" title="" /></a></li>
+                                <li><a href="whap" target="_blank"><img src="views/images/social/whapsap.png" alt="" title="" /></a></li>
+                                <li><a href="https://www.matrimonio.com.co/wedding-planner/propuesta-de-matrimonio--e118629" target="_blank"><img src="views/images/social/matrimonios.png" alt="" title="" /></a></li>
 
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-md-8"> <iframe width="100%" height="550"
-                            src="http://www.youtube.com/embed/bwJWYlS-wnE" frameborder="0"></iframe></div>
-                    <div class="col-12 col-md-2">
+                    <div class="col-8 col-md-8"> <iframe width="100%" height="550" src="http://www.youtube.com/embed/bwJWYlS-wnE" frameborder="0"></iframe></div>
+                    <div class="col-2 col-md-2">
                         <ul>
                             <li>
                                 <div class="title2">Bienestar</div>

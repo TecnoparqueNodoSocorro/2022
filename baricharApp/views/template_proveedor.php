@@ -104,6 +104,11 @@
     <script type="text/javascript" src="views/js/jquery.arctext.js"></script>
     <script type="text/javascript" src="views/js/jquery.countdown.js"></script>
 
+
+
+
+    <script type="text/javascript" src="views/js/p_productos.js"></script>
+
     <!-- js con los datos de los formularios -->
     <script type="text/javascript" src="views/js/script.js"></script>
 

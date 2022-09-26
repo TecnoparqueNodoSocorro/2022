@@ -54,7 +54,6 @@ class ModelProveedor
     static public function MdlInfoProveedor($tabla, $data)
     {
 
-
         $stmt = conexion::conectar()->prepare("select * from $tabla where id =:idproveedor");
         $stmt->bindParam(":idproveedor", $data["id"]);
         if ($stmt->execute()) {
@@ -99,7 +98,33 @@ class ModelProveedor
             $stmt = null;
         }
     }
+    // editar proveedor
 
+    static public function mdlEditProv($tabla, $datos)
+    {
+        $stmt = conexion::conectar()->prepare(
+            " UPDATE $tabla SET  
+     direccion=:direccion, telefono=:telefono, 
+     correo=:correo, descripcion=:descripcion 
+     WHERE id=:idproveedor"
+        );
+
+        $stmt->bindParam(":direccion", $datos["direc"], PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $datos["tel"], PDO::PARAM_STR);
+        $stmt->bindParam(":correo", $datos["email"], PDO::PARAM_STR);
+        $stmt->bindParam(":descripcion", $datos["descr"], PDO::PARAM_STR);
+        $stmt->bindParam(":idproveedor", $datos["id"]);
+        if ($stmt->execute()) {
+            return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
     //actualizar vigencia
     static public function MdlNewVigencia($tabla, $data)
     {
@@ -133,16 +158,61 @@ class ModelProveedor
     }
 
 
-    // cambiar password
+    // cambiar password desde el rol de admin
     static public function MdlNewPasssw($data, $tabla)
     {
-        print_r($data);
-
         $stmt = conexion::conectar()->prepare("UPDATE $tabla SET pasww1=:newpass WHERE id=:idprov");
         $stmt->bindParam(":idprov", $data["id"]);
         $stmt->bindParam(":newpass", $data["Newpass"], PDO::PARAM_STR);
         if ($stmt->execute()) {
             return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+
+    //-------------------Cambiar contraseña desde el rol de proveedor-----------------------------------------
+    static public function MdlNewPassProv($data, $tabla)
+    {
+
+        // SE COMPARA LA CLAVE ENVIADA PARA CONTAR SI ES LA QUE ESTÁ EN LA BASE DE DATOS
+        $stmt = conexion::conectar()->prepare("SELECT  COUNT(pasww1) FROM $tabla WHERE  pasww1=:pass");
+        //$stmt->bindParam(":id", $data["id"]);
+        $stmt->bindParam(":pass", $data["clave_old"]);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        if ($count == 0) {
+            return "Clave incorrecta";
+        } else if ($count == 1) {
+            $stmt = conexion::conectar()->prepare("UPDATE $tabla SET pasww1=:newpass WHERE id=:id");
+            $stmt->bindParam(":id", $data["id"]);
+            $stmt->bindParam(":newpass", $data["clave_new"], PDO::PARAM_STR);
+            if ($stmt->execute()) {
+                return "Clave cambiada exitosamente";
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        }
+    }
+    //    // consultar informacion del proveedor para el home
+
+    static public function mdlInfoProveedorHome($tabla, $dato)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT * from $tabla where id = $dato");
+
+        if ($stmt->execute()) {
+            return $stmt->fetchObject();
             $stmt->closeCursor();
             $stmt = null;
         } else {

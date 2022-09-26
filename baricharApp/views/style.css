@@ -54,6 +54,13 @@ html,
 body {
 	height: 100%;
 	width: 100%;
+	/* overflow-y: auto; */
+
+}
+
+.swal2-shown {
+	overflow: unset !important;
+	padding-right: 0px !important;
 }
 
 body {
@@ -62,6 +69,7 @@ body {
 	font-size: 14px;
 	margin: 0 auto;
 	color: #6e6a5f;
+
 }
 
 .clear {
@@ -1553,7 +1561,7 @@ span.swirl_right_transparent {
 .footer_socials {
 	width: 100%;
 	text-align: center;
-	padding: 40px 0;
+	padding: 0px;
 }
 
 .footer_socials ul,
@@ -1566,7 +1574,7 @@ span.swirl_right_transparent {
 
 .footer_socials ul li a {
 	display: inline-block;
-	margin: 0 10px;
+	margin:  0px;
 }
 
 .footer_socials ul li a {
@@ -1581,7 +1589,7 @@ span.swirl_right_transparent {
 .footer_menu {
 	width: 100%;
 	text-align: center;
-	padding: 20px 0 0 0;
+	padding: 0px 0 0 0;
 }
 
 .footer_menu ul {
@@ -2169,7 +2177,7 @@ span.swirl_right_transparent {
 	}
 
 	.footer_socials ul li a {
-		margin: 0 10px 10px 10px
+		margin: 0 0px 0px 0px
 	}
 
 	.footer_menu li {
@@ -2375,6 +2383,7 @@ span.swirl_right_transparent {
 	background-color: transparent !important;
 
 }
+
 /* .btn-danger {
 	color: #dc3545 !important;
 	background-color: transparent !important;

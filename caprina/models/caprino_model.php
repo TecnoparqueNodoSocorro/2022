@@ -204,14 +204,23 @@ class ModelCaprino
     //------------AGREGAR CAPRINOS AL TRATAMIENTO ANTERIOR----------------   
     static public function mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos)
     {
+        print_r($caprinos);
         foreach ($caprinos   as $value) {
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento) VALUES( :id, :codigo, :id_trat) ");
             $stmt->bindParam(":id_trat", $idtratamiento);
             $stmt->bindParam(":codigo", $value["codigo"]);
             $stmt->bindParam(":id", $value["id_usuario"]);
-            $stmt->execute();
+            if ($stmt->execute()) {
+                return "ok";
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
         }
-        return "OK";
     }
 
     //--------MODELO CONSULTAR CAPRINOS POR USUARIO---------

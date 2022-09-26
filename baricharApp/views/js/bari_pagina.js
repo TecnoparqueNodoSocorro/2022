@@ -304,7 +304,7 @@ function OpenModalBloquear() {
 
 //----------FUNCION ACTIVAR O DESACTIVAR PAGINA//----------//----------//----------//----------//----------
 function Bloq_DesbPagina() {
-    console.log(estadoPagina.value);
+    //console.log(estadoPagina.value);
 
     if (estadoPagina.value == "1") {
         //SI EL ESTADO DE LA PAGINA ES 1 SE ENVIA COMO ESTADO 0
