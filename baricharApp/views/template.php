@@ -35,29 +35,29 @@
     <nav class="menu">
         <ul id="main_menu">
             <li><a class="selected" href="index.php?page=home">HOME</a></li>
-            <li><a href="index.php?page=m_diversion">DIVERSION</a>
+            <li><a href="#">DIVERSION</a>
                 <ul>
-                    <li><a href="page.html">Planes</a></li>
-                    <li><a href="page.html">Eventos</a></li>
-                    <li><a href="page.html">Pride</a></li>
-                    <li><a href="page.html">Festivales</a></li>
-                    <li><a href="page.html">Cruceros</a></li>
+                    <li><a href="index.php?page=m1_diversion&session=planes">Planes</a></li>
+                    <li><a href="index.php?page=m1_diversion&session=eventos">Eventos</a></li>
+                    <li><a href="index.php?page=m1_diversion&session=pride">Pride</a></li>
+                    <li><a href="index.php?page=m1_diversion&session=festivales">Festivales</a></li>
+                    <li><a href="index.php?page=m1_diversion&session=cruceros">Cruceros</a></li>
                 </ul>
             </li>
 
-            <li><a href="index.php?page=m_cultural">CULTURAL</a></li>
-            <li><a href="index.php?page=m_servicios">SERVICIOS</a>
+            <li><a href="index.php?page=m1_cultural&session=home">CULTURAL</a></li>
+            <li><a href="#e">SERVICIOS</a>
                 <ul>
-                    <li><a href="page.html">Concierge</a></li>
-                    <li><a href="page.html">Hoteles</a></li>
-                    <li><a href="page.html">Oasis</a></li>
-                    <li><a href="page.html">Toures</a></li>
-                    <li><a href="page.html">Autos</a></li>
-                    <li><a href="page.html">Wedding Planner</a></li>
+                    <li><a href="index.php?page=m1_servicios&session=concierge">Concierge</a></li>
+                    <li><a href="index.php?page=m1_servicios&session=hoteles">Hoteles</a></li>
+                    <li><a href="index.php?page=m1_servicios&session=oasis">Oasis</a></li>
+                    <li><a href="index.php?page=m1_servicios&session=toures">Toures</a></li>
+                    <li><a href="index.php?page=m1_servicios&session=autos">Autos</a></li>
+                    <li><a href="index.php?page=m1_servicios&session=wedding">Wedding Planner</a></li>
                 </ul>
             </li>
             <li><a href="index.php?page=login">INICIAR SESION</a></li>
-            <li><a href="admin.php?page=ahome">Administrador</a></li>
+            <li><a href="admin.php?page=ahome">Admin</a></li>
             <li><a href="proveedor.php?page=phome">Proveedor</a></li>
         </ul>
     </nav>
@@ -65,50 +65,49 @@
 
     <!-- Redireccinar url por variable -->
 
-        <?php
-        if (isset($_GET["page"])) {
+    <?php
+    if (isset($_GET["page"])) {
 
-            if (
+        if (
 
-                $_GET["page"] == "home" ||
-                $_GET["page"] == "m_diversion" ||
-                $_GET["page"] == "m_cultural" ||
-                $_GET["page"] == "m_servicios" ||
-                $_GET["page"] == "login"
+            $_GET["page"] == "home" ||
+            $_GET["page"] == "m1_diversion" ||
+            $_GET["page"] == "m1_cultural" ||
+            $_GET["page"] == "m1_servicios" ||
+            $_GET["page"] == "login"
 
-            ) {
-                include "pages/front/" . $_GET["page"] . ".php";
-            } else {
-
-                if ($_GET["page"] == "ahome") {
-                    include "pages/administracion/" . $_GET["page"] . ".php";
-                } else {
-                    if ($_GET["page"] == "phome") {
-                        include "pages/proveedores/" . $_GET["page"] . ".php";
-                    }
-                }
-                include "pages/front/error.php";
-            }
+        ) {
+            include "pages/front/" . $_GET["page"] . ".php";
         } else {
-            include "pages/login.php";
+
+            if ($_GET["page"] == "ahome") {
+                include "pages/administracion/" . $_GET["page"] . ".php";
+            } else {
+                if ($_GET["page"] == "phome") {
+                    include "pages/proveedores/" . $_GET["page"] . ".php";
+                }
+            }
+            include "pages/front/error.php";
         }
-        ?>
- 
+    } else {
+        include "pages/login.php";
+    }
+    ?>
+
 
     <!-- *********************************************************************** -->
 
     <div class="footer">
         <div class="full_width_centered">
-            <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
+            <!--      <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
             <div class="footer_names">BaricharApp</div>
 
             <nav class="footer_menu">
                 <ul>
-
-
-                    <li><a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> </li>
+                   <a onClick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" class="gotop" title="Go on top">TOP</a> 
                 </ul>
-            </nav>
+            </nav> -->
+            <p class="piedepagina">Designed byTecnoparque Nodo Socorro</p>
 
         </div>
 

@@ -12,13 +12,28 @@ class CaprinoAjax
     public function __construct()
     {
     }
-    //TRAER TODOS LOS CAPRINOS
+    //TRAER 1  CAPRINO EN ESPECIFICO
     static public function GetCaprino($data)
     {
         $datoscaprino = ControladorCaprino::ctrGetCaprino($data);
         $rta = json_encode($datoscaprino);
         print_r($rta);
     }
+
+
+
+
+    //TRAER TODOS LOS CAPRINOS POR USUARIO
+    static public function GetCaprinosByUsuario($id)
+    {
+
+        $datoscaprino = ControladorCaprino::ctrConsultarCaprinoActivo($id);
+        return $datoscaprino;
+    }
+
+
+
+
 
     //POSTEAR CAPRINO
     public function PostCaprino($data)
@@ -50,6 +65,12 @@ class CaprinoAjax
     public function postCaprinosEnTratamiento($idtratamiento, $caprinos)
     {
         $RtaDetallefact = ControladorCaprino::ctrPostCaprinosTratamiento($idtratamiento, $caprinos);
+        echo json_encode($RtaDetallefact);
+    }
+    //SE REGISTRA LOS CAPRINOS  QUE NO FUERON VACUNADOS O NO RECIBIERON EL TRATAMIENTO CREADO ANTERIORMENTE
+    public function postCaprinosSinTratamiento($idtratamiento, $caprinos)
+    {
+        $RtaDetallefact = ControladorCaprino::ctrPostCaprinosSinTratamiento($idtratamiento, $caprinos);
         echo json_encode($RtaDetallefact);
     }
 
@@ -103,11 +124,33 @@ if (isset($_POST['idtratatamiento']) && isset($_POST['caprinos'])) {
     $ajaxDetalle->postCaprinosEnTratamiento($idtratamiento, $caprinos);
 }
 
+
+/* ---SE REGISTRA LOS CAPRINOS QUE NO SE LES APLICÓ EL TRATAMIENTO AL ID DEL TRATAMIENTO REGISTRADO EN EL TRATAMIENTO INMEDIATAMENTE ANTERIOR------ */
+if (isset($_POST['id_tratatamiento']) && isset($_POST['caprinos_sin'])) {
+
+    $ajaxDetalle = new CaprinoAjax();
+    $caprinos = JSON_decode($_POST['caprinos_sin'], true);
+    $idtratamiento = $_POST['id_tratatamiento'];
+    $ajaxDetalle->postCaprinosSinTratamiento($idtratamiento, $caprinos);
+}
+
 /* ------------------------------------------------ */
 
 //TRAER CAPRINOS POR USUARIO
+
+
+//id_usuario
 if (isset($_POST['id_usuario'])) {
     $data = $_POST['id_usuario'];
     $codigoC = new CaprinoAjax();
     $codigoC->GetCaprinoUsuario($data);
 }
+
+/* if (isset($_POST['consultarCaprinos'])) {
+    $data = $_POST['consultarCaprinos'];
+    $id = $data["id"];
+    return $id;
+    $codigoC = new CaprinoAjax();
+    $codigoC->GetCaprinosByUsuario($id);
+}
+ */

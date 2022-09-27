@@ -19,7 +19,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <h6>Raza</h6>
                 </label>
                 <select class="form-select" name="raza" id="raza" aria-label="Default select example">
-                    <option selected>Seleccione la raza</option>
+                    <option selected value="0">Seleccione la raza</option>
                     <option value="1">Saanen</option>
                     <option value="2">Alpino</option>
                     <option value="3">Santandereano</option>
@@ -37,6 +37,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <option selected value="0">Seleccione el origen</option>
                     <option value="1">Comprado</option>
                     <option value="2">Nacido</option>
+                    <option value="4">Genética</option>
                     <option value="3">Otro</option>
                 </select>
             </div>
@@ -121,7 +122,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                 <label class="form-label">
                     <h6>Código del caprino</h6>
                 </label>
-                <input type="text" name="fecha_nac" id="codigo" class="form-control" value="" required>
+                <input type="text" name="fecha_nac" id="codigo"   class="form-control campoTel" value="" required>
             </div>
         </div>
 

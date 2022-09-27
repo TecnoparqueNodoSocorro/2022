@@ -53,10 +53,11 @@ function ListarTratamientos(fecha_ini, fecha_fin, idUser, idCargo, tabla) {
                 response.forEach(x => {
                     tabla.innerHTML += `
                 <tr>
+                <td>${x.id_tratamiento}</td>
+                <td>${x.estado}</td>
                 <td>${x.codigo_caprino}</td>
                 <td>${x.raza}</td>
                 <td>${x.nombres} ${x.apellidos}</td>
-                <td>${x.id_tratamiento}</td>
                 <td>${x.descripcion}</td>
                 <td>${x.fecha_inicio}</td>
                 </tr>
@@ -65,6 +66,8 @@ function ListarTratamientos(fecha_ini, fecha_fin, idUser, idCargo, tabla) {
                 $(".dt_tabla").DataTable({
                     /*  "lengthMenu": [[25, 50, -1], [25, 50, "All"]], */
                     dom: "Bfrtip",
+                    order: ['0', 'desc']
+
                 });
             }
         })

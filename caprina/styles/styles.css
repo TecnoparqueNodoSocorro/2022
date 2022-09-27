@@ -294,3 +294,20 @@ select:focus,
     background-color: #f69100 !important;
     border-color: #6c757d !important;
 } */
+
+
+
+.pickListButtons {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .pickListButtons button {
+    margin-bottom: 15px;
+  }
+  
+  .pickListSelect {
+    height: 200px !important;
+    width: 100% !important;
+  }
+  

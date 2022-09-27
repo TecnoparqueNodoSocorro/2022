@@ -43,7 +43,10 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 </head>
+
 
 
 <body>
@@ -195,6 +198,11 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/c_registroSalidas.js"></script>
     <script src="views/js/c_registrarProduccion.js"></script>
     <script src="views/js/c_reporteProduccion.js"></script>
+
+ 
+
+    <!-- <script src="views/js/c_picklist.js"></script> -->
+
 
 
     <footer class="footer">

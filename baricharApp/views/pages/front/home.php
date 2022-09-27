@@ -9,47 +9,57 @@ require_once "modal.php";
 <div class="title_container">
     <!--  <h1 class="titulo"><strong>BaricharApp</strong></h1> -->
     <div class="full_width_centered">
-        <div class="footer_sign"><<img src="views/images/birds_icon.png" alt="" title="" /></div>
+        <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
+        <div class="footer_names">BaricharApp</div>
 
-        <div class="container_menupopup">
-            <nav class="menu_popup">
-                <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
-                <img src="" alt="">
-                <label class="menu-open-button" for="menu-open">
-                    <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
-                    <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
-                </label>
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
+    </div>
+    <div class="home_programador">
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
+        <div class="programador1">
+            <div class="programador2">
+                <nav class="menu_popup">
+                    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+                    <img src="" alt="">
+                    <label class="menu-open-button" for="menu-open">
+                        <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
+                        <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
+                    </label>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
 
-                <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
 
-            </nav>
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
+
+                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+
+                </nav>
+
+            </div>
 
         </div>
 
+
     </div>
 
-    <div class="footer_names">BaricharApp</div>
+    <!--   <div class="footer_names">BaricharApp</div> -->
     <!-- FIN MENU POPUP -->
     <br>
     <h1 class="titulo">tabla aca</h1>
@@ -146,36 +156,54 @@ require_once "modal.php";
 
 
 
-
 <div class="carousel_container">
     <div class="carousel_container_image">
         <div class="full_width_carousel">
             <h2>PLANES Y SERVICIOS BARICHARA</h2>
             <span class="carousel_titles">Alma Herencia &amp; Encanto</span>
             <div id="weddingcarousel" class="owl-carousel">
-                <div class="left14"><img src="views/images/planesyservicios/barichara.png" alt="" title="" />
-                    <h3>BARICHARA </h3>
+                <div class="left14">
+                    <a href="index.php?pagemenu2=menu2&session=barichara">
+                        <img src="views/images/planesyservicios/barichara.png" alt="" title="" />
+                        <h3>BARICHARA </h3>
+                    </a>
                 </div>
-                <div class="left14"><img src="views/images/planesyservicios/planest.png" alt="" title="" />
-                    <h3>PLANES </h3>
+                <div class="left14">
+                    <a href="index.php?pagemenu2=menu2&session=planes">
+                        <img src="views/images/planesyservicios/planest.png" alt="" title="" />
+                        <h3>PLANES </h3>
+                    </a>
                 </div>
-                <div class="left14"><img src="views/images/planesyservicios/promociones.png" alt="" title="" />
-                    <h3>PROMOCIONES</h3>
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=promociones">
+                        <img src="views/images/planesyservicios/promociones.png" alt="" title="" />
+                        <h3>PROMOCIONES</h3>
+                    </a>
                 </div>
-                <div class="left14_last"><img src="views/images/planesyservicios/vacaciones.png" alt="" title="" />
-                    <h3>VACACIONES</h3>
+                <div class="left14_last"> <a href="index.php?pagemenu2=menu2&session=vacaciones">
+                        <img src="views/images/planesyservicios/vacaciones.png" alt="" title="" />
+                        <h3>VACACIONES</h3>
+                    </a>
                 </div>
-                <div class="left14"><img src="views/images/planesyservicios/lunademiel.png" alt="" title="" />
-                    <h3>LUNA DE MIEL</h3>
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=lunademiel">
+                        <img src="views/images/planesyservicios/lunademiel.png" alt="" title="" />
+                        <h3>LUNA DE MIEL</h3>
+                    </a>
                 </div>
-                <div class="left14"><img src="views/images/planesyservicios/tours.png" alt="" title="" />
-                    <h3>TOUR DE ENTRETENIMIENTO</h3>
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=tour">
+                        <img src="views/images/planesyservicios/tours.png" alt="" title="" />
+                        <h3>TOUR DE ENTRETENIMIENTO</h3>
+                    </a>
                 </div>
-                <div class="left14"><img src="views/images/planesyservicios/bodas.png" alt="" title="" />
-                    <h3>BODAS</h3>
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=bodas">
+                        <img src="views/images/planesyservicios/bodas.png" alt="" title="" />
+                        <h3>BODAS</h3>
+                    </a>
                 </div>
-                <div class="left14_last"><img src="views/images/planesyservicios/turismo.png" alt="" title="" />
-                    <h3>TURISMO</h3>
+                <div class="left14_last">
+                    <a href="index.php?pagemenu2=menu2&session=turismo">
+                        <img src="views/images/planesyservicios/turismo.png" alt="" title="" />
+                        <h3>TURISMO</h3>
+                    </a>
                 </div>
             </div>
             <div class="view_all_carousel"><a href="bridesmaids.html">COTIZA TU BODA AQUI!!!</a></div>
@@ -256,4 +284,25 @@ require_once "modal.php";
         <a href="blog.html" class="view_all">VER TODOS NUESTROS PROVEEDORES</a>
         <div class="clear"></div>
     </div>
+
+
 </div>
+
+
+<?php
+if (isset($_GET["pagemenu2"])) {
+    if ( $_GET["pagemenu2"] == "menu2" ) {
+        include "pages/front/" . $_GET["pagemenu2"] . ".php";
+    } 
+    else {
+        if ($_GET["pagemenu2"] == "menu3") {
+            include "pages/menu2/" . $_GET["pagemenu2"] . ".php";
+        } 
+        }
+        include "pages/front/error.php";
+    }
+
+ else {
+    include "pages/front/error.php";
+}
+?>

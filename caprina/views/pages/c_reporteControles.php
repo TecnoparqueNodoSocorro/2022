@@ -12,7 +12,7 @@ if (isset($_SESSION["id"])) {
 }
 
 ?>
-<div class="container">
+<div class="container" id="div_form_cont_c">
     <h4 class=""> Reporte de Controles</h4>
     <div class="container mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;">
         <div class="row justify-content-md-center mt-2">
@@ -49,10 +49,13 @@ if (isset($_SESSION["id"])) {
         <!-- tabla del reporte generado -->
 
     </div>
-    <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered  table-sm">
+</div>
+
+<div class="container" style="display:grid ;">
+    <div class="table-responsive mt-3 mb-3">
+        <table class="table table-warning table-bordered  table-sm rc_tabla">
             <thead id="thead_reporteReporteUsuario" class="table-light">
-             <!--    <tr>
+                <!--    <tr>
                     <th>Código del caprino</th>
                     <th>Raza</th>
                     <th>Condición corporal</th>
@@ -68,4 +71,6 @@ if (isset($_SESSION["id"])) {
             </tbody>
         </table>
     </div>
+    <button class="fw-bold btn btn-warning  mb-5" id="btn_nueva_consulta_c" type="button">Generar Nuevo Reporte</button>
+
 </div>

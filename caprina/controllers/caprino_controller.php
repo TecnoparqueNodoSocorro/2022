@@ -10,14 +10,15 @@ class ControladorCaprino
   {
     $tabla = "registro_caprino";
     $respuesta = ModelCaprino::registroCaprino($tabla, $data);
-    if ($respuesta == "ok") {
+    return $respuesta;
+   /*  if ($respuesta == "ok") {
       //SI SE RETORNA 1 SE POSTEA EL CAPRINO
       return 1;
     } else
     //SI EL MODELO NO DEVUELVE "OK" ES PORQUE EL CÓDIGO QUE SE ESTÁ REPITIENDO
     {
       return 0;
-    }
+    } */
   }
   //TRAER CAPRINO DE MANERA INDIVUAL, POR CÓDIGO 
   static public function ctrConsultarCaprino()
@@ -99,6 +100,22 @@ class ControladorCaprino
     $crearIdFactura = ModelCaprino::mdlTratamiento($tabla, $descripcion, $id_usuario, $fecha_inicio);
     return $crearIdFactura;
   }
+  //-----------------POST CAPRINOS EN TRATAMIENTO--------------------
+  static public function ctrPostCaprinosTratamiento($idtratamiento, $caprinos)
+  {
+    $tabla = "caprinos_en_tratamiento";
+    $estado = "si";
+    $crearDetalleFactura = ModelCaprino::mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos, $estado);
+    return $crearDetalleFactura;
+  }
+  //-----------------POST CAPRINOS que no recibieron El TRATAMIENTO--------------------
+  static public function ctrPostCaprinosSinTratamiento($idtratamiento, $caprinos)
+  {
+    $tabla = "caprinos_en_tratamiento";
+    $estado = "no";
+    $crearDetalleFactura = ModelCaprino::mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos, $estado);
+    return $crearDetalleFactura;
+  }
 
   //CALCULAR TODOS LOS TRATAMIENTOS ADMIN
   static public function ctrCantidadTratamientos()
@@ -114,13 +131,7 @@ class ControladorCaprino
     $crearIdFactura = ModelCaprino::mdlCantidadTratamientosPorCaprinocultor($tabla, $id);
     return $crearIdFactura;
   }
-  //-----------------POST CAPRINOS EN TRATAMIENTO--------------------
-  static public function ctrPostCaprinosTratamiento($idtratamiento, $caprinos)
-  {
-    $tabla = "caprinos_en_tratamiento";
-    $crearDetalleFactura = ModelCaprino::mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos);
-    return $crearDetalleFactura;
-  }
+
 
   //-----------------GET CAPRINO POR USUARIO--------------------
   static public function ctrGetCaprinoUsuario($data)

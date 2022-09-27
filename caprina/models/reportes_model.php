@@ -163,11 +163,11 @@ class ModelReportes
     static public function mdlReporteTratamientos($tabla, $data)
     {
         
-        $stmt = conexion::conectar()->prepare("SELECT u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
+        $stmt = conexion::conectar()->prepare("SELECT t.estado, u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
         INNER JOIN caprinos_en_tratamiento t ON  t.id_tratamiento=$tabla.id 
         INNER JOIN registro_caprino c ON t.codigo_caprino=c.codigo
         INNER JOIN usuarios u ON $tabla.id_usuario = u.id 
-        WHERE $tabla.fecha_inicio BETWEEN :inicio AND :fin ORDER BY $tabla.fecha_inicio DESC ");
+        WHERE $tabla.fecha_inicio BETWEEN :inicio AND :fin ORDER BY  $tabla.id  DESC ");
 
         $stmt->bindParam(":inicio", $data["fecha_inicio"]);
         $stmt->bindParam(":fin", $data["fecha_fin"]);
@@ -187,11 +187,11 @@ class ModelReportes
      // -------REPORTE DE TRATAMIENTOS--------------
      static public function mdlReporteTratamientosPorUsuario($tabla, $data)
      {
-         $stmt = conexion::conectar()->prepare("SELECT u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
+         $stmt = conexion::conectar()->prepare("SELECT  $tabla.id AS 'idt', t.estado, u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
          INNER JOIN caprinos_en_tratamiento t ON  t.id_tratamiento=$tabla.id 
          INNER JOIN registro_caprino c ON t.codigo_caprino=c.codigo
          INNER JOIN usuarios u ON $tabla.id_usuario = u.id 
-         WHERE $tabla.id_usuario=:id AND $tabla.fecha_inicio BETWEEN :inicio AND :fin ORDER BY $tabla.fecha_inicio DESC ");
+         WHERE $tabla.id_usuario=:id AND $tabla.fecha_inicio BETWEEN :inicio AND :fin ORDER BY idt  DESC ");
  
          $stmt->bindParam(":inicio", $data["fecha_inicio"]);
          $stmt->bindParam(":fin", $data["fecha_fin"]);

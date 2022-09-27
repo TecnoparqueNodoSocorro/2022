@@ -8,27 +8,37 @@ class ModelCaprino
     // ---------------------REGISTRAR CAPRINO--------------
     static public function registroCaprino($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo, id_usuario, genero, dato1, codigo_madre, raza, fecha_nacimiento, origen) 
+
+        //VALIDAR SI EXISTE UN CAPRINO CON EL MISMO CODIGO, SU CUENTAS LAS COLUMNAS Y SI ES 0  DEVUELVE VACIO
+        $stmt = conexion::conectar()->prepare("SELECT  COUNT(codigo) FROM $tabla WHERE codigo = :cod");
+        $stmt->bindParam(":cod", $data["codigo"], PDO::PARAM_STR);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        if ($count > 0) {
+            return "";
+        } else if ($count == 0) {
+            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo, id_usuario, genero, dato1, codigo_madre, raza, fecha_nacimiento, origen) 
         VALUES( :codigo, :id_usuario,:genero, :dato, :codigo_madre, :raza, :fecha_nacimiento, :origen) ");
-        $stmt->bindParam(":id_usuario", $data["usuario"]);
-        $stmt->bindParam(":codigo", $data["codigo"]);
-        $stmt->bindParam(":genero",  $data["genero"], PDO::PARAM_STR);
-        $stmt->bindParam(":dato",  $data["dato"], PDO::PARAM_STR);
-        $stmt->bindParam(":codigo_madre",  $data["codigo_madre"], PDO::PARAM_STR);
-        $stmt->bindParam(":raza",  $data["raza"], PDO::PARAM_STR);
-        $stmt->bindParam(":fecha_nacimiento",  $data["fecha_nacimiento"], PDO::PARAM_STR);
-        $stmt->bindParam(":origen",  $data["origen"], PDO::PARAM_STR);
+            $stmt->bindParam(":id_usuario", $data["usuario"]);
+            $stmt->bindParam(":codigo", $data["codigo"]);
+            $stmt->bindParam(":genero",  $data["genero"], PDO::PARAM_STR);
+            $stmt->bindParam(":dato",  $data["dato"], PDO::PARAM_STR);
+            $stmt->bindParam(":codigo_madre",  $data["codigo_madre"], PDO::PARAM_STR);
+            $stmt->bindParam(":raza",  $data["raza"], PDO::PARAM_STR);
+            $stmt->bindParam(":fecha_nacimiento",  $data["fecha_nacimiento"], PDO::PARAM_STR);
+            $stmt->bindParam(":origen",  $data["origen"], PDO::PARAM_STR);
 
 
-        if ($stmt->execute()) {
-            $stmt->closeCursor();
-            $stmt = null;
-            return "ok";
-        } else {
-            /*  echo "\nPDO::errorInfo():\n" . $data . "modelo";
+            if ($stmt->execute()) {
+                $stmt->closeCursor();
+                $stmt = null;
+                return "ok";
+            } else {
+                /*  echo "\nPDO::errorInfo():\n" . $data . "modelo";
             print_r($stmt->errorInfo()); */
-            $stmt->closeCursor();
-            $stmt = null;
+                $stmt->closeCursor();
+                $stmt = null;
+            }
         }
     }
     // ------------CONSULTAR CAPRINO POR CODIGO---------
@@ -107,16 +117,32 @@ class ModelCaprino
     }
 
 
+
+
+
     //---------MODELO CONSULTAR LOS CAPRINOS ACTIVOS  POR CAPRINOCULTOR--------
     static public function mdlConsultarCaprinoActivo($tabla, $id)
     {
 
         $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estado =1 AND id_usuario=$id ORDER BY codigo ASC ");
-        $stmt->execute();
-        return $stmt->fetchAll();
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
         /*  $stmt->closeCursor();
         $stmt = null; */
     }
+
+
+
+
+
 
     //---------MODELO CONSULTAR LOS CAPRINOS ACTIVOS  POR CAPRINOCULTOR--------
     static public function mdlConsultarCaprinoHembraPorUsuario($tabla, $id)
@@ -202,18 +228,17 @@ class ModelCaprino
 
 
     //------------AGREGAR CAPRINOS AL TRATAMIENTO ANTERIOR----------------   
-    static public function mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos)
+    static public function mdlCaprinosTratamiento($tabla, $idtratamiento, $caprinos, $estado)
     {
-        print_r($caprinos);
+
         foreach ($caprinos   as $value) {
-            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento) VALUES( :id, :codigo, :id_trat) ");
+            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( id_usuario, codigo_caprino, id_tratamiento, estado) VALUES( :id, :codigo, :id_trat,:estado ) ");
             $stmt->bindParam(":id_trat", $idtratamiento);
+            $stmt->bindParam(":estado", $estado);
+
             $stmt->bindParam(":codigo", $value["codigo"]);
             $stmt->bindParam(":id", $value["id_usuario"]);
             if ($stmt->execute()) {
-                return "ok";
-                $stmt->closeCursor();
-                $stmt = null;
             } else {
                 echo "\nPDO::errorInfo():\n";
                 print_r($stmt->errorInfo());
@@ -221,6 +246,7 @@ class ModelCaprino
                 $stmt = null;
             }
         }
+        return "OK";
     }
 
     //--------MODELO CONSULTAR CAPRINOS POR USUARIO---------
@@ -246,7 +272,7 @@ class ModelCaprino
     static public function mdlCaprinosPorUsuario($tabla, $data)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario=:id   ORDER BY codigo DESC");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario=:id  AND estado = 1 ORDER BY codigo DESC");
         $stmt->bindParam(":id", $data["id_usuario"]);
 
         $stmt->execute();

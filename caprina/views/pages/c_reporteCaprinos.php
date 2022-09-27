@@ -5,13 +5,13 @@
 
     <?php
     $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id);
-   // print_r($caprino);
+   //print_r($caprino);
     ?>
 
     <!-- listado de caprinos -->
 
     <div class="table-responsive mt-3 mb-5">
-        <table class="table table-warning table-bordered  table-sm">
+        <table class="table table-warning table-bordered  table-sm rcaprinos_table">
             <thead id="theadListarCaprinosPorUsuario">
                 <tr>
                     <th>Código</th>
@@ -31,7 +31,7 @@
 
                 <?php foreach ($caprino as $key => $value) : ?>
                     <tr>
-                        <td><?php echo $value["codigo"]  ?></td>
+                        <td><?php echo $value["codigo"] ?></td>
                         <td><?php echo $value["genero"]  ?></td>
                         <!-- <td><?php echo $value["dato1"]=='noparto' ? 'Sin partos' : ( $value["dato1"]=='nocapado')  ?></td> -->
                         <td><?php echo $value["dato1"]?></td>

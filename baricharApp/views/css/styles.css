@@ -506,22 +506,18 @@ margin-top: 50% !important;
 /* ---------------------------------plantilla de presentacion de articulos - diversion */
 .publik {
   background-color: rgb(89, 89, 136);
+  box-shadow: 1px 1px #000000;
   border-radius: 20px;
  /*  padding: 0%; */
-  margin: 15px;
+  margin: 5px;
   font-size: 0.8rem;
+    
 }
 
-.publik_serv {
-  background-color: rgb(89, 89, 136);
-  border-radius: 20px;
-  padding: 15px;
-  margin: 15px;
-  font-size: 0.8rem;
-}
 
 .publik-titulo {
   color: #eeeeee;
+      text-shadow: 1px 1px #000000;
 }
 
 .publik_imagen {
@@ -532,7 +528,7 @@ margin-top: 50% !important;
   margin: 0px;
   /* flex */
   display: flex;
-  justify-content: center;
+  justify-content:end;
   align-content: center;
   flex-direction:row;
 }
@@ -549,6 +545,7 @@ margin-top: 50% !important;
   font-weight: bolder;
   color: #ffffff;
    font-size: 0.9rem !important;
+   text-shadow: 1px 1px #000000;
 }
 
 .publik_desc {
@@ -576,28 +573,170 @@ margin-top: 50% !important;
   align-content: center;
   flex-direction: row; */
 
-
-
 }
 
 .container-prearticulos {
   border-radius: 20px;
   padding: 0%;
 }
+/* ---------------------------------plantilla de presentacion de articulos - diversion */
 
-.publik_desc_serv {
+.publik_diversion {
+  background-color: #319FB2;
+  box-shadow: 1px 1px #000000;
+  opacity: 0.9;
   border-radius: 20px;
+ /*  padding: 0%; */
+  margin: 5px;
+  font-size: 0.8rem;
+
+}
+
+.publik_titulo_diversion {
+/*   background-color: gray; */
+  /* flex */
+  display: flex;
+  justify-content:left;
+  align-content:left;
+  flex-direction: row;
+  padding: auto;
+  font-weight: bolder;
+  color: #ffffff;
+   font-size: 0.9rem !important;
+   text-shadow: 1px 1px #000000;
+}
+
+.publik_desc_diversion {
+/*   background-color: green; */
+  /* flex */
+  display: flex;
+  justify-content:left;
+  align-content:left;
+  flex-direction: row;
+/*   padding: 15px; */
+  color: #eeeeee;
+  /*    height: 300px; */
+}
+.publik_container_diversion{
+   display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction: column;
+  text-shadow: 1px 1px #000000;
+}
+
+
+/* ---------------------------------plantilla de presentacion de articulos - cultural */
+.publik_cultural {
+  background-color: rgb(214, 200, 42);
+  box-shadow: 1px 1px #393939;
+  opacity: 0.9;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px #000000;
+
+}
+
+
+.publik_imagen_cultural {
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 15px;
+  margin: 0px;
+  /* flex */
+  display: flex;
+  justify-content:center;
+  align-content: center;
+  flex-direction:row;
+
+}
+
+
+/* ---------------------------------plantilla de presentacion de articulos - setvicios */
+.img_publik_serv{
+  border-radius: 50px;
+  width: 70px;
+  height: 70px;
+}
+.publik_imagen_serv{
+   border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 15px;
+  margin: 0px;
   /* flex */
   display: flex;
   justify-content: center;
   align-content: center;
-  flex-direction: column;
-  padding: 0px;
+  flex-direction:row;
+}
+.publik_desc_serv {
+ /*  background-color: green; */
+  border-radius: 20px;
+  /* flex */
+  display: flex;
+  justify-content: right;
+  align-content: right;
+  flex-direction: row;
+  padding: 10px;
   color: #eeeeee;
-  line-height: 95%;
+  text-shadow: 1px 1px #000000;
 
 }
+.container_servicios{
+  padding: 0%;
+  margin: 0%;
+   display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+    text-shadow: 1px 1px #000000;
+}
+.publik_serv {
+  background-color: rgb(240, 118, 18);
+  box-shadow: 1px 1px #393939;
+  opacity: 0.9;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 15px;
+  font-size: 0.8rem;
+}
 
-/* ---------------------------------plantilla de presentacion de articulos - cultural */
+/* home template  */
+.piedepagina{
+     display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+  color: #eeeeee;
+   font-size: 0.6rem !important;
+}
+.programador1{
+  margin-top: 5%;
+ /*  background-color: chartreuse; */
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:column;
 
-/* ---------------------------------------------------------------------------------- */
+}
+.programador2{
+
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+
+}
+.home_programador{
+   display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+
+}

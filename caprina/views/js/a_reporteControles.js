@@ -13,7 +13,7 @@ let seleccion_enfermedadReporteAdministrador = document.getElementById('seleccio
 
 //------------------DIV DATOS DEL FORMULARIO---------------------------
 let div_formulario = document.getElementById('div_formulario')
-div_formulario ? div_formulario.style.display = "block":''
+div_formulario ? div_formulario.style.display = "block" : ''
 
 //--------------------BOTON PARA REGARGAR LA PAGINA
 let btn_nueva_consulta = document.getElementById('btn_nueva_consulta')

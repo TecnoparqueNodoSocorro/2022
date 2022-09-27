@@ -35,6 +35,38 @@ if (isset($_SESSION["id"])) {
 
     <div class="container" style="background-color:#f8deb9; border-radius:5px;">
 
+
+
+        <input type="button" name="" id="btnTraerCaprinos" onclick="traerCaprinos()" class="btn btn-warning" value="Traer Caprinos">
+
+        <br>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">PickList Demo</h3>
+                </div>
+                <div class="panel-body">
+            <!--         <div class="mb-3">
+                        <label for="" class="form-label"></label>
+                        <textarea class="form-control" name="" id="" rows="3"></textarea>
+                    </div> -->
+                    <div id="pickList"></div>
+
+                    <br>
+
+                    <div class="container" style="display:none" id="divBtnGuardar">
+
+                        <a class="btn btn-danger mb-5" href="index.php?page=c_registroTratamientos">Cancelar </a>
+                        <button class="btn btn-warning mb-5" id="getSelected">Guardar </button>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 
         <div class="row justify-content-md-center mt-2">
             <div class="col-8">
                 <?php $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id) ?>
@@ -54,10 +86,7 @@ if (isset($_SESSION["id"])) {
 
             </div>
             <div class="col-4">
-                <!--   <label class="form-label">
-                    Agregar caprino
-                </label>
- -->
+               
                 <button name="" id="btnAgregarCT" class="btnAgregarCaprinos btn btn-warning" type="button"> Agregar</button>
             </div>
         </div>
@@ -98,5 +127,6 @@ if (isset($_SESSION["id"])) {
 
         <button name="" id="btnGuardarT" class="btn btn-warning" type="button"> Guardar</button>
 
+    </div> -->
     </div>
 </div>

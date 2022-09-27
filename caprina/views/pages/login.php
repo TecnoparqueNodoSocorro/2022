@@ -37,7 +37,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                 </form>
                 <!-- ------------------------------------------------------BORRAR----------------------------------------------------------------- -->
 
-                ADMINISTRADOR 2111
+                ADMINISTRADOR 1111
                 CLAVE 1111 <br>
                 CAPRINOCULTOR 2222
                 CLAVE 2222
