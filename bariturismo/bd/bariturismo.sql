@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2022 a las 18:09:05
+-- Tiempo de generación: 03-10-2022 a las 18:57:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -29,18 +29,29 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `articulos` (
   `id` int(11) NOT NULL,
-  `id_ciudad` varchar(10) NOT NULL,
-  `id_clasificacion` varchar(10) NOT NULL,
-  `nombre` varchar(150) NOT NULL,
-  `direccion` varchar(500) NOT NULL,
-  `telefono` varchar(200) NOT NULL,
-  `coordenadas` varchar(200) NOT NULL,
-  `facebook` varchar(200) NOT NULL,
-  `instagram` varchar(200) NOT NULL,
-  `imagen1` varchar(150) NOT NULL,
-  `imagen2` varchar(150) NOT NULL,
-  `imagen3` varchar(150) NOT NULL
+  `municipio` varchar(20) NOT NULL,
+  `sesion` varchar(20) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `descripcion` text NOT NULL,
+  `direccion` varchar(200) NOT NULL,
+  `coordenadas_x` varchar(300) NOT NULL,
+  `coordenadas_y` varchar(300) NOT NULL,
+  `facebook` varchar(300) NOT NULL,
+  `instagram` varchar(300) NOT NULL,
+  `imagen1` varchar(300) NOT NULL,
+  `imagen2` varchar(300) NOT NULL,
+  `estado` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `articulos`
+--
+
+INSERT INTO `articulos` (`id`, `municipio`, `sesion`, `nombre`, `descripcion`, `direccion`, `coordenadas_x`, `coordenadas_y`, `facebook`, `instagram`, `imagen1`, `imagen2`, `estado`) VALUES
+(3, 'barichara', '67567', 'parque principal', '567567', '888', '999', '56756', '56756', '56756', '', '', 1),
+(6, 'barichara', 'historia', 'capilla', 'descr', '', 'xx', 'yyy', '', '', '', '', 1),
+(7, 'villanueva', 'turismo', '5756', '567', '56756', '567', '567', '56756', '7', 'C:\\fakepath\\package-lock.json', 'C:\\fakepath\\index.php', 1),
+(8, 'barichara', 'historia', 'salto del', 'salto', '', '123123|', '545464', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -65,6 +76,13 @@ CREATE TABLE `users` (
   `pass` varchar(10) NOT NULL,
   `rol` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `usuario`, `pass`, `rol`) VALUES
+(1, 'pedro', '12345', '1');
 
 --
 -- Índices para tablas volcadas
@@ -96,7 +114,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `ciudades`
@@ -108,7 +126,7 @@ ALTER TABLE `ciudades`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

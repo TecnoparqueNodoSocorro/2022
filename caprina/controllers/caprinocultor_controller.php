@@ -32,13 +32,11 @@ class ControladorCaprinocultor
     }
     function ctrMenu()
     {
-        //SI EXISTE LA VARIABLES DE VALIDAR INGRESO
-        if (isset($_SESSION["validar_ingreso"])) {
-            //SI LA VARIBLA ES IGUAL A "OK"
-            if ($_SESSION["validar_ingreso"] == "ok") {
-                //SI EL ID DEL CARGO ES IGUAL A 1 SE DIBUJA EL MENU DEL ADMINISTRADOR
-                if ($_SESSION["id_cargo"] == "1") {
-                    echo '
+
+        if (isset($_SESSION["id_cargo"])) {
+            //SI EL ID DEL CARGO ES IGUAL A 1 SE DIBUJA EL MENU DEL ADMINISTRADOR
+            if ($_SESSION["id_cargo"] == "1") {
+                echo '
           <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <div class="boton">
                     <i class="bi bi-chevron-double-left"></i>
@@ -87,10 +85,10 @@ class ControladorCaprinocultor
           </ul>
           </div>
       </div> ';
-                }
-                if ($_SESSION["id_cargo"] == "2") {
-                    //SI EL UD DE CARGO ES 2 SE DIBUJA EL MENU DEL CAPRINOCULTOR
-                    echo '
+            }
+            if ($_SESSION["id_cargo"] == "2") {
+                //SI EL UD DE CARGO ES 2 SE DIBUJA EL MENU DEL CAPRINOCULTOR
+                echo '
           <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <div class="boton">
               <i class="bi bi-chevron-double-left"></i>
@@ -152,9 +150,8 @@ class ControladorCaprinocultor
           </ul>
           </div>
       </div> ';
-                }
             } else {
-                echo '';
+                echo "";
             }
         } else {
             echo "";

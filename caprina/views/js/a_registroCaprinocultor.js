@@ -103,53 +103,14 @@ function AgregarCaprinocultor() {
     }
 }
 
+//VOLVER DATA TABLE LA TABLA DE REPORTE DE CAPRINOS 
+$(".rca_tabla").DataTable({
+    /*  "lengthMenu": [[25, 50, -1], [25, 50, "All"]], */
+    dom: "Bfrtip",
+}); 
 
 // const data = new FormData(document.getElementById('formulario'));
 //FUNCION SE LE AGREGA A LOS INPUT DE LA CONTRASEÑA DEL REGISTRO DE USUARIOS PARA QUE SOLO PERMITA EL INGRESO DE NUMEROS
-/* function valideKey(evt) {
-
-    // code is the decimal ASCII representation of the pressed key.
-    var code = (evt.which) ? evt.which : evt.keyCode;
-
-    if (code == 8) { // backspace.
-        return true;
-    } else if (code >= 48 && code <= 57) { // is a number.
-        return true;
-    } else { // other keys.
-        return false;
-    }
-}
-
-function check(e) {
-    tecla = (document.all) ? e.keyCode : e.which;
-
-    //Tecla de retroceso para borrar, siempre la permite
-    if (tecla == 8) {
-        return true;
-    }
-
-    // Patrón de entrada, en este caso solo acepta numeros y letras
-    patron = /[A-Za-z0-9]/;
-    tecla_final = String.fromCharCode(tecla);
-    return patron.test(tecla_final);
-}
-function numero(evt) {
-    evt = (evt) ? evt : window.event;
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
-    }
-    return true;
-} */
-/* 
-$("#clave").bind('keypress', function(event) {
-    var regex = new RegExp("^[0-9]+$");
-    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regex.test(key)) {
-      event.preventDefault();
-      return false;
-    }
-  }); */
 
 
 $('.only_numbers').on('input', function () {

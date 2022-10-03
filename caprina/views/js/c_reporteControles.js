@@ -29,6 +29,7 @@ if (btnReporteControlesReporteUsuario) {
         //se llama la función para generar el reporte, funcion se encuentra en a_reporteControles.js
         ReporteControlesCaprinocultor(fecha_inicioReporteUsuario, fecha_finReporteUsuario, tbody_reporte_controlesReporteUsuario,
             thead_reporteReporteUsuario, seleccion_enfermedadReporteUsuario, id_cargoOculto, id_userOculto)
+        // console.log(ReporteControlesCaprinocultor);
     })
 }
 function ReporteControlesCaprinocultor(fecha_inicio, fecha_fin, tbody_reporte_controles, thead_reporte, seleccion_enfermedad, idCargo, idUsuario) {
@@ -41,7 +42,7 @@ function ReporteControlesCaprinocultor(fecha_inicio, fecha_fin, tbody_reporte_co
 
 
         fechas_reporte = { fecha_inicio: fecha_inicio.value, fecha_fin: fecha_fin.value, enfermedad: seleccion_enfermedad.value, cargo: idCargo.value, usuario: idUsuario.value }
-        //   console.log(fechas_reporte);
+        console.log(fechas_reporte);
 
 
 

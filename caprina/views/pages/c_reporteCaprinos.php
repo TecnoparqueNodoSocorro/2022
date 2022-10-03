@@ -39,7 +39,7 @@
                         <td><?php echo $value["raza"] ?></td>
                         <td><?php echo $value["origen"] ?></td>
                         <td><?php echo $value["fecha_nacimiento"] ?></td>
-                        <td><?php echo $value["codigo_madre"] ?></td>
+                        <td><?php echo $value["codigo_madre"]=="0"?'-': $value["codigo_madre"] ?></td>
 
 
 

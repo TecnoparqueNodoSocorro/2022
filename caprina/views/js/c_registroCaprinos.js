@@ -219,6 +219,8 @@ function RegistrarCaprinos() {
                 Swal.fire({
                     icon: 'success',
                     title: `Nuevo caprino registrado `,
+                    confirmButtonColor: '#f69100',
+
                     showConfirmButton: true,
                     allowOutsideClick: () => {
                         const popup = Swal.getPopup()

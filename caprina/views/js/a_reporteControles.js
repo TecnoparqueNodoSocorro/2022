@@ -48,7 +48,7 @@ function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thea
 
 
         fechas_reporte = { fecha_inicio: fecha_inicio.value, fecha_fin: fecha_fin.value, enfermedad: seleccion_enfermedad.value, cargo: idCargo.value, usuario: idUsuario.value }
-        //   console.log(fechas_reporte);
+           console.log(fechas_reporte);
 
 
 
@@ -56,7 +56,7 @@ function ReporteControles(fecha_inicio, fecha_fin, tbody_reporte_controles, thea
         if (seleccion_enfermedad.value == "enfermedad_respiratoria") {
             $.post("views/ajax/reportes_ajax.php", { fechas_reporte }, function (dato) {
                 let response = (JSON.parse(dato))
-                //console.log(response);
+                console.log(response);
                 //SE VALIDA QUE EL ARRAY NO VENGA VACIO, PORQUE TUMBA LA PAGINA SI SE INTENTA DIBUJAR VACIO
                 if (response.length == 0) {
                     Swal.fire({

@@ -8,7 +8,15 @@ class ModelReportes
     // -------REPORTE DE CONTROLES--------------
     static public function mdlReporteControlesT($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla   INNER JOIN registro_caprino c ON $tabla.codigo_caprino=c.codigo  INNER JOIN usuarios u ON $tabla.id_usuario = u.id  WHERE $tabla.fecha BETWEEN :inicio AND :fin ORDER BY $tabla.fecha DESC ");
+       
+        $stmt = conexion::conectar()->prepare("SELECT $tabla.codigo_caprino, u.nombres, u.apellidos, c.raza, $tabla.condicion_corporal,
+        $tabla.enfermedad_gastrointestinal, $tabla.enfermedad_respiratoria, $tabla.enfermedad_mordedura, $tabla.fecha
+         FROM $tabla   
+        INNER JOIN registro_caprino c ON $tabla.codigo_caprino=c.codigo  
+        INNER JOIN usuarios u ON $tabla.id_usuario = u.id  
+        WHERE $tabla.fecha BETWEEN :inicio AND :fin ORDER BY $tabla.fecha DESC ");
+
+
         $stmt->bindParam(":inicio", $data["fecha_inicio"]);
         $stmt->bindParam(":fin", $data["fecha_fin"]);
         if ($stmt->execute()) {
@@ -27,7 +35,14 @@ class ModelReportes
     // -------REPORTE DE CONTROLES ENFERMEDAD RESPIRATORIA--------------
     static public function mdlReporteControlesER($tabla, $data)
     {
-        $stmt = conexion::conectar()->prepare("SELECT codigo_caprino, $tabla.id_usuario, peso, condicion_corporal,enfermedad_respiratoria, fecha, c.raza, u.nombres, u.apellidos FROM $tabla INNER JOIN registro_caprino c ON $tabla.codigo_caprino=c.codigo INNER JOIN usuarios u ON $tabla.id_usuario = u.id   WHERE $tabla.enfermedad_respiratoria !='' AND $tabla.fecha BETWEEN :inicio AND :fin ORDER BY $tabla.fecha DESC ");
+        $stmt = conexion::conectar()->prepare("SELECT codigo_caprino, 
+        $tabla.id_usuario, peso, condicion_corporal,enfermedad_respiratoria, fecha, c.raza, u.nombres, u.apellidos 
+        FROM $tabla 
+        INNER JOIN registro_caprino c ON $tabla.codigo_caprino=c.codigo 
+        INNER JOIN usuarios u ON $tabla.id_usuario = u.id   
+        WHERE $tabla.enfermedad_respiratoria !='' AND $tabla.fecha 
+        BETWEEN :inicio AND :fin ORDER BY $tabla.fecha DESC ");
+
         $stmt->bindParam(":inicio", $data["fecha_inicio"]);
         $stmt->bindParam(":fin", $data["fecha_fin"]);
         if ($stmt->execute()) {
@@ -162,7 +177,7 @@ class ModelReportes
     // -------REPORTE DE TRATAMIENTOS--------------
     static public function mdlReporteTratamientos($tabla, $data)
     {
-        
+
         $stmt = conexion::conectar()->prepare("SELECT t.estado, u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
         INNER JOIN caprinos_en_tratamiento t ON  t.id_tratamiento=$tabla.id 
         INNER JOIN registro_caprino c ON t.codigo_caprino=c.codigo
@@ -184,30 +199,30 @@ class ModelReportes
         }
     }
 
-     // -------REPORTE DE TRATAMIENTOS--------------
-     static public function mdlReporteTratamientosPorUsuario($tabla, $data)
-     {
-         $stmt = conexion::conectar()->prepare("SELECT  $tabla.id AS 'idt', t.estado, u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
+    // -------REPORTE DE TRATAMIENTOS--------------
+    static public function mdlReporteTratamientosPorUsuario($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT  $tabla.id AS 'idt', t.estado, u.nombres, u.apellidos, u.id, c.codigo, c.raza, t.codigo_caprino, t.id_tratamiento, $tabla.fecha_inicio, $tabla.descripcion FROM $tabla 
          INNER JOIN caprinos_en_tratamiento t ON  t.id_tratamiento=$tabla.id 
          INNER JOIN registro_caprino c ON t.codigo_caprino=c.codigo
          INNER JOIN usuarios u ON $tabla.id_usuario = u.id 
          WHERE $tabla.id_usuario=:id AND $tabla.fecha_inicio BETWEEN :inicio AND :fin ORDER BY idt  DESC ");
- 
-         $stmt->bindParam(":inicio", $data["fecha_inicio"]);
-         $stmt->bindParam(":fin", $data["fecha_fin"]);
-         $stmt->bindParam(":id", $data["id_usuario"]);
- 
-         if ($stmt->execute()) {
-             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-             $stmt->closeCursor();
-             $stmt = null;
-         } else {
-             echo "\nPDO::errorInfo():\n" . $data . "modelo";
-             print_r($stmt->errorInfo());
-             $stmt->closeCursor();
-             $stmt = null;
-         }
-     }
+
+        $stmt->bindParam(":inicio", $data["fecha_inicio"]);
+        $stmt->bindParam(":fin", $data["fecha_fin"]);
+        $stmt->bindParam(":id", $data["id_usuario"]);
+
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n" . $data . "modelo";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
 
     //--------MODELO TRAER LAS CANTIDADES DE LECHE POR DIA PARA EL GRAFICO
     static public function mdlGenerarGrafico($tabla, $data)

@@ -13,9 +13,10 @@ class ReportesAjax
     static public function reporteControles($data)
     {
         //EN EL JSON SE ENVÍA EL CARGO, 1, ES ADMINISTRADOR EN LUGAR DE SER 2 SE ENVÍA A OTRO CONTROLADOR
-        if ($data["cargo"] == 1) {
+        if ($data["cargo"] == "1") {
 
             //sE SOLICITA LA INFORMACIÓN UNICAMENTE DE ENFERMEDAD RESPIRATORIA
+           
             if ($data["enfermedad"] == 'enfermedad_respiratoria') {
                 $reporte = ControladorReportes::ctrReporteControlesER($data);
                 $respuesta = json_encode($reporte);
@@ -43,7 +44,7 @@ class ReportesAjax
             }
         }
         //SI EL CARGO ES 2 TAMBIEN SE ENVÍA EL ID DEL USUARIO PARA LISTAR UNICAMENTE LOS REGISTROS QUE TIENEN ESE ID DE USUARIO         
-        else if ($data["cargo"] == 2) {
+        else if ($data["cargo"] == "2") {
             //SE SOLICITA INFORMACION POR USUARIO POR ENFERMEDAD RESPIRATORIA
             if ($data["enfermedad"] == 'enfermedad_respiratoria') {
                 $reporte = ControladorReportes::ctrReporteControlesERPorUsuario($data);

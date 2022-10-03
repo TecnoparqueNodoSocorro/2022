@@ -1,155 +1,98 @@
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<div style="background-color: yellow;">
+<?php
+/* if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["rol"] != "1") {
+        echo '<script>window.location="index.php?page=error"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=login"; </script>';
+} */
+?>
+
+<div class="container">
+
 
     <div class="container1">
+
         <input type="checkbox" id="btn-mas">
+
         <div class="redes">
-            <a href="#" class="fa fa-youtube">Historia</a>
+            <a href="index.php?page=historia&mun=villanueva" class="fa fa-youtube">Historia</a>
         </div>
         <div class="redes">
-            <a href="#" class="fa fa-facebook">Turismo</a>
+            <a href="index.php?page=turismo&mun=villanueva" class="fa fa-facebook">Turismo</a>
         </div>
 
         <div class="redes">
-            <a href="#" class="fa fa-twitter">Restaurantes</a>
+            <a href="index.php?page=restaurantes&mun=villanueva" class="fa fa-twitter">Restaurantes</a>
         </div>
         <div class="redes">
-            <a href="#" class="fa fa-pinterest">Hospedajes</a>
+            <a href="index.php?page=hospedajes&mun=villanueva" class="fa fa-pinterest">Hospedajes</a>
         </div>
         <div class="redes">
-            <a href="#" class="fa fa-pinterest">Generales</a>
+            <a href="index.php?page=generales&mun=villanueva" class="fa fa-pinterest">Generales</a>
         </div>
         <div class="btn-mas">
             <label for="btn-mas" class="fa fa-plus"></label>
         </div>
     </div>
-</div>
-<div class="container container-barichara" style="background-color: blue;">
-    <div class="row">
-        <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 ">
-                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <span class="fs-5 d-none d-sm-inline">Menu</span>
-                        </a>
-                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link align-middle px-0">
-                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                            </li>
 
-                            <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-                <div class="col py-3">
-                    Content area... Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora quasi sint quos, eligendi reiciendis iste? Cum officiis voluptates velit natus, ratione tempore consequatur assumenda et! Explicabo neque adipisci qui blanditiis!
-                </div>
-            </div>
+    <div class="container2">
+        <div class="btn-mas2">
+            <label for="btn-mas2" class="fa fa-plus"></label>
         </div>
-    </div>
-</div>
+        <input type="checkbox" id="btn-mas2">
 
-<hr>
-
-<hr>
-
-
-<div class="container container-villanueva" style="background-color: red;">
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 ">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Menu</span>
-                    </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-            <div class="col py-3">
-                Content area... Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora quasi sint quos, eligendi reiciendis iste? Cum officiis voluptates velit natus, ratione tempore consequatur assumenda et! Explicabo neque adipisci qui blanditiis!
-            </div>
+        <div class="redes2">
+            <a href="index.php?page=historia&mun=barichara" class="fa fa-youtube">Historia</a>
         </div>
+        <div class="redes2">
+            <a href="index.php?page=turismo&mun=barichara" class="fa fa-facebook">Turismo</a>
+        </div>
+
+        <div class="redes2">
+            <a href="index.php?page=restaurantes&mun=barichara" class="fa fa-twitter">Restaurantes</a>
+        </div>
+        <div class="redes2">
+            <a href="index.php?page=hospedajes&mun=barichara" class="fa fa-pinterest">Hospedajes</a>
+        </div>
+        <div class="redes2">
+            <a href="index.php?page=generales&mun=barichara" class="fa fa-pinterest">Generales</a>
+        </div>
+
     </div>
 
 </div>
+
+
 
 
 
 <!-- 
-<div class="wrapper">
-    <div class="item menu">
-        <div class="linee linee1"></div>
-        <div class="linee linee2"></div>
-        <div class="linee linee3"></div>
-    </div>
-    <div class="item gallery">
-        <div class="dot dot1"></div>
-        <div class="dot dot2"></div>
-        <div class="dot dot3"></div>
-        <div class="dot dot4"></div>
-        <div class="dot dot5"></div>
-        <div class="dot dot6"></div>
-    </div>
-    <button class="item add">
-        <div class="circle">
-            <div class="close">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-            </div>
+<div style="background-color: yellow;">
+
+    <div class="container2">
+
+        <input type="checkbox" id="btn-mas2">
+
+        <div class="redes2">
+            <a href="#" class="fa fa-youtube">Historia</a>
         </div>
-        <input type="search" placeholder="search" class="search" />
+        <div class="redes2">
+            <a href="#" class="fa fa-facebook">Turismo</a>
+        </div>
 
-    </button>
-
-    <div class="nav-items items1">
-        <i class="fas fa-home"></i>
+        <div class="redes2">
+            <a href="#" class="fa fa-twitter">Restaurantes</a>
+        </div>
+        <div class="redes2">
+            <a href="#" class="fa fa-pinterest">Hospedajes</a>
+        </div>
+        <div class="redes2">
+            <a href="#" class="fa fa-pinterest">Generales</a>
+        </div>
+        <div class="btn-mas2">
+            <label for="btn-mas2" class="fa fa-plus"></label>
+        </div>
     </div>
-    <div class="nav-items items2">
-        <i class="fas fa-camera"></i>
-    </div>
-    <div class="nav-items items3">
-        <i class="fas fa-folder"></i>
-    </div>
-    <div class="nav-items items4">
-        <i class="fas fa-heart"></i>
-    </div>
-    <div class="box">
-        <div class="box-line box-line1"></div>
-        <div class="box-line box-line2"></div>
-        <div class="box-line box-line3"></div>
-        <div class="box-line box-line4"></div>
-    </div>
-</div>
-
-<div class="effect"></div> -->
+</div> -->

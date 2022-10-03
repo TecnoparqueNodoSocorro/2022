@@ -133,6 +133,7 @@ h6,
 
 .table-warning {
     --bs-table-bg: #f8deb9 !important;
+    border-color: #000000 !important;
 }
 
 .table>tbody {
@@ -290,6 +291,46 @@ select:focus,
     border-color: #f69100 !important;
 }
 
+@media screen and (min-width: 200px) and (max-width : 767.55px) {
+    .content1 {
+        background-color: #ffffff;
+        height: 200px;
+        text-align: left;
+        overflow: scroll;
+        border-radius: 5px;
+    }
+
+    .btn-group-vertical {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: .650rem !important;
+        border-radius: 0.2rem;
+    }
+}
+
+
+@media screen and (min-width: 767.56px) {
+    .content1 {
+        background-color: #ffffff;
+        height: 400px;
+        border-radius: 5px;
+        text-align: left;
+        overflow: scroll;
+    }
+    .btn-group-vertical {
+  margin-top: 25px !important;
+    }
+    
+}
+
+
+
+
+
 /* .btn-secondary {
     background-color: #f69100 !important;
     border-color: #6c757d !important;
@@ -297,17 +338,30 @@ select:focus,
 
 
 
-.pickListButtons {
+/* .pickListButtons {
     padding: 10px;
     text-align: center;
-  }
-  
-  .pickListButtons button {
+}
+
+.pickListButtons button {
     margin-bottom: 15px;
-  }
-  
-  .pickListSelect {
-    height: 200px !important;
-    width: 100% !important;
-  }
-  
+}
+
+
+
+@media screen and (min-width: 200px) and (max-width : 400.55px) {
+    .pickListSelect {
+        height: 100px !important;
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 400.56px) {
+    .pickListSelect {
+        height: 200px !important;
+        width: 100% !important;
+    }
+}
+
+
+ */

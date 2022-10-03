@@ -44,8 +44,8 @@ if (isset($_SESSION["validar_ingreso"])) {
 <!-- tabla del reporte generado -->
 <div class="container" style="display:grid ;">
     <div class="table-responsive mt-3 mb-3">
-        <table class="table table-warning table-bordered  table-sm rc_tabla">
-            <thead id="thead_reporteReporteAdministrador" class="table-light">
+        <table class="table table-warning  table-striped  table-sm rc_tabla">
+            <thead id="thead_reporteReporteAdministrador">
                 <!--    <tr>
                     <th>Código del caprino</th>
                     <th>Raza</th>

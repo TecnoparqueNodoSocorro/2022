@@ -31,102 +31,62 @@ if (isset($_SESSION["id"])) {
                 <input type="date" name="fecha_salida" id="fecha_inicio_tratamiento" class="form-control" value="" required>
             </div>
         </div>
+
+        <!-- BOTON QUE TRAE LOS CAPRINOS, LOS ASIGNA A LA CAJA MUESTRA EL DIV Y SE OCULTA EL BOTON -->
+        <input type="button" name="" id="btnTraerCaprinos" onclick="traerCaprinos()" class="btn btn-warning my-2" value="Traer Caprinos">
+
     </div>
 
-    <div class="container" style="background-color:#f8deb9; border-radius:5px;">
+    <!-- DIV QUE ESTÁ OCULTO SOLO SE MUESTRA CUANDO SE LE DA CLIC AL BOTON TRAER CAPRINOS -->
+    <div class="container mb-5 pb-2" style="background-color:#f8deb9; border-radius:5px; display:none" id="divBtnGuardar">
 
 
+        <div class="row">
+            <!-- CONTENEDOR PRIMER DIV -->
 
-        <input type="button" name="" id="btnTraerCaprinos" onclick="traerCaprinos()" class="btn btn-warning" value="Traer Caprinos">
-
-        <br>
-        <div class="container">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">PickList Demo</h3>
+            <div class="col-12 col-md-5" style=" text-align:right">
+                <div class="badge bg-warning text-wrap my-1" style="width: 6rem; background-color: #fd7e14 !important" id="conteo_caprinos_sin">
+                    
                 </div>
-                <div class="panel-body">
-            <!--         <div class="mb-3">
-                        <label for="" class="form-label"></label>
-                        <textarea class="form-control" name="" id="" rows="3"></textarea>
-                    </div> -->
-                    <div id="pickList"></div>
-
-                    <br>
-
-                    <div class="container" style="display:none" id="divBtnGuardar">
-
-                        <a class="btn btn-danger mb-5" href="index.php?page=c_registroTratamientos">Cancelar </a>
-                        <button class="btn btn-warning mb-5" id="getSelected">Guardar </button>
-
+                <div class="content1">
+                    <!-- ACA VA LA LISTA DE LOS PRIMEROS CAPRINOS -->
+                    <div class="list-group" id="list_group1">
                     </div>
 
+                </div>
+            </div>
 
+            <!-- DIV EN EL QUE VAN LOS BOTONES -->
+            <div class="col-12 col-md-2 my-2 ">
+
+                <div class="btn-group-vertical">
+                <input type="button" name="" onclick="check()" class="btn btn-warning btn-sm" value="Agregar">
+                    <input type="button" name="" onclick="checkAll()" class="btn btn-warning btn-sm" value="Agregar todos">
+                    <input type="button" name="" onclick="remove()" class="btn btn-warning  btn-sm" value="Eliminar">
+                    <input type="button" name="" onclick="removeAll()" class="btn btn-warning btn-sm" value="Eliminar todos">
+                </div>
+            </div>
+
+            <!-- segundo div -->
+
+            <div class="col-12 col-md-5" style=" text-align:right">
+                <div class="badge bg-warning text-wrap my-1" style="width: 6rem; background-color: #fd7e14 !important" id="conteo_caprinos_con">
+                    
+                </div>
+                <div class="content1 mb-5">
+
+                    <div class="list-group" id="list_group2">
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 
-        <div class="row justify-content-md-center mt-2">
-            <div class="col-8">
-                <?php $caprino = ControladorCaprino::ctrConsultarCaprinoActivo($id) ?>
-                <label class="form-label">
-                    <h6> Seleccione el código del caprino</h6>
-                </label>
-                <select class="form-select mb-2" name="cosecha_user" id="caprino_tratamiento_select" aria-label="Default select example">
-                    <option selected>--Seleccione el código del caprino--</option>
-                    <?php foreach ($caprino as $key => $value) : ?>
-
-                        <option value="<?php echo $value["codigo"] ?>"> <?php echo $value["codigo"] ?> </option>
-
-                    <?php endforeach ?>
-
-                </select>
 
 
-            </div>
-            <div class="col-4">
-               
-                <button name="" id="btnAgregarCT" class="btnAgregarCaprinos btn btn-warning" type="button"> Agregar</button>
-            </div>
+        <div class="container mb-5">
+            <a name="" id="cancelarT" href="index.php?page=c_estadoCaprino" class="btn btn-danger" type="button"> Cancelar</a>
+            <button name="" id="btnGuardarT" class="btn btn-warning" type="button"> Guardar</button>
         </div>
     </div>
 
-
-
-    <h5 class="mt-3">Listado de caprinos</h5>
-
-    <?php
-    $caprinos = ControladorCaprino::ctrConsultarCaprino()
-    ?>
-
-
-    <div class="table-responsive mt-3 mb-4">
-        <table class="table table-warning table-bordered  table-sm">
-            <thead>
-                <tr>
-                    <th>Eliminar</th>
-                    <th>Código</th>
-                    <th>Raza</th>
-                    <th>Fecha de nacimiento</th>
-
-                </tr>
-            </thead>
-            <tbody id="tbodyTratamientos">
-
-
-
-
-
-            </tbody>
-        </table>
-    </div>
-
-    <div class="container mb-5" style="text-align:right;">
-        <a name="" id="cancelarT" href="index.php?page=home" class="btn btn-danger" type="button"> Cancelar</a>
-
-        <button name="" id="btnGuardarT" class="btn btn-warning" type="button"> Guardar</button>
-
-    </div> -->
-    </div>
 </div>

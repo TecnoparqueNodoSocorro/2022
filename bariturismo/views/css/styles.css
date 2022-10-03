@@ -1,0 +1,370 @@
+body {
+  background-image: url(../images/fondo.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  /*   display: grid;
+  place-items: center; */
+}
+
+.botonClose {
+  color: #ffffff;
+}
+
+.footer {
+  background-color: #212529;
+  position: fixed;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  bottom: 0;
+  padding: 1em 0;
+  width: 100%;
+  height: 7%;
+}
+
+
+.divPublicaciones {
+  background-color: #212529;
+}
+
+.divPublicaciones .row {
+  background-color: #212529;
+}
+
+.divImg {
+background-color: #000000;
+}
+
+
+@media screen and (min-width: 200px) and (max-width : 767.55px) {
+  .table-dark {
+    font-size: 0.8rem !important;
+  }
+}
+
+.modal-header {
+  background-color: #212529;
+
+}
+
+.modal-title {
+  color: #ffffff !important;
+
+}
+
+.modal-footer {
+  background-color: #212529;
+
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------plantilla de presentacion de articulos - diversion */
+
+.publik {
+  background-color: rgb(89, 89, 136);
+  box-shadow: 1px 1px #000000;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.5rem;
+}
+
+.publik-titulo {
+  color: #eeeeee;
+  text-shadow: 1px 1px #000000;
+}
+
+/* 
+
+.publik_imagen {
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 15px;
+  margin: 0px;
+
+  display: flex;
+  justify-content:end;
+  align-content: center;
+  flex-direction:row;
+}
+
+.publik_titulo {
+
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding: auto;
+  font-weight: bolder;
+  color: #ffffff;
+   font-size: 0.9rem !important;
+   text-shadow: 1px 1px #000000;
+}
+
+.publik_desc {
+
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 15px;
+  color: #eeeeee;
+
+}
+
+.img_publik {
+  border-radius: 10px;
+
+  width: 80px;
+  height: 80px;
+
+
+}
+
+.container-prearticulos {
+  border-radius: 20px;
+  padding: 0%;
+}
+
+
+.publik_diversion {
+  background-color: #319FB2;
+  box-shadow: 1px 1px #000000;
+  opacity: 0.9;
+  border-radius: 20px;
+
+  margin: 5px;
+  font-size: 0.8rem;
+
+}
+
+.publik_titulo_diversion {
+
+  display: flex;
+  justify-content:left;
+  align-content:left;
+  flex-direction: row;
+  padding: auto;
+  font-weight: bolder;
+  color: #ffffff;
+   font-size: 0.9rem !important;
+   text-shadow: 1px 1px #000000;
+}
+
+.publik_desc_diversion {
+
+  display: flex;
+  justify-content:left;
+  align-content:left;
+  flex-direction: row;
+
+  color: #eeeeee;
+
+}
+.publik_container_diversion{
+   display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction: column;
+  text-shadow: 1px 1px #000000;
+}
+
+
+
+.publik_cultural {
+  background-color: rgb(214, 200, 42);
+  box-shadow: 1px 1px #393939;
+  opacity: 0.9;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px #000000;
+
+}
+
+
+.publik_imagen_cultural {
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 15px;
+  margin: 0px;
+
+  display: flex;
+  justify-content:center;
+  align-content: center;
+  flex-direction:row;
+
+}
+
+
+
+.img_publik_serv{
+  border-radius: 50px;
+  width: 70px;
+  height: 70px;
+}
+.publik_imagen_serv{
+   border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 15px;
+  margin: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+}
+.publik_desc_serv {
+
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: right;
+  align-content: right;
+  flex-direction: row;
+  padding: 10px;
+  color: #eeeeee;
+  text-shadow: 1px 1px #000000;
+
+}
+.container_servicios{
+  padding: 0%;
+  margin: 0%;
+   display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+    text-shadow: 1px 1px #000000;
+}
+.publik_serv {
+  background-color: rgb(240, 118, 18);
+  box-shadow: 1px 1px #393939;
+  opacity: 0.9;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 15px;
+  font-size: 0.8rem;
+}
+
+
+.piedepagina{
+     display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+  color: #eeeeee;
+   font-size: 0.6rem !important;
+}
+.programador1{
+  margin-top: 5%;
+
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:column;
+
+}
+.programador2{
+
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+
+}
+.home_programador{
+   display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction:row;
+
+} */
+
+/* --------------------------app historia */
+
+.historia {
+  background-color: #e6ac3a;
+  opacity: 0.8;
+  font-size: 0.8rem;
+  box-shadow: 1px 1px #090909;
+  border-radius: 15px;
+  padding-bottom: 10px;
+}
+
+.col_img_izq {
+  display: flex;
+  justify-content: right;
+  align-content: right;
+  flex-direction: row;
+}
+
+.appimg1 {
+  border-radius: 15px;
+  /*   object-fit: cover;  */
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+}
+
+.apptitulo {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  font-weight: 800;
+  font-size: 0.9rem !important;
+  color: #ffffff;
+  text-shadow: 1px 1px #090909;
+}
+
+.appdescripcion {
+  padding-left: 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px #090909;
+}
+
+#imagenubicacion {
+  padding: 0%;
+  margin: 0%;
+  border-radius: 50px;
+  height: 80px;
+  width: 80px;
+  border-style: ridge;
+}
+
+#imagenubicacion {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+}
+
+.infoapp {
+  /*  background-color: red; */
+}
+
+.googlemapa {
+  border-radius: 50px;
+}
+
+.imagenubicacion {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}

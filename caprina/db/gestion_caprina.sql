@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2022 a las 23:55:56
+-- Tiempo de generación: 29-09-2022 a las 23:41:06
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -278,7 +278,28 @@ INSERT INTO `caprinos_en_tratamiento` (`id`, `id_usuario`, `codigo_caprino`, `id
 (296, 32, '65', 146, 'si'),
 (297, 32, '4532', 146, 'si'),
 (298, 32, '45', 146, 'si'),
-(299, 32, '23423', 146, 'no');
+(299, 32, '23423', 146, 'no'),
+(300, 32, '45', 147, 'si'),
+(301, 32, '65', 148, 'si'),
+(302, 32, '45', 148, 'no'),
+(303, 32, '677', 148, 'no'),
+(304, 32, '4532', 148, 'no'),
+(305, 32, '23423', 148, 'no'),
+(306, 32, '45', 149, 'si'),
+(307, 32, '65', 149, 'si'),
+(308, 32, '677', 149, 'si'),
+(309, 32, '4532', 149, 'si'),
+(310, 32, '23423', 149, 'si'),
+(311, 32, '65', 150, 'si'),
+(312, 32, '677', 150, 'si'),
+(313, 32, '4532', 150, 'si'),
+(314, 32, '23423', 150, 'si'),
+(315, 32, '45', 150, 'no'),
+(316, 32, '23423', 151, 'si'),
+(317, 32, '45', 151, 'no'),
+(318, 32, '65', 151, 'no'),
+(319, 32, '677', 151, 'no'),
+(320, 32, '4532', 151, 'no');
 
 -- --------------------------------------------------------
 
@@ -343,7 +364,10 @@ INSERT INTO `registro_caprino` (`id`, `codigo`, `id_usuario`, `genero`, `dato1`,
 (131, '23423', 32, 'macho', 'Capado', '0', 'Nubiana', '2022-09-02', 'Comprado', 1, '', NULL),
 (132, '4532', 32, 'hembra', 'Sin partos', '0', 'Santandereano', '2022-09-10', 'Genética', 1, '', NULL),
 (133, '65', 32, 'macho', '0', '4532', 'Nubiana', '2022-09-02', 'Nacido', 1, '', NULL),
-(134, '677', 32, 'hembra', 'Sin partos', '0', 'Togenburn', '2022-09-01', 'Otro', 1, '', NULL);
+(134, '677', 32, 'hembra', 'Sin partos', '0', 'Togenburn', '2022-09-01', 'Otro', 1, '', NULL),
+(135, 'p1', 29, 'macho', '0', '13', 'Santandereano', '2022-08-31', 'Nacido', 1, '', NULL),
+(136, 'p2', 29, 'hembra', '0', '13', 'Nubiana', '2022-09-12', 'Nacido', 1, '', NULL),
+(137, '9', 29, 'macho', 'Capado', '0', 'Alpino', '2022-09-01', 'Comprado', 1, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -385,7 +409,10 @@ INSERT INTO `registro_control` (`id`, `codigo_caprino`, `id_usuario`, `peso`, `c
 (72, '434', 29, 45, 2, 'enfermedad respiratoria', '', '', '2022-09-21'),
 (73, '75', 29, 55, 3, 'enfermedad respiratoria', 'enfermedad gastro intestinal', '', '2022-09-21'),
 (74, 'h47', 29, 543, 4, '', '', 'enfermedad por mordedura', '2022-09-21'),
-(75, '75', 29, 89, 4, 'enfermedad respiratoria', 'enfermedad gastro intestinal', 'enfermedad por mordedura', '2022-09-21');
+(75, '75', 29, 89, 4, 'enfermedad respiratoria', 'enfermedad gastro intestinal', 'enfermedad por mordedura', '2022-09-21'),
+(76, '23423', 32, 25, 4, 'prueba todos', '', '', '2022-09-29'),
+(77, '65', 32, 95, 3, '', 'prueba todos', '', '2022-09-29'),
+(78, 'asasfrrer', 29, 44, 1, '', '', 'prueba todos', '2022-09-29');
 
 -- --------------------------------------------------------
 
@@ -513,7 +540,12 @@ INSERT INTO `registro_tratamientos` (`id`, `id_usuario`, `descripcion`, `fecha_i
 (143, 29, 'prueba', '2022-09-26'),
 (144, 29, 'prueba si no', '2022-09-28'),
 (145, 32, 'prueba 5555', '2022-09-07'),
-(146, 32, 'Aa', '2022-09-27');
+(146, 32, 'Aa', '2022-09-27'),
+(147, 32, 'prueba estilos si 45', '2022-09-29'),
+(148, 32, 'prueba 65 si', '2022-09-28'),
+(149, 32, 'prueba todos si', '2022-09-22'),
+(150, 32, 'prueba 3', '2022-09-30'),
+(151, 32, 'prueba', '2022-10-01');
 
 -- --------------------------------------------------------
 
@@ -601,19 +633,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `caprinos_en_tratamiento`
 --
 ALTER TABLE `caprinos_en_tratamiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_caprino`
 --
 ALTER TABLE `registro_caprino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_control`
 --
 ALTER TABLE `registro_control`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_produccion`
@@ -631,7 +663,7 @@ ALTER TABLE `registro_salidas`
 -- AUTO_INCREMENT de la tabla `registro_tratamientos`
 --
 ALTER TABLE `registro_tratamientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
