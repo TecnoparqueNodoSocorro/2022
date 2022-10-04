@@ -12,7 +12,7 @@ if (isset($_SESSION["id"])) {
 }
 
 ?>
-<div class="container">
+<div class="container-fluid">
 
     <h4>Registro de tratamientos</h4>
     <div class="container" style="background-color:#f8deb9; border-radius:5px;">
@@ -38,7 +38,7 @@ if (isset($_SESSION["id"])) {
     </div>
 
     <!-- DIV QUE ESTÁ OCULTO SOLO SE MUESTRA CUANDO SE LE DA CLIC AL BOTON TRAER CAPRINOS -->
-    <div class="container mb-5 pb-2" style="background-color:#f8deb9; border-radius:5px; display:none" id="divBtnGuardar">
+    <div class="container-fluid mb-5 pb-2" style="background-color:#f8deb9; border-radius:5px; display:none" id="divBtnGuardar">
 
 
         <div class="row">

@@ -8,9 +8,9 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
 ?>
-<div class="container">
+<div class="container-fluid" style="text-align: center;">
     <h4 class="mt-2"> Reporte de Tratamientos</h4>
-    <div class="container mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;" id="div_formulario_tratamientos">
+    <div class="container-fluid mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;" id="div_formulario_tratamientos">
         <div class="row justify-content-md-center mt-2">
             <div class="col-6 col-xs-12 col-md-6 col-lg-6 mt-1">
                 <label class="form-label">

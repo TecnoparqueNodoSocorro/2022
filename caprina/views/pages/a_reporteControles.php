@@ -8,7 +8,7 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
 ?>
-<div class="container" id="div_formulario">
+<div class="container-fluid" style="text-align:center;background-color:#f8deb9;border-radius:5px" id="div_formulario">
     <h4 class="mt-2"> Reporte de Controles</h4>
     <div class="row justify-content-md-center mt-2">
         <div class="col-6 col-xs-12 col-md-6 col-lg-6 mt-1">
@@ -42,7 +42,7 @@ if (isset($_SESSION["validar_ingreso"])) {
     <button class="btn btn-warning mt-2 mb-2" id="btnReporteC" type="button">Generar reporte</button>
 </div>
 <!-- tabla del reporte generado -->
-<div class="container" style="display:grid ;">
+<div class="container-fluid" style="display:grid ;">
     <div class="table-responsive mt-3 mb-3">
         <table class="table table-warning  table-striped  table-sm rc_tabla">
             <thead id="thead_reporteReporteAdministrador">

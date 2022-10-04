@@ -8,7 +8,7 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
 ?>
-<div class="container">
+<div class="container-fluid">
     <h4 class="mt-3"> Reporte de Caprinocultores</h4>
     <div class="table-responsive mt-3 mb-5">
         <table class="table table-warning  table-sm rca_tabla">

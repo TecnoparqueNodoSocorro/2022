@@ -12,9 +12,9 @@ if (isset($_SESSION["id"])) {
 }
 
 ?>
-<div class="container" id="div_form_cont_c">
+<div class="container-fluid" id="div_form_cont_c">
     <h4 class=""> Reporte de Controles</h4>
-    <div class="container mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px;">
+    <div class="container-fluid mb-3 mt-2" style="background-color:#f8deb9;border-radius:5px; text-align:center">
         <div class="row justify-content-md-center mt-2">
             <div class="col-6 col-xs-12 col-md-6 col-lg-6 mt-1">
                 <label class="form-label">
@@ -51,7 +51,7 @@ if (isset($_SESSION["id"])) {
     </div>
 </div>
 
-<div class="container" style="display:grid ;">
+<div class="container-fluid" style="display:grid ;">
     <div class="table-responsive mt-3 mb-3">
         <table class="table table-warning table-bordered  table-sm rc_tabla">
             <thead id="thead_reporteReporteUsuario" class="table-light">

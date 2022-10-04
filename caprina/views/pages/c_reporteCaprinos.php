@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
     <!--     <h5 class="mt-2">Listado de Caprinos</h5> -->
 
