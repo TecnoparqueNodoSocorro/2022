@@ -4,6 +4,7 @@ require_once "conexion.php";
 
 class ModelArticulos
 {
+    //post articulo
     static public function mdlPostArticulos($tabla, $data)
     {
         $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (municipio, sesion, nombre, descripcion, direccion, coordenadas_x,
@@ -31,9 +32,11 @@ class ModelArticulos
             $stmt = null;
         }
     }
+
+    //funcion para listar todos los articulos desde el front
     static public function mdlGetArticulos($tabla)
     {
-        $stmt = conexion::conectar()->prepare("SELECT id, nombre, municipio, sesion, estado FROM $tabla ORDER BY id DESC");
+        $stmt = conexion::conectar()->prepare("SELECT id, nombre, municipio, sesion, estado FROM $tabla ORDER BY municipio ASC, id DESC");
 
 
         if ($stmt->execute()) {
@@ -93,6 +96,7 @@ class ModelArticulos
         }
     }
 
+    //update articulo 
 
     static public function mdlEditarArticulo($tabla, $data)
     {
@@ -113,6 +117,26 @@ class ModelArticulos
 
         if ($stmt->execute()) {
             return "OK";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+
+
+    //traer los articulos de cada uno de las sesiones
+    static public function mdlGetArticuloPorSession($tabla, $mun, $session)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT *
+        FROM $tabla  WHERE municipio = '$mun' AND sesion= '$session' AND estado = 1 ORDER BY id DESC");
+
+
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
             $stmt = null;
         } else {

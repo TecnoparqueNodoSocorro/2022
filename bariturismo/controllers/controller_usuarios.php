@@ -34,28 +34,19 @@ class ControladorUsuarios
         if (isset($_SESSION["validar_ingreso"])) {
             //SI LA VARIBLA ES IGUAL A "OK"
             if ($_SESSION["validar_ingreso"] == "ok") {
-                if (isset($_SESSION["rol"])) {
-                    //SI EL ID DEL CARGO ES IGUAL A 1 SE DIBUJA EL MENU DEL EMPLEADO
 
-                    if ($_SESSION["rol"] == "1") {
-                        echo '  <li class="nav-item">
+                echo ' <!--  <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php?page=admin"><i class="bi bi-gear-fill"></i> Administración</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?page=publicaciones"><i class="bi bi-journal-album"></i> Publicaciones</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" id="btnCerrarSesion" href="#"><i class="bi bi-door-closed-fill"></i> Cerrar sesión</a>
                     </li>  ';
-                    } else {
-                        echo '';
-                    }
-                }
             } else {
                 echo '';
             }
-        } else {
-            echo "";
         }
     }
 }

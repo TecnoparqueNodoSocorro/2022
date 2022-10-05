@@ -21,16 +21,20 @@ let facebook_div = document.getElementById('facebook_div')
 let instagram_div = document.getElementById('instagram_div')
 let imagenes_div = document.getElementById('imagenes_div')
 
+//json para guardar los datos 
 let new_articulo = {}
+
+//a cada cambio del select de sesion de se ejecuta la funcion select_session
 sesion ? sesion.addEventListener("change", select_session) : ''
 
+
+//esta funcion oculta o muestra los div de los campos de texto ya que en unas sesiones se capturan difernetes datos
 function select_session() {
     if (sesion.value == "historia") {
         //---------se muestra------------------
         descripcion_div.style.display = "block"
         nombre_div.style.display = "block"
         coordenadas_div.style.display = "block"
-
         //--------------------------------------
 
 
@@ -65,9 +69,6 @@ function select_session() {
         descripcion_div.style.display = "block"
         //--------------------------------------
 
-
-
-
         //--------se oculta------------------
         //--------------------------------------
 
@@ -82,8 +83,6 @@ function select_session() {
         descripcion_div.style.display = "block"
         //--------------------------------------
 
-
-
         //--------se oculta------------------
         //--------------------------------------
 
@@ -95,7 +94,6 @@ function select_session() {
         coordenadas_div.style.display = "block"
         descripcion_div.style.display = "block"
         //--------------------------------------
-
 
         //--------se oculta------------------
         instagram_div.style.display = "none"
@@ -115,18 +113,21 @@ function select_session() {
 }
 
 
-
+//boton para ejecutar la funcion que guarda el articulo
 btn_guardar_art ? btn_guardar_art.addEventListener("click", caputar_datos) : ''
 
 function caputar_datos() {
+    //se valida que haya una sesion seleccionada
     if (sesion.value == "0") {
         DatosIncompletos()
     }
     if (sesion.value == "historia") {
+        //se valida que los datos no se envien vacíos
         if (municipio.value == "0" || nombre_art.value.trim() == "" || coordenadas_x_art.value.trim() == "" || coordenadas_y_art.value.trim() == "" || descripcion_art.value.trim() == "") {
 
             DatosIncompletos()
         } else {
+            //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
             new_articulo = {
                 municipio: municipio.value,
                 nombre: nombre_art.value,
@@ -140,14 +141,18 @@ function caputar_datos() {
                 img1: img1_art.value,
                 img2: img2_art.value,
             }
-            // console.log(new_articulo);
+
+            // se envia el json, por parametro a la funcion que lo lleva a la base de datos
             guardar_articulo(new_articulo)
         }
     } else if (sesion.value == "generales") {
+        //se valida que los datos no se envien vacíos
+
         if (municipio.value == "0" || nombre_art.value.trim() == "" || direccion_art.value.trim() == "" || coordenadas_x_art.value.trim() == "" || coordenadas_y_art.value.trim() == "" || descripcion_art.value.trim() == "") {
             DatosIncompletos()
         }
         else {
+            //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
             new_articulo = {
                 municipio: municipio.value,
                 nombre: nombre_art.value,
@@ -161,14 +166,16 @@ function caputar_datos() {
                 img1: img1_art.value,
                 img2: img2_art.value,
             }
-            // console.log(new_articulo);
+            // se envia el json, por parametro a la funcion que lo lleva a la base de datos
             guardar_articulo(new_articulo)
         }
     } else {
+        //se valida que los datos no se envien vacíos
         if (municipio.value == "0" || nombre_art.value.trim() == "" || direccion_art.value.trim() == "" || coordenadas_x_art.value.trim() == "" || coordenadas_y_art.value.trim() == "" || descripcion_art.value.trim() == "" || facebook_art.value.trim() == "" || instagram_art.value.trim() == "") {
             DatosIncompletos()
         }
         else {
+            //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
             new_articulo = {
                 municipio: municipio.value,
                 nombre: nombre_art.value,
@@ -182,14 +189,16 @@ function caputar_datos() {
                 img1: img1_art.value,
                 img2: img2_art.value,
             }
-            console.log(new_articulo);
+
+            // se envia el json, por parametro a la funcion que lo lleva a la base de datos
             guardar_articulo(new_articulo)
         }
 
     }
 }
-function DatosIncompletos() {
 
+//funcion para mostrar cuando a un formulario le falte algun dato
+function DatosIncompletos() {
     Swal.fire({
         icon: 'error',
         title: `Datos incompletos`,
@@ -200,8 +209,9 @@ function DatosIncompletos() {
     })
 }
 
-function guardar_articulo(new_articulo) {
 
+//funcion que muestra la alerta de confirmacion de guardar articulo
+function guardar_articulo(new_articulo) {
     Swal.fire({
         title: 'Listo',
         text: `¿Guardar Artículo?`,
@@ -226,7 +236,7 @@ function guardar_articulo(new_articulo) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-
+            //llamado ajax que lleva el json que fue enviado por parametro
             $.post("views/ajax/articulos_ajax.php", { new_articulo }, function (dato) {
                 console.log(dato);
             })

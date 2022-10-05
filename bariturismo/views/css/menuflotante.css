@@ -50,10 +50,11 @@
     font-size: 10px;
     display: block;
     text-decoration: none;
-    background: #cc2b2b;
+    background: #a7cb68;
+
     color: #fff;
-    width: 55px;
-    height: 55px;
+    width: 57px;
+    height: 57px;
     line-height: 55px;
     text-align: center;
     border-radius: 50%;
@@ -63,7 +64,7 @@
 
 .redes a:hover {
     background: #fff;
-    color: #cc2b2b;
+    color: #a7cb68;
 }
 
 .redes a {
@@ -83,12 +84,12 @@
 
 .btn-mas label {
     cursor: pointer;
-    background: #f44141;
+    background: #a7cb68;
     font-size: 23px;
 }
 
 #btn-mas:checked~.btn-mas label {
-    transform: rotate(135deg);
+    transform: rotate(180deg);
     font-size: 25px;
 }
 
@@ -110,10 +111,10 @@
     font-size: 10px;
     display: block;
     text-decoration: none;
-    background: #cc2b2b;
+    background: #ff9800;
     color: #fff;
-    width: 55px;
-    height: 55px;
+    width: 57px;
+    height: 57px;
     margin-top: 10px !important;
     line-height: 55px;
     text-align: center;
@@ -124,7 +125,7 @@
 
 .redes2 a:hover {
     background: #fff;
-    color: #cc2b2b;
+    color: #ff9800;
 }
 
 .redes2 a {
@@ -141,13 +142,13 @@
 
 .btn-mas2 label {
     cursor: pointer;
-    background: #f44141;
+    background: #ff9800;
     font-size: 23px;
 }
 
 #btn-mas2:checked~.btn-mas2 label {
-    transform: rotate(135deg);
-    font-size: 500px;
+    transform: rotate(180deg);
+    font-size: 25px;
 }
 
 #btn-mas2:checked~.redes2 a {

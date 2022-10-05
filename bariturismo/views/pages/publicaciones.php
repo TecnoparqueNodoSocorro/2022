@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-fluid">
 
 
-  <div class="table-responsive mb-5" style="margin-top: 80px;">
+  <div class="table-responsive mb-5 pb-5" style="margin-top: 80px;">
     <a type="button" href="index.php?page=agregar_articulo" class="btn btn-primary mt-4 mb-4" style="float: right;">Nuevo Artículo</a>
     <?php
     $art = ControladorArticulos::ctrGetArticulos();
@@ -122,7 +122,7 @@
           </div>
 
           <div class="col-6 col-md-6  my-2">
-          <picture>
+            <picture>
               <source srcset="views/images/p2.jpg" type="image/svg+xml">
               <img src="views/images/p2.jpg" class="img-fluid img-thumbnail" alt="...">
             </picture>
@@ -134,7 +134,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" id="btn_guardar_edit"  class="btn btn-primary">Guardar cambios</button>
+          <button type="button" id="btn_guardar_edit" class="btn btn-primary">Guardar cambios</button>
         </div>
       </div>
     </div>

@@ -33,16 +33,16 @@
             <a href="index.php?page=generales&mun=villanueva" class="fa fa-pinterest">Generales</a>
         </div>
         <div class="btn-mas">
-            <label for="btn-mas" class="fa fa-plus"></label>
+            <label for="btn-mas" class="fa fa-plus"><i class="bi bi-menu-up"></i></label>
         </div>
     </div>
 
     <div class="container2">
-        <div class="btn-mas2">
-            <label for="btn-mas2" class="fa fa-plus"></label>
-        </div>
-        <input type="checkbox" id="btn-mas2">
 
+        <input type="checkbox"  id="btn-mas2">
+        <div class="btn-mas2">
+            <label for="btn-mas2"><i class="bi bi-menu-down"></i></label>
+        </div>
         <div class="redes2">
             <a href="index.php?page=historia&mun=barichara" class="fa fa-youtube">Historia</a>
         </div>

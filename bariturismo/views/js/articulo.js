@@ -23,6 +23,7 @@ let imagenes_div_edit = document.getElementById('imagenes_div_edit')
 
 
 
+//extraer el id, el estado y la sesion mediante los data atributos
 let btnfull = document.querySelectorAll(".boton");
 btnfull.forEach((el) => {
     el.addEventListener("click", (e) => {
@@ -34,17 +35,20 @@ btnfull.forEach((el) => {
     })
 })
 
+//se crea un json con el estado actual y el id del articulo ambos datos se sacaron en la funcion anterior de los data atributos
 function cambiar_estado() {
     new_estado = {
         id: id,
         estado: estado
     }
-
+    //a la funcion de cambiar de estado se le envia por parametro el json creado anteriormente
     estado_nuevo(new_estado)
 
 }
 
 function estado_nuevo(new_estado) {
+    //se hace la validacion de si el articulo hay que activarlo o desactivarlo esta validación es unicamente para el texto de la alerta
+    //1 es activo, entonces si el estado actual es 1, la alerta mostrara el dialogo de desactivar
     if (estado == 1) {
         Swal.fire({
             title: 'Listo',
@@ -70,7 +74,7 @@ function estado_nuevo(new_estado) {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-
+                //se envia al ajax
                 $.post("views/ajax/articulos_ajax.php", { new_estado }, function (dato) {
                     console.log(dato);
                 })
@@ -101,6 +105,8 @@ function estado_nuevo(new_estado) {
         })
 
     }
+    //se hace la validacion de si el articulo hay que activarlo o desactivarlo esta validación es unicamente para el texto de la alerta
+    //0 es inactivo, entonces si el estado actual es 0, la alerta mostrara el dialogo de activar
     else if (estado == 0) {
         Swal.fire({
             title: 'Listo',
@@ -126,7 +132,7 @@ function estado_nuevo(new_estado) {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-
+                //se envia el json creado al ajax
                 $.post("views/ajax/articulos_ajax.php", { new_estado }, function (dato) {
                     console.log(dato);
                 })
@@ -222,8 +228,11 @@ function eliminar(delete_articulo) {
     })
 }
 
+//funcion que se ejecuta al abrir el modal
 function openModalEdit() {
+    //codigo para abrir un modal
     $('#editar_articulo_modal').modal('show');
+    //con los atributos data que son extraidos al darle click al boton  se crea un json
     get_info = {
         id: id,
         estado: estado
@@ -232,7 +241,7 @@ function openModalEdit() {
         response = JSON.parse(dato)
         console.log(response);
 
-        //se asignan los valores a las cajas
+        //se asignan los valores que trae de la base de datos  a las cajas del modal de editar para mostrar la informacion actual
         nombre_edit.value = response.nombre,
             direccion_edit.value = response.direccion,
             coordenadas_x_edit.value = response.coordenadas_x,
@@ -241,6 +250,9 @@ function openModalEdit() {
             facebook_edit.value = response.facebook,
             instagram_edit.value = response.instagram
     })
+
+    //validacion para mostrar div  y ocultar los div que no son necesarios 
+    //ESTO DEPENDE DE LA SESION LA CUAL SE EXTRAE DE LOS ATRIBUTOS DATA Y SE GUARDA EN LA VARIABLE session
     if (session == "historia") {
 
         //---------se muestra------------------
@@ -255,9 +267,6 @@ function openModalEdit() {
         facebook_div_edit.style.display = "none"
         direccion_div_edit.style.display = "none"
         //--------------------------------------
-
-
-
 
     } else if (session == "restaurantes") {
         //---------se muestra------------------
@@ -285,8 +294,6 @@ function openModalEdit() {
         //--------------------------------------
 
 
-
-
         //--------se oculta------------------
         //--------------------------------------
 
@@ -299,8 +306,6 @@ function openModalEdit() {
         coordenadas_div_edit.style.display = "block"
         descripcion_div_edit.style.display = "block"
         //--------------------------------------
-
-
 
         //--------se oculta------------------
         //--------------------------------------
@@ -331,16 +336,18 @@ function openModalEdit() {
 
 }
 
-
+//boton que ejecuta la funcion de guardar los cambios realizados a los articulos
 btn_guardar_edit ? btn_guardar_edit.addEventListener("click", guardar_edit) : ''
 
 
 
 function guardar_edit() {
+    //se valida la sesion actual para saber cuales datos son obligatorios porque  en todas las sesiones se guardan diferentes datos
     if (session == "historia") {
         if (nombre_edit.value.trim() == "" || coordenadas_x_edit.value.trim() == "" || coordenadas_y_edit.value.trim() == "" || descripcion_edit.value.trim() == "") {
             DatosIncompletos()
         } else {
+            //se crea el json para enviar por ajax al controlador
             edit_articulo = {
                 id: id,
                 nombre: nombre_edit.value,
@@ -353,12 +360,17 @@ function guardar_edit() {
                 img1: img1_edit.value,
                 img2: img2_edit.value,
             }
-            guardar_articulo(edit_articulo)
+            //se lama la funcion y como parametro se le envia el json creado anteriormente
+            guardar_edit_articulo(edit_articulo)
         }
-    } else if (session == "generales") {
+    }
+    //se valida la sesion actual para saber cuales datos son obligatorios porque  en todas las sesiones se guardan diferentes datos
+    else if (session == "generales") {
         if (nombre_edit.value.trim() == "" || direccion_edit.value.trim() == "" || coordenadas_x_edit.value.trim() == "" || coordenadas_y_edit.value.trim() == "" || descripcion_edit.value.trim() == "") {
             DatosIncompletos()
         } else {
+            //se crea el json para enviar por ajax al controlador
+
             edit_articulo = {
                 id: id,
                 nombre: nombre_edit.value,
@@ -371,12 +383,18 @@ function guardar_edit() {
                 img1: img1_edit.value,
                 img2: img2_edit.value,
             }
-            guardar_articulo(edit_articulo)
+            //se lama la funcion y como parametro se le envia el json creado anteriormente
+
+            guardar_edit_articulo(edit_articulo)
         }
     } else {
+        //se valida la sesion actual para saber cuales datos son obligatorios porque  en todas las sesiones se guardan diferentes datos
+
         if (nombre_edit.value.trim() == "" || direccion_edit.value.trim() == "" || coordenadas_x_edit.value.trim() == "" || coordenadas_y_edit.value.trim() == "" || descripcion_edit.value.trim() == "" || facebook_edit.value.trim() == "" || instagram_edit.value.trim() == "") {
             DatosIncompletos()
         } else {
+            //se crea el json para enviar por ajax al controlador
+
             edit_articulo = {
                 id: id,
                 nombre: nombre_edit.value,
@@ -389,13 +407,16 @@ function guardar_edit() {
                 img1: img1_edit.value,
                 img2: img2_edit.value,
             }
-            guardar_articulo(edit_articulo)
+            //se lama la funcion y como parametro se le envia el json creado anteriormente
+
+            guardar_edit_articulo(edit_articulo)
         }
     }
 
 }
 
-function guardar_articulo(edit_articulo) {
+//funcion coge el json con los datos y lo envia al ajax
+function guardar_edit_articulo(edit_articulo) {
 
     Swal.fire({
         title: 'Listo',
@@ -421,7 +442,7 @@ function guardar_articulo(edit_articulo) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-
+            //llamada de ajax
             $.post("views/ajax/articulos_ajax.php", { edit_articulo }, function (dato) {
                 console.log(dato);
             })
@@ -452,4 +473,3 @@ function guardar_articulo(edit_articulo) {
     })
 
 }
-
