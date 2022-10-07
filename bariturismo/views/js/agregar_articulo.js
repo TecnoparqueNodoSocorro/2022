@@ -1,7 +1,9 @@
+
+
 //--------VARIABLES-------------------//
-let municipio = document.getElementById('municipio')
+/* let municipio = document.getElementById('municipio') */
 let sesion = document.getElementById('sesion')
-let nombre_art = document.getElementById('nombre_art')
+/* let nombre_art = document.getElementById('nombre_art')
 let direccion_art = document.getElementById('direccion_art')
 let coordenadas_x_art = document.getElementById('coordenadas_x_art')
 let coordenadas_y_art = document.getElementById('coordenadas_y_art')
@@ -10,7 +12,7 @@ let facebook_art = document.getElementById('facebook_art')
 let instagram_art = document.getElementById('instagram_art')
 let img1_art = document.getElementById('img1_art')
 let img2_art = document.getElementById('img2_art')
-let btn_guardar_art = document.getElementById('btn_guardar_art')
+let btn_guardar_art = document.getElementById('btn_guardar_art') */
 
 //--------DIV DE LOS INPUTS------------------//
 let nombre_div = document.getElementById('nombre_div')
@@ -111,91 +113,53 @@ function select_session() {
     }
 
 }
+let formulario_guardar_art = document.querySelector('#formulario_articulo')
+
+formulario_guardar_art ? formulario_guardar_art.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
 
 
-//boton para ejecutar la funcion que guarda el articulo
-btn_guardar_art ? btn_guardar_art.addEventListener("click", caputar_datos) : ''
-
-function caputar_datos() {
-    //se valida que haya una sesion seleccionada
-    if (sesion.value == "0") {
+    console.log(data);
+    let { img2_art, img1_art, instagram_art, facebook_art, descripcion_art, coordenadas_y_art, coordenadas_x_art, direccion_art, nombre_art, sesion, municipio } = data
+    if (sesion == "0") {
         DatosIncompletos()
     }
-    if (sesion.value == "historia") {
+    if (sesion == "historia") {
         //se valida que los datos no se envien vacíos
-        if (municipio.value == "0" || nombre_art.value.trim() == "" || coordenadas_x_art.value.trim() == "" || coordenadas_y_art.value.trim() == "" || descripcion_art.value.trim() == "") {
+        if (municipio == "0" || nombre_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || img1_art.size == 0 || img2_art.size == 0) {
 
             DatosIncompletos()
         } else {
-            //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
-            new_articulo = {
-                municipio: municipio.value,
-                nombre: nombre_art.value,
-                session: sesion.value,
-                direccion: direccion_art.value,
-                coorx: coordenadas_x_art.value,
-                coory: coordenadas_y_art.value,
-                face: facebook_art.value,
-                insta: instagram_art.value,
-                descr: descripcion_art.value,
-                img1: img1_art.value,
-                img2: img2_art.value,
-            }
 
-            // se envia el json, por parametro a la funcion que lo lleva a la base de datos
-            guardar_articulo(new_articulo)
+            guardar_articulo()
         }
-    } else if (sesion.value == "generales") {
+    } else if (sesion == "generales") {
         //se valida que los datos no se envien vacíos
 
-        if (municipio.value == "0" || nombre_art.value.trim() == "" || direccion_art.value.trim() == "" || coordenadas_x_art.value.trim() == "" || coordenadas_y_art.value.trim() == "" || descripcion_art.value.trim() == "") {
+        if (municipio == "0" || nombre_art.trim() == "" || direccion_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || img1_art.size == 0 || img2_art.size == 0) {
             DatosIncompletos()
         }
         else {
             //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
-            new_articulo = {
-                municipio: municipio.value,
-                nombre: nombre_art.value,
-                session: sesion.value,
-                direccion: direccion_art.value,
-                coorx: coordenadas_x_art.value,
-                coory: coordenadas_y_art.value,
-                face: facebook_art.value,
-                insta: instagram_art.value,
-                descr: descripcion_art.value,
-                img1: img1_art.value,
-                img2: img2_art.value,
-            }
-            // se envia el json, por parametro a la funcion que lo lleva a la base de datos
-            guardar_articulo(new_articulo)
+
+            guardar_articulo()
         }
     } else {
         //se valida que los datos no se envien vacíos
-        if (municipio.value == "0" || nombre_art.value.trim() == "" || direccion_art.value.trim() == "" || coordenadas_x_art.value.trim() == "" || coordenadas_y_art.value.trim() == "" || descripcion_art.value.trim() == "" || facebook_art.value.trim() == "" || instagram_art.value.trim() == "") {
+        if (municipio == "0" || nombre_art.trim() == "" || direccion_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || facebook_art.trim() == "" || instagram_art.trim() == "" || img1_art.size == 0 || img2_art.size == 0) {
             DatosIncompletos()
         }
         else {
-            //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
-            new_articulo = {
-                municipio: municipio.value,
-                nombre: nombre_art.value,
-                session: sesion.value,
-                direccion: direccion_art.value,
-                coorx: coordenadas_x_art.value,
-                coory: coordenadas_y_art.value,
-                face: facebook_art.value,
-                insta: instagram_art.value,
-                descr: descripcion_art.value,
-                img1: img1_art.value,
-                img2: img2_art.value,
-            }
 
-            // se envia el json, por parametro a la funcion que lo lleva a la base de datos
-            guardar_articulo(new_articulo)
+            guardar_articulo()
         }
 
     }
-}
+
+
+
+}:''
 
 //funcion para mostrar cuando a un formulario le falte algun dato
 function DatosIncompletos() {
@@ -210,8 +174,74 @@ function DatosIncompletos() {
 }
 
 
+var fileInput = document.getElementById("img2_art");
+var fileInput1 = document.getElementById("img1_art");
+
+fileInput ?fileInput.addEventListener('change', function () {
+    var filePath = this.value;
+    var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+    var sizeByte = this.files[0].size;
+    var siezekiloByte = parseInt(sizeByte / 1024);
+    console.log(siezekiloByte);
+    if (!allowedExtensions.exec(filePath)) {
+        Swal.fire({
+            title: 'Error de formato',
+            text: `Por favor seleccione un archivo de imagen valido (JPEG/JPG/PNG)`,
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonColor: '#0d6efd',
+
+        })
+        fileInput.value = '';
+        return false;
+    } if (siezekiloByte > 650) {
+        Swal.fire({
+            title: 'Máximo 800kb',
+            text: `Por favor seleccione un tamaño de imagen más pequeña`,
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonColor: '#0d6efd',
+
+        })
+        fileInput.value = '';
+        return false;
+    }
+}):''
+
+fileInput1 ? fileInput1.addEventListener('change', function () {
+    var filePath = this.value;
+    var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+    var sizeByte = this.files[0].size;
+    var siezekiloByte = parseInt(sizeByte / 4024);
+    console.log(siezekiloByte);
+    if (!allowedExtensions.exec(filePath)) {
+        Swal.fire({
+            title: 'Error de formato',
+            text: `Por favor seleccione un archivo de imagen valido (JPEG/JPG/PNG)`,
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonColor: '#0d6efd',
+
+        })
+        fileInput1.value = '';
+        return false;
+    } if (siezekiloByte > 650) {
+        Swal.fire({
+            title: 'Máximo 800kb',
+            text: `Por favor seleccione un tamaño de imagen más pequeña`,
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonColor: '#0d6efd',
+
+        })
+        fileInput1.value = '';
+        return false;
+    }
+}):''
+
+
 //funcion que muestra la alerta de confirmacion de guardar articulo
-function guardar_articulo(new_articulo) {
+function guardar_articulo() {
     Swal.fire({
         title: 'Listo',
         text: `¿Guardar Artículo?`,
@@ -237,9 +267,19 @@ function guardar_articulo(new_articulo) {
     }).then((result) => {
         if (result.isConfirmed) {
             //llamado ajax que lleva el json que fue enviado por parametro
-            $.post("views/ajax/articulos_ajax.php", { new_articulo }, function (dato) {
-                console.log(dato);
-            })
+
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/articulos_ajax.php',
+                data: new FormData(formulario_guardar_art),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
             Swal.fire({
                 icon: 'success',
                 title: `Artículo guardado`,
@@ -267,4 +307,3 @@ function guardar_articulo(new_articulo) {
     })
 
 }
-

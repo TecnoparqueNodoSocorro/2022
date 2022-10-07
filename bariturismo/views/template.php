@@ -33,7 +33,11 @@ if (isset($_SESSION["rol"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </script>
-
+    <!-- datatable -->
+    <!--     <link rel="stylesheet" href="views/assets/datatables.min.css">
+    <script src="views/assets/pdfmake/pdfmake.min.js"></script>
+    <script src="views/assets/pdfmake/vfs_fonts.js"></script>
+    <script src="views/assets/datatables.min.js"></script> -->
 
     <link rel="stylesheet" href="views/css/styles.css">
     <link rel="stylesheet" href="views/css/menuflotante.css">
@@ -41,6 +45,10 @@ if (isset($_SESSION["rol"])) {
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>

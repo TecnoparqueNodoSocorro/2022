@@ -12,6 +12,14 @@ let img1_edit = document.getElementById('img1_edit')
 let img2_edit = document.getElementById('img2_edit')
 let btn_guardar_edit = document.getElementById('btn_guardar_edit')
 
+let idEdit = document.getElementById('idEdit')
+
+let img1 = document.getElementById('img1')
+let img11 = document.getElementById('img11')
+
+let img2 = document.getElementById('img2')
+let img22 = document.getElementById('img22')
+
 //--------DIV DE LOS INPUTS------------------//
 let nombre_div_edit = document.getElementById('nombre_div_edit')
 let direccion_div_edit = document.getElementById('direccion_div_edit')
@@ -239,7 +247,7 @@ function openModalEdit() {
     }
     $.post("views/ajax/articulos_ajax.php", { get_info }, function (dato) {
         response = JSON.parse(dato)
-        console.log(response);
+        /*    console.log(response); */
 
         //se asignan los valores que trae de la base de datos  a las cajas del modal de editar para mostrar la informacion actual
         nombre_edit.value = response.nombre,
@@ -248,7 +256,16 @@ function openModalEdit() {
             coordenadas_y_edit.value = response.coordenadas_y,
             descripcion_edit.value = response.descripcion,
             facebook_edit.value = response.facebook,
-            instagram_edit.value = response.instagram
+            instagram_edit.value = response.instagram,
+            idEdit.value = response.id,
+        img11.src = "views/views/" + response.imagen1,
+        img1.src = "views/views/" + response.imagen1,
+        img22.src = "views/views/" + response.imagen2,
+        img2.src = "views/views/" + response.imagen2,
+        img1_edit.value = response.imagen1,
+        img2_edit.value = response.imagen2
+
+
     })
 
     //validacion para mostrar div  y ocultar los div que no son necesarios 
@@ -335,7 +352,7 @@ function openModalEdit() {
     }
 
 }
-
+/* 
 //boton que ejecuta la funcion de guardar los cambios realizados a los articulos
 btn_guardar_edit ? btn_guardar_edit.addEventListener("click", guardar_edit) : ''
 
@@ -446,6 +463,118 @@ function guardar_edit_articulo(edit_articulo) {
             $.post("views/ajax/articulos_ajax.php", { edit_articulo }, function (dato) {
                 console.log(dato);
             })
+            Swal.fire({
+                icon: 'success',
+                title: `Artículo editado`,
+                showConfirmButton: true,
+                confirmButtonColor: '#0d6efd',
+                scrollbarPadding: false,
+                heightAuto: false,
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+        }
+    })
+
+}
+ */
+
+
+let formulario_edit_articulo = document.querySelector('#formulario_edit_articulo')
+
+formulario_edit_articulo ? formulario_edit_articulo.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    let { /* img2_edit, img1_edit, */ instagram_edit, facebook_edit, descripcion_edit, coordenadas_y_edit, coordenadas_x_edit, direccion_edit, nombre_edit } = data
+
+    /*  console.log(img11.src="dfkjshdfjksd");
+ 
+     console.log(img1.src="dfkjshdfjksd"); */
+    //se valida la sesion actual para saber cuales datos son obligatorios porque  en todas las sesiones se guardan diferentes datos
+    if (session == "historia") {
+        if (nombre_edit.trim() == "" || coordenadas_x_edit.trim() == "" || coordenadas_y_edit.trim() == "" || descripcion_edit.trim() == "") {
+            DatosIncompletos()
+        } else {
+
+            guardar_edit_articulo()
+        }
+    }
+    //se valida la sesion actual para saber cuales datos son obligatorios porque  en todas las sesiones se guardan diferentes datos
+    else if (session == "generales") {
+        if (nombre_edit.trim() == "" || direccion_edit.trim() == "" || coordenadas_x_edit.trim() == "" || coordenadas_y_edit.trim() == "" || descripcion_edit.trim() == "") {
+            DatosIncompletos()
+        } else {
+            //se crea el json para enviar por ajax al controlador
+            console.log(data);
+            guardar_edit_articulo()
+        }
+    } else {
+        //se valida la sesion actual para saber cuales datos son obligatorios porque  en todas las sesiones se guardan diferentes datos
+
+        if (nombre_edit.trim() == "" || direccion_edit.trim() == "" || coordenadas_x_edit.trim() == "" || coordenadas_y_edit.trim() == "" || descripcion_edit.trim() == "" || facebook_edit.trim() == "" || instagram_edit.trim() == "") {
+            DatosIncompletos()
+        } else {
+            //se crea el json para enviar por ajax al controlador
+            guardar_edit_articulo()
+        }
+    }
+
+} : ''
+
+//funcion coge el json con los datos y lo envia al ajax
+function guardar_edit_articulo() {
+
+    Swal.fire({
+        title: 'Listo',
+        text: `Editar Artículo?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#0d6efd',
+        cancelButtonColor: '#212529',
+        scrollbarPadding: false,
+        heightAuto: false,
+        confirmButtonText: 'Editar',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //llamada de ajax
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/articulos_ajax.php',
+                data: new FormData(formulario_edit_articulo),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
             Swal.fire({
                 icon: 'success',
                 title: `Artículo editado`,

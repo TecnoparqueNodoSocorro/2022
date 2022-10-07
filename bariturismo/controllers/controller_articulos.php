@@ -5,6 +5,7 @@ class ControladorArticulos
     //post articulo
     static public function ctrPostArticulos($data)
     {
+
         $tabla = "articulos";
         $respuesta = ModelArticulos::mdlPostArticulos($tabla, $data);
         return $respuesta;

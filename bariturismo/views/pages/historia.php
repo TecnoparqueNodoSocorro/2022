@@ -10,7 +10,7 @@ if (isset($_GET["mun"])) {
 
     <?php
     $historia = ControladorArticulos::ctrGetArticuloPorSession($mun, $session);
-    //print_r($historia)
+    // print_r($historia)
     ?>
 
     <h1 class="publik-titulo"> <?php echo $mun == 'barichara' ? 'Barichara' : 'Villanueva' ?> - <?php echo $session ?> </h1>
@@ -23,14 +23,14 @@ if (isset($_GET["mun"])) {
                         <div class="row mx-1 my-1">
                             <div class="col-6">
                                 <picture>
-                                    <source srcset="views/images/p1.jpg" type="image/svg+xml">
-                                    <img src="views/images/p1.jpg" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="views/views/<?php echo $value["imagen1"] ?>" type="image/svg+xml">
+                                    <img src="views/views/<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                             <div class="col-6">
                                 <picture>
-                                    <source srcset="views/images/p1.jpg" type="image/svg+xml">
-                                    <img src="views/images/p1.jpg" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="views/views/<?php echo $value["imagen2"] ?>" type="image/svg+xml">
+                                    <img src="views/views/<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                         </div>

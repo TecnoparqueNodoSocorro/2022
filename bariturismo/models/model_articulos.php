@@ -36,7 +36,7 @@ class ModelArticulos
     //funcion para listar todos los articulos desde el front
     static public function mdlGetArticulos($tabla)
     {
-        $stmt = conexion::conectar()->prepare("SELECT id, nombre, municipio, sesion, estado FROM $tabla ORDER BY municipio ASC, id DESC");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY municipio ASC, id DESC");
 
 
         if ($stmt->execute()) {

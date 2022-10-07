@@ -1,13 +1,13 @@
-<div class="container-fluid">
+<div class="container-fluid mb-5">
 
 
-  <div class="table-responsive mb-5 pb-5" style="margin-top: 80px;">
-    <a type="button" href="index.php?page=agregar_articulo" class="btn btn-primary mt-4 mb-4" style="float: right;">Nuevo Artículo</a>
+  <div class="table-responsive mb-5 pb-5" style="margin-top: 40px;">
+    <a type="button" href="index.php?page=agregar_articulo" class="btn btn-primary mt-4 mx-2" style="float: right;">Nuevo Artículo</a>
     <?php
     $art = ControladorArticulos::ctrGetArticulos();
-    //print_r($art);
+    // print_r($art);
     ?>
-    <table class="table table-dark table-striped table-bordered  table-sm mt-5">
+    <table class="table table-dark table-striped table-bordered  table-sm mt-1 mb-5 ar_table">
       <thead>
         <tr>
 
@@ -57,85 +57,86 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <form id="formulario_edit_articulo" enctype="multipart/form-data">
+          <input type="hidden" name="idEdit" id="idEdit" value="">
+          <div class="row">
+            <div class="col-12 my-2 col-md-12" id="nombre_div_edit">
+              <div class="input-group mb-3 ">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-earmark-font-fill"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre_edit" id="nombre_edit">
+              </div>
+            </div>
 
-        <div class="row">
-          <div class="col-12 my-2 col-md-12" id="nombre_div_edit">
-            <div class="input-group mb-3 ">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-earmark-font-fill"></i></span>
-              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" id="nombre_edit">
+            <div class="col-12 my-2 col-md-12" id="direccion_div_edit">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-signpost"></i></span>
+                <input type="text" class="form-control" placeholder="Dirección" aria-label="Dirección" aria-describedby="basic-addon1" name="direccion_edit" id="direccion_edit">
+              </div>
+            </div>
+
+            <div class="col-12 my-2  " id="coordenadas_div_edit">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
+                <input type="text" class="form-control form-control-sm" placeholder="Coordenadas X" aria-label="Coordenadas" aria-describedby="basic-addon1" name="coordenadas_x_edit" id="coordenadas_x_edit">
+                <hr>
+
+                <input type="text" class="form-control form-control-sm" placeholder="Coordenadas Y" aria-label="Coordenadas" aria-describedby="basic-addon1" name="coordenadas_y_edit" id="coordenadas_y_edit">
+
+              </div>
             </div>
           </div>
 
-          <div class="col-12 my-2 col-md-12" id="direccion_div_edit">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-signpost"></i></span>
-              <input type="text" class="form-control" placeholder="Dirección" aria-label="Dirección" aria-describedby="basic-addon1" id="direccion_edit">
+          <div class="row">
+            <div class="col-12 my-2" id="descripcion_div_edit">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-heading"></i></span>
+                <textarea type="text" class="form-control" placeholder="Descripción" aria-label="Descripción" aria-describedby="basic-addon1" name="descripcion_edit" id="descripcion_edit"></textarea>
+              </div>
+            </div>
+
+            <div class="col-12  col-md-6  my-2" id="facebook_div_edit">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-facebook"></i></span>
+                <input type="text" class="form-control" placeholder="Facebook" aria-label="Facebook" aria-describedby="basic-addon1" name="facebook_edit" id="facebook_edit">
+              </div>
+            </div>
+
+            <div class="col-12  col-md-6  my-2" id="instagram_div_edit">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-instagram"></i></span>
+                <input type="text" class="form-control" placeholder="Instagram" aria-label="Instagram" aria-describedby="basic-addon1" name="instagram_edit" id="instagram_edit">
+              </div>
             </div>
           </div>
 
-          <div class="col-12 my-2  " id="coordenadas_div_edit">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
-              <input type="text" class="form-control form-control-sm" placeholder="Coordenadas X" aria-label="Coordenadas" aria-describedby="basic-addon1" id="coordenadas_x_edit">
-              <hr>
+          <div class="row" id="imagenes_div_edit">
 
-              <input type="text" class="form-control form-control-sm" placeholder="Coordenadas Y" aria-label="Coordenadas" aria-describedby="basic-addon1" id="coordenadas_y_edit">
+            <div class="col-6 col-md-6  my-2">
+              <picture>
+              <source id="img1"  type="image/svg+xml">
+                <img id="img11" class="img-fluid img-thumbnail" alt="...">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
+                <input type="file" class="form-control"  name="img1_edit" id="img1_edit">
+              </div>
+            </div>
 
+            <div class="col-6 col-md-6  my-2">
+              <picture>
+                <source id="img2"  type="image/svg+xml">
+                <img id="img22" class="img-fluid img-thumbnail" alt="...">
+              </picture>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
+                <input type="file" class="form-control" name="img2_edit" id="img2_edit">
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 my-2" id="descripcion_div_edit">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-heading"></i></span>
-              <textarea type="text" class="form-control" placeholder="Descripción" aria-label="Descripción" aria-describedby="basic-addon1" id="descripcion_edit"></textarea>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" id="btn_guardar_edit" class="btn btn-primary">Guardar cambios</button>
           </div>
-
-          <div class="col-12  col-md-6  my-2" id="facebook_div_edit">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-facebook"></i></span>
-              <input type="text" class="form-control" placeholder="Facebook" aria-label="Facebook" aria-describedby="basic-addon1" id="facebook_edit">
-            </div>
-          </div>
-
-          <div class="col-12  col-md-6  my-2" id="instagram_div_edit">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-instagram"></i></span>
-              <input type="text" class="form-control" placeholder="Instagram" aria-label="Instagram" aria-describedby="basic-addon1" id="instagram_edit">
-            </div>
-          </div>
-        </div>
-
-        <div class="row" id="imagenes_div_edit">
-
-          <div class="col-6 col-md-6  my-2">
-            <picture>
-              <source srcset="views/images/p1.jpg" type="image/svg+xml">
-              <img src="views/images/p1.jpg" class="img-fluid img-thumbnail" alt="...">
-            </picture>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
-              <input type="file" class="form-control" id="img1_edit">
-            </div>
-          </div>
-
-          <div class="col-6 col-md-6  my-2">
-            <picture>
-              <source srcset="views/images/p2.jpg" type="image/svg+xml">
-              <img src="views/images/p2.jpg" class="img-fluid img-thumbnail" alt="...">
-            </picture>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
-              <input type="file" class="form-control" id="img2_edit">
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" id="btn_guardar_edit" class="btn btn-primary">Guardar cambios</button>
-        </div>
+        </form>
       </div>
     </div>
   </div>

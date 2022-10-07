@@ -10,26 +10,26 @@ if (isset($_GET["mun"])) {
     $historia = ControladorArticulos::ctrGetArticuloPorSession($mun, $session);
     //print_r($historia)
     ?>
-<a href="index.php?page=home" class="btn-flotante btn-sm"><i class="bi bi-house"></i></a>
+    <a href="index.php?page=home" class="btn-flotante btn-sm"><i class="bi bi-house"></i></a>
 
     <h1 class="publik-titulo"> <?php echo $mun == 'barichara' ? 'Barichara' : 'Villanueva' ?> - <?php echo $session ?> </h1>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2">
         <?php foreach ($historia as $key => $value) : ?>
             <div class="col">
                 <div class="card-columns">
-                    <div class="cardHistoria card" >
+                    <div class="cardHistoria card">
 
                         <div class="row mx-1 my-1">
                             <div class="col-6">
                                 <picture>
-                                    <source srcset="views/images/p1.jpg" type="image/svg+xml">
-                                    <img src="views/images/p1.jpg" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="views/views/<?php echo $value["imagen1"] ?>" type="image/svg+xml">
+                                    <img src="views/views/<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                             <div class="col-6">
                                 <picture>
-                                    <source srcset="views/images/p1.jpg" type="image/svg+xml">
-                                    <img src="views/images/p1.jpg" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="views/views/<?php echo $value["imagen2"] ?>" type="image/svg+xml">
+                                    <img src="views/views/<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                         </div>
