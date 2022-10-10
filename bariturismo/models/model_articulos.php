@@ -102,7 +102,7 @@ class ModelArticulos
     {
         $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET nombre=:nombre, descripcion=:descr, direccion=:dir, 
         coordenadas_x=:coor_x, coordenadas_y=:coor_y, facebook=:face, 
-        instagram=:insta, imagen1=:img1, imagen2=:img2 WHERE id=:id");
+        instagram=:insta/* , imagen1=:img1, imagen2=:img2 */ WHERE id=:id");
 
         $stmt->bindParam(":id", $data["id"], PDO::PARAM_STR);
         $stmt->bindParam(":nombre", $data["nombre"], PDO::PARAM_STR);
@@ -112,7 +112,48 @@ class ModelArticulos
         $stmt->bindParam(":face", $data["face"], PDO::PARAM_STR);
         $stmt->bindParam(":insta", $data["insta"], PDO::PARAM_STR);
         $stmt->bindParam(":descr", $data["descr"], PDO::PARAM_STR);
+        /*         $stmt->bindParam(":img1", $data["img1"], PDO::PARAM_STR);
+        $stmt->bindParam(":img2", $data["img2"], PDO::PARAM_STR); */
+
+        if ($stmt->execute()) {
+            return "OK";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    //update articulo imagen 1
+
+    static public function mdlEditarImagenArticulo($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET imagen1=:img1 WHERE id=:id");
+
+        $stmt->bindParam(":id", $data["id"], PDO::PARAM_STR);
         $stmt->bindParam(":img1", $data["img1"], PDO::PARAM_STR);
+
+
+        if ($stmt->execute()) {
+            return "OK";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    //update articulo imagen 2
+
+    static public function mdlEditarImagen2Articulo($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET  imagen2=:img2 WHERE id=:id");
+
+        $stmt->bindParam(":id", $data["id"], PDO::PARAM_STR);
         $stmt->bindParam(":img2", $data["img2"], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
@@ -126,7 +167,6 @@ class ModelArticulos
             $stmt = null;
         }
     }
-
 
     //traer los articulos de cada uno de las sesiones
     static public function mdlGetArticuloPorSession($tabla, $mun, $session)

@@ -61,6 +61,20 @@ class ControladorArticulos
         $respuesta = ModelArticulos::mdlEditarArticulo($tabla, $data);
         return $respuesta;
     }
+    //editar imagen 1
+    static public function ctrEditarImagenArticulo($data)
+    {
+        $tabla = "articulos";
+        $respuesta = ModelArticulos::mdlEditarImagenArticulo($tabla, $data);
+        return $respuesta;
+    }
+    //editar imagen 2
+    static public function ctrEditarImagen2Articulo($data)
+    {
+        $tabla = "articulos";
+        $respuesta = ModelArticulos::mdlEditarImagen2Articulo($tabla, $data);
+        return $respuesta;
+    }
 
     //se llaman los articulos dependiende de la sesion y el municipio los cuales se envian como parametro desde el front end
     static public function ctrGetArticuloPorSession($mun, $session)

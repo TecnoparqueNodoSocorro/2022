@@ -82,17 +82,33 @@
 
             if ($_GET["page"] == "ahome") {
                 include "pages/administracion/" . $_GET["page"] . ".php";
-            } else {
-                if ($_GET["page"] == "phome") {
-                    include "pages/proveedores/" . $_GET["page"] . ".php";
-                }
+            } else  if ($_GET["page"] == "phome") {
+                include "pages/proveedores/" . $_GET["page"] . ".php";
             }
-            include "pages/front/error.php";
-        }
-    } else {
+
+         //   include "pages/front/error.php";
+      }
+    }  else {
         include "pages/login.php";
+    } 
+    ?>
+
+    <!-- redireccionamiento menu2 -->
+    <?php
+    if (isset($_GET["pagemenu2"])) {
+        if ($_GET["pagemenu2"] == "menu2") {
+            include "pages/front/" . $_GET["pagemenu2"] . ".php";
+        } else if ($_GET["pagemenu2"] == "menu3") {
+            include "pages/menu2/" . $_GET["pagemenu2"] . ".php";
+        }
+        // include "pages/front/error.php";
+    } else {
+        include "pages/front/error.php";
     }
     ?>
+
+
+    <!--  -->
 
 
     <!-- *********************************************************************** -->

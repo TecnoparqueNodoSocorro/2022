@@ -113,7 +113,7 @@ require_once "modal.php";
                     <div class="col-12 col-md-2">
                         <ul>
                             <li>
-                                <div class="title2">Bienestar</div>
+                                <div class="title2">Bienestar-----</div>
                             </li>
                             <li>
                                 <div class="title2">Amor</div>
@@ -154,7 +154,7 @@ require_once "modal.php";
 
 </div>
 
-
+<!-- INICIO MENU2 -->
 
 <div class="carousel_container">
     <div class="carousel_container_image">
@@ -163,7 +163,7 @@ require_once "modal.php";
             <span class="carousel_titles">Alma Herencia &amp; Encanto</span>
             <div id="weddingcarousel" class="owl-carousel">
                 <div class="left14">
-                    <a href="index.php?pagemenu2=menu2&session=barichara">
+                    <a href="index.php?pagemenu2=menu2&module=barichara">
                         <img src="views/images/planesyservicios/barichara.png" alt="" title="" />
                         <h3>BARICHARA </h3>
                     </a>
@@ -210,8 +210,9 @@ require_once "modal.php";
         </div>
     </div>
 </div>
-
+<!-- FIN MENU2 -->
 <div class="full_width_centered">
+    <!-- INICION MENU3 -->
     <div class="latest_posts">
         <h2>ENTERATE DE MUCHO MAS DE NUESTROS PROVEEDORES</h2>
         <div class="left13">
@@ -285,24 +286,7 @@ require_once "modal.php";
         <div class="clear"></div>
     </div>
 
-
+<!-- FIN MENU3  -->
 </div>
 
 
-<?php
-if (isset($_GET["pagemenu2"])) {
-    if ( $_GET["pagemenu2"] == "menu2" ) {
-        include "pages/front/" . $_GET["pagemenu2"] . ".php";
-    } 
-    else {
-        if ($_GET["pagemenu2"] == "menu3") {
-            include "pages/menu2/" . $_GET["pagemenu2"] . ".php";
-        } 
-        }
-        include "pages/front/error.php";
-    }
-
- else {
-    include "pages/front/error.php";
-}
-?>

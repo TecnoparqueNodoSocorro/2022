@@ -1,0 +1,1 @@
+select `cafe`.`dias_no_asistidos`.`id_empleado` AS `id_empleado`,`cafe`.`dias_no_asistidos`.`id_cosecha` AS `id_cosecha`,count(`cafe`.`dias_no_asistidos`.`dia_no_asistido`) AS `dia_no_asistido` from `cafe`.`dias_no_asistidos` group by `cafe`.`dias_no_asistidos`.`id_empleado`,`cafe`.`dias_no_asistidos`.`id_cosecha`

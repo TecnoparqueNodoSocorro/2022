@@ -25,14 +25,14 @@ if (isset($_GET["mun"])) {
                         <div class="row mx-1 my-1">
                             <div class="col-6">
                             <picture>
-                                    <source srcset="views/views/<?php echo $value["imagen1"] ?>" type="image/svg+xml">
-                                    <img src="views/views/<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="<?php echo $value["imagen1"] ?>" type="image/svg+xml">
+                                    <img src="<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                             <div class="col-6">
                                 <picture>
-                                    <source srcset="views/views/<?php echo $value["imagen2"] ?>" type="image/svg+xml">
-                                    <img src="views/views/<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="<?php echo $value["imagen2"] ?>" type="image/svg+xml">
+                                    <img src="<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                         </div>

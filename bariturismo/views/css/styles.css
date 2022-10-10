@@ -8,6 +8,15 @@ body {
   place-items: center; */
 }
 
+.containerHome{
+background-image: url(../images/fondo/Barichara.png) ;
+height: 100vh;
+background-size: cover;
+background-position: center;
+overflow-y:hidden;
+}
+
+
 
 .botonClose {
   color: #ffffff;
@@ -26,6 +35,8 @@ body {
   height: 7%;
 }
 
+
+
 .active>.page-link, .page-link.active {
   z-index: 0 !important;
 
@@ -43,7 +54,7 @@ body {
 }
 
 .divHistoria {
-  margin-top: 80px !important;
+  margin-top: 60px !important;
   margin-bottom: 20%;
 
 }

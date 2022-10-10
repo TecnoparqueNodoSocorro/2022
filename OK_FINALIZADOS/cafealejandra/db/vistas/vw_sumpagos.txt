@@ -1,0 +1,1 @@
+select `cafe`.`pagos`.`id_empleado` AS `id_empleado`,`cafe`.`pagos`.`id_cosecha` AS `id_cosecha`,sum(`cafe`.`pagos`.`pagos`) AS `sum_pagos` from `cafe`.`pagos` group by `cafe`.`pagos`.`id_empleado`,`cafe`.`pagos`.`id_cosecha`

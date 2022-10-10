@@ -1,6 +1,7 @@
 
 //--------VARIABLES-------------------//
-
+let municipio_edit = document.getElementById('municipio_edit')
+let sesion_edit = document.getElementById('sesion_edit')
 let nombre_edit = document.getElementById('nombre_edit')
 let direccion_edit = document.getElementById('direccion_edit')
 let coordenadas_x_edit = document.getElementById('coordenadas_x_edit')
@@ -20,6 +21,7 @@ let img11 = document.getElementById('img11')
 let img2 = document.getElementById('img2')
 let img22 = document.getElementById('img22')
 
+
 //--------DIV DE LOS INPUTS------------------//
 let nombre_div_edit = document.getElementById('nombre_div_edit')
 let direccion_div_edit = document.getElementById('direccion_div_edit')
@@ -28,7 +30,6 @@ let descripcion_div_edit = document.getElementById('descripcion_div_edit')
 let facebook_div_edit = document.getElementById('facebook_div_edit')
 let instagram_div_edit = document.getElementById('instagram_div_edit')
 let imagenes_div_edit = document.getElementById('imagenes_div_edit')
-
 
 
 //extraer el id, el estado y la sesion mediante los data atributos
@@ -258,12 +259,15 @@ function openModalEdit() {
             facebook_edit.value = response.facebook,
             instagram_edit.value = response.instagram,
             idEdit.value = response.id,
-        img11.src = "views/views/" + response.imagen1,
+            municipio_edit.value = response.municipio,
+            sesion_edit.value = response.sesion
+/*         img11.src = "views/views/" + response.imagen1,
         img1.src = "views/views/" + response.imagen1,
         img22.src = "views/views/" + response.imagen2,
-        img2.src = "views/views/" + response.imagen2,
-        img1_edit.value = response.imagen1,
-        img2_edit.value = response.imagen2
+        img2.src = "views/views/" + response.imagen2 */
+    
+  /*       img1_edit.value = response.imagen1,
+        img2_edit.value = response.imagen2 */
 
 
     })
@@ -499,6 +503,8 @@ formulario_edit_articulo ? formulario_edit_articulo.onsubmit = async (e) => {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
 
+
+    console.log(new FormData(formulario_edit_articulo));
     let { /* img2_edit, img1_edit, */ instagram_edit, facebook_edit, descripcion_edit, coordenadas_y_edit, coordenadas_x_edit, direccion_edit, nombre_edit } = data
 
     /*  console.log(img11.src="dfkjshdfjksd");

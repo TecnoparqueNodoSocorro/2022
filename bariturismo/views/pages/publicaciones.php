@@ -2,7 +2,7 @@
 
 
   <div class="table-responsive mb-5 pb-5" style="margin-top: 40px;">
-    <a type="button" href="index.php?page=agregar_articulo" class="btn btn-primary mt-4 mx-2" style="float: right;">Nuevo Artículo</a>
+    <a type="button" href="index.php?page=agregar_articulo" class="btn btn-md btn-primary mt-4 my-2" style="float: right;">Nuevo Artículo</a>
     <?php
     $art = ControladorArticulos::ctrGetArticulos();
     // print_r($art);
@@ -67,6 +67,10 @@
               </div>
             </div>
 
+            <!-- datos del municpio y la sesion ocultos para tener la informacion al editar -->
+            <input type="hidden" name="municipio_edit" id="municipio_edit">
+            <input type="hidden" name="sesion_edit" id="sesion_edit">
+
             <div class="col-12 my-2 col-md-12" id="direccion_div_edit">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-signpost"></i></span>
@@ -112,20 +116,21 @@
           <div class="row" id="imagenes_div_edit">
 
             <div class="col-6 col-md-6  my-2">
-              <picture>
-              <source id="img1"  type="image/svg+xml">
+<!--               <picture>
+                <source id="img1" type="image/svg+xml">
                 <img id="img11" class="img-fluid img-thumbnail" alt="...">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
-                <input type="file" class="form-control"  name="img1_edit" id="img1_edit">
-              </div>
+              </picture> -->
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
+                  <input type="file" class="form-control" name="img1_edit" id="img1_edit">
+                </div>
             </div>
 
             <div class="col-6 col-md-6  my-2">
-              <picture>
-                <source id="img2"  type="image/svg+xml">
+    <!--           <picture>
+                <source id="img2" type="image/svg+xml">
                 <img id="img22" class="img-fluid img-thumbnail" alt="...">
-              </picture>
+              </picture> -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-file-image-fill"></i></span>
                 <input type="file" class="form-control" name="img2_edit" id="img2_edit">
@@ -133,8 +138,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" id="btn_guardar_edit" class="btn btn-primary">Guardar cambios</button>
+            <button type="button" class="btn btn-md btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" id="btn_guardar_edit" class="btn btn-md btn-primary">Guardar cambios</button>
           </div>
         </form>
       </div>

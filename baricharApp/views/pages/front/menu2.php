@@ -1,14 +1,13 @@
 <!-- menu2 -->
 <?php
-if (isset($_GET["session"])) {
-    $session = ($_GET["session"]);
+if (isset($_GET["module"])) {
+    $session = ($_GET["module"]);
 }
 ?>
-
 <div class="title_container">
     <div class="home_bottomS">
         <div class="container-prearticulos">
-            <h1 class="publik-titulo">---- menu2<?php echo $session ?> ----</h1>
+            <h1 class="publik-titulo">---- menu2 <?php echo $session ?> ----</h1>
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="publik_diversion">
