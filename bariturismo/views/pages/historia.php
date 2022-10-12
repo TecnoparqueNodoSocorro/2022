@@ -3,6 +3,7 @@ if (isset($_GET["mun"])) {
     $mun = ($_GET["mun"]);
     $session = ($_GET["page"]);
 }
+require_once "views/pages/modal_imagenes.php";
 ?>
 
 <div class="divHistoria container-fluid">
@@ -21,13 +22,13 @@ if (isset($_GET["mun"])) {
                     <div class="cardHistoria card">
 
                         <div class="row mx-1 my-1">
-                            <div class="col-6">
+                            <div class="modal_imagen_div col-6"data-nombre="<?php echo $value["nombre"] ?>"  data-img1="<?php echo $value["imagen1"] ?>" data-bs-toggle="modal" data-bs-target="#modal_imagen1">
                                 <picture>
                                     <source srcset="views/views/<?php echo $value["imagen1"] ?>" type="image/svg+xml">
                                     <img src="views/views/<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
-                            <div class="col-6">
+                            <div class="modal_imagen2_div col-6" data-nombre="<?php echo $value["nombre"] ?>" data-img2="<?php echo $value["imagen2"] ?>" data-bs-toggle="modal" data-bs-target="#modal_imagen2">
                                 <picture>
                                     <source srcset="views/views/<?php echo $value["imagen2"] ?>" type="image/svg+xml">
                                     <img src="views/views/<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
@@ -79,134 +80,8 @@ if (isset($_GET["mun"])) {
         </div>
     </div>
 </div>
-<!--         <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-         -->
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <br>
-<h1 class="publik-titulo"> <?php echo $mun ?> - <?php echo $session ?> </h1>
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="home">
-                <div class="container-fluid historia">
-                    <div class="row">
-                        <div class="col-6 col_img_izq"> <img class="appimg1" src="views/images/images.png" alt=""></div>
-                        <div class="col-6 col_img_der"> <img class="appimg1" src="views/images/images.png" alt=""></div>
-                    </div>
-                    <div class="container infoapp">
-                        <div class="row apptitulo">nombre del articulo</div>
-                        <div class="row">
-                            <div class="col-8 appdescripcion">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis doloremque perferendis reprehenderit dolor tempora nemo laboriosam, illo voluptas delectus, neque quos quod recusandae ipsam cum nulla maxime! Non, enim itaque?
-                            </div>
-                            <div class="col-4 imagenubicacion">
-                                <a href="http://www.google.com" id="imagenubicacion" src="views/images/ubicacion.png"></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-     
-
-    </div>
-</div>
-</div>
-</div>
-</div>
-<hr> -->
-
-<!--  <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="publik_serv">
-                <div class="row">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-3 col-md-3  publik_imagen_serv b-r">
-                                <div class="container_servicios">
-                                    <img class="img_publik_serv" src="views/images/images.png" alt="">
-                                </div>
-
-                            </div>
-
-                            <div class="col-3 col-md-3 publik_titulo b-r">Lorem ipsis, consequuntur eos. Distinctio, natus?</div>
-
-                            <div class="col-6  col-md-6 publik_desc_serv b-r">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos voluptatum laudantium deserunt debitis saepe repellendus, tempora obcaecati autem soluta repellat, fuga amet laboriosam nostrum recusandae. Debitis, consequuntur eos. Distinctio, natus?</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div> -->
-<!-- </div>
-
-</div>
-<br>
-</div>
-</div> -->

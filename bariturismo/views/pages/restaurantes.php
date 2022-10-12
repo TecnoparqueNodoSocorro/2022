@@ -3,6 +3,9 @@ if (isset($_GET["mun"])) {
     $mun = ($_GET["mun"]);
     $session = ($_GET["page"]);
 }
+
+
+require_once "views/pages/modal_imagenes.php";
 ?>
 
 <div class="divHistoria container-fluid">
@@ -22,17 +25,17 @@ if (isset($_GET["mun"])) {
 
                     <div class="cardHistoria card">
 
-                        <div class="row mx-1 my-1">
-                            <div class="col-6">
-                            <picture>
-                                    <source srcset="<?php echo $value["imagen1"] ?>" type="image/svg+xml">
-                                    <img src="<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
+                    <div class="row mx-1 my-1">
+                            <div class="modal_imagen_div col-6" data-nombre="<?php echo $value["nombre"] ?>" data-img1="<?php echo $value["imagen1"] ?>" data-bs-toggle="modal" data-bs-target="#modal_imagen1">
+                                <picture>
+                                    <source srcset="views/views/<?php echo $value["imagen1"] ?>" type="image/svg+xml">
+                                    <img src="views/views/<?php echo $value["imagen1"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
-                            <div class="col-6">
+                            <div class="modal_imagen2_div col-6" data-nombre="<?php echo $value["nombre"] ?>" data-img2="<?php echo $value["imagen2"] ?>" data-bs-toggle="modal" data-bs-target="#modal_imagen2">
                                 <picture>
-                                    <source srcset="<?php echo $value["imagen2"] ?>" type="image/svg+xml">
-                                    <img src="<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
+                                    <source srcset="views/views/<?php echo $value["imagen2"] ?>" type="image/svg+xml">
+                                    <img src="views/views/<?php echo $value["imagen2"] ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </div>
                         </div>

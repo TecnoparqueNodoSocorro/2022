@@ -1,8 +1,18 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] != "ok") {
+        echo '<script>window.location="index.php?page=login" </script>';
+    }
+} else {
+    echo '<script>window.location="index.php?page=login" </script>';
+}
+?>
+
 <div class="container-fluid mb-5">
 
 
-  <div class="table-responsive mb-5 pb-5" style="margin-top: 40px;">
-    <a type="button" href="index.php?page=agregar_articulo" class="btn btn-md btn-primary mt-4 my-2" style="float: right;">Nuevo Artículo</a>
+  <div class="table-responsive mb-5 pb-5" style="margin-top: 10px;">
+    <a type="button" href="index.php?page=agregar_articulo" class="btn btn-sm btn-primary mt-4 my-2" style="float: right;"><strong>Nuevo Artículo</strong></a>
     <?php
     $art = ControladorArticulos::ctrGetArticulos();
     // print_r($art);
@@ -14,7 +24,7 @@
           <th>Menú</th>
           <th>Municipio</th>
           <th>Nombre</th>
-          <th>Cesión</th>
+          <th>Sesión</th>
           <th>Estado</th>
 
       </thead>
@@ -43,10 +53,7 @@
   </div>
 </div>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="editar_articulo_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

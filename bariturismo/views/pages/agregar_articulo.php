@@ -1,6 +1,15 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] != "ok") {
+        echo '<script>window.location="index.php?page=login" </script>';
+    }
+} else {
+    echo '<script>window.location="index.php?page=login" </script>';
+}
+?>
 <div class="divPublicaciones container-fluid">
 
-    <form  id="formulario_articulo" enctype="multipart/form-data">
+    <form id="formulario_articulo" enctype="multipart/form-data">
         <div class="row pt-5  mt-2">
             <div class="col-12 col-md-6 my-1 ">
 
@@ -47,7 +56,7 @@
             <div class="col-12 mt-1  " id="coordenadas_div">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
-                    <input type="text" class="form-control form-control-sm"  placeholder="Coordenadas X" aria-label="Coordenadas" aria-describedby="basic-addon1" name="coordenadas_x_art" id="coordenadas_x_art">
+                    <input type="text" class="form-control form-control-sm" placeholder="Coordenadas X" aria-label="Coordenadas" aria-describedby="basic-addon1" name="coordenadas_x_art" id="coordenadas_x_art">
                     <hr>
 
                     <input type="text" class="form-control form-control-sm" placeholder="Coordenadas Y" aria-label="Coordenadas" aria-describedby="basic-addon1" name="coordenadas_y_art" id="coordenadas_y_art">
@@ -95,12 +104,12 @@
                 </div>
             </div>
         </div>
-  
-    <div class="row pb-5">
-        <div class="col-12 mb-1" style="text-align: center;">
-            <a type="button" href="index.php?page=publicaciones" class="btn btn-danger">Volver</a>
-            <button type="submit" id="btn_guardar_art" class="btn btn-primary">Guardar</button>
+
+        <div class="row pb-5">
+            <div class="col-12 mb-1" style="text-align: center;">
+                <a type="button" href="index.php?page=publicaciones" class="btn btn-danger">Volver</a>
+                <button type="submit" id="btn_guardar_art" class="btn btn-primary">Guardar</button>
+            </div>
         </div>
-    </div>
     </form>
 </div>

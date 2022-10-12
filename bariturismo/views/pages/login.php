@@ -7,28 +7,22 @@ if (isset($_SESSION["validar_ingreso"])) {
     }
 }
 ?>
-<div class="container" style=" display: flex;align-items: center; justify-content: center;  margin-top: 20%;">
+<div class="container-fluid containerLogin">
+
     <div class="row mt-5">
-        <div class="col-sm-12 col-md-12 col-lg-6">
-            <!-- ---------------------------------------- Borrar---------------------------------------- -->
-            <p class="text-black"> administrador:
-                pedro
-                clave:
-                12345
+    <!--         <div class="col-sm-12 col-md-12 col-lg-6">
 
-            </p>
-            <!-- ---------------------------------------- Borrar---------------------------------------- -->
-            <section class="page-section">
-                <div class="container">
-                    <div class="bg-faded  rounded">
-                        <img class="intro-img img-fluid  rounded" src="views/images/logo5.png">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="bg-faded  rounded">
+                            <img class="intro-img img-fluid  rounded" src="views/images/logo5.png">
 
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div> -->
 
-        <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5">
+        <div class="col-sm-12 col-md-12 col-lg-12 mt-5 mb-5">
             <form method="post" style="text-align:center;">
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
@@ -39,8 +33,15 @@ if (isset($_SESSION["validar_ingreso"])) {
                     <input type="password" class="form-control only_numbers" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
                 </div>
 
-
                 <button type="button" id="btnIniciar" class="btn btn-dark mt-3">Ingresar</button>
+                            <!-- ---------------------------------------- Borrar---------------------------------------- -->
+            <p class="text-black"> administrador:
+            user_prueba
+                clave:
+                pass_2002
+
+            </p>
+            <!-- ---------------------------------------- Borrar---------------------------------------- -->
             </form>
         </div>
     </div>

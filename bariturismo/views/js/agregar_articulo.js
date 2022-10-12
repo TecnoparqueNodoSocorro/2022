@@ -127,30 +127,33 @@ formulario_guardar_art ? formulario_guardar_art.onsubmit = async (e) => {
     }
     if (sesion == "historia") {
         //se valida que los datos no se envien vacíos
-        if (municipio == "0" || nombre_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || img1_art.size == 0 || img2_art.size == 0) {
+        if (municipio == "0" || nombre_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == ""/* || img1_art.size == 0  || img2_art.size == 0 */) {
 
             DatosIncompletos()
+        }else if (img1_art.size == 0 && img2_art.size == 0) {
+            ValidarIngresoDeUnaImagen()
         } else {
-
             guardar_articulo()
         }
     } else if (sesion == "generales") {
         //se valida que los datos no se envien vacíos
 
-        if (municipio == "0" || nombre_art.trim() == "" || direccion_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || img1_art.size == 0 || img2_art.size == 0) {
+        if (municipio == "0" || nombre_art.trim() == "" || direccion_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" /* || img1_art.size == 0 || img2_art.size == 0 */) {
             DatosIncompletos()
-        }
-        else {
+        }else if (img1_art.size == 0 && img2_art.size == 0) {
+            ValidarIngresoDeUnaImagen()
+        }  else {
             //se agregan los datos al json, se envian todos los datos así esten vacios ya que algunas sesiones no necesitan todos los campos
 
             guardar_articulo()
         }
     } else {
         //se valida que los datos no se envien vacíos
-        if (municipio == "0" || nombre_art.trim() == "" || direccion_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || facebook_art.trim() == "" || instagram_art.trim() == "" || img1_art.size == 0 || img2_art.size == 0) {
+        if (municipio == "0" || nombre_art.trim() == "" || direccion_art.trim() == "" || coordenadas_x_art.trim() == "" || coordenadas_y_art.trim() == "" || descripcion_art.trim() == "" || facebook_art.trim() == "" || instagram_art.trim() == "" /*|| img1_art.size == 0  || img2_art.size == 0 */) {
             DatosIncompletos()
-        }
-        else {
+        }else if (img1_art.size == 0 && img2_art.size == 0) {
+            ValidarIngresoDeUnaImagen()
+        }     else {
 
             guardar_articulo()
         }
@@ -159,7 +162,7 @@ formulario_guardar_art ? formulario_guardar_art.onsubmit = async (e) => {
 
 
 
-}:''
+} : ''
 
 //funcion para mostrar cuando a un formulario le falte algun dato
 function DatosIncompletos() {
@@ -173,11 +176,22 @@ function DatosIncompletos() {
     })
 }
 
+function ValidarIngresoDeUnaImagen() {
+    Swal.fire({
+        icon: 'error',
+        title: `Seleccine al menos una imagen`,
+        showConfirmButton: true,
+        confirmButtonColor: '#0d6efd',
+        scrollbarPadding: false,
+        heightAuto: false,
+    })
+}
+
 
 var fileInput = document.getElementById("img2_art");
 var fileInput1 = document.getElementById("img1_art");
 
-fileInput ?fileInput.addEventListener('change', function () {
+fileInput ? fileInput.addEventListener('change', function () {
     var filePath = this.value;
     var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
     var sizeByte = this.files[0].size;
@@ -206,7 +220,7 @@ fileInput ?fileInput.addEventListener('change', function () {
         fileInput.value = '';
         return false;
     }
-}):''
+}) : ''
 
 fileInput1 ? fileInput1.addEventListener('change', function () {
     var filePath = this.value;
@@ -237,7 +251,7 @@ fileInput1 ? fileInput1.addEventListener('change', function () {
         fileInput1.value = '';
         return false;
     }
-}):''
+}) : ''
 
 
 //funcion que muestra la alerta de confirmacion de guardar articulo

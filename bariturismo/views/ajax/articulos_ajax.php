@@ -83,12 +83,12 @@ if (
 
     //-------------------IMAGEN 1--------------------------------------
     /* imagen generica */
-    $rutaimagen = "../images/p2.jpeg";
+    $rutaimagen = "../images/p2.jpg";
     /* directorio de almacenamiento de imagenes  */
     $raizImagenes = "../images/" . $_POST['municipio'] . "/" . $_POST['sesion'];
     if (isset($_FILES["img1_art"]["tmp_name"])) {
-        $newAncho = 600;
-        $newAlto = 300;
+        $newAncho = 640;
+        $newAlto = 427;
         list($ancho, $alto) = getimagesize($_FILES["img1_art"]["tmp_name"]);
         if (!file_exists($raizImagenes))
             mkdir($raizImagenes, 0755);
@@ -123,12 +123,12 @@ if (
     //--------------------------------------------------------------------------------------------------------------
     //-------------------IMAGEN 2--------------------------------------
     /* imagen generica */
-    $rutaimagen2 = "../images/p2.jpeg";
+    $rutaimagen2 = "../images/p2.jpg";
     /* directorio de almacenamiento de imagenes  */
     $raizImagenes2 = "../images/" . $_POST['municipio'] . "/" . $_POST['sesion'];
     if (isset($_FILES["img2_art"]["tmp_name"])) {
-        $newAncho = 600;
-        $newAlto = 300;
+        $newAncho = 640;
+        $newAlto = 427;
         list($ancho, $alto) = getimagesize($_FILES["img2_art"]["tmp_name"]);
         if (!file_exists($raizImagenes2))
             mkdir($raizImagenes2, 0755);
@@ -250,12 +250,12 @@ if (
 ) {
     //-------------------IMAGEN 1 EDIT--------------------------------------
     /* imagen generica */
-    $rutaimagen_edit = "../images/p2.jpeg";
+    $rutaimagen_edit = "../images/p2.jpg";
     /* directorio de almacenamiento de imagenes  */
     $raizImagenes_edit = "../images/" . $_POST['municipio_edit'] . "/" . $_POST['sesion_edit'];
     if (!empty($_FILES["img1_edit"]["tmp_name"])) {
-        $newAncho = 600;
-        $newAlto = 300;
+        $newAncho = 640;
+        $newAlto = 427;
         list($ancho, $alto) = getimagesize($_FILES["img1_edit"]["tmp_name"]);
         if (!file_exists($raizImagenes_edit))
             mkdir($raizImagenes_edit, 0755);
@@ -327,12 +327,12 @@ if (
 ) {
     //-------------------IMAGEN 2--EDIT------------------------------------
     /* imagen generica */
-    $rutaimagen2_edit = "../images/p2.jpeg";
+    $rutaimagen2_edit = "../images/p2.jpg";
     /* directorio de almacenamiento de imagenes  */
     $raizImagenes2_edit = "../images/" . $_POST['municipio_edit'] . "/" . $_POST['sesion_edit'];
     if (!empty($_FILES["img2_edit"]["tmp_name"])) {
-        $newAncho = 600;
-        $newAlto = 300;
+        $newAncho = 640;
+        $newAlto = 427;
         list($ancho, $alto) = getimagesize($_FILES["img2_edit"]["tmp_name"]);
         if (!file_exists($raizImagenes2_edit))
             mkdir($raizImagenes2_edit, 0755);

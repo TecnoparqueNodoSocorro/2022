@@ -1,22 +1,66 @@
 body {
   background-color: #212529;
-  /*   background-image: url(../images/fondo.jpg);
+
+}
+
+
+img {
+  width: 150px;
+}
+
+.containerLogin {
+  background-image: url(../images/fondo/fondologin.jpeg);
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden !important;
+  /*   margin-top: 20%; */
+}
+
+.slider {
   height: 100vh;
-  background-size: cover; */
-  /*  background-position: center; */
-  /*   display: grid;
-  place-items: center; */
+  background-size: cover;
+  background-position: center;
+  overflow-y: hidden;
+  overflow: hidden;
 }
 
-.containerHome{
-background-image: url(../images/fondo/Barichara.png) ;
-height: 100vh;
-background-size: cover;
-background-position: center;
-overflow-y:hidden;
+.slider .slide-track {
+  display: inline-flex;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+
+  animation: scroll 40s linear infinite;
+  -webkit-animation: scroll 15s linear infinite;
+  width: calc(300px * 14);
 }
 
+.slider .slide {
+  height: 100vh;
+  width: 140%;
+}
 
+.slider .slide img {
+  width: 100%;
+  height: 100vh;
+
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(calc(-200px * 7));
+    transform: translateX(calc(-200px * 7));
+  }
+}
 
 .botonClose {
   color: #ffffff;
@@ -24,7 +68,7 @@ overflow-y:hidden;
 
 .footer {
   background-color: #212529;
-  position:fixed;
+  position: fixed;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -35,9 +79,15 @@ overflow-y:hidden;
   height: 7%;
 }
 
+.imageVisualizar {
 
+  width: 100% !important;
+  height: 100% !important;
 
-.active>.page-link, .page-link.active {
+}
+
+.active>.page-link,
+.page-link.active {
   z-index: 0 !important;
 
 }
@@ -54,7 +104,7 @@ overflow-y:hidden;
 }
 
 .divHistoria {
-  margin-top: 60px !important;
+  margin-top: 30px !important;
   margin-bottom: 20%;
 
 }
@@ -82,53 +132,86 @@ overflow-y:hidden;
   background-color: #3a4147 !important;
 
 }
-.h5, h5 {
+
+.h5,
+h5 {
   font-size: 1rem !important;
   color: white !important;
 }
-.text-light{
+
+.text-light {
   font-size: 0.7rem !important;
 }
-.btn-group-sm>.btn, .btn-sm {
+
+.btn-group-sm>.btn,
+.btn-sm {
 
   --bs-btn-font-size: 0.6rem !important;
 
 }
 
 .btn-flotante {
-	font-size: 16px; /* Cambiar el tamaño de la tipografia */
-	text-transform: uppercase; /* Texto en mayusculas */
-	font-weight: bold; /* Fuente en negrita o bold */
-	color: #ffffff; /* Color del texto */
-	border-radius: 50%; /* Borde del boton */
-	letter-spacing: 2px; /* Espacio entre letras */
-	background-color: #dc3545; /* Color de fondo */
-	padding: 15.5px 22.5px; /* Relleno del boton */
-	position: fixed;
-	bottom: 10% !important;
-	right: 40px;
-	transition: all 300ms ease 0ms;
-	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-	z-index: 99;
+  font-size: 16px;
+  /* Cambiar el tamaño de la tipografia */
+  text-transform: uppercase;
+  /* Texto en mayusculas */
+  font-weight: bold;
+  /* Fuente en negrita o bold */
+  color: #ffffff;
+  /* Color del texto */
+  border-radius: 50%;
+  /* Borde del boton */
+  letter-spacing: 2px;
+  /* Espacio entre letras */
+  background-color: #dc3545;
+  /* Color de fondo */
+  padding: 15.5px 22.5px;
+  /* Relleno del boton */
+  position: fixed;
+  bottom: 10% !important;
+  right: 40px;
+  transition: all 300ms ease 0ms;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  z-index: 99;
 }
+
 .btn-flotante:hover {
-	background-color: #dc3545; /* Color de fondo al pasar el cursor */
-	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
-	transform: translateY(-7px);
+  background-color: #dc3545;
+  /* Color de fondo al pasar el cursor */
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-7px);
 }
+
 @media only screen and (max-width: 600px) {
- 	.btn-flotante {
-		font-size: 14px;
-		padding: 10px 15px;
-		bottom: 20px;
-		right: 20px;
-	}
-} 
+  .btn-flotante {
+    font-size: 14px;
+    padding: 10px 15px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
 
 @media screen and (min-width: 200px) and (max-width : 767.55px) {
   .table-dark {
     font-size: 0.8rem !important;
   }
+
+}
+
+@media screen and (min-width: 200px) and (max-width : 600.55px) {
+
+
+  .slider .slide-track {
+    display: inline-flex;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 20s linear infinite;
+    width: calc(180px * 14);
+  }
+
 }
 
 .modal-header {
