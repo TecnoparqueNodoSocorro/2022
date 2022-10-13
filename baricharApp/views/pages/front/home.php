@@ -169,38 +169,38 @@ require_once "modal.php";
                     </a>
                 </div>
                 <div class="left14">
-                    <a href="index.php?pagemenu2=menu2&session=planes">
+                    <a href="index.php?pagemenu2=menu2&module=planes">
                         <img src="views/images/planesyservicios/planest.png" alt="" title="" />
                         <h3>PLANES </h3>
                     </a>
                 </div>
-                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=promociones">
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&module=promociones">
                         <img src="views/images/planesyservicios/promociones.png" alt="" title="" />
                         <h3>PROMOCIONES</h3>
                     </a>
                 </div>
-                <div class="left14_last"> <a href="index.php?pagemenu2=menu2&session=vacaciones">
+                <div class="left14_last"> <a href="index.php?pagemenu2=menu2&module=vacaciones">
                         <img src="views/images/planesyservicios/vacaciones.png" alt="" title="" />
                         <h3>VACACIONES</h3>
                     </a>
                 </div>
-                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=lunademiel">
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&module=lunademiel">
                         <img src="views/images/planesyservicios/lunademiel.png" alt="" title="" />
                         <h3>LUNA DE MIEL</h3>
                     </a>
                 </div>
-                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=tour">
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&module=tour">
                         <img src="views/images/planesyservicios/tours.png" alt="" title="" />
                         <h3>TOUR DE ENTRETENIMIENTO</h3>
                     </a>
                 </div>
-                <div class="left14"> <a href="index.php?pagemenu2=menu2&session=bodas">
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&module=bodas">
                         <img src="views/images/planesyservicios/bodas.png" alt="" title="" />
                         <h3>BODAS</h3>
                     </a>
                 </div>
                 <div class="left14_last">
-                    <a href="index.php?pagemenu2=menu2&session=turismo">
+                    <a href="index.php?pagemenu2=menu2&module=turismo">
                         <img src="views/images/planesyservicios/turismo.png" alt="" title="" />
                         <h3>TURISMO</h3>
                     </a>
@@ -219,8 +219,8 @@ require_once "modal.php";
             <div class="latest_post">
                 <div class="post_info">
 
-                    <h3><a href="blog-single.html">PROPUESTAS DE MATRIMONIO</a></h3>
-                    <a href="blog-single.html" class="post_read_more">Ver Mas</a>
+                    <h3><a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio">PROPUESTAS DE MATRIMONIO</a></h3>
+                    <a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio" class="post_read_more">Ver Mas</a>
                 </div>
                 <img src="views/images/web/proveedores/propuestas.png" alt="" title="" />
             </div>
@@ -229,8 +229,8 @@ require_once "modal.php";
             <div class="latest_post">
                 <div class="post_info">
 
-                    <h3><a href="blog-single.html">CHEFF Y PASTELEROS</a></h3>
-                    <a href="blog-single.html" class="post_read_more">Ver Mas</a>
+                    <h3><a href="index.php?pagemenu3=menu3&module=cheffypasteleros">CHEFF Y PASTELEROS</a></h3>
+                    <a href="index.php?pagemenu3=menu3&module=cheffypasteleros" class="post_read_more">Ver Mas</a>
                 </div>
                 <img src="views/images/web/proveedores/pasteleros.png" alt="" title="" />
             </div>
@@ -239,8 +239,8 @@ require_once "modal.php";
             <div class="latest_post">
                 <div class="post_info">
 
-                    <h3><a href="blog-single.html">HOTELES DE ENSUEÑO</a></h3>
-                    <a href="blog-single.html" class="post_read_more">Ver Mas</a>
+                    <h3><a href="index.php?pagemenu3=menu3&module=hotelesdeensueno">HOTELES DE ENSUEÑO</a></h3>
+                    <a href="index.php?pagemenu3=menu3&module=hotelesdeensueno" class="post_read_more">Ver Mas</a>
                 </div>
                 <img src="views/images/web/proveedores/hoteles.png" alt="" title="" />
             </div>
@@ -254,8 +254,8 @@ require_once "modal.php";
             <div class="latest_post">
                 <div class="post_info">
 
-                    <h3><a href="blog-single.html">GASTRONOMIA BODAS</a></h3>
-                    <a href="blog-single.html" class="post_read_more">Ver Mas</a>
+                    <h3><a href="index.php?pagemenu3=menu3&module=gastronomiabodas">GASTRONOMIA BODAS</a></h3>
+                    <a href="index.php?pagemenu3=menu3&module=gastronomiabodas" class="post_read_more">Ver Mas</a>
                 </div>
                 <img src="views/images/web/proveedores/gastronomia.png" alt="" title="" />
             </div>
@@ -264,8 +264,8 @@ require_once "modal.php";
             <div class="latest_post">
                 <div class="post_info">
 
-                    <h3><a href="blog-single.html">DISEÑADORES</a></h3>
-                    <a href="blog-single.html" class="post_read_more">Ver Mas</a>
+                    <h3><a href="index.php?pagemenu3=menu3&module=disenadores">DISEÑADORES</a></h3>
+                    <a href="index.php?pagemenu3=menu3&module=disenadores" class="post_read_more">Ver Mas</a>
                 </div>
                 <img src="views/images/web/proveedores/disenadores.png" alt="" title="" />
             </div>
@@ -274,8 +274,8 @@ require_once "modal.php";
             <div class="latest_post">
                 <div class="post_info">
 
-                    <h3><a href="blog-single.html">CRUCEROS</a></h3>
-                    <a href="blog-single.html" class="post_read_more">Ver Mas</a>
+                    <h3><a href="index.php?pagemenu3=menu3&module=cruceros">CRUCEROS</a></h3>
+                    <a href="index.php?pagemenu3=menu3&module=cruceros" class="post_read_more">Ver Mas</a>
                 </div>
                 <img src="views/images/web/proveedores/cruceros.png" alt="" title="" />
             </div>
@@ -286,7 +286,5 @@ require_once "modal.php";
         <div class="clear"></div>
     </div>
 
-<!-- FIN MENU3  -->
+    <!-- FIN MENU3  -->
 </div>
-
-

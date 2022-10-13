@@ -74,38 +74,56 @@
             $_GET["page"] == "m1_diversion" ||
             $_GET["page"] == "m1_cultural" ||
             $_GET["page"] == "m1_servicios" ||
+
             $_GET["page"] == "login"
 
         ) {
             include "pages/front/" . $_GET["page"] . ".php";
+        } else  if ($_GET["page"] == "ahome") {
+            include "pages/administracion/" . $_GET["page"] . ".php";
+        } else  if ($_GET["page"] == "phome") {
+            include "pages/proveedores/" . $_GET["page"] . ".php";
         } else {
-
-            if ($_GET["page"] == "ahome") {
-                include "pages/administracion/" . $_GET["page"] . ".php";
-            } else  if ($_GET["page"] == "phome") {
-                include "pages/proveedores/" . $_GET["page"] . ".php";
-            }
-
-         //   include "pages/front/error.php";
-      }
-    }  else {
-        include "pages/login.php";
-    } 
-    ?>
-
-    <!-- redireccionamiento menu2 -->
-    <?php
-    if (isset($_GET["pagemenu2"])) {
+            include "pages/front/error.php";
+        }
+    } else  if (isset($_GET["pagemenu2"])) {
         if ($_GET["pagemenu2"] == "menu2") {
             include "pages/front/" . $_GET["pagemenu2"] . ".php";
-        } else if ($_GET["pagemenu2"] == "menu3") {
-            include "pages/menu2/" . $_GET["pagemenu2"] . ".php";
+        }  else {
+            include "pages/front/error.php";
         }
-        // include "pages/front/error.php";
-    } else {
-        include "pages/front/error.php";
+    } else  if (isset($_GET["pagemenu3"])) {
+        if ($_GET["pagemenu3"] == "menu3") {
+            include "pages/front/" . $_GET["pagemenu3"] . ".php";
+        }  else {
+            include "pages/front/error.php";
+        }
+    }else {
+        include "pages/login.php";
     }
+
+    //   include "pages/front/error.php";
+
+
+
+
     ?>
+    <!--  else {
+        include "pages/front/error.php";
+    } -->
+    <!-- redireccionamiento menu2 -->
+    <!--    <?php
+            if (isset($_GET["pagemenu2"])) {
+                if ($_GET["pagemenu2"] == "menu2") {
+                    include "pages/front/" . $_GET["pagemenu2"] . ".php";
+                } else if ($_GET["pagemenu2"] == "menu3") {
+                    include "pages/menu2/" . $_GET["pagemenu2"] . ".php";
+                }
+                // include "pages/front/error.php";
+            } else {
+                include "pages/front/error.php";
+            }
+            ?> -->
 
 
     <!--  -->

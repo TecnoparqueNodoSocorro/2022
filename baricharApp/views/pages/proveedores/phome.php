@@ -8,19 +8,19 @@
             <div class="container">
 
                 <h4>DATOS DEL PROVEEDOR</h4>
+                <?php
+                $prov = ControladorProveedor::CtrInfoProveedorHome(33);
+                //  print_r($prov);
 
+                ?>
 
                 <div class="row">
                     <div class="col-12 col-md-12" id="imagen_prov">
                         <div class="container">
-                            <img id="imgproveedor" src="views/images/proveedores/proveedor1.jpg">
+                            <img id="imgproveedor" class="img-thumbnail"  src="views/views/<?php echo $prov->logo ?>">
                         </div>
                     </div>
-                    <?php
-                    $prov = ControladorProveedor::CtrInfoProveedorHome(2);
-                    // print_r($prov);
 
-                    ?>
 
 
                     <div class="row" id="proveedor">
@@ -103,31 +103,34 @@
 <!-- //----------MODAL EDITAR PROVEEDOR -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title clear" id="exampleModalLabel">Editar datos de la empresa</h5>
+        <form id="modal_prov_edit" enctype="multipart/form-data">
 
-            </div>
-            <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title clear" id="exampleModalLabel">Editar datos de la empresa</h5>
+
+                </div>
+                    <div class="modal-body">
 
 
-                <div class="container">
-                    <form id="ContactForm" method="post" action="">
-                        <p class="clear"><strong>Datos de la empresa</strong></p>
+                        <div class="container">
+                            <p class="clear"><strong>Datos de la empresa</strong></p>
 
                         <div class="row">
 
                             <div class="col-12  col-md-4">
                                 <label>Direccion</label>
-                                <input type="text" class="form_input " name="emp_direccion" id="emp_direccion" />
+                                <input type="text" class="form_input form_provee_edit" name="emp_direccion" id="emp_direccion" />
                             </div>
+
+                            <input type="hidden" name="id_prov_oculto" id="id_prov_oculto">
                             <div class="col-12  col-md-4">
                                 <label>Telefono</label>
-                                <input type="number" class="form_input" name="emp_telefono" id="emp_telefono" />
+                                <input type="number" class="form_input form_provee_edit" name="emp_telefono" id="emp_telefono" />
                             </div>
                             <div class="col-12  col-md-4">
                                 <label>Email</label>
-                                <input type="mail" class="form_input " name="emp_email" id="emp_email" />
+                                <input type="mail" class="form_input form_provee_edit" name="emp_email" id="emp_email" />
                             </div>
 
                             <div class="col-12 col-md-6">
@@ -136,7 +139,7 @@
                             </div>
                             <div class="col-12">
                                 <label>Breve descripcion de la empresa</label>
-                                <textarea class="form_textarea_full" name="emp_descr" id="emp_descr"></textarea>
+                                <textarea class="form_textarea_full form_provee_edit" name="emp_descr" id="emp_descr"></textarea>
                             </div>
                             <br>
 
@@ -159,16 +162,16 @@
                             </div> -->
 
                         </div>
-                    </form>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="btnGuardarEditProv"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btnGuardarEditProv"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-
+        </form>
     </div>
 </div>
 
@@ -202,7 +205,7 @@
                                 <div class="col-12  col-md-4">
                                     <label>Confirmar contraseña</label>
                                     <input type="password" class="form_input" name="emp_pass_2" id="emp_pass_2" />
-                                </div>  
+                                </div>
                                 <br>
                             </div>
                         </div>

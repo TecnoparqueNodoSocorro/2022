@@ -36,18 +36,20 @@ let edit_logo = document.getElementById("edit_logo")
 let edit_vigencia = document.getElementById("edit_vigencia")
 let edit_user = document.getElementById("edit_user")
 let edit_descr_prov = document.getElementById("edit_descr_prov")
+let id_proveedor_oculto = document.getElementById("id_proveedor_oculto")
+
 
 //-------------//--------------------//--------------//--------------//--------------//--------------//-------
 
-if (c_btn_guardar) { c_btn_guardar.addEventListener("click", crearProveedor) }
-
+/* if (c_btn_guardar) { c_btn_guardar.addEventListener("click", crearProveedor) }
+ */
 
 
 /* *********************************************************************************************************************** */
 // crear proveedor
 /* *********************************************************************************************************************** */
-function crearProveedor() {
-
+/* function crearProveedor() {
+    console.log(logo);
     if (c_pass_1.value != c_pass_2.value) {
         alert("error!!! Las contraseñas no coinciden");
     }
@@ -73,12 +75,125 @@ function crearProveedor() {
 
 function postajax(datos_proveedor) {
     $.post("views/ajax/bari_proveedores.ajax.php", { datos_proveedor }, function (data) {
-        /*     console.log({ datos_proveedor });
+            console.log({ datos_proveedor });
             let responses = JSON.parse(data);
-            console.log(responses); */
+            console.log(responses);
         console.log(data);
     })
+} */
+
+const ContactForm = document.querySelector('#ContactForm')
+
+ContactForm ? ContactForm.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    let element = document.querySelectorAll('#ContactForm .form_agregar_pro')
+    // console.log(element)
+    element.forEach(x => {
+        // console.log(x);
+        if (x.value.trim() == "") {
+            Swal.fire({
+                title: 'Error',
+                text: `Complete los campos`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else if (c_pass_1.value != c_pass_2.value) {
+            Swal.fire({
+                title: 'Error',
+                text: `Las contraseñas no coinciden`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else {
+            guardar_proveedor()
+        }
+
+
+    })
+
+    console.log(data);
+} : ''
+
+
+
+//funcion que muestra la alerta de confirmacion de guardar articulo
+function guardar_proveedor() {
+    Swal.fire({
+        title: 'Listo',
+        text: `¿Guardar proveedor?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#a20202',
+        scrollbarPadding: false,
+        heightAuto: false,
+        confirmButtonText: 'Guardar',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //llamado ajax que lleva el json que fue enviado por parametro
+
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/bari_proveedores.ajax.php',
+                data: new FormData(ContactForm),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
+            Swal.fire({
+                icon: 'success',
+                title: `Proveedor guardado`,
+                showConfirmButton: true,
+                confirmButtonColor: '#3085d6',
+                scrollbarPadding: false,
+                heightAuto: false,
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+        }
+    })
+
 }
+
+
+
+
+
+
+
 
 let md_datos = document.getElementById("m_datos");
 let md_editar = document.getElementById("m_editar");
@@ -365,7 +480,7 @@ function p_editar() {
     //SE EXTRAE LOS DATOS DEL PROVEEDOR
     $.post("views/ajax/bari_proveedores.ajax.php", { info_proveedor }, function (data) {
         response = JSON.parse(data);
-        console.log(response);
+        //console.log(response);
 
         //SE EXTRAEN LOS DATOS QUE ESTAN EN LA BASE DE DATOS Y SE LE ASIGNANA A LOS INPUT DEL MODAL DE EDITAR
         edit_nombre.value = response.nombre
@@ -374,94 +489,119 @@ function p_editar() {
         edit_telefono.value = response.telefono
         edit_email.value = response.correo
         edit_max_p.value = response.maxprod
-        edit_logo.value = response.logo
+        id_proveedor_oculto.value = response.id
         edit_vigencia.value = response.vigencia
         edit_user.value = response.usuario
         edit_descr_prov.value = response.descripcion
     })
 
-    let m_btn_guardar_editar = document.getElementById("btn_guardar_editar");
-    if (m_btn_guardar_editar) { m_btn_guardar_editar.addEventListener("click", EditarProveedor) }
+
+
+    /*     let m_btn_guardar_editar = document.getElementById("btn_guardar_editar");
+        if (m_btn_guardar_editar) { m_btn_guardar_editar.addEventListener("click", EditarProveedor) } */
 
 }
-function EditarProveedor() {
-    if (id) {
-        /* data_editprov = {
-            id: id
-        } */
-        //SE GUARDA EL VALUE DE LOS INPUT DEL MODAL DE EDITAR 
-        let dataEdit = {
-            nombre: edit_nombre.value,
-            nit: edit_nit.value,
-            direccion: edit_direccion.value,
-            telefono: edit_telefono.value,
-            email: edit_email.value,
-            max_p: edit_max_p.value,
-            logo: edit_logo.value,
-            vigencia: edit_vigencia.value,
-            user: edit_user.value,
-            descr: edit_descr_prov.value,
-            idproveedor: id
+
+const edit_ContactForm = document.querySelector('#edit_ContactForm')
+
+edit_ContactForm ? edit_ContactForm.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    const inputs = document.querySelectorAll('#edit_ContactForm .form_editar_pro')
+
+    inputs.forEach(x => {
+        //console.log(x);
+
+        if (x.value.trim() == "") {
+            Swal.fire({
+                title: 'Error',
+                text: `Complete los campos`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else {
+            EditarProveedor()
         }
-        // console.log(dataEdit);
-        Swal.fire({
-            title: 'Listo',
-            text: `¿Editar proveedor?`,
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#a20202',
-            scrollbarPadding: false,
-                heightAuto: false,
-            confirmButtonText: 'Editar',
-            cancelButtonText: 'Cancelar',
-            allowOutsideClick: () => {
-                const popup = Swal.getPopup()
-                popup.classList.remove('swal2-show')
-                setTimeout(() => {
-                    popup.classList.add('animate__animated', 'animate__headShake')
-                })
-                setTimeout(() => {
-                    popup.classList.remove('animate__animated', 'animate__headShake')
-                }, 500)
-                return false
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.post("views/ajax/bari_proveedores.ajax.php", { dataEdit }, function (data) {
-                    let responses = (data);
-                    //console.log(responses);
-                })
-                Swal.fire({
-                    icon: 'success',
-                    title: `Proveedor editado`,
-                    scrollbarPadding: false,
-                heightAuto: false,
-                    showConfirmButton: true,
-                    confirmButtonColor: '#a20202',
-                    allowOutsideClick: () => {
-                        const popup = Swal.getPopup()
-                        popup.classList.remove('swal2-show')
-                        setTimeout(() => {
-                            popup.classList.add('animate__animated', 'animate__headShake')
-                        })
-                        setTimeout(() => {
-                            popup.classList.remove('animate__animated', 'animate__headShake')
-                        }, 500)
-                        return false
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload()
-                    }
-                })
-            }
-        })
 
-    } else {
-        console.log("sin datos ")
-    }
+
+    })
+
+    console.log(data);
+} : ''
+
+
+
+
+function EditarProveedor() {
+
+
+    Swal.fire({
+        title: 'Listo',
+        text: `¿Editar proveedor?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#a20202',
+        scrollbarPadding: false,
+        heightAuto: false,
+        confirmButtonText: 'Editar',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/bari_proveedores.ajax.php',
+                data: new FormData(edit_ContactForm),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
+            Swal.fire({
+                icon: 'success',
+                title: `Proveedor editado`,
+                scrollbarPadding: false,
+                heightAuto: false,
+                showConfirmButton: true,
+                confirmButtonColor: '#a20202',
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+        }
+    })
+
 }
+
 
 /* *********************************************************************************************************************** */
 // editar pasww  proveedor
@@ -496,7 +636,7 @@ function CambiarContrasena(data1, data2) {
             confirmButtonText: 'Cambiar',
             cancelButtonText: 'Cancelar',
             scrollbarPadding: false,
-                heightAuto: false,
+            heightAuto: false,
             allowOutsideClick: () => {
                 const popup = Swal.getPopup()
                 popup.classList.remove('swal2-show')
@@ -519,7 +659,7 @@ function CambiarContrasena(data1, data2) {
                     title: `Clave editada`,
                     showConfirmButton: true,
                     scrollbarPadding: false,
-                heightAuto: false,
+                    heightAuto: false,
                     confirmButtonColor: '#a20202',
                     allowOutsideClick: () => {
                         const popup = Swal.getPopup()
@@ -547,9 +687,73 @@ function CambiarContrasena(data1, data2) {
             title: `Las contraseñas no coinciden`,
             showConfirmButton: true,
             scrollbarPadding: false,
-                heightAuto: false,
+            heightAuto: false,
             confirmButtonColor: '#a20202',
         })
     }
 }
 /* ******************************************************** */
+
+
+
+$('#modal_proveedores').on('show.bs.modal', function (event) {
+    $("#modal_proveedores").find("input,textarea,select").val("");
+    $("#modal_proveedores input[type='checkbox']").prop('checked', false).change();
+});
+
+$('#modal_pagina').on('show.bs.modal', function (event) {
+    $("#modal_pagina input").val("");
+    $("#modal_pagina textarea").val("");
+    $("#modal_pagina select").val("0");
+    $("#modal_pagina input[type='checkbox']").prop('checked', false).change();
+});
+
+
+
+//funcion para validar el tipo de imagen y el tamaño de la misma
+
+function validarImagen(fileInput) {
+
+    fileInput ? fileInput.addEventListener('change', function () {
+        var filePath = this.value;
+        var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+        var sizeByte = this.files[0].size;
+        var siezekiloByte = parseInt(sizeByte / 1024);
+        console.log(siezekiloByte);
+        if (!allowedExtensions.exec(filePath)) {
+            Swal.fire({
+                title: 'Error de formato',
+                text: `Por favor seleccione un archivo de imagen valido (JPEG/JPG/PNG)`,
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonColor: '#0d6efd',
+
+            })
+            fileInput.value = '';
+            return false;
+        } if (siezekiloByte > 650) {
+            Swal.fire({
+                title: 'Máximo 600 kb',
+                text: `Por favor seleccione un tamaño de imagen más pequeña`,
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonColor: '#0d6efd',
+
+            })
+            fileInput.value = '';
+            return false;
+        }
+    }) : ''
+}
+//se valida el logo que se ingresa al crear proveedor
+validarImagen(c_logo)
+
+//validar logo que se agrega al editar proveedor
+validarImagen(edit_logo)
+
+//validar imagen de editar pagina
+validarImagen(edit_pag_img)
+
+//validar imagen de crear pagina
+validarImagen(p_img)
+

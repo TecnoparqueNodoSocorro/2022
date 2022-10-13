@@ -38,18 +38,33 @@ class ControladorProductos
         $RtaEstado = ModelProducto::mdlDeleteProducto($tabla, $data);
         return $RtaEstado;
     }
-        //TRAER PRODUCTO
+    //TRAER PRODUCTO
     static public function ctrGetProducto($data)
     {
         $tabla = "productos";
         $RtaEstado = ModelProducto::mdlGetProducto($tabla, $data);
         return $RtaEstado;
     }
-        //EDITAR PAGINA
-        static public function CtrEditProd($data)
-        {
-            $tabla = "productos";
-            $rtaEdit = ModelProducto::mdlEditProd($tabla, $data);
-            echo $rtaEdit;
-        }
+    //EDITAR PAGINA
+    static public function CtrEditProd($data)
+    {
+        $tabla = "productos";
+        $rtaEdit = ModelProducto::mdlEditProd($tabla, $data);
+        echo $rtaEdit;
+    }
+
+    //EDITAR PAGINA imagen 1
+    static public function CtrEditImagen1Prod($data)
+    {
+        $tabla = "productos";
+        $rtaEdit = ModelProducto::mdlEditImagen1Prod($tabla, $data);
+        echo $rtaEdit;
+    }
+    //EDITAR PAGINA imagen 2
+    static public function CtrEditImagen2Prod($data)
+    {
+        $tabla = "productos";
+        $rtaEdit = ModelProducto::mdlEditImagen2Prod($tabla, $data);
+        echo $rtaEdit;
+    }
 }

@@ -108,11 +108,47 @@ class ModelProducto
     {
 
         $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET   idcategoria=:categoria, nombre=:nombre,
-              precio=:precio, descripcion=:descripcion WHERE id=:idpro");
+        precio=:precio, descripcion=:descripcion WHERE id=:idpro");
         $stmt->bindParam(":categoria", $datos["categoria"]);
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt->bindParam(":precio", $datos["precio"]);
         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+        $stmt->bindParam(":idpro", $datos["id"]);
+        if ($stmt->execute()) {
+            return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }    //editar imagen 1
+    static public function mdlEditImagen1Prod($tabla, $datos)
+    {
+
+        $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET   img1=:img1 WHERE id=:idpro");
+ 
+        $stmt->bindParam(":img1", $datos["img1"], PDO::PARAM_STR);
+        $stmt->bindParam(":idpro", $datos["id"]);
+        if ($stmt->execute()) {
+            return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }    //editar imagen 2
+    static public function mdlEditImagen2Prod($tabla, $datos)
+    {
+
+        $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET  img2=:img2 WHERE id=:idpro");
+
+        $stmt->bindParam(":img2", $datos["img2"], PDO::PARAM_STR);
         $stmt->bindParam(":idpro", $datos["id"]);
         if ($stmt->execute()) {
             return "ok";

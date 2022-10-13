@@ -20,96 +20,142 @@ let mostrar_descrip_prod = document.getElementById('mostrar_descrip_prod')
 let edit_prov_p_categ = document.getElementById('edit_prov_p_categ')
 let edit_prov_p_nombre = document.getElementById('edit_prov_p_nombre')
 let edit_prov_p_precio = document.getElementById('edit_prov_p_precio')
+let edit_prov_p_imagen1 = document.getElementById('edit_prov_p_imagen1')
+let edit_prov_p_imagen2 = document.getElementById('edit_prov_p_imagen2')
+
+
 let edit_prov_p_descripcion = document.getElementById('edit_prov_p_descripcion')
 let edit_btnProducto = document.getElementById('edit_btnProducto')
+let edit_prod_id = document.getElementById('edit_prod_id')
+
 //----------------------------------------------------------------------
 
-//----CONDICIONAL TERNARIO PARA ENVITAR ERROR DEL ADDEVENTLISTENER--------------------
+
+let imagen_producto1 = document.getElementById('imagen_producto1')
+let imagen_producto1_1 = document.getElementById('imagen_producto1_1')
+let imagen_producto2 = document.getElementById('imagen_producto2')
+let imagen_producto2_2 = document.getElementById('imagen_producto2_2')
+
+
+/* //----CONDICIONAL TERNARIO PARA ENVITAR ERROR DEL ADDEVENTLISTENER--------------------
 btnGuardarProducto ? btnGuardarProducto.addEventListener("click", datosNuevoProducto) : ''
 edit_btnProducto ? edit_btnProducto.addEventListener("click", EditProducto) : ''
-//----------------------------------------------------------------------
+//---------------------------------------------------------------------- */
+
+
+//-----------NUEVO PRODUCTO----------------------------
+
+
+const form_agregar_produc = document.querySelector('#form_agregar_produc')
+
+form_agregar_produc ? form_agregar_produc.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    let element = document.querySelectorAll('#form_agregar_produc .form_prodcut_agre')
+
+    element.forEach(x => {
+        // console.log(x.name, x.value);
+        if (x.value.trim() == "") {
+            Swal.fire({
+                title: 'Error',
+                text: `Complete los campos`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        }else if (prov_p_imagen1.value == "" && prov_p_imagen2.value == "" ) {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione mínimo una imagen`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        }  else {
+            datosNuevoProducto()
+        }
+
+
+    })
+
+    console.log(data);
+} : ''
+
+
 
 function datosNuevoProducto() {
-    if (prov_p_categ.value.trim() == "" || prov_p_nombre.value.trim() == "" || prov_p_precio.value.trim() == "" || prov_p_descripcion.value.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: `Datos incompletos`,
-            showConfirmButton: true,
-            scrollbarPadding: false,
-            heightAuto: false,
-            confirmButtonColor: '#2d9fb4',
-        })
-    } else {
-        nuevoProducto = {
-            idproveedor: 1,
-            categoria: prov_p_categ.value,
-            nombre: prov_p_nombre.value,
-            precio: prov_p_precio.value,
-            img1: prov_p_imagen1.value,
-            img2: prov_p_imagen2.value,
-            descripcion: prov_p_descripcion.value
+
+    Swal.fire({
+        title: 'Listo',
+        text: `¿Agregar nuevo producto?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#a20202',
+        confirmButtonText: 'Agregar',
+        scrollbarPadding: false,
+        heightAuto: false,
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
         }
-        //console.log(nuevoProducto);
-        Swal.fire({
-            title: 'Listo',
-            text: `¿Agregar nuevo producto?`,
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#a20202',
-            confirmButtonText: 'Agregar',
-            scrollbarPadding: false,
-            heightAuto: false,
-            cancelButtonText: 'Cancelar',
-            allowOutsideClick: () => {
-                const popup = Swal.getPopup()
-                popup.classList.remove('swal2-show')
-                setTimeout(() => {
-                    popup.classList.add('animate__animated', 'animate__headShake')
-                })
-                setTimeout(() => {
-                    popup.classList.remove('animate__animated', 'animate__headShake')
-                }, 500)
-                return false
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                //AL DARLE CLICK A CAMBIAR SE ENVIAN LOS DATOS DEL JSON CON EL ID DEL USUARIO Y LA NUEVA CLAVE
-                AgregarProducto(nuevoProducto)
-                Swal.fire({
-                    icon: 'success',
-                    title: `Producto agregado`,
-                    showConfirmButton: true,
-                    confirmButtonColor: '#a20202',
-                    allowOutsideClick: () => {
-                        const popup = Swal.getPopup()
-                        popup.classList.remove('swal2-show')
-                        setTimeout(() => {
-                            popup.classList.add('animate__animated', 'animate__headShake')
-                        })
-                        setTimeout(() => {
-                            popup.classList.remove('animate__animated', 'animate__headShake')
-                        }, 500)
-                        return false
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload()
-                    }
-                })
-            }
-        })
-    }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //AL DARLE CLICK A CAMBIAR SE ENVIAN LOS DATOS DEL JSON CON EL ID DEL USUARIO Y LA NUEVA CLAVE
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/bari_productos.ajax.php',
+                data: new FormData(form_agregar_produc),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+            Swal.fire({
+                icon: 'success',
+                title: `Producto agregado`,
+                showConfirmButton: true,
+                confirmButtonColor: '#a20202',
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+        }
+    })
 }
 
-function AgregarProducto(nuevoProducto) {
+
+/* function AgregarProducto(nuevoProducto) {
     $.post("views/ajax/bari_productos.ajax.php", { nuevoProducto }, function (data) {
-        /*  let response = JSON.parse(data);
-         console.log(response); */
+        
         console.log(data);
     });
 
-}
+}  */
 
 //----------EXTRAER EL ID DE CADA REGISTRO----------------
 let btnIdProd = document.querySelectorAll(".id_producto");
@@ -338,6 +384,10 @@ function OpenModalVerProduct() {
     mostrar_precio_prod.innerText = res.precio
     mostrar_nombre_prod.innerText = res.nombre
     mostrar_categoria_prod.innerText = res.categoria
+    imagen_producto1.srcset="views/views/"+res.img1
+    imagen_producto1_1.src = "views/views/"+res.img1
+    imagen_producto2.srcset="views/views/"+res.img2
+    imagen_producto2_2.src = "views/views/"+res.img2
 }
 //----------------------------------------------------------------------------------------------------
 
@@ -349,7 +399,7 @@ function MostrarInfoProduc(dataProduct) {
         data: { dataProduct },
         success: function (response) {
             res = JSON.parse(response);
-            // console.log(res);
+             console.log(res);
         },
         error: function (error) {
             console.log(error);
@@ -375,86 +425,163 @@ function OpenModalEditProduct() {
     edit_prov_p_nombre.value = res.nombre
     edit_prov_p_categ.options[prov_p_categ.selectedIndex].text = res.categoria
     edit_prov_p_categ.value = res.id_categoria
+    edit_prod_id.value = res.id_producto
 
 }
 //----------------------------------------------------------------------------------------------------
-function EditProducto() {
-    if (edit_prov_p_categ.value == "0" || edit_prov_p_descripcion.value.trim() == "" || edit_prov_p_precio.value.trim() == "" || edit_prov_p_nombre.value.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: `Datos incompletos`,
-            showConfirmButton: true,
-            confirmButtonColor: '#2d9fb4',
-            scrollbarPadding: false,
-            heightAuto: false,
-        })
-    } else {
-        //SI LOS CAMPOS ESTAN DILIGENCIADOS SE CREA UN JSON
-        editProduct = {
-            id: id,
-            categoria: edit_prov_p_categ.value,
-            nombre: edit_prov_p_nombre.value,
-            precio: edit_prov_p_precio.value,
-            descripcion: edit_prov_p_descripcion.value
-        }
-        Swal.fire({
-            title: 'Listo',
-            text: `¿Editar producto?`,
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            scrollbarPadding: false,
-            heightAuto: false,
-            cancelButtonColor: '#a20202',
-            confirmButtonText: 'Editar',
-            cancelButtonText: 'Cancelar',
-            allowOutsideClick: () => {
-                const popup = Swal.getPopup()
-                popup.classList.remove('swal2-show')
-                setTimeout(() => {
-                    popup.classList.add('animate__animated', 'animate__headShake')
-                })
-                setTimeout(() => {
-                    popup.classList.remove('animate__animated', 'animate__headShake')
-                }, 500)
-                return false
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                //AL DARLE CLICK A CAMBIAR SE ENVIAN LOS DATOS DEL JSON CON EL ID DEL USUARIO Y LA NUEVA CLAVE
-                EditarProducto(editProduct)
-                Swal.fire({
-                    icon: 'success',
-                    title: `Producto editado`,
-                    showConfirmButton: true,
-                    scrollbarPadding: false,
-                    heightAuto: false,
-                    confirmButtonColor: '#a20202',
-                    allowOutsideClick: () => {
-                        const popup = Swal.getPopup()
-                        popup.classList.remove('swal2-show')
-                        setTimeout(() => {
-                            popup.classList.add('animate__animated', 'animate__headShake')
-                        })
-                        setTimeout(() => {
-                            popup.classList.remove('animate__animated', 'animate__headShake')
-                        }, 500)
-                        return false
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload()
-                    }
-                })
-            }
-        })
-    }
-}
 
-//FUNCION QUE ENVÍA EL JSON CON LOS DATOS PARA EDITAR O ACTUALIZAR
+//editar produto
+
+
+
+
+const form_edit_produc = document.querySelector('#form_edit_produc')
+
+form_edit_produc ? form_edit_produc.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    let element = document.querySelectorAll('#form_edit_produc .form_prodcut_edit')
+    // console.log(element)
+    element.forEach(x => {
+        // console.log(x.name, x.value);
+        if (x.value.trim() == "") {
+            Swal.fire({
+                title: 'Error',
+                text: `Complete los campos`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else {
+            EditProducto()
+        }
+
+
+    })
+
+    console.log(data);
+} : ''
+
+
+
+
+
+
+
+
+
+
+
+function EditProducto() {
+
+    Swal.fire({
+        title: 'Listo',
+        text: `¿Editar producto?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        scrollbarPadding: false,
+        heightAuto: false,
+        cancelButtonColor: '#a20202',
+        confirmButtonText: 'Editar',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //AL DARLE CLICK A CAMBIAR SE ENVIAN LOS DATOS DEL JSON 
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/bari_productos.ajax.php',
+                data: new FormData(form_edit_produc),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+            Swal.fire({
+                icon: 'success',
+                title: `Producto editado`,
+                showConfirmButton: true,
+                scrollbarPadding: false,
+                heightAuto: false,
+                confirmButtonColor: '#a20202',
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+        }
+    })
+
+}
+/* //FUNCION QUE ENVÍA EL JSON CON LOS DATOS PARA EDITAR O ACTUALIZAR
 function EditarProducto(editProduct) {
     $.post("views/ajax/bari_productos.ajax.php", { editProduct }, function (data) {
         console.log(data);
     });
 
+}  */
+
+validarImagenProducto(prov_p_imagen1)
+validarImagenProducto(prov_p_imagen2)
+validarImagenProducto(edit_prov_p_imagen1)
+validarImagenProducto(edit_prov_p_imagen2)
+
+
+function validarImagenProducto(fileInput) {
+
+    fileInput ? fileInput.addEventListener('change', function () {
+        var filePath = this.value;
+        var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+        var sizeByte = this.files[0].size;
+        var siezekiloByte = parseInt(sizeByte / 1024);
+        console.log(siezekiloByte);
+        if (!allowedExtensions.exec(filePath)) {
+            Swal.fire({
+                title: 'Error de formato',
+                text: `Por favor seleccione un archivo de imagen valido (JPEG/JPG/PNG)`,
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonColor: '#0d6efd',
+
+            })
+            fileInput.value = '';
+            return false;
+        } if (siezekiloByte > 650) {
+            Swal.fire({
+                title: 'Máximo 600 kb',
+                text: `Por favor seleccione un tamaño de imagen más pequeña`,
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonColor: '#0d6efd',
+
+            })
+            fileInput.value = '';
+            return false;
+        }
+    }) : ''
 }

@@ -32,12 +32,20 @@ class Controladorpagina
         $RtaCBitem = ModelPagina::CtrCBitems($tabla, $categ);
         return $RtaCBitem;
     }
-    //traer una pagina
+    //traer una pagina por id
     static public function ctrGetPag($data)
     {
 
         $tabla = "pagina";
         $rta = ModelPagina::mdlGetPag($tabla, $data);
+        return $rta;
+    }
+    //traer una pagina por item
+    static public function ctrGetPagByItem($item)
+    {
+
+        $tabla = "pagina";
+        $rta = ModelPagina::mdlGetPag($tabla, $item);
         return $rta;
     }
     //CAMBIAR ESTADO
@@ -59,6 +67,13 @@ class Controladorpagina
     {
         $tabla = "pagina";
         $RtaEstado = ModelPagina::mdlUpdatePagina($tabla, $data);
+        echo $RtaEstado;
+    }
+    //EDITAR imagen PAGINA
+    static public function CtrUpdateImagenPagina($data)
+    {
+        $tabla = "pagina";
+        $RtaEstado = ModelPagina::mdlUpdateImagenPagina($tabla, $data);
         echo $RtaEstado;
     }
 }

@@ -52,6 +52,23 @@ class ModelPagina
         }
     }
 
+        //editar imagen de pagina
+        static public function mdlUpdateImagenPagina($tabla, $data)
+        {
+            $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET  imagen=:img  WHERE id=:idp");  
+            $stmt->bindParam(":img", $data["imagen"], PDO::PARAM_STR);
+            $stmt->bindParam(":idp", $data["idp"]);
+            if ($stmt->execute()) {
+                return "okg";
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        }
     static function mdlGetPaginas($tabla)
     {
         $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla ");
@@ -101,11 +118,29 @@ class ModelPagina
             $stmt = null;
         }
     }
+    //traer pagina por id
     static function mdlGetPag($tabla, $data)
     {
 
         $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id =:id");
         $stmt->bindParam(":id", $data["id"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return $stmt->fetchObject();
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    //Traer pagina por item
+    static function mdlGetPaginaByName($tabla, $item)
+    {
+
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE item=$item");
 
         if ($stmt->execute()) {
             return $stmt->fetchObject();

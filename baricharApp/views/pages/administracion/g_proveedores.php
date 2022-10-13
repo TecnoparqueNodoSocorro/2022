@@ -47,10 +47,10 @@
                                         <li><a class="dropdown-item" data-id_ver="<?php echo $value["id"] ?>" href="#" onclick="p_passw()"><i class=" bi bi-search"> Password</i></a></li>
                                     </ul>
                                 </td>
-                                <td> <img src="<?php echo $value["logo"] ?>"> </td>
+                                <td><img src="views/views/<?php echo $value["logo"] ?>" class="img-thumbnail" alt="..."> </td>
                                 <td> <?php echo $value["nombre"] ?> </td>
                                 <td> <?php echo $value["vigencia"] ?> </td>
-                                <td  class="fw-bold <?php echo $value["estado"] == "1" ? 'text-primary' : 'text-danger' ?>"> <?php echo $value["estado"] == "1" ? 'Activo' : 'Inactivo' ?> </td>
+                                <td class="fw-bold <?php echo $value["estado"] == "1" ? 'text-primary' : 'text-danger' ?>"> <?php echo $value["estado"] == "1" ? 'Activo' : 'Inactivo' ?> </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -76,62 +76,61 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <form id="ContactForm" method="post" action="">
-                        <br>
+                    <form id="ContactForm" enctype="multipart/form-data">
+
                         <div class="row">
-                            <div class="col-sm-6  col-md-4">
+                            <div class="col-sm-6  col-lg-4">
                                 <label>Nombre del provedor</label>
-                                <input type="text" class="form_input " name="nombre" id="nombre" />
+                                <input type="text" class="form_input form_agregar_pro " name="nombre" id="nombre" />
                             </div>
-                            <div class="col-sm-6  col-md-4">
+                            <div class="col-sm-6  col-lg-4">
                                 <label>Nit</label>
-                                <input type="textr" class="form_input " name="nit" id="nit" />
+                                <input type="textr" class="form_input form_agregar_pro " name="nit" id="nit" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-lg-4">
                                 <label>Direccion</label>
-                                <input type="text" class="form_input " name="direccion" id="direccion" />
+                                <input type="text" class="form_input form_agregar_pro " name="direccion" id="direccion" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-lg-4">
                                 <label>Telefono</label>
-                                <input type="number" class="form_input" name="telefono" id="telefono" />
+                                <input type="number" class="form_input form_agregar_pro" name="telefono" id="telefono" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-lg-4">
                                 <label>Email</label>
-                                <input type="mail" class="form_input " name="email" id="email" />
+                                <input type="mail" class="form_input form_agregar_pro " name="email" id="email" />
                             </div>
-                            <div class="col-sm-6  col-md-4">
+                            <div class="col-sm-6  col-lg-4">
                                 <label>Max productos publicados </label>
-                                <input type="number" class="form_input " name="max_p" id="max_p" />
+                                <input type="number" class="form_input form_agregar_pro " name="max_p" id="max_p" />
                             </div>
-                            <div class="col-sm-6 col-md-6">
-                                <label>Logo</label>
-                                <input type="file" class="form_input " name="logo" id="logo" />
+                            <div class="col-sm-6 col-lg-6">
+                                <label>Logo (Peso máximo 500kb)</label>
+                                <input type="file" class="form_input form_agregar_logo " name="logo" id="logo" />
                             </div>
-                            <div class="col-sm-6 col-md-6">
+                            <div class="col-sm-6 col-lg-6">
                                 <label>Vigencia de servicio</label>
-                                <input type="date" class="form_input " name="vigencia" id="vigencia" />
+                                <input type="date" class="form_input form_agregar_pro " name="vigencia" id="vigencia" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-lg-4">
                                 <label>Usuario</label>
-                                <input type="text" class="form_input" name="user" id="user" />
+                                <input type="text" class="form_input form_agregar_pro" name="user" id="user" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-lg-4">
                                 <label>Contraseña</label>
-                                <input type="password" class="form_input" name=" pass_1" id="pass_1" />
+                                <input type="password" class="form_input form_agregar_pro" name="pass_1" id="pass_1" />
                             </div>
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-lg-4">
                                 <label>Repetir contraseña</label>
-                                <input type="password" class="form_input" name=" pass_2" id="pass_2" />
+                                <input type="password" class="form_input form_agregar_pro" name="pass_2" id="pass_2" />
                             </div>
                             <div class="col-12">
                                 <label>Breve descripcion de la empresa</label>
-                                <textarea class="form_textarea_full" name="descr_prov" id="descr_prov"></textarea>
+                                <textarea class="form_textarea_full form_agregar_pro" name="descr_prov" id="descr_prov"></textarea>
                             </div>
                         </div>
-                        <br>
                         <div>
-                            <button type="button" class="btn btn-success" id="admin_btn_guardar"> Guardar</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                            <button type="submit" class="btn btn-success" id="admin_btn_guardar"> Guardar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar_new_prov">Cerrar</button>
                         </div>
                     </form>
                 </div>
@@ -166,7 +165,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="btn_guardar_vig"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar_new_vig">Cerrar</button>
             </div>
         </div>
     </div>
@@ -189,7 +188,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success mx-1 my-1" id="btn_guardar_bloq_desb"></button>
-                <button type="button" class="btn btn-danger mx-1 my-1" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                <button type="button" class="btn btn-danger mx-1 my-1" data-bs-dismiss="modal" id="btn_cerrar_new_state">Cerrar</button>
             </div>
 
 
@@ -204,62 +203,66 @@
                 <h5 class="modal-title">Editar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="container">
-                    <form id="edit_ContactForm" method="post" action="">
+            <form id="edit_ContactForm" enctype="multipart/form-data">
+
+                <div class="modal-body">
+                    <div class="container">
                         <br>
                         <div class="row">
-                         <!--    <p id="m_editar"></p> -->
+                            <!--    <p id="m_editar"></p> -->
+                            <!-- id oculto del proveedor -->
+                            <input type="hidden" name="id_proveedor_oculto" id="id_proveedor_oculto">
                             <div class="col-sm-6  col-md-4">
                                 <label>Nombre del provedor</label>
-                                <input type="text" class="form_input " name="edit_nombre" id="edit_nombre" />
+                                <input type="text" class="form_input form_editar_pro" name="edit_nombre" id="edit_nombre" />
                             </div>
                             <div class="col-sm-6  col-md-4">
                                 <label>Nit</label>
-                                <input type="textr" class="form_input " name="edit_nit" id="edit_nit" />
+                                <input type="textr" class="form_input form_editar_pro" name="edit_nit" id="edit_nit" />
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label>Direccion</label>
-                                <input type="text" class="form_input " name="edit_direccion" id="edit_direccion" />
+                                <input type="text" class="form_input form_editar_pro" name="edit_direccion" id="edit_direccion" />
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label>Telefono</label>
-                                <input type="number" class="form_input" name="edit_telefono" id="edit_telefono" />
+                                <input type="number" class="form_input form_editar_pro" name="edit_telefono" id="edit_telefono" />
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label>Email</label>
-                                <input type="mail" class="form_input " name="edit_email" id="edit_email" />
+                                <input type="mail" class="form_input form_editar_pro" name="edit_email" id="edit_email" />
                             </div>
                             <div class="col-sm-6  col-md-4">
                                 <label>Max productos publicados </label>
-                                <input type="number" class="form_input " name="edit_max_p" id="edit_max_p" />
+                                <input type="number" class="form_input form_editar_pro" name="edit_max_p" id="edit_max_p" />
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <label>Logo</label>
-                                <input type="file" class="form_input " name="edit_logo" id="edit_logo" />
+                                <input type="file" class="form_input" name="edit_logo" id="edit_logo" />
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <label>Vigencia de servicio</label>
-                                <input type="date" class="form_input " name="edit_vigencia" id="edit_vigencia" />
+                                <input type="date" class="form_input form_editar_pro" name="edit_vigencia" id="edit_vigencia" />
                             </div>
                             <div class="col-sm-12 col-md-12 ">
                                 <label>Usuario</label>
-                                <input type="text" class="form_input" name="edit_user" id="edit_user" />
+                                <input type="text" class="form_input form_editar_pro" name="edit_user" id="edit_user" />
                             </div>
 
                             <div class="col-12">
                                 <label>Breve descripcion de la empresa</label>
-                                <textarea class="form_textarea_full" name="edit_descr_prov" id="edit_descr_prov"></textarea>
+                                <textarea class="form_textarea_full form_editar_pro" name="edit_descr_prov" id="edit_descr_prov"></textarea>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <br>
-            </div>
-            <div class="modal-footer"> <button type="button" class="btn btn-success" id="btn_guardar_editar"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
-            </div>
 
+                    </div>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="btn_guardar_editar"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar_edit">Cerrar</button>
+                </div>
+            </form>
 
         </div>
     </div>
@@ -273,8 +276,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-               <!--  <p id="m_passw"></p> -->
-               <span><strong> Ingrese la nueva contraseña</strong></span>
+                <!--  <p id="m_passw"></p> -->
+                <span><strong> Ingrese la nueva contraseña</strong></span>
                 <div class="col-sm-12 col-md-12 mt-2">
                     <label>Contraseña</label>
                     <input type="password" class="form_input" name="edt_pass1" id="edt_pass1" />
@@ -287,7 +290,7 @@
 
             </div>
             <div class="modal-footer"> <button type="button" class="btn btn-success" id="btn_g_passw"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar">Cerrar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_cerrar_edit_pass">Cerrar</button>
             </div>
         </div>
 

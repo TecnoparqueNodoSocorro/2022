@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="table-responsive mb-4" id="paginas">
+        <div class="table-responsive mb-4" id="paginas" style="min-height:450px">
             <table class="table caption-top table-bordered table-sm">
 
                 <thead>
@@ -20,6 +20,7 @@
                         <th>Menú</th>
                         <th>Sesion</th>
                         <th>Categoria</th>
+                        <!-- <th>Imagen</th> -->
                         <th>Item</th>
                         <th>Titulo</th>
                         <th>Estado</th>
@@ -49,6 +50,7 @@
                                 <?php echo $value["sesion"] ?>
                             </td>
                             <td><?php echo $value["categoria"] ?></td>
+                            <!-- <td><img src="views/views/<?php echo $value["imagen"] ?>" class="img-thumbnail" alt="..."></td> -->
                             <td><?php echo $value["item"] ?></td>
                             <td><?php echo $value["titulo"] ?></td>
                             <td class="fw-bold <?php echo $value["estado"] == "1" ? 'text-primary' : 'text-danger' ?>"><?php echo $value["estado"] == 1 ? 'Activo' : 'Inactivo' ?></td>
@@ -79,18 +81,19 @@
                     <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">+ Agregar nuevo Articulo a la pagina</h5>
 
                 </div>
-                <div class="modal-body">
+                <form id="FormNuevaPag" enctype="multipart/form-data">
+
+                    <div class="modal-body">
 
 
-                    <div class="container">
-                        <form id="ContactForm" method="post" action="">
+                        <div class="container">
                             <br>
                             <div class="row">
                                 <div class=" col-sm-6">
                                     <label>Sesion</label>
                                     <div class="select_container">
-                                        <select class="form_select" name="pag_sesion" id="pag_sesion">
-                                            <option selected>---Sesiones---</option>
+                                        <select class="form_select form_select_pag" name="pag_sesion" id="pag_sesion">
+                                            <option selected value="0">---Sesiones---</option>
                                             <option value="menu">menu</option>
                                             <option value="menu2">menu2</option>
                                             <option value="menu3">menu3</option>
@@ -100,8 +103,8 @@
                                 <div class="col-sm-6">
                                     <label>Categoria</label>
                                     <div class="select_container">
-                                        <select class="form_select" name="pag_cat" id="pag_cat">
-                                            <option selected>---Categorias---</option>
+                                        <select class="form_select form_select_pag" name="pag_cat" id="pag_cat">
+
 
                                         </select>
                                     </div>
@@ -109,8 +112,8 @@
                                 <div class=" col-sm-6">
                                     <label>Item</label>
                                     <div class="select_container">
-                                        <select class="form_select" name="pag_item" id="pag_item">
-                                            <option selected>---Items---</option>
+                                        <select class="form_select form_select_pag" name="pag_item" id="pag_item">
+
 
 
 
@@ -128,26 +131,26 @@
                                 </div>
                                 <div class="col-sm-12  ">
                                     <label>Titulo del Articulo</label>
-                                    <input type="text" class="form_input " name="pag_titulo" id="pag_titulo" />
+                                    <input type="text" class="form_input form_select_pag" name="pag_titulo" id="pag_titulo" />
                                 </div>
 
 
                                 <div class="col-sm-12">
                                     <label>Descripcion</label>
-                                    <textarea class="form_textarea_full" name="pag_descr" id="pag_descr"></textarea>
+                                    <textarea class="form_textarea_full form_select_pag" name="pag_descr" id="pag_descr"></textarea>
                                 </div>
 
                                 <br>
                             </div>
 
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="pag_btnguardar"> Guardar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="pag_btnguardar"> Guardar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
 
+                </form>
 
             </div>
 
@@ -191,17 +194,20 @@
                 <h5 class="modal-title" id="exampleModalLabel" style="padding: 0;">Editar página</h5>
 
             </div>
-            <div class="modal-body">
+            <form id="FormEditPag" enctype="multipart/form-data">
 
-                <div class="container">
-                    <form id="ContactForm" method="post" action="">
+                <div class="modal-body">
+
+                    <div class="container">
                         <br>
                         <div class="row">
+                            <input type="hidden" name="id_oculto_pag" id="id_oculto_pag">
+
                             <div class=" col-sm-6">
                                 <label>Sesion</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="pag_sesion" id="edit_pag_sesion">
-                                        <option selected>---Sesiones---</option>
+                                    <select class="form_select form_edit_pag" name="edit_pag_sesion" id="edit_pag_sesion">
+                                        <option selected value="0">---Sesiones---</option>
                                         <option value="menu">menu</option>
                                         <option value="menu2">menu2</option>
                                         <option value="menu3">menu3</option>
@@ -211,8 +217,8 @@
                             <div class="col-sm-6">
                                 <label>Categoria</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="pag_cat" id="edit_pag_cat">
-                                        <option selected>---Categorias---</option>
+                                    <select class="form_select form_edit_pag" name="edit_pag_cat" id="edit_pag_cat">
+                                        <option selected value="0">---Categorias---</option>
 
                                     </select>
                                 </div>
@@ -220,8 +226,8 @@
                             <div class=" col-sm-6">
                                 <label>Item</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="pag_item" id="edit_pag_item">
-                                        <option selected>---Items---</option>
+                                    <select class="form_select form_edit_pag" name="edit_pag_item" id="edit_pag_item">
+                                        <option selected value="0">---Items---</option>
 
 
 
@@ -231,7 +237,7 @@
                             </div>
                             <div class="col-sm-12  col-md-6">
                                 <label>Imagen del articulo</label>
-                                <input type="file" class="form_input " name="pag_img" id="edit_pag_img" />
+                                <input type="file" class="form_input " name="edit_pag_img" id="edit_pag_img" />
                             </div>
                             <div class="col-sm-12">
                                 <span>Recomendaciones de la imagen:</br> <small>Menos de 600kb</small></span>
@@ -239,25 +245,26 @@
                             </div>
                             <div class="col-sm-12  ">
                                 <label>Titulo del Articulo</label>
-                                <input type="text" class="form_input " name="pag_titulo" id="edit_pag_titulo" />
+                                <input type="text" class="form_input form_edit_pag" name="edit_pag_titulo" id="edit_pag_titulo" />
                             </div>
 
 
                             <div class="col-sm-12">
                                 <label>Descripcion</label>
-                                <textarea class="form_textarea_full" name="pag_descr" id="edit_pag_descr"></textarea>
+                                <textarea class="form_textarea_full form_edit_pag" name="edit_pag_descr" id="edit_pag_descr"></textarea>
                             </div>
 
                             <br>
                         </div>
 
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btnEditPag"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="btnEditPag"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

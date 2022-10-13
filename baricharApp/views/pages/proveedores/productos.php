@@ -23,7 +23,7 @@
                     <!--   <caption>List of users</caption> -->
                     <thead>
                         <tr>
-                            <th>imag</th>
+                            <!-- <th>imagen</th> -->
                             <th>Opciones</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
@@ -35,9 +35,11 @@
                     <tbody>
                         <?php foreach ($productos as $key => $value) : ?>
                             <tr>
-                                <td>
-                                    <img id="imgproveedorlista" src="views/images/proveedores/proveedor1.jpg">
-                                </td>
+                                <!--           <td>
+                                    <img class="img-thumbnail" src="views/views/<?php echo $value["img1"] ?>">
+
+                                    <img class="img-thumbnail" src="views/views/<?php echo $value["img2"] ?>">
+                                </td> -->
                                 <td>
                                     <div class="btn-group" role="group">
                                         <button type="button" data-estado="<?php echo $value["estado"] ?>" data-id="<?php echo $value["id"] ?>" class="id_producto btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
@@ -85,9 +87,10 @@
                 <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo producto o servicio</h5>
 
             </div>
-            <div class="modal-body">
-                <div class="container">
-                    <form id="ContactForm" method="post" action="">
+            <form id="form_agregar_produc" enctype="multipart/form-data">
+
+                <div class="modal-body">
+                    <div class="container">
                         <br>
                         <div class="row">
                             <div class="col-12  col-md-4">
@@ -97,8 +100,8 @@
                                 ?>
                                 <label>Seleccione la categoria producto o Servicio</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="prov_p_categ" id="prov_p_categ">
-                                        <option selected value="0">---Categorias---</option>
+                                    <select class="form_select  form_prodcut_agre" name="prov_p_categ" id="prov_p_categ">
+                                        <option selected value="">---Categorias---</option>
                                         <?php foreach ($categorias as $key => $value) : ?>
                                             <option value="<?php echo $value["id"] ?>"><?php echo $value["nombre"] ?></option>
                                         <?php endforeach ?>
@@ -106,25 +109,28 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12  col-md-4">
+                            <!-- id del proveedor oculto falta asignar cuando se implemente la segurida -->
+
+                            <input type="hidden" name="prov_p_id_oculto" id="prov_p_id_oculto" value="2">
+                            <div class="col-12  col-lg-4">
                                 <label>Nombre del producto o Servicio</label>
-                                <input type="text" class="form_input " name="prov_p_nombre" id="prov_p_nombre" />
+                                <input type="text" class="form_input form_prodcut_agre" name="prov_p_nombre" id="prov_p_nombre" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-12  col-lg-4">
                                 <label>Precio</label>
-                                <input type="number" class="form_input " name="prov_p_precio" id="prov_p_precio" />
+                                <input type="number" class="form_input form_prodcut_agre" name="prov_p_precio" id="prov_p_precio" />
                             </div>
-                            <div class="col-12  col-md-6">
+                            <div class="col-12  col-lg-6">
                                 <label>Imagen (1)</label>
-                                <input type="file" class="form_input " name="prov_p_imagen1" id="prov_p_imagen1" />
+                                <input type="file" class="form_input" name="prov_p_imagen1" id="prov_p_imagen1" />
                             </div>
-                            <div class="col-12  col-md-6">
+                            <div class="col-12  col-lg-6">
                                 <label>Imagen (2)</label>
-                                <input type="file" class="form_input " name="prov_p_imagen2" id="prov_p_imagen2" />
+                                <input type="file" class="form_input" name="prov_p_imagen2" id="prov_p_imagen2" />
                             </div>
                             <div class="col-12">
                                 <label>Breve descripcion de su producto o servicio</label>
-                                <textarea class="form_textarea_full" name="prov_p_descripciom" id="prov_p_descripcion"></textarea>
+                                <textarea class="form_textarea_full form_prodcut_agre" name="prov_p_descripciom" id="prov_p_descripcion"></textarea>
                             </div>
 
                             <div class="col-6">
@@ -132,15 +138,16 @@
 
                             </div>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
-            </div>
 
-            <div class="modal-footer">
+                <div class="modal-footer">
 
-                <button type="button" class="btn btn-success" id="btnGuardarProducto"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+                    <button type="submit" class="btn btn-success" id="btnGuardarProducto"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -154,20 +161,22 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="edit_modal_titulo">Editar producto o servicio</h5>
             </div>
-            <div class="modal-body">
-                <div class="container">
-                    <form id="ContactForm" method="post" action="">
+            <form id="form_edit_produc" enctype="multipart/form-data">
+
+                <div class="modal-body">
+                    <input type="hidden" name="edit_prod_id" id="edit_prod_id">
+                    <div class="container">
                         <br>
                         <div class="row">
-                            <div class="col-12  col-md-4">
+                            <div class="col-12  col-lg-4">
                                 <?php
                                 $categorias = ControladorProductos::ctrGetCategoriaProductos();
                                 //   print_r($categorias)
                                 ?>
                                 <label>Seleccione la categoria producto o Servicio</label>
                                 <div class="select_container">
-                                    <select class="form_select" name="prov_p_categ" id="edit_prov_p_categ">
-                                        <option selected value="0">---Categorias---</option>
+                                    <select class="form_select form_prodcut_edit" name="edit_prov_p_categ" id="edit_prov_p_categ">
+                                        <option selected value="">---Categorias---</option>
                                         <?php foreach ($categorias as $key => $value) : ?>
                                             <option value="<?php echo $value["id"] ?>"><?php echo $value["nombre"] ?></option>
                                         <?php endforeach ?>
@@ -175,27 +184,31 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-12  col-lg-4">
                                 <label>Nombre del producto o Servicio</label>
-                                <input type="text" class="form_input " name="prov_p_nombre" id="edit_prov_p_nombre" />
+                                <input type="text" class="form_input form_prodcut_edit" name="edit_prov_p_nombre" id="edit_prov_p_nombre" />
                             </div>
-                            <div class="col-12  col-md-4">
+                            <div class="col-12  col-lg-4">
                                 <label>Precio</label>
-                                <input type="number" class="form_input " name="prov_p_precio" id="edit_prov_p_precio" />
+                                <input type="number" class="form_input form_prodcut_edit" name="edit_prov_p_precio" id="edit_prov_p_precio" />
                             </div>
                             <!-- FALTAN LAS IMAGENES -->
 
-                            <div class="col-12  col-md-6">
+                            <div class="col-12  col-lg-6">
                                 <label>Imagen (1)</label>
+                                <input type="file" class="form_input" name="edit_prov_p_imagen1" id="edit_prov_p_imagen1" />
+
                             </div>
-                            <div class="col-12  col-md-6">
+                            <div class="col-12  col-lg-6">
                                 <label>Imagen (2)</label>
+                                <input type="file" class="form_input" name="edit_prov_p_imagen2" id="edit_prov_p_imagen2" />
+
                             </div>
 
                             <!-- ------------------------------------------------- -->
                             <div class="col-12">
                                 <label>Breve descripcion de su producto o servicio</label>
-                                <textarea class="form_textarea_full" name="prov_p_descripciom" id="edit_prov_p_descripcion"></textarea>
+                                <textarea class="form_textarea_full form_prodcut_edit" name="edit_prov_p_descripciom" id="edit_prov_p_descripcion"></textarea>
                             </div>
 
                             <div class="col-6">
@@ -203,14 +216,15 @@
 
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="edit_btnProducto"> Guardar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="edit_btnProducto"> Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -226,51 +240,47 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <form id="ContactForm" method="post" action="">
-                        <br>
-                        <div class="row">
-                            <div class="col-12  col-md-4">
-                                <span><strong>Categoria</strong></span>
-                                <label class="form-control" id="mostrar_categoria_prod"></label><br>
+                   
+                    <div class="row">
+                        <div class="col-12  col-lg-4">
+                            <span><strong>Categoria</strong></span>
+                            <label class="form-control" id="mostrar_categoria_prod"></label><br>
 
 
-                            </div>
-                            <div class="col-12  col-md-4">
-                                <span><strong>Nombre del producto o Servicio</strong></span>
-
-                                <label class="form-control" id="mostrar_nombre_prod"></label><br>
-                            </div>
-                            <div class="col-12  col-md-4">
-                                <span><strong>Precio</strong></span>
-
-                                <label class="form-control" id="mostrar_precio_prod"> </label><br>
-                            </div>
                         </div>
-                        <div class="col-12  col-md-6">
+                        <div class="col-12  col-lg-4">
+                            <span><strong>Nombre del producto o Servicio</strong></span>
+
+                            <label class="form-control" id="mostrar_nombre_prod"></label><br>
+                        </div>
+                        <div class="col-12  col-lg-4">
+                            <span><strong>Precio</strong></span>
+
+                            <label class="form-control" id="mostrar_precio_prod"> </label><br>
+                        </div>
+
+                        <div class="col-12  col-lg-4">
                             <span><strong>Imagen 1</strong></span>
-
-                            <!--                                 <label>Imagen (1)</label>
-                                <input type="file" class="form_input " name="prov_p_imagen1" id="edit_prov_p_imagen1" /> -->
-
+                            <picture>
+                                <source id="imagen_producto1" type="image/svg+xml">
+                                <img id="imagen_producto1_1" class="img-fluid img-thumbnail" alt="...">
+                            </picture>
                         </div>
-                        <div class="col-12  col-md-6">
+                        <div class="col-12  col-lg-4">
                             <span><strong>Imagen 2</strong></span>
-                            <!--    <label>Imagen (2)</label>
-                                <input type="file" class="form_input " name="prov_p_imagen2" id="edit_prov_p_imagen2" /> -->
 
+                            <picture>
+                                <source id="imagen_producto2" type="image/svg+xml">
+                                <img id="imagen_producto2_2" class="img-fluid img-thumbnail" alt="...">
+                            </picture>
 
                         </div>
                         <div class="col-12">
                             <label><strong>Breve descripcion de su producto o servicio</strong></label>
                             <textarea class="form_textarea_full" disabled name="prov_p_descripciom" id="mostrar_descrip_prod"></textarea>
                         </div>
-
-                        <div class="col-6">
-
-
-                        </div>
+                    </div>
                 </div>
-                </form>
             </div>
 
 

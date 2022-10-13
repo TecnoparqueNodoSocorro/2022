@@ -4,7 +4,10 @@ if (isset($_GET["session"])) {
     $session = ($_GET["session"]);
 }
 ?>
-
+<!-- <?php
+$pagina = Controladorpagina::ctrGetPagByItem($session);
+print_r($pagina)
+?> -->
 <div class="title_container">
     <div class="home_bottomS">
         <div class="container-prearticulos">

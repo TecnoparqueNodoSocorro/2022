@@ -59,6 +59,13 @@ class ControladorProveedor
         $RtaUpdateProveedores = ModelProveedor::MdlUpdateProveedor($tabla, $id_proveedor);
         return $RtaUpdateProveedores;
     }
+        //--------------------editar logo del proveedor-ADMIN---------------------------------------
+        static public function CtrUpdateLogoProveedor($id_proveedor)
+        {
+            $tabla = "proveedores";
+            $RtaUpdateProveedores = ModelProveedor::MdlUpdateLogoProveedor($tabla, $id_proveedor);
+            return $RtaUpdateProveedores;
+        }
     //-------------------Cambiar contraseña ADMIN-----------------------------------------
     static public function CtrNewPass($data)
     {

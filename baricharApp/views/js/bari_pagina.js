@@ -32,6 +32,8 @@ let edit_c_items = document.getElementById("edit_pag_item");
 let edit_pag_img = document.getElementById("edit_pag_img");
 let edit_pag_titulo = document.getElementById("edit_pag_titulo");
 let edit_pag_descr = document.getElementById("edit_pag_descr");
+let id_oculto_pag = document.getElementById("id_oculto_pag");
+
 let btnEditPag = document.getElementById("btnEditPag");
 //------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
@@ -42,9 +44,9 @@ let p_datosarticulo = {};
 let p_btnguardar = document.querySelector("#pag_btnguardar");
 
 //-----------------------------CLICK DEL BOTON PARA CREAR PAGINA--------------------------------
-if (p_btnguardar) {
+/* if (p_btnguardar) {
     p_btnguardar.addEventListener("click", CrearArticulo)
-}
+} */
 //---------------------------------------------------------------------------------------------------
 
 //-------------SELECT CREAR PAGINA-----------------------------------------------------------
@@ -61,84 +63,133 @@ if (c_categ) {
 
 
 // ----------------------------FUNCION crear articulo----------------------------
-function CrearArticulo() {
-    // SE VALIDA QUE LOS CAMPOS NO ESTEN VACIOS
-    if (p_img.value.trim() == "" || p_titulo.value.trim() == "" || p_descr.value.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: `Datos incompletos`,
-            showConfirmButton: true,
-            confirmButtonColor: '#a20202',
-        })
-    } else {
 
-        p_datosarticulo = {
-            session_create: c_sesion.value,
-            categoria_create: c_categ.value,
-            item_create: c_items.value,
-            product_img_create: p_img.value,
-            titulo_prod_create: p_titulo.value,
-            descr_producto_create: p_descr.value,
+const FormNuevaPag = document.querySelector('#FormNuevaPag')
+
+FormNuevaPag ? FormNuevaPag.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    let element = document.querySelectorAll('#FormNuevaPag .form_select_pag')
+    //console.log(element)
+    element.forEach(x => {
+        // console.log(x.name, x.value);
+        if (x.value.trim() == "") {
+            Swal.fire({
+                title: 'Error',
+                text: `Complete los campos`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else if (c_sesion.value == "0") {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione la sesión`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        } else if (c_categ.value == "0") {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione la categoria`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        } else if (c_items.value == "0") {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione el item`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        } else {
+            CrearArticulo()
         }
-        //AL DARLE CLICK AL BOTON DE GUARDAR LANZA ESTE MODAL
-        Swal.fire({
-            title: 'Listo',
-            text: `¿Crear página?`,
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#a20202',
-            confirmButtonText: 'Crear',
-            cancelButtonText: 'Cancelar',
-            allowOutsideClick: () => {
-                const popup = Swal.getPopup()
-                popup.classList.remove('swal2-show')
-                setTimeout(() => {
-                    popup.classList.add('animate__animated', 'animate__headShake')
-                })
-                setTimeout(() => {
-                    popup.classList.remove('animate__animated', 'animate__headShake')
-                }, 500)
-                return false
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                //SI EL RESULTADO SE CONFIRMA EJECUTA LA FUNCIÓN PARA CREAR LA PAGINA
-                postajaxP(p_datosarticulo);
-                Swal.fire({
-                    icon: 'success',
-                    title: `Página creada`,
-                    showConfirmButton: true,
-                    confirmButtonColor: '#a20202',
-                    allowOutsideClick: () => {
-                        const popup = Swal.getPopup()
-                        popup.classList.remove('swal2-show')
-                        setTimeout(() => {
-                            popup.classList.add('animate__animated', 'animate__headShake')
-                        })
-                        setTimeout(() => {
-                            popup.classList.remove('animate__animated', 'animate__headShake')
-                        }, 500)
-                        return false
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload()
-                    }
-                })
-            }
-        })
-    }
-};
-//-----------------------------------------------------------------------------------------
-//----------------------------FUNCION QUE ENVIA EL JSON Y REALIZA EL LLAMADO AL AJAX-------
-function postajaxP(pag_datosarticulo) {
-    $.post("views/ajax/bari_pagina.ajax.php", { pag_datosarticulo }, function (data) {
-        /*  let response = JSON.parse(data);
-         console.log(response); */
-        console.log(data);
-    });
+
+
+    })
+
+    console.log(data);
+} : ''
+
+
+
+
+
+
+function CrearArticulo() {
+
+    //AL DARLE CLICK AL BOTON DE GUARDAR LANZA ESTE MODAL
+    Swal.fire({
+        title: 'Listo',
+        text: `¿Crear página?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#a20202',
+        confirmButtonText: 'Crear',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //SI EL RESULTADO SE CONFIRMA EJECUTA LA FUNCIÓN PARA CREAR LA PAGINA
+
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/bari_pagina.ajax.php',
+                data: new FormData(FormNuevaPag),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
+            Swal.fire({
+                icon: 'success',
+                title: `Página creada`,
+                showConfirmButton: true,
+                confirmButtonColor: '#a20202',
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+        }
+    })
 }
+
+//-----------------------------------------------------------------------------------------
+
 //-----------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------
 
@@ -153,7 +204,7 @@ function CBOcategoria() {
     $.post("views/ajax/bari_pagina.ajax.php", { datasesion }, function (data) {
         let response = JSON.parse(data);
         console.log(response);
-        c_categ.innerHTML = `<option selected>Seleccione Categoria</option> `
+        c_categ.innerHTML = `<option selected value="0">---Categorias---</option>`
         response.forEach(x => {
             //SE GENERA LOS OPTCION Y SE AGREGAN AL HTML
             opcion = document.createElement('option')
@@ -173,7 +224,7 @@ function CBOitems() {
     $.post("views/ajax/bari_pagina.ajax.php", { datacateg }, function (data) {
         let response = JSON.parse(data);
         console.log(response);
-        c_items.innerHTML = `<option selected> Seleccione el Item</option> `
+        c_items.innerHTML = `<option selected value="0">---Items---</option> `
         response.forEach(x => {
 
             //SE GENERA LOS OPTCION Y SE AGREGAN AL HTML
@@ -205,8 +256,8 @@ edit_c_categ ? edit_c_categ.addEventListener("change", CBOedit_items) : ''
 
 //-----------------------------combo categoria editar pagina-----------------------------------------
 function CBOeditcategoria() {
-    edit_c_categ.innerHTML = `<option selected>Seleccione Categoria</option> `
-    edit_c_items.innerHTML = `<option selected> Seleccione el Item</option>`
+    edit_c_categ.innerHTML = `<option selected value="0">---Categorias---</option> `
+    edit_c_items.innerHTML = ` <option selected value="0">---Items---</option>`
 
     // console.log(edit_c_sesion.value);
     //SE CREA EL JSON
@@ -232,13 +283,13 @@ function CBOeditcategoria() {
 
 //--------------combo items EDITAR PAGINA ------------------------------------------
 function CBOedit_items() {
-    edit_c_items.innerHTML = `<option selected> Seleccione el Item</option>`
+    edit_c_items.innerHTML = ` <option selected value="0">---Items---</option>`
     let datacateg = {
         categ: edit_c_categ.value
     }
     $.post("views/ajax/bari_pagina.ajax.php", { datacateg }, function (data) {
         let response = JSON.parse(data);
-        console.log(response);
+        // console.log(response);
         // edit_c_items.innerHTML = `<option selected> Seleccione el Item</option> `
         response.forEach(x => {
 
@@ -562,25 +613,81 @@ function OpenModalEditar() {
         //se asigna el resto de campos con los valores que se traen de la base de datos
         edit_pag_titulo.value = response.titulo
         edit_pag_descr.value = response.descripcion
+        id_oculto_pag.value = response.id
         //------------------------------------------------------------------------------------------
 
     })
-    btnEditPag ? btnEditPag.addEventListener("click", EditPag) : ''
+    /* btnEditPag ? btnEditPag.addEventListener("click", EditPag) : '' */
 }
 //---------------------------------------------------------------------------------------------------------------------
 
+//-----------editar articulo-------------------
+
+
+
+const FormEditPag = document.querySelector('#FormEditPag')
+
+FormEditPag ? FormEditPag.onsubmit = async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+
+    let element = document.querySelectorAll('#FormEditPag .form_edit_pag')
+    // console.log(element)
+    element.forEach(x => {
+        //console.log(x.name, x.value);
+        if (x.value.trim() == "") {
+            Swal.fire({
+                title: 'Error',
+                text: `Complete los campos`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else if (edit_c_sesion.value == "0") {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione la sesión`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        } else if (edit_c_categ.value == "0") {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione la categoria`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        } else if (edit_c_items.value == "0") {
+            Swal.fire({
+                title: 'Error',
+                text: `Seleccione el item`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+
+        } else {
+            EditPag()
+        }
+
+
+    })
+
+    console.log(data);
+} : ''
+
+
+
+
+
+
 function EditPag() {
-    const DataEdit = {
-        session_edit: edit_c_sesion.value,
-        categoria_edit: edit_c_categ.value,
-        item_edit: edit_c_items.value,
-        // product_img_edit: edit_pag_img.value,
-        titulo_prod_edit: edit_pag_titulo.value,
-        descr_producto_edit: edit_pag_descr.value,
-        id:id
-    }
-    console.log(DataEdit);
-     Swal.fire({
+
+    Swal.fire({
         title: 'Editar página',
 
         icon: 'question',
@@ -603,15 +710,23 @@ function EditPag() {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            //SI SE CONFIRMA SE LLAMA LA FUNCION QUE ELIMINA LA PAGINA
-            $.post("views/ajax/bari_pagina.ajax.php", { DataEdit }, function (data) {
-                response = (data);
-                console.log(response);
-            })
+            //SI SE CONFIRMA SE LLAMA LA FUNCION QUE edita LA PAGINA
+
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/bari_pagina.ajax.php',
+                data: new FormData(FormEditPag),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
             //------------------------------------------
             Swal.fire({
                 icon: 'success',
-                title: `Pagina eliminada`,
+                title: `Pagina editada`,
                 showConfirmButton: true,
                 confirmButtonColor: '#a20202',
                 allowOutsideClick: () => {
@@ -632,7 +747,7 @@ function EditPag() {
                 }
             })
         }
-    }) 
+    })
 }
 // editar articulo
 

@@ -4,6 +4,7 @@ if (isset($_GET["session"])) {
     $session = ($_GET["session"]);
 }
 ?>
+
 <div class="title_container">
     <div class="home_bottomS">
         <div class="container_servicios">

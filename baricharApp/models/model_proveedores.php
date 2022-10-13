@@ -68,13 +68,13 @@ class ModelProveedor
         }
     }
 
-    // editar 
+    // editar proveedor admin
 
     static public function MdlUpdateProveedor($tabla, $datos)
     {
 
         $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET  nombre=:nombre, nit=:nit, direccion=:direccion,
-        telefono=:telefono, correo=:correo, maxprod=:maxprod, logo=:logo,vigencia=:vigencia ,descripcion=:descripcion,
+        telefono=:telefono, correo=:correo, maxprod=:maxprod, vigencia=:vigencia ,descripcion=:descripcion,
         usuario= :usuario WHERE id=:idproveedor");
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt->bindParam(":nit", $datos["nit"], PDO::PARAM_STR);
@@ -82,7 +82,7 @@ class ModelProveedor
         $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
         $stmt->bindParam(":correo", $datos["email"], PDO::PARAM_STR);
         $stmt->bindParam(":maxprod", $datos["max_p"]);
-        $stmt->bindParam(":logo", $datos["logo"], PDO::PARAM_STR);
+
         $stmt->bindParam(":vigencia", $datos["vigencia"]);
         $stmt->bindParam(":usuario", $datos["user"], PDO::PARAM_STR);
         $stmt->bindParam(":descripcion", $datos["descr"], PDO::PARAM_STR);
@@ -98,16 +98,34 @@ class ModelProveedor
             $stmt = null;
         }
     }
-    // editar proveedor
+
+    // editar logo admin
+
+    static public function MdlUpdateLogoProveedor($tabla, $datos)
+    {
+
+        $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET logo=:logo WHERE id=:idproveedor");
+
+        $stmt->bindParam(":logo", $datos["logo"], PDO::PARAM_STR);
+        $stmt->bindParam(":idproveedor", $datos["idproveedor"]);
+        if ($stmt->execute()) {
+            return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    // editar  proveedor usuario: proveedor
 
     static public function mdlEditProv($tabla, $datos)
     {
-        $stmt = conexion::conectar()->prepare(
-            " UPDATE $tabla SET  
-     direccion=:direccion, telefono=:telefono, 
-     correo=:correo, descripcion=:descripcion 
-     WHERE id=:idproveedor"
-        );
+        $stmt = conexion::conectar()->prepare(" UPDATE $tabla SET  
+        direccion=:direccion, telefono=:telefono, correo=:correo, descripcion=:descripcion 
+        WHERE id=:idproveedor");
 
         $stmt->bindParam(":direccion", $datos["direc"], PDO::PARAM_STR);
         $stmt->bindParam(":telefono", $datos["tel"], PDO::PARAM_STR);
