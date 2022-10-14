@@ -45,7 +45,7 @@ class Controladorpagina
     {
 
         $tabla = "pagina";
-        $rta = ModelPagina::mdlGetPag($tabla, $item);
+        $rta = ModelPagina::mdlGetPaginaByName($tabla, $item);
         return $rta;
     }
     //CAMBIAR ESTADO

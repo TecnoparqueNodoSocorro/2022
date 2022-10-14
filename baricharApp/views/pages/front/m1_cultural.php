@@ -1,53 +1,41 @@
-<!-- CULTURA -->
+<!-- DIVERSION -->
 <?php
 if (isset($_GET["session"])) {
-$session= ($_GET["session"]);
+    $session = ($_GET["session"]);
 }
+
+require_once "models/model_pagina.php";
+require_once "controllers/controller_pagina.php";
+$pagina = Controladorpagina::ctrGetPagByItem($session);
+//print_r($pagina)
 ?>
 
+<div class="title_container divCultura">
+    <div class="home_bottomS mt-5">
+        <h1 class="text-white" style="margin-top:100px"><strong><?php echo strtoupper($session)  ?></strong></h1>
 
-<div class="title_container">
-    <div class="home_bottomS">
-        <div class="container">
-
-            <div class="container-prearticulos">
-
-                <h1 class="publik-titulo">Cultural- <?php echo $session?> </h1>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="publik_cultural">
-                            <div class="row">
-                                <div class="col-12 col-md-6  publik_imagen_cultural">
-                                    <img class="img_publik" src="views/images/publicaciones/diversion/imagen.jpg" alt="">
-                                </div>
-                                <div class="col-12 col-md-6 publik_titulo">Lorem ipsis, consequuntur eos. Distinctio, natus?</div>
-                                <div class="col-12  col-md-12 publik_desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos voluptatum laudantium deserunt debitis saepe repellendus, tempora obcaecati autem soluta repellat, fuga amet laboriosam nostrum recusandae. Debitis, consequuntur eos. Distinctio, natus?</div>
-                            </div>
+        <div class="cards row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2" >
+            <?php foreach ($pagina as $key => $value) : ?>
+                <div class="col mx-auto">
+                    <div class="cardm1">
+                        <div class="container-fluid py-2">
+                            <picture>
+                                <source srcset="views<?php echo $value["imagen"] ?>" type="image/svg+xml">
+                                <img src="views<?php echo $value["imagen"] ?>" class="img-fluid img-thumbnail" alt="...">
+                            </picture>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title tituloCard "><strong><?php echo $value["titulo"] ?></strong></h5>
+                            <p class="card-text text-white"><?php echo $value["descripcion"] ?></p>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach ?>
+
+
         </div>
+
     </div>
 
-</div>
 
-<div class="slider_container">
-    <div class="slider_trans_black"></div>
-    <div id="random">
-        <div style="background-image: url(views/images/slider/slide1.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide3.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide4.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide5.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide6.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide7.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide8.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide9.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide10.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide11.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide12.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide13.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide14.jpg);"></div>
-        <div style="background-image: url(views/images/slider/slide15.jpg);"></div>
-    </div>
 </div>

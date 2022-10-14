@@ -169,7 +169,7 @@ require_once "modal.php";
                     </a>
                 </div>
                 <div class="left14">
-                    <a href="index.php?pagemenu2=menu2&module=planes">
+                    <a href="index.php?pagemenu2=menu2&module=planesdeboda">
                         <img src="views/images/planesyservicios/planest.png" alt="" title="" />
                         <h3>PLANES </h3>
                     </a>
@@ -189,7 +189,7 @@ require_once "modal.php";
                         <h3>LUNA DE MIEL</h3>
                     </a>
                 </div>
-                <div class="left14"> <a href="index.php?pagemenu2=menu2&module=tour">
+                <div class="left14"> <a href="index.php?pagemenu2=menu2&module=tour_de_entretenimiento">
                         <img src="views/images/planesyservicios/tours.png" alt="" title="" />
                         <h3>TOUR DE ENTRETENIMIENTO</h3>
                     </a>

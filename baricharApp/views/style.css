@@ -16,6 +16,7 @@ Template:	Wedding Bells HTML,CSS Template
 	2-1 HEADINGS
 	2-2 GOOGLE FONTS
 3. LAYOUT
+
 4. MENU NAVIGATION
 5. CONTENT
 	5-1. HOME PAGE COUPLE NAMES
@@ -1530,7 +1531,10 @@ label#loader {
 	clear: both;
 	background-color: #2d2e21;
 	width: 100%;
-	padding: 40px 0 20px 0;
+	padding: 20px 0 10px 0;
+	bottom: 0;
+	position: fixed;
+	z-index: 999;
 }
 
 .footer_sign {
@@ -1574,7 +1578,7 @@ span.swirl_right_transparent {
 
 .footer_socials ul li a {
 	display: inline-block;
-	margin:  0px;
+	margin: 0px;
 }
 
 .footer_socials ul li a {
@@ -2436,5 +2440,62 @@ span.swirl_right_transparent {
 	width: 100%;
 	height: 10%;
 	background-color: #e9e8ce;
+
+}
+
+.tituloCard {
+	font-weight: bolder;
+	color: blanchedalmond;
+	text-shadow: 1px 1px #7d7c7c !important;
+}
+
+.divDiversion {
+	background-image: url(images/slider/slide2.jpg);
+	top: 0;
+	background-repeat: repeat;
+	/* 	height: inherit;
+	height: 100vh; */
+}
+
+.divCultura {
+	background-image: url(images/slider/slide2.jpg);
+	top: 0;
+	background-repeat: repeat;
+	/* 	height: inherit;
+	height: 100%;
+ */
+}
+
+.divServicios {
+	background-image: url(images/slider/slide11.jpg);
+	top: 0;
+	background-repeat: repeat;
+	/* 	height: inherit;
+	height: 100%; */
+
+}
+
+.cardm1 {
+	background-color: #5ab2da;
+}
+
+.cardm2 {
+	background-color: #ffa333;
+/* 	border-radius: 5px;
+	-webkit-box-shadow: 7px 0px 7px 0px rgba(0, 0, 0, 0.47);
+	-moz-box-shadow: 7px 0px 7px 0px rgba(0, 0, 0, 0.47);
+	box-shadow: 7px 0px 7	px 0px rgba(0, 0, 0, 0.47); */
+}
+
+.divMenu2 {
+	background-image: url(images/slider/slide2.jpg);
+	top: 0;
+
+	height: inherit;
+	height: 100%;
+}
+
+.cards {
+	margin-bottom: 200px !important;
 
 }

@@ -45,7 +45,7 @@
                 </ul>
             </li>
 
-            <li><a href="index.php?page=m1_cultural&session=home">CULTURAL</a></li>
+            <li><a href="index.php?page=m1_cultural&session=cultura">CULTURAL</a></li>
             <li><a href="#e">SERVICIOS</a>
                 <ul>
                     <li><a href="index.php?page=m1_servicios&session=concierge">Concierge</a></li>
