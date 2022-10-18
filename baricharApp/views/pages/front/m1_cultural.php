@@ -11,10 +11,11 @@ $pagina = Controladorpagina::ctrGetPagByItem($session);
 ?>
 
 <div class="title_container divCultura">
+    <a href="index.php?page=home" class="btn-flotante btn-sm"><i class="bi bi-house"></i></a>
     <div class="home_bottomS mt-5">
         <h1 class="text-white" style="margin-top:100px"><strong><?php echo strtoupper($session)  ?></strong></h1>
 
-        <div class="cards row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2" >
+        <div class="cards row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2">
             <?php foreach ($pagina as $key => $value) : ?>
                 <div class="col mx-auto">
                     <div class="cardm1">

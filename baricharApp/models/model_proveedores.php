@@ -3,7 +3,16 @@ require_once "conexion.php";
 class ModelProveedor
 {
     // crear 
-
+    // -------------MODELO LOGIN--------
+    static public function mdlLogin($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE usuario=:user AND pasww1=:pass");
+        $stmt->bindParam(":user",  $data["user"], PDO::PARAM_STR);
+        $stmt->bindParam(":pass",  $data["password"], PDO::PARAM_STR);
+        $stmt->execute();
+        $datos = $stmt->fetch(PDO::FETCH_OBJ);
+        return $datos;
+    }
     static public function MdlNewproveedor($datos, $tabla)
     {
         $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (nombre, nit, telefono, correo, maxprod, direccion, descripcion, logo, vigencia, usuario, pasww1) VALUES(:nombre, :nit, :telefono, :correo, :maxprod, :direccion, :descripcion,:logo,:vigencia,:usuario,:pasww1)");

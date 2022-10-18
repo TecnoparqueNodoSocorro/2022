@@ -1,3 +1,26 @@
+<?php
+require_once "controllers/controller_proveedores.php";
+session_start();
+if (isset($_SESSION["id"])) {
+    $userid = $_SESSION["id"];
+}
+if (isset($_SESSION["id_cargo"])) {
+    $id_cargo = $_SESSION["id_cargo"];
+}
+if (isset($_SESSION["usuario"])) {
+    $usuario = $_SESSION["usuario"];
+}
+if (isset($_SESSION["validar_ingreso"])) {
+    $validaringreso = $_SESSION["validar_ingreso"];
+}
+/* 
+echo $userid;
+echo $id_cargo;
+echo $usuario;
+echo $validaringreso;
+ */
+
+?>
 <!DOCTYPE html>
 
 <head>
@@ -57,8 +80,10 @@
                 </ul>
             </li>
             <li><a href="index.php?page=login">INICIAR SESION</a></li>
-            <li><a href="admin.php?page=ahome">Admin</a></li>
-            <li><a href="proveedor.php?page=phome">Proveedor</a></li>
+         <!--    <li><a href="admin.php?page=ahome">Admin</a></li>
+            <li><a href="proveedor.php?page=phome">Proveedor</a></li> -->
+     <!--         <li style="display: <?php echo (isset($_SESSION["validar_ingreso"])) ? '' : 'none' ?> " id="btnCerrarSesion"><a>CERRAR SESIÓN</a></li>  -->
+
         </ul>
     </nav>
 
@@ -89,17 +114,17 @@
     } else  if (isset($_GET["pagemenu2"])) {
         if ($_GET["pagemenu2"] == "menu2") {
             include "pages/front/" . $_GET["pagemenu2"] . ".php";
-        }  else {
+        } else {
             include "pages/front/error.php";
         }
     } else  if (isset($_GET["pagemenu3"])) {
         if ($_GET["pagemenu3"] == "menu3") {
             include "pages/front/" . $_GET["pagemenu3"] . ".php";
-        }  else {
+        } else {
             include "pages/front/error.php";
         }
-    }else {
-        include "pages/login.php";
+    } else {
+        include "pages/home.php";
     }
 
     //   include "pages/front/error.php";
@@ -237,5 +262,9 @@
 <!-- js propios -->
 <script src="views/js/bari_user.js"></script>
 <script src="views/js/bari_productos.js"></script>
+<script src="views/js/imagen_menu.js"></script>
+
+<script src="views/js/login.js"></script>
+
 
 </html>

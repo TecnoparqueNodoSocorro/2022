@@ -6,11 +6,14 @@ if (isset($_GET["session"])) {
 
 require_once "models/model_pagina.php";
 require_once "controllers/controller_pagina.php";
+require "views/pages/front/modal_imagen_menu.php";
 $pagina = Controladorpagina::ctrGetPagByItem($session);
 //print_r($pagina)
 ?>
 
 <div class="title_container divServicios">
+<a href="index.php?page=home" class="btn-flotante btn-sm"><i class="bi bi-house"></i></a>
+
     <div class="home_bottomS mt-5">
         <h1 class="text-white" style="margin-top:100px"><strong><?php echo strtoupper($session)  ?></strong></h1>
 

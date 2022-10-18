@@ -220,7 +220,7 @@ require_once "modal.php";
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio">PROPUESTAS DE MATRIMONIO</a></h3>
-                    <a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio" class="post_read_more">Ver Mas</a>
+          <!--           <a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/propuestas.png" alt="" title="" />
             </div>
@@ -230,7 +230,7 @@ require_once "modal.php";
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=cheffypasteleros">CHEFF Y PASTELEROS</a></h3>
-                    <a href="index.php?pagemenu3=menu3&module=cheffypasteleros" class="post_read_more">Ver Mas</a>
+                    <!-- <a href="index.php?pagemenu3=menu3&module=cheffypasteleros" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/pasteleros.png" alt="" title="" />
             </div>
@@ -240,7 +240,7 @@ require_once "modal.php";
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=hotelesdeensueno">HOTELES DE ENSUEÑO</a></h3>
-                    <a href="index.php?pagemenu3=menu3&module=hotelesdeensueno" class="post_read_more">Ver Mas</a>
+                    <!-- <a href="index.php?pagemenu3=menu3&module=hotelesdeensueno" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/hoteles.png" alt="" title="" />
             </div>
@@ -248,14 +248,14 @@ require_once "modal.php";
     </div>
 </div>
 <div class="full_width_centered">
-    <div class="latest_posts">
+    <div class="latest_posts" style="padding-bottom: 100px;">
 
         <div class="left13">
             <div class="latest_post">
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=gastronomiabodas">GASTRONOMIA BODAS</a></h3>
-                    <a href="index.php?pagemenu3=menu3&module=gastronomiabodas" class="post_read_more">Ver Mas</a>
+                    <!-- <a href="index.php?pagemenu3=menu3&module=gastronomiabodas" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/gastronomia.png" alt="" title="" />
             </div>
@@ -265,7 +265,7 @@ require_once "modal.php";
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=disenadores">DISEÑADORES</a></h3>
-                    <a href="index.php?pagemenu3=menu3&module=disenadores" class="post_read_more">Ver Mas</a>
+                    <!-- <a href="index.php?pagemenu3=menu3&module=disenadores" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/disenadores.png" alt="" title="" />
             </div>
@@ -275,7 +275,7 @@ require_once "modal.php";
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=cruceros">CRUCEROS</a></h3>
-                    <a href="index.php?pagemenu3=menu3&module=cruceros" class="post_read_more">Ver Mas</a>
+                    <!-- <a href="index.php?pagemenu3=menu3&module=cruceros" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/cruceros.png" alt="" title="" />
             </div>

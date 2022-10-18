@@ -3,7 +3,7 @@
 
 
 
-    <div class="container" style="background-color:#e3f8e0;">
+    <div class="container" style="background-color:#e3f8e0; max-width: 740px !important">
         <div class="row pt-4">
 
 

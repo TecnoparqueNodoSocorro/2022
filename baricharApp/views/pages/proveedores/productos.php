@@ -1,3 +1,18 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] == "ok") {
+        if (isset($_SESSION["id_cargo"])) {
+            if ($_SESSION["id_cargo"] != "1") {
+                echo '<script>window.location="admin.php?page=error_credenciales"</script>';
+            }
+        }
+    } else {
+        echo '<script>window.location="index.php?page=login" </script>';
+    }
+} else {
+    echo '<script>window.location="index.php?page=login" </script>';
+}
+?>
 <div class="title_container">
 
     <div class="home_bottomS">
@@ -15,17 +30,18 @@
 
             <?php
             $productos = ControladorProductos::CtrGetProductos();
-            //   print_r($productos)
+             // print_r($productos)
 
             ?>
             <div class="table-responsive" id="proveedores" style="min-height:450px">
-                <table class="table caption-top  table-sm">
+                <table class="table caption-top  table-sm" style="min-height:450px; margin-bottom: 300px;">
                     <!--   <caption>List of users</caption> -->
                     <thead>
                         <tr>
                             <!-- <th>imagen</th> -->
                             <th>Opciones</th>
                             <th>Nombre</th>
+                            <th>Categoria</th>
                             <th>Descripcion</th>
                             <th>Precio</th>
                             <th>Estado</th>
@@ -42,14 +58,14 @@
                                 </td> -->
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" data-estado="<?php echo $value["estado"] ?>" data-id="<?php echo $value["id"] ?>" class="id_producto btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button type="button" data-estado="<?php echo $value["estado"] ?>" data-id="<?php echo $value["producto_id"] ?>" class="id_producto btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-plus-circle-fill"></i>
 
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a onclick="eliminarProductos()" class="dropdown-item" href="#"><i class="bi bi-trash3-fill">Eliminar</i></a></li>
                                             <li><a onclick="activar_desactivar()" class="dropdown-item" href="#"><i class="bi bi-lock-fill"><?php echo $value["estado"] == "1" ? 'Desactivar' : 'Activar' ?></i></a></li>
-                                            <li><a onclick="OpenModalVerProduct()" class="dropdown-item" href="#"><i class="bi bi-check2-square">Mostrar</i></a></li>
+                                            <li><a onclick="OpenModalVerProduct()" class="dropdown-item" href="#"><i class="bi bi-check2-square">Visualizar</i></a></li>
                                             <li><a onclick="OpenModalEditProduct()" class="dropdown-item" href="#"><i class="bi bi-pen">Editar</i></a></li>
                                             <!-- <li><a class="dropdown-item" href="#"><i class="bi bi-search">Ver</i></a></li> -->
 
@@ -57,6 +73,8 @@
                                     </div>
                                 </td>
                                 <td><?php echo $value["nombre"] ?></td>
+                                <td><?php echo $value["categoria_nombre"] ?></td>
+
                                 <td><?php echo $value["descripcion"] ?></td>
                                 <td><?php echo $value["precio"] ?></td>
                                 <td class="fw-bold <?php echo $value["estado"] == "1" ? 'text-primary' : 'text-danger' ?> "><?php echo $value["estado"] == "1" ? 'Activo' : 'Inactivo' ?></td>
@@ -111,7 +129,7 @@
                             </div>
                             <!-- id del proveedor oculto falta asignar cuando se implemente la segurida -->
 
-                            <input type="hidden" name="prov_p_id_oculto" id="prov_p_id_oculto" value="2">
+                            <input type="hidden" name="prov_p_id_oculto" id="prov_p_id_oculto" value="<?php echo $userid ?>">
                             <div class="col-12  col-lg-4">
                                 <label>Nombre del producto o Servicio</label>
                                 <input type="text" class="form_input form_prodcut_agre" name="prov_p_nombre" id="prov_p_nombre" />

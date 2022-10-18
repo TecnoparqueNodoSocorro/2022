@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2022 a las 22:26:34
+-- Tiempo de generación: 18-10-2022 a las 23:42:16
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -101,7 +101,9 @@ INSERT INTO `pagina` (`id`, `sesion`, `categoria`, `item`, `imagen`, `titulo`, `
 (86, 'menu2', 'planesyservicios', 'turismo', '../images/imagen_articulo/1665764913.png', 'tituulo turtismoi menu 2 ', 'dweaeciornseiodfjois fsjdha foisdjfsd menu2  descruocn', 1),
 (87, 'menu3', 'enterate', 'propuestas_matrimonio', '../images/imagen_articulo/1665775577.jpg', 'PRUEBA PROPUESTAS DE maTRImonio', 'descripcion pruebas de matrimonio dskjfhksdjhfkjsdhfskjdhfksdj sdkhfksjdh ksdjfhsdk fhsdkjfh sdhf sdkj f', 1),
 (88, 'menu3', 'enterate', 'cheffypasteleros', '../images/imagen_articulo/1665775618.jpg', 'prueba titulo cheefff y pasteleros', 'fskdjhfsjfs descripcion chef sdhfsdjh sdhfkjsdh sdjhfskd\r\n', 1),
-(89, 'menu3', 'enterate', 'gastronomiabodas', '../images/imagen_articulo/1665775704.png', 'PRUEBA TITULO DE GRASTRONOBIA DE BODAS', 'dsjfsdjhfsdkjh sdescriopcion bodas deskfjsdkjf ', 1);
+(89, 'menu3', 'enterate', 'gastronomiabodas', '../images/imagen_articulo/1665775704.png', 'PRUEBA TITULO DE GRASTRONOBIA DE BODAS', 'dsjfsdjhfsdkjh sdescriopcion bodas deskfjsdkjf ', 1),
+(90, 'menu3', 'enterate', 'propuestas_matrimonio', '../images/imagen_articulo/1666097535.jpg', '34534', '678657567+\r\n', 1),
+(91, 'menu3', 'enterate', 'cheffypasteleros', '../images/imagen_articulo/1666097552.jpg', '0\'¿0\'', '¿0\'¿0\'¿0\'', 1);
 
 -- --------------------------------------------------------
 
@@ -193,7 +195,8 @@ INSERT INTO `productos` (`id`, `idproveedor`, `idcategoria`, `nombre`, `precio`,
 (18, 2, 1, 'rtyrty', 657657, '../images/productos/p2.jpg', '../images/productos/1665675413.jpg', '567567', 1),
 (19, 2, 1, '654645', 64564564, '../images/productos/1665675502.jpg', '../images/productos/1665675503.jpg', '56456456', 1),
 (20, 2, 7, '456456', 456454, '../images/productos/1665675970.jpg', '../images/productos/1665676239.jpg', '5645645', 1),
-(21, 2, 9, '444', 44, '../images/productos/1665678196.jpg', '../images/productos/1665678197.jpg', '444', 1);
+(21, 2, 9, '444', 44, '../images/productos/1665678196.jpg', '../images/productos/1665678197.jpg', '444', 1),
+(22, 31, 1, 'prueba id', 5000, '../images/productos/1666128419.jpg', '../images/productos/1666128420.jpg', 'prueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba id', 1);
 
 -- --------------------------------------------------------
 
@@ -243,20 +246,22 @@ CREATE TABLE `proveedores` (
   `vigencia` date NOT NULL,
   `estado` int(11) NOT NULL DEFAULT 1,
   `usuario` varchar(15) NOT NULL,
-  `pasww1` varchar(10) NOT NULL
+  `pasww1` varchar(10) NOT NULL,
+  `id_cargo` int(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`id`, `nombre`, `nit`, `telefono`, `correo`, `maxprod`, `direccion`, `descripcion`, `logo`, `vigencia`, `estado`, `usuario`, `pasww1`) VALUES
-(31, 'nombre prue55', 'nit', '1111', 'email', 9999, 'd', 'descr', '../images/logos/1665606521.jpg', '2022-10-19', 1, 'user', '55'),
-(32, '45645 fff', '645', '645', '6456', 45645, '645645', '54645645', '../images/logos/1665606195.png', '2022-10-12', 1, '6546', '444'),
-(33, '44', '44', '2312312312', 'dsfdsfdxchjd', 44, 'calle 23', 'descripcion de la empresa sdfisdhfsudhjfs\r\n', '../images/logos/1665671729.png', '2022-10-13', 1, '44', '44'),
-(34, '44', '44', '44', '44', 44, '44', '44', '../images/logos/1665603135.jpg', '0000-00-00', 1, '44', '44'),
-(35, 'erer', 'ere', '343', 'ere', 434, 'rer', 'erere', '../images/logos/1665604323.jpg', '2022-10-11', 1, 'ere', '33'),
-(36, '54645', '456456', '4564564', '45645645', 454, '45645645', '546456', '../images/logos/1665671238.jpg', '2022-10-14', 1, '45645', '44');
+INSERT INTO `proveedores` (`id`, `nombre`, `nit`, `telefono`, `correo`, `maxprod`, `direccion`, `descripcion`, `logo`, `vigencia`, `estado`, `usuario`, `pasww1`, `id_cargo`) VALUES
+(31, 'nombre prue55', 'nit', '1111', 'email', 9999, 'direccion prueba', 'descr', '../images/logos/1665606521.jpg', '2022-10-19', 1, 'user', '55', 1),
+(32, '45645 fff', '645', '645', '6456', 45645, '645645', '54645645', '../images/logos/1665606195.png', '2022-10-12', 1, '6546', '444', 1),
+(33, '44', '44', '2312312312', 'dsfdsfdxchjd', 44, 'calle 23', 'descripcion de la empresa sdfisdhfsudhjfs\r\n', '../images/logos/1665671729.png', '2022-10-13', 1, '44', '44', 1),
+(34, '44', '44', '44', '44', 44, '44', '44', '../images/logos/1665603135.jpg', '0000-00-00', 1, '44', '44', 1),
+(35, 'erer', 'ere', '343', 'ere', 434, 'rer', 'erere', '../images/logos/1665604323.jpg', '2022-10-11', 1, 'ere', '33', 1),
+(36, '54645', '456456', '4564564', '45645645', 454, '45645645', '546456', '../images/logos/1665671238.jpg', '2022-10-14', 1, '45645', '44', 1),
+(37, 'admin', '0000', '00000', 'admin@correoprueba.com', 0, 'direccion admin', 'descripcion admin', '../images/logos/1666123991.jpg', '0000-00-00', 1, 'admin', 'admin12345', 2);
 
 --
 -- Índices para tablas volcadas
@@ -312,7 +317,7 @@ ALTER TABLE `articulos`
 -- AUTO_INCREMENT de la tabla `pagina`
 --
 ALTER TABLE `pagina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT de la tabla `pg_categorias`
@@ -324,7 +329,7 @@ ALTER TABLE `pg_categorias`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `product_categorias`
@@ -336,7 +341,7 @@ ALTER TABLE `product_categorias`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,11 +6,15 @@ if (isset($_GET["session"])) {
 
 require_once "models/model_pagina.php";
 require_once "controllers/controller_pagina.php";
+require "views/pages/front/modal_imagen_menu.php";
+
 $pagina = Controladorpagina::ctrGetPagByItem($session);
 //print_r($pagina)
 ?>
 
 <div class="title_container divDiversion">
+<a href="index.php?page=home" class="btn-flotante btn-sm"><i class="bi bi-house"></i></a>
+
     <div class="home_bottomS mt-5">
         <h1 class="text-white" style="margin-top:100px"><strong><?php echo strtoupper($session)  ?></strong></h1>
 
@@ -19,7 +23,7 @@ $pagina = Controladorpagina::ctrGetPagByItem($session);
                 <div class="col mx-auto">
                     <div class="cardm1">
                         <div class="container-fluid py-2">
-                            <picture>
+                            <picture class="extraerImagen" data-imagen="<?php echo $value["imagen"] ?>"  data-bs-toggle="modal" data-bs-target="#modal_imagen_menu">
                                 <source srcset="views<?php echo $value["imagen"] ?>" type="image/svg+xml">
                                 <img src="views<?php echo $value["imagen"] ?>" class="img-fluid img-thumbnail" alt="...">
                             </picture>

@@ -2,6 +2,30 @@
 
 class ControladorProveedor
 {
+
+       //LOGIN
+       static public function ctrLogin($data)
+       {
+           $tabla = "proveedores";
+           $respuesta = ModelProveedor::mdlLogin($tabla, $data);
+           // return $respuesta;
+           if ($respuesta == false) {
+               return "";
+           } /* else if ($respuesta->estado == "0") {
+               return "Usuario inactivo";
+           }  */ else {
+               //SI LA RESPUESTA DEL MODELO ES DIFERENTE A FALSO FUE PORQUE ENCONTRÓ COINCIDENCIA EN LOS DATOS QUE SE ENVIARION
+               //SE CREA LA SESSION
+               session_start();
+               //SE CREAN LAS VARIABLES DE SESSION
+               $_SESSION["validar_ingreso"] = "ok";
+               $_SESSION["id_cargo"] = $respuesta->id_cargo;
+               $_SESSION["id"] = $respuesta->id;
+               $_SESSION["usuario"] = $respuesta->usuario;
+               return $respuesta;
+               //------------------------------------------
+           }
+       }
     static public function CtrNewProveedor($data)
     {
         $tabla = "proveedores";

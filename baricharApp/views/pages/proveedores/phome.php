@@ -1,3 +1,22 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] == "ok") {
+        if (isset($_SESSION["id_cargo"])) {
+            if ($_SESSION["id_cargo"] != "1") {
+                echo '<script>window.location="admin.php?page=error_credenciales"</script>';
+            }
+        }
+    } else {
+        echo '<script>window.location="index.php?page=login" </script>';
+    }
+} else {
+    echo '<script>window.location="index.php?page=login" </script>';
+}
+
+if (isset($_SESSION["id"])) {
+    $userid = $_SESSION["id"];
+}
+?>
 <div class="title_container">
 
     <div class="home_bottomS">
@@ -9,15 +28,15 @@
 
                 <h4>DATOS DEL PROVEEDOR</h4>
                 <?php
-                $prov = ControladorProveedor::CtrInfoProveedorHome(33);
+                $prov = ControladorProveedor::CtrInfoProveedorHome($userid);
                 //  print_r($prov);
 
                 ?>
 
-                <div class="row">
+                <div class="row" style="margin-bottom:250px ;">
                     <div class="col-12 col-md-12" id="imagen_prov">
                         <div class="container">
-                            <img id="imgproveedor" class="img-thumbnail"  src="views/views/<?php echo $prov->logo ?>">
+                            <img id="imgproveedor" class="img-thumbnail" src="views/views/<?php echo $prov->logo ?>">
                         </div>
                     </div>
 
@@ -59,14 +78,17 @@
                         <div class="row ">
                             <div class="prov_item col-6">
 
-                                <button type="button" data-id="<?php echo $prov->id ?>" class="btnEditProv btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_cambio_clave">
+                                <button type="button" data-id="<?php echo $prov->id ?>" class="btnEditProv btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_cambio_clave">
                                     Cambiar clave
                                 </button>
 
                             </div>
                             <div class="prov_item col-6">
+                              <!--   <button type="button" data-id="<?php echo $prov->id ?>" class="btnEditProv btn btn-success px-auto" data-bs-toggle="modal" data-bs-target="#modal_cambio_clave">
+                                    Cambiar clave
+                                </button> -->
 
-                                <button type="button" data-dir="<?php echo $prov->direccion ?>" data-desc="<?php echo $prov->descripcion ?>" data-id="<?php echo $prov->id ?>" data-tel="<?php echo $prov->telefono ?>" data-email="<?php echo $prov->correo ?>" class="btnEditProv btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" data-dir="<?php echo $prov->direccion ?>" data-desc="<?php echo $prov->descripcion ?>" data-id="<?php echo $prov->id ?>" data-tel="<?php echo $prov->telefono ?>" data-email="<?php echo $prov->correo ?>" class="btnEditProv btn-sm btn btn-primary mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Editar información
                                 </button>
                             </div>
@@ -110,11 +132,11 @@
                     <h5 class="modal-title clear" id="exampleModalLabel">Editar datos de la empresa</h5>
 
                 </div>
-                    <div class="modal-body">
+                <div class="modal-body">
 
 
-                        <div class="container">
-                            <p class="clear"><strong>Datos de la empresa</strong></p>
+                    <div class="container">
+                        <p class="clear"><strong>Datos de la empresa</strong></p>
 
                         <div class="row">
 

@@ -31,7 +31,7 @@ class ModelProducto
     // consultar categorias de los productos
     static public function mdlGetProductos($tabla)
     {
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla");
+        $stmt = conexion::conectar()->prepare("SELECT *, product_categorias.id AS 'id_cat', $tabla.id AS 'producto_id', product_categorias.nombre AS 'categoria_nombre' FROM $tabla INNER JOIN product_categorias ON $tabla.idcategoria=product_categorias.id");
         if ($stmt->execute()) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();

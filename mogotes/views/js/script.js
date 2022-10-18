@@ -1,4 +1,4 @@
-// Guardar datos del login y guardarlos en un array
+/* // Guardar datos del login y guardarlos en un array
 let user = document.getElementById('username')
 let pass = document.getElementById('pass')
 let btn = document.getElementById('btnIniciar')
@@ -12,9 +12,9 @@ if (btn) {
             console.log(login);
         }
     })
-}
+} */
 
-//registro de EMPLEADO
+/* //registro de EMPLEADO
 let nuevoEmpleado = {}
 let name_user = document.getElementById('name_user')
 let lastname_user = document.getElementById('lastname_user')
@@ -31,10 +31,10 @@ if (btnRegistrar) {
             console.log(nuevoEmpleado);
         }
     })
-}
+} */
 
 
-// RECEPCION DE GUAYABA
+/* // RECEPCION DE GUAYABA
 
 let recepcionGuayaba = {}
 let newLote = document.getElementById('newLote')
@@ -64,9 +64,9 @@ if (btnGuardar) {
             console.log(recepcionGuayaba);
         }
     })
-}
+} */
 
-
+/* 
 // ESCALDADO DE GUAYABA
 let escaldadoGuayaba = {}
 let lote_escaldada = document.getElementById('lote_escaldada')
@@ -84,9 +84,9 @@ if (btnGuardarEsc) {
             console.log(escaldadoGuayaba);
         }
     })
-}
+} */
 
-
+/* 
 // REPORTE DE BOCADILLO
 
 let lote_bocadillo = document.getElementById('lote_bocadillo')
@@ -115,9 +115,9 @@ if (btnGuardarB) {
             console.log(reporteBocadillo);
         }
     })
-}
+} */
 
-// REPORTE DE ESPEJUELO
+/* // REPORTE DE ESPEJUELO
 
 let lote_espejuelo = document.getElementById('lote_espejuelo')
 let azucarE = document.getElementById('azucarE')
@@ -149,9 +149,9 @@ if (btnGuardarE) {
         }
     })
 }
+ */
 
-
-// REPORTE AREQUIPE
+/* // REPORTE AREQUIPE
 
 let lote_arequipe = document.getElementById('lote_arequipe')
 let leche = document.getElementById('leche')
@@ -173,8 +173,8 @@ if (btnGuardarA) {
         }
     })
 }
-
-// REGISTRO EMBALAJE 
+ */
+/* // REGISTRO EMBALAJE 
 let embalaje = {}
 let lote_embalaje = document.getElementById('lote_embalaje')
 let azucarEmb = document.getElementById('azucarEmb')
@@ -277,4 +277,4 @@ if (btnGuardarEmbA) {
         }
 
     })
-}
+} */

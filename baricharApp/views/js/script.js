@@ -1,18 +1,3 @@
-// Guardar datos del login y guardarlos en un array
-let user = document.getElementById('user')
-let pass = document.getElementById('password')
-let btn = document.getElementById('btnIniciar')
-let login = {}
-if (btn) {
-    btn.addEventListener("click", () => {
-        if (user.value.trim() == "" || pass.value.trim() == "") {
-            console.log("datos incompletos")
-        } else {
-            login = { user: user.value, password: pass.value }
-            console.log(login);
-        }
-    })
-}
 
 
 // Guardar datos del agregar empresa y guardarlos en un array

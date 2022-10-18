@@ -1,3 +1,26 @@
+<?php
+require_once "controllers/controller_proveedores.php";
+session_start();
+if (isset($_SESSION["id"])) {
+    $userid = $_SESSION["id"];
+}
+if (isset($_SESSION["id_cargo"])) {
+    $id_cargo = $_SESSION["id_cargo"];
+}
+if (isset($_SESSION["usuario"])) {
+    $usuario = $_SESSION["usuario"];
+}
+if (isset($_SESSION["validar_ingreso"])) {
+    $validaringreso = $_SESSION["validar_ingreso"];
+}
+
+/* echo $userid;
+echo $id_cargo;
+echo $usuario;
+echo $validaringreso; */
+
+
+?>
 <!DOCTYPE html>
 
 <head>
@@ -22,8 +45,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="views/css/styles.css" />
 
-        <!-- Sweet alert  -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Sweet alert  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -32,13 +55,15 @@
 
     <a class="show_menu" href="#"><img src="views/images/mobile_menu_open.png" alt="" title="" /></a>
     <a class="hide_menu" href="#"><img src="views/images/mobile_menu_close.png" alt="" title="" /></a>
+    <!-- id proveedor oculto -->
+
 
     <nav class="menu">
         <ul id="main_menu">
             <li><a class="selected" href="proveedor.php?page=phome">HOME</a></li>
             <li><a href="proveedor.php?page=productos">Productos</a></li>
             <!--    <li><a href="proveedor.php?page=solicitudes">Solicitudes</a></li> -->
-            <li><a href="index.php?page=home">Cerrar sesion</a></li>
+            <li id="btnCerrarSesionProveedor"><a href="#">Cerrar sesion</a></li>
         </ul>
     </nav>
 
@@ -52,6 +77,8 @@
             $_GET["page"] == "phome" ||
             $_GET["page"] == "productos" ||
             $_GET["page"] == "solicitudes" ||
+            $_GET["page"] == "error_credenciales" ||
+
             $_GET["page"] == "home"
         ) {
             include "pages/proveedores/" . $_GET["page"] . ".php";
@@ -66,7 +93,7 @@
 
     <div class="footer">
         <div class="full_width_centered">
-            <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div>
+            <!-- <div class="footer_sign"><span class="swirl_left_transparent"><span class="swirl_right_transparent"><img src="views/images/birds_icon.png" alt="" title="" /></span></span></div> -->
             <div class="footer_names">BaricharApp</div>
 
 
@@ -152,6 +179,9 @@
     <!-- js propios -->
     <script src="views/js/bari_productos.js"></script>
     <script src="views/js/bari_user.js"></script>
+
+    <script src="views/js/cerrarSesionProveedor.js"></script>
+
 </body>
 
 </html>

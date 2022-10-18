@@ -1,4 +1,19 @@
-<div class="container" style="background-color: black;padding-top: 5%;">
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] == "ok") {
+        if (isset($_SESSION["id_cargo"])) {
+            if ($_SESSION["id_cargo"] != "2") {
+                echo '<script>window.location="admin.php?page=error_credenciales"</script>';
+            }
+        }
+    } else {
+        echo '<script>window.location="index.php?page=login" </script>';
+    }
+} else {
+    echo '<script>window.location="index.php?page=login" </script>';
+}
+?>
+<div class="container" style="background-color: #2d9fb4;padding-top: 5%;">
 
     <div class="container-fluid mt-5" style="margin-top:10%" id="tablas">
         <div class="container">
@@ -12,7 +27,7 @@
             </div>
         </div>
 
-        <div class="table-responsive mb-4" id="paginas" style="min-height:450px">
+        <div class="table-responsive mb-4" id="paginas" style="min-height:450px ;margin-bottom: 200px !important;">
             <table class="table caption-top table-bordered table-sm">
 
                 <thead>
@@ -20,7 +35,7 @@
                         <th>Menú</th>
                         <th>Sesion</th>
                         <th>Categoria</th>
-                        <!-- <th>Imagen</th> -->
+                        <th>Imagen</th>
                         <th>Item</th>
                         <th>Titulo</th>
                         <th>Estado</th>
@@ -50,7 +65,7 @@
                                 <?php echo $value["sesion"] ?>
                             </td>
                             <td><?php echo $value["categoria"] ?></td>
-                            <!-- <td><img src="views/views/<?php echo $value["imagen"] ?>" class="img-thumbnail" alt="..."></td> -->
+                            <td><img src="views/views/<?php echo $value["imagen"] ?>" class="img-thumbnail" alt="..."></td>
                             <td><?php echo $value["item"] ?></td>
                             <td><?php echo $value["titulo"] ?></td>
                             <td class="fw-bold <?php echo $value["estado"] == "1" ? 'text-primary' : 'text-danger' ?>"><?php echo $value["estado"] == 1 ? 'Activo' : 'Inactivo' ?></td>

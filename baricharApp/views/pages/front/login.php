@@ -1,12 +1,21 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["validar_ingreso"] == "ok") {
+        echo '<script>window.location="index.php?page=home" </script>';
+    }else{
+        echo '<script>window.location="index.php?page=login" </script>';
+    }
+}
+?>
 <div class="title_container">
     <div class="home_bottomS">
         <div class="container">
             <div class="row" style="justify-content: center;">
                 <div class="contLogin col-sm-12 col-md-4 py-2">
-                    <div class="bottom_icon"><img  class="text-light"src="views/images/user.png" alt="" title=""></div>
+                    <div class="bottom_icon"><img class="text-light" src="views/images/user.png" alt="" title=""></div>
 
-                    <div class="form_row_full">
-                        <label class="text-light">USUARIO----</label>
+                    <div class="form_row_full" >
+                        <label class="text-light">USUARIO</label>
                         <input type="text" class="form_input" name="user" id="user" />
                     </div>
                     <div class="form_row_full">
@@ -14,7 +23,15 @@
                         <input type="password" class="form_input" name="password" id="password" />
                     </div>
                     <input type="button" class="btn btn-warning text-light" id="btnIniciar" value="INICIAR SESIÓN" style="float:none; border-color: white !important">
+                    <label class="text-light">administrador
+                        usuario:  admin
+                        clave: admin12345
+                    </label>
 
+                    <label class="text-light">proveedor
+                        usuario:  45645
+                        clave: 44
+                    </label>
                 </div>
             </div>
         </div>

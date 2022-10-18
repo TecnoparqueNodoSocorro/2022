@@ -1,4 +1,4 @@
-<div class="title_container">
+<!--<div class="title_container">
     <div class="home_bottomS">
         <div class="container">
             <div class="row" style="justify-content: center;">
@@ -6,7 +6,7 @@
                     <div class="bottom_icon"><img  class="text-light"src="views/images/user.png" alt="" title=""></div>
 
                     <div class="form_row_full">
-                        <label class="text-light">USUARIO</label>
+                        <label class="text-light">USUARIO fghf</label>
                         <input type="text" class="form_input" name="user" id="user" />
                     </div>
                     <div class="form_row_full">
@@ -42,7 +42,7 @@
         <div style="background-image: url(views/images/slider/slide15.jpg);"></div>
     </div>
 </div>
-<!-- <div class="home_bottomS">
+ <div class="home_bottomS">
     <div class="container" >
         <div class="row"  style="justify-content: center;">
             <div class="contLogin col-sm-12 col-md-4 py-2">
