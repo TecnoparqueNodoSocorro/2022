@@ -72,7 +72,7 @@ class ModelProducto
             return -1;
         }
     }
-    //eliminar pagina
+    //eliminar producto
     static public function mdlDeleteProducto($tabla, $data)
     {
         try {
@@ -80,7 +80,7 @@ class ModelProducto
 
             $stmt->bindParam(":idpro", $data["id"], PDO::PARAM_STR);
             $stmt->execute();
-            return "Pagina eliminada";
+            return "producto eliminado";
         } catch (Exception $e) {
             echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return -1;
@@ -129,7 +129,7 @@ class ModelProducto
     {
 
         $stmt = conexion::conectar()->prepare("UPDATE  $tabla  SET   img1=:img1 WHERE id=:idpro");
- 
+
         $stmt->bindParam(":img1", $datos["img1"], PDO::PARAM_STR);
         $stmt->bindParam(":idpro", $datos["id"]);
         if ($stmt->execute()) {
@@ -152,6 +152,25 @@ class ModelProducto
         $stmt->bindParam(":idpro", $datos["id"]);
         if ($stmt->execute()) {
             return "ok";
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    // consultar producto por id de la cateogira
+    static public function mdlGetProductoByIdCategoria($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("SELECT $tabla.id, $tabla.nombre, $tabla.precio, $tabla.img1,
+             $tabla.descripcion, p.nombre AS 'nombre_proveedor', p.logo
+             FROM $tabla LEFT JOIN proveedores p ON $tabla.idproveedor = p.id WHERE $tabla.idcategoria = :idcat");
+        $stmt->bindParam(":idcat", $data["id"]);
+
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
             $stmt = null;
         } else {

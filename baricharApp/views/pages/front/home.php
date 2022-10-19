@@ -26,29 +26,29 @@ require_once "modal.php";
                         <img src="views/images/menupopup/logo2.png" alt="" class="logo" id="primero" style="visibility:visible; display:block;" onclick="visualiza_segundo()">
                         <img src="views/images/menupopup/logo3.jpg" alt="" class="logo2" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()">
                     </label>
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="8" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/anillo.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="9" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/tortas.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="5" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/viajes.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="11" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/bebidas.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="4" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/calzado.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="12" data-bs-toggle="modal" data-bs-target="#modal"> <img class="image" src="views/images/menupopup/decoracionflores.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="6" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/grabaciones.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="2" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/vestidos.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="10" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/invitaciones.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="1" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/iglesias.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="7" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/decoracion.png " alt=""></button>
 
-                    <a type="button" class="menu-item tranparente" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></a>
+                    <button type="button" class="menupop menu-item tranparente" data-id="3" data-bs-toggle="modal" data-bs-target="#modal"><img class="image" src="views/images/menupopup/trajehombre.png " alt=""></button>
 
                 </nav>
 
@@ -220,7 +220,7 @@ require_once "modal.php";
                 <div class="post_info">
 
                     <h3><a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio">PROPUESTAS DE MATRIMONIO</a></h3>
-          <!--           <a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio" class="post_read_more">Ver Mas</a> -->
+                    <!--           <a href="index.php?pagemenu3=menu3&module=propuestas_matrimonio" class="post_read_more">Ver Mas</a> -->
                 </div>
                 <img src="views/images/web/proveedores/propuestas.png" alt="" title="" />
             </div>

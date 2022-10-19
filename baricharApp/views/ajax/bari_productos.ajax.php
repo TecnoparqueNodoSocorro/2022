@@ -34,6 +34,14 @@ class ProductosAjax
         $datos = json_encode($rta);
         print_r($datos);
     }
+    //------------------------------------------------------------    
+    //TRAER PRODUCTOPOR ID DE LA CATEGORIA
+    public function GetProductByIdCategoria($data)
+    {
+        $rta = ControladorProductos::ctrGetProductoByIdCategoria($data);
+        $datos = json_encode($rta);
+        print_r($datos);
+    }
     //------------------------------------------------------------
 
     //EDITAR PAGINA
@@ -102,7 +110,7 @@ if (
             imagecopyresized($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
             imagejpeg($destino, $rutaimagen1);
         }
-    }//-------------------IMAGEN 2--------------------------------------
+    } //-------------------IMAGEN 2--------------------------------------
     /* imagen generica */
     $rutaimagen2 = "../images/productos/p2.jpg";
     /* directorio de almacenamiento de imagenes  */
@@ -138,7 +146,7 @@ if (
             imagecopyresized($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
             imagejpeg($destino, $rutaimagen2);
         }
-    } 
+    }
     $datos = new ProductosAjax();
     $data = array(
         "idproveedor" => $_POST["prov_p_id_oculto"],
@@ -170,6 +178,13 @@ if (isset($_POST['dataProduct'])) {
     $dato = new ProductosAjax();
     $data = $_POST['dataProduct'];
     $dato->GetProduct($data);
+}
+
+//TRAER PRODUCTO por id de la categoria
+if (isset($_POST['idCat'])) {
+    $dato = new ProductosAjax();
+    $data = $_POST['idCat'];
+    $dato->GetProductByIdCategoria($data);
 }
 
 //EDITAR PRODUCTO 
@@ -258,7 +273,7 @@ if (
 
             $EditP->EditImagen1Prod($data);
         }
-    } 
+    }
 }
 
 
@@ -323,5 +338,5 @@ if (
             print_r($data);
             $EditP->EditImagen2Prod($data);
         }
-    } 
+    }
 }

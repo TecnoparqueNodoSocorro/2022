@@ -67,4 +67,11 @@ class ControladorProductos
         $rtaEdit = ModelProducto::mdlEditImagen2Prod($tabla, $data);
         echo $rtaEdit;
     }
+    //TRAER PRODUCTO POR ID DE LA CATEGORIA
+    static public function ctrGetProductoByIdCategoria($data)
+    {
+        $tabla = "productos";
+        $RtaEstado = ModelProducto::mdlGetProductoByIdCategoria($tabla, $data);
+        return $RtaEstado;
+    }
 }

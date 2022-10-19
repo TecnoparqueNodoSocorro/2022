@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2022 a las 23:42:16
+-- Tiempo de generación: 19-10-2022 a las 23:46:11
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -187,16 +187,17 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idproveedor`, `idcategoria`, `nombre`, `precio`, `img1`, `img2`, `descripcion`, `estado`) VALUES
-(12, 1, 2, '454', 54, '../images/productos/1665678249.jpg', '../images/productos/1665678180.jpg', '45', 1),
-(14, 1, 3, '¿\'', 86, '../images/productos/1665678301.jpg', '../images/productos/1665678302.jpg', '997', 1),
-(15, 2, 2, 'prueba de fptgd', 2000000, '../images/imagen_articulo/1665674703.png', '../images/imagen_articulo/1665674628.jpg', 'prueba descr', 1),
-(16, 2, 2, '456454', 56454, '../images/productos/p2.jpg', '../images/imagen_articulo/p2.jpg', '56456', 1),
-(17, 2, 2, '78678', 678678678, '../images/productos/1665675381.jpg', '../images/productos/p2.jpg', '67876', 1),
-(18, 2, 1, 'rtyrty', 657657, '../images/productos/p2.jpg', '../images/productos/1665675413.jpg', '567567', 1),
-(19, 2, 1, '654645', 64564564, '../images/productos/1665675502.jpg', '../images/productos/1665675503.jpg', '56456456', 1),
-(20, 2, 7, '456456', 456454, '../images/productos/1665675970.jpg', '../images/productos/1665676239.jpg', '5645645', 1),
-(21, 2, 9, '444', 44, '../images/productos/1665678196.jpg', '../images/productos/1665678197.jpg', '444', 1),
-(22, 31, 1, 'prueba id', 5000, '../images/productos/1666128419.jpg', '../images/productos/1666128420.jpg', 'prueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba id', 1);
+(12, 36, 2, '454', 54, '../images/productos/1665678249.jpg', '../images/productos/1665678180.jpg', '45', 1),
+(14, 36, 3, '¿\'', 86, '../images/productos/1665678301.jpg', '../images/productos/1665678302.jpg', '997', 1),
+(15, 32, 2, 'prueba de fptgd', 2000000, '../images/imagen_articulo/1665674703.png', '../images/imagen_articulo/1665674628.jpg', 'prueba descr', 1),
+(16, 33, 2, '456454', 56454, '../images/productos/p2.jpg', '../images/imagen_articulo/p2.jpg', '56456', 1),
+(17, 34, 2, '78678', 678678678, '../images/productos/1665675381.jpg', '../images/productos/p2.jpg', '67876', 1),
+(18, 32, 1, 'rtyrty', 657657, '../images/productos/p2.jpg', '../images/productos/1665675413.jpg', '567567', 1),
+(19, 33, 1, '654645', 64564564, '../images/productos/1665675502.jpg', '../images/productos/1665675503.jpg', '56456456', 1),
+(20, 35, 7, '456456', 456454, '../images/productos/1665675970.jpg', '../images/productos/1665676239.jpg', '5645645', 1),
+(21, 36, 9, '444', 44, '../images/productos/1665678196.jpg', '../images/productos/1665678197.jpg', '444', 1),
+(22, 31, 1, 'prueba id', 5000, '../images/productos/1666128419.jpg', '../images/productos/1666128420.jpg', 'prueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba idprueba id', 1),
+(23, 36, 8, 'anillo de oro', 150000, '../images/productos/1666214134.jpg', '../images/productos/1666214135.png', 'anillo bañado en oro de 35 kilates ', 1);
 
 -- --------------------------------------------------------
 
@@ -260,7 +261,7 @@ INSERT INTO `proveedores` (`id`, `nombre`, `nit`, `telefono`, `correo`, `maxprod
 (33, '44', '44', '2312312312', 'dsfdsfdxchjd', 44, 'calle 23', 'descripcion de la empresa sdfisdhfsudhjfs\r\n', '../images/logos/1665671729.png', '2022-10-13', 1, '44', '44', 1),
 (34, '44', '44', '44', '44', 44, '44', '44', '../images/logos/1665603135.jpg', '0000-00-00', 1, '44', '44', 1),
 (35, 'erer', 'ere', '343', 'ere', 434, 'rer', 'erere', '../images/logos/1665604323.jpg', '2022-10-11', 1, 'ere', '33', 1),
-(36, '54645', '456456', '4564564', '45645645', 454, '45645645', '546456', '../images/logos/1665671238.jpg', '2022-10-14', 1, '45645', '44', 1),
+(36, 'empresa vendedora de anillos', '456456', '4564564', '45645645', 454, '45645645', '546456', '../images/logos/1666214190.png', '2022-10-14', 1, '45645', '44', 1),
 (37, 'admin', '0000', '00000', 'admin@correoprueba.com', 0, 'direccion admin', 'descripcion admin', '../images/logos/1666123991.jpg', '0000-00-00', 1, 'admin', 'admin12345', 2);
 
 --
@@ -329,7 +330,7 @@ ALTER TABLE `pg_categorias`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `product_categorias`

@@ -265,6 +265,7 @@ echo $validaringreso;
 <script src="views/js/imagen_menu.js"></script>
 
 <script src="views/js/login.js"></script>
+<script src="views/js/menu_flotante.js"></script>
 
 
 </html>
