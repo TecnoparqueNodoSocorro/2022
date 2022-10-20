@@ -1,13 +1,9 @@
-<?php
+<!-- <?php
 require_once "views/pages/modal.php";
 
 
 ?>
-<!--          <div class="title_front">BARICHARAPP</div> -->
 
-
-
-<!--  INICIO MENU POPUP-->
 
 <div class="title_container">
     <div class="container_menupopup">
@@ -48,7 +44,7 @@ require_once "views/pages/modal.php";
         </nav>
 
     </div>
-    <!-- FIN MENU POPUP -->
+
 
 
 </div>
@@ -73,12 +69,7 @@ require_once "views/pages/modal.php";
         <div style="background-image: url(views/images/slider/slide15.jpg);"></div>
     </div>
 </div>
-<!--    <div class="countdown_container">
-            <h2 class="centered_title">Countdown to Wedding Ceremony</h2>
-            <div id="defaultCountdown"></div>
-            <div class="rsvp_button"><span class="swirl_left_small"><span class="swirl_right_small"><a href="#">RSVP</a></span></span></div>
-      
-        </div> -->
+
 
 
 <div class="countdown_container">
@@ -258,4 +249,4 @@ require_once "views/pages/modal.php";
         <a href="blog.html" class="view_all">VER TODOS NUESTROS PROVEEDORES</a>
         <div class="clear"></div>
     </div>
-</div>
+</div> -->

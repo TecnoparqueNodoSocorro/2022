@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2022 a las 23:46:11
+-- Tiempo de generación: 20-10-2022 a las 18:01:20
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -103,7 +103,13 @@ INSERT INTO `pagina` (`id`, `sesion`, `categoria`, `item`, `imagen`, `titulo`, `
 (88, 'menu3', 'enterate', 'cheffypasteleros', '../images/imagen_articulo/1665775618.jpg', 'prueba titulo cheefff y pasteleros', 'fskdjhfsjfs descripcion chef sdhfsdjh sdhfkjsdh sdjhfskd\r\n', 1),
 (89, 'menu3', 'enterate', 'gastronomiabodas', '../images/imagen_articulo/1665775704.png', 'PRUEBA TITULO DE GRASTRONOBIA DE BODAS', 'dsjfsdjhfsdkjh sdescriopcion bodas deskfjsdkjf ', 1),
 (90, 'menu3', 'enterate', 'propuestas_matrimonio', '../images/imagen_articulo/1666097535.jpg', '34534', '678657567+\r\n', 1),
-(91, 'menu3', 'enterate', 'cheffypasteleros', '../images/imagen_articulo/1666097552.jpg', '0\'¿0\'', '¿0\'¿0\'¿0\'', 1);
+(91, 'menu3', 'enterate', 'cheffypasteleros', '../images/imagen_articulo/1666097552.jpg', '0\'¿0\'', '¿0\'¿0\'¿0\'', 1),
+(92, 'menu3', 'enterate', 'propuestas_matrimonio', '../images/imagen_articulo/1666269982.jpg', 'titulo prturba desdesdesdsede', 'titulo prturba desdesdesdsede', 1),
+(93, 'menu3', 'enterate', 'cheffypasteleros', '../images/imagen_articulo/1666269994.jpg', 'titulo prturba desdesdesdsede', 'titulo prturba desdesdesdsede', 1),
+(94, 'menu3', 'enterate', 'hotelesdeensueno', '../images/imagen_articulo/1666270006.jpg', 'titulo prturba desdesdesdsede', 'titulo prturba desdesdesdsede', 1),
+(95, 'menu3', 'enterate', 'gastronomiabodas', '../images/imagen_articulo/1666270020.png', 'titulo prturba desdesdesdsede', 'titulo prturba desdesdesdsede', 1),
+(96, 'menu3', 'enterate', 'disenadores', '../images/imagen_articulo/1666270033.jpg', 'titulo prturba desdesdesdsede', 'titulo prturba desdesdesdsede', 1),
+(97, 'menu3', 'enterate', 'cruceros', '../images/imagen_articulo/1666270045.png', 'titulo prturba desdesdesdsede', 'titulo prturba desdesdesdsede', 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +193,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idproveedor`, `idcategoria`, `nombre`, `precio`, `img1`, `img2`, `descripcion`, `estado`) VALUES
-(12, 36, 2, '454', 54, '../images/productos/1665678249.jpg', '../images/productos/1665678180.jpg', '45', 1),
+(12, 36, 2, 'prueba de 4', 54, '../images/productos/1665678249.jpg', '../images/productos/1665678180.jpg', '45', 1),
 (14, 36, 3, '¿\'', 86, '../images/productos/1665678301.jpg', '../images/productos/1665678302.jpg', '997', 1),
 (15, 32, 2, 'prueba de fptgd', 2000000, '../images/imagen_articulo/1665674703.png', '../images/imagen_articulo/1665674628.jpg', 'prueba descr', 1),
 (16, 33, 2, '456454', 56454, '../images/productos/p2.jpg', '../images/imagen_articulo/p2.jpg', '56456', 1),
@@ -318,7 +324,7 @@ ALTER TABLE `articulos`
 -- AUTO_INCREMENT de la tabla `pagina`
 --
 ALTER TABLE `pagina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT de la tabla `pg_categorias`

@@ -11,7 +11,6 @@ if (isset($_SESSION["validar_ingreso"])) {
 <div class="container">
     <h5 class="mt-2">Registro Empleado</h5>
     <div class="container" style="background-color:#e3f8e0; border-radius:5px;">
-        <!-- formulario para agregar un caprinocultor -->
         <div class="row justify-content-md-center">
             <div class="col col-xs-6 col-md-6 col-lg-6">
                 <label class="form-label">

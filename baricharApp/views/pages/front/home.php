@@ -282,7 +282,7 @@ require_once "modal.php";
         </div>
 
 
-        <a href="blog.html" class="view_all">VER TODOS NUESTROS PROVEEDORES</a>
+        <a href="index.php?page=listado_proveedores" class="view_all">VER TODOS NUESTROS PROVEEDORES</a>
         <div class="clear"></div>
     </div>
 

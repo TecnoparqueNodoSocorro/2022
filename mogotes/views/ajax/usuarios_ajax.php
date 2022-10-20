@@ -31,16 +31,22 @@ class UsuarioAjax
     static public function DesactivarUsuario($data)
     {
         $datos = ControladorUsuario::ctrDesactivarUsuario($data);
-
         return $datos;
     }
-        static public function CambioClave ($data)
+
+    //CAMBIAR CLAVE DE EMPLEADO DESDE EL ADMINISTRADOR
+    static public function CambioClave($data)
     {
         $datos = ControladorUsuario::ctrCambioClave($data);
-        
         echo json_encode($datos);
     }
-
+    
+    //CAMBIAR CLAVE DE EMPLEADO DESDE EL EMPLEADO
+    static public function CambioClaveEmp($data)
+    {
+        $datos = ControladorUsuario::ctrCambioClaveEmp($data);
+        echo ($datos);
+    }
 }
 //GUARDAR CAPRINOCULTOR
 if (isset($_POST['nuevoUsuario'])) {
@@ -49,11 +55,18 @@ if (isset($_POST['nuevoUsuario'])) {
 
     $postUsuario->PostUsuario($data);
 }
-//cambio clave
+//cambio clave desde el usuario del administrador
 if (isset($_POST['newPass'])) {
     $postUsuario = new UsuarioAjax();
     $data = $_POST['newPass'];
     $postUsuario->CambioClave($data);
+}
+
+//cambio clave desde el usuario de empleado
+if (isset($_POST['new_pas'])) {
+    $postUsuario = new UsuarioAjax();
+    $data = $_POST['new_pas'];
+    $postUsuario->CambioClaveEmp($data);
 }
 
 //login

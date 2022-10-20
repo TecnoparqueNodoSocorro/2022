@@ -81,16 +81,44 @@ class ModelUsuario
             $stmt = null;
         }
     }
-        //cambio clave
-        static public function mdlCambioClave($tabla, $data)
-        {
-            $stmt = conexion::conectar()->prepare("UPDATE $tabla SET clave = :pass WHERE id = :id");
-            $stmt->bindParam(":id",  $data["id"], PDO::PARAM_STR);
-            $stmt->bindParam(":pass",  $data["pass"], PDO::PARAM_STR);
-    
+    //cambio clave desde el usuario del administrador
+    static public function mdlCambioClave($tabla, $data)
+    {
+        $stmt = conexion::conectar()->prepare("UPDATE $tabla SET clave = :pass WHERE id = :id");
+        $stmt->bindParam(":id",  $data["id"], PDO::PARAM_STR);
+        $stmt->bindParam(":pass",  $data["pass"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+    }
+    //cambio clave desde el usuario de empleado
+    static public function mdlCambioClaveEmp($tabla, $data)
+    {
+   
+        // SE COMPARA LA CLAVE ENVIADA PARA CONTAR SI ES LA QUE ESTÁ EN LA BASE DE DATOS
+        $stmt = conexion::conectar()->prepare("SELECT  COUNT(clave) FROM $tabla WHERE id=:id AND clave=:pass ");
+        $stmt->bindParam(":id", $data["id_usuario"]);
+        $stmt->bindParam(":pass", $data["pass_old"]);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+
+        if ($count == 0) {
+            return "Clave actual incorrecta";
+        } else if ($count >= 1) {
+            $stmt = conexion::conectar()->prepare("UPDATE $tabla SET clave=:pass WHERE id=:id");
+            $stmt->bindParam(":id", $data["id_usuario"]);
+            $stmt->bindParam(":pass", $data["pass"], PDO::PARAM_STR);
             if ($stmt->execute()) {
-                return "ok";
-    
+                return "Clave cambiada exitosamente";
                 $stmt->closeCursor();
                 $stmt = null;
             } else {
@@ -100,4 +128,20 @@ class ModelUsuario
                 $stmt = null;
             }
         }
+        /*     $stmt = conexion::conectar()->prepare("UPDATE $tabla SET clave = :pass WHERE id = :id");
+        $stmt->bindParam(":id",  $data["id_usuario"], PDO::PARAM_STR);
+        $stmt->bindParam(":pass",  $data["pass"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+
+            $stmt->closeCursor();
+            $stmt = null;
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($stmt->errorInfo());
+            $stmt->closeCursor();
+            $stmt = null;
+        } */
+    }
 }

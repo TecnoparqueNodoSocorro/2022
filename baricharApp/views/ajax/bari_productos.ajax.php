@@ -43,6 +43,14 @@ class ProductosAjax
         print_r($datos);
     }
     //------------------------------------------------------------
+        //TRAER PRODUCTOPOR ID DEL PROVEEDOOR
+        public function GetProductByIdProveedor($data)
+        {
+            $rta = ControladorProductos::ctrGetProductoByIdProveedor($data);
+            $datos = json_encode($rta);
+            print_r($datos);
+        }
+        //------------------------------------------------------------
 
     //EDITAR PAGINA
     public function EditProd($data)
@@ -185,6 +193,12 @@ if (isset($_POST['idCat'])) {
     $dato = new ProductosAjax();
     $data = $_POST['idCat'];
     $dato->GetProductByIdCategoria($data);
+}
+//TRAER PRODUCTO por id del proveedor
+if (isset($_POST['idProv'])) {
+    $dato = new ProductosAjax();
+    $data = $_POST['idProv'];
+    $dato->GetProductByIdProveedor($data);
 }
 
 //EDITAR PRODUCTO 

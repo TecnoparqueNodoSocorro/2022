@@ -7,6 +7,8 @@ if (isset($_SESSION["validar_ingreso"])) {
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
+
+require_once "modal_sumatoria.php"
 ?>
 <div class="container">
     <h5>
@@ -24,55 +26,84 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 
         <h6 class="mt-4">Cantidad y origen</h6>
-        <hr>
+
         <div class="row">
 
+            <hr>
 
-            <div class="col-6 col-sm-3 ">
+            <div class="col-6 ">
                 <div class="input-group  mb-1">
                     <span class="input-group-text " id="basic-addon1">Lebrija</span>
                 </div>
             </div>
-            <div class="col-6  col-sm-3">
+
+            <div class="col-3 ">
                 <input type="number" class="form-control" id="lebrija" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
 
+            <div class="col-3 ">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSumatoria"><i class="bi bi-plus-square-fill"></i></button>
+
+            </div>
+
+
+            <div class="col-12"><hr></div>
 
 
 
-            <div class="col-6 col-sm-3">
+            <div class="col-6 ">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text " id="basic-addon1">Mogotes</span>
+                    <span class="input-group-text " id="basic-addon1">La Cristalina</span>
                 </div>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 ">
                 <input type="number" class="form-control" id="mogotes" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
+            <div class="col-3 ">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSumatoria"><i class="bi bi-plus-square-fill"></i></button>
+            </div>
+            <div class="col-12">
+                <hr>
+            </div>
+
         </div>
 
 
         <div class="row">
 
-
-            <div class="col-6 col-sm-3 ">
+            <div class="col-6 ">
                 <div class="input-group  mb-1">
                     <span class="input-group-text " id="basic-addon1">Villa Mercedes</span>
                 </div>
             </div>
-            <div class="col-6  col-sm-3">
+
+            <div class="col-3 ">
                 <input type="number" class="form-control" id="villaMercedes" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
 
+            <div class="col-3 ">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSumatoria"><i class="bi bi-plus-square-fill"></i></button>
+            </div>
+
+            <div class="col-12"><hr></div>
 
 
-            <div class="col-6 col-sm-3">
+
+            <div class="col-6 ">
                 <div class="input-group  mb-1 ">
                     <span class="input-group-text mr-2" id="basic-addon1">Manzana/blanca</span>
                 </div>
             </div>
-            <div class="col-6 col-sm-3">
+
+            <div class="col-3 ">
                 <input type="number" class="form-control" id="manzanaBlanca" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
+
+            <div class="col-3 ">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSumatoria" ><i class="bi bi-plus-square-fill"></i></button>
+            </div>
+
+            <div class="col-12"><hr></div>
 
 
         </div>

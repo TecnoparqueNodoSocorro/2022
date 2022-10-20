@@ -45,82 +45,9 @@ if (isset($_SESSION["id_cargo"])) {
     <nav class="navbar navbar-light ">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="index.php?page=home">Industrias Mogotes</a>
-              <!--  <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                 <div class="boton">
-                    <i class="bi bi-chevron-double-left"></i>
-                 </div>
-                    </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Industrias Mogotes</h2>
-                    <button type="button" class="btn btn-outline-link" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <div class="botonClose">
-                            <i class="bi bi-chevron-double-right"></i>
-                        </div>
-                    </button>
-                 </div>
+            <input type="hidden" name="id_usuario_oculto" id="id_usuario_oculto" value="<?php echo $id ?>">
 
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=home"> <i class="bi bi-house"></i> Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=a_registrarEmpleado"> <i class="bi bi-person"></i>
-                                Registrar Empleado</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=recepcionGuayaba"> <i class="bi bi-activity"></i>
-                                Recepción</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=escaldado"> <i class="bi bi-person"></i>
-                                Escaldado</a>
-                        </li>
-
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
-                                Reporte de Producción</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class=" nav-link  sub-nav" href="index.php?page=reporteBocadillo"> Bocadillo </a>
-
-
-                                <a class=" nav-link  sub-nav" href="index.php?page=reporteEspejuelo"> Espejuelo</a>
-
-
-                                <a class=" nav-link  sub-nav" href="index.php?page=reporteArequipe"> Arequipe mogoticos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-person"></i>
-                                Embalaje</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
-                                Informes</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class=" nav-link  sub-nav" href="index.php?page=a_informe"> Registro de
-                                    Informe de ...</a>
-
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class=" nav-link text-uppercase" id="btnCerrarSesion" href="#"> <i class="bi bi-person"></i>
-                                Cerrar Sesión</a>
-                        </li>
-
-
-
-
-                    </ul>
-                </div>
-            </div>
-             -->
-
-             <?php
+            <?php
             $menu = new ControladorUsuario();
             $menu->ctrMenu();
             ?>
@@ -147,7 +74,8 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "reporteEspejuelo" ||
             $_GET["page"] == "a_registroEmbalaje" ||
             $_GET["page"] == "a_informe" ||
-            
+            $_GET["page"] == "o_cambioContrasena" ||
+
 
             $_GET["page"] == "login"
 
@@ -177,6 +105,8 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/reporteEspejuelo.js"></script>
     <script src="views/js/cerrarSesion.js"></script>
 
+    <script src="views/js/cambioContrasena.js"></script>
+    <script src="views/js/calcularCantidad.js"></script>
 
 
 
@@ -185,7 +115,7 @@ if (isset($_SESSION["id_cargo"])) {
 
     <footer class="footer">
 
-        <p class="footerText mb-3" >Designed by Tecnoparque Nodo Socorro 2022 ©</p>
+        <p class="footerText mb-3">Designed by Tecnoparque Nodo Socorro 2022 ©</p>
 
 
     </footer>

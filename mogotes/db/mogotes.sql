@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2022 a las 16:49:47
+-- Tiempo de generación: 20-10-2022 a las 23:56:29
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -32,7 +32,9 @@ CREATE TABLE `embalaje_detalle` (
   `id_encabezado` int(20) NOT NULL,
   `id_empleado` int(20) NOT NULL,
   `id_empaque` int(20) NOT NULL,
-  `cantidad` int(20) NOT NULL
+  `cantidad` int(20) NOT NULL,
+  `fecha_fabricacion` date NOT NULL,
+  `fecha_vencimiento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -176,15 +178,12 @@ CREATE TABLE `reporte_espejuelo` (
   `azucar` int(20) NOT NULL,
   `aceite_oliva` int(20) NOT NULL,
   `pectina` int(20) NOT NULL,
-  `recortes` int(20) NOT NULL,
-  `devolucion_tablas` int(20) NOT NULL,
   `botes_marmitas` int(20) NOT NULL,
   `botes_pailas` int(20) NOT NULL,
   `brix` int(20) NOT NULL,
-  `tabla_madera` int(20) NOT NULL,
   `redonda` int(20) NOT NULL,
   `tabla_metalica` int(20) NOT NULL,
-  `suvenir` int(20) NOT NULL
+  `fecha_fabricacion` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

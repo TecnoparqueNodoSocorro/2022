@@ -74,4 +74,11 @@ class ControladorProductos
         $RtaEstado = ModelProducto::mdlGetProductoByIdCategoria($tabla, $data);
         return $RtaEstado;
     }
+    //TRAER PRODUCTO POR ID DEL PROVEEDOR
+    static public function ctrGetProductoByIdProveedor($data)
+    {
+        $tabla = "productos";
+        $RtaEstado = ModelProducto::mdlGetProductoByIdProveedor($tabla, $data);
+        return $RtaEstado;
+    }
 }

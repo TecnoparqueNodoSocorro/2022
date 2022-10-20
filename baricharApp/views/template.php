@@ -99,7 +99,7 @@ echo $validaringreso;
             $_GET["page"] == "m1_diversion" ||
             $_GET["page"] == "m1_cultural" ||
             $_GET["page"] == "m1_servicios" ||
-
+            $_GET["page"] == "listado_proveedores" ||
             $_GET["page"] == "login"
 
         ) {
@@ -133,25 +133,8 @@ echo $validaringreso;
 
 
     ?>
-    <!--  else {
-        include "pages/front/error.php";
-    } -->
-    <!-- redireccionamiento menu2 -->
-    <!--    <?php
-            if (isset($_GET["pagemenu2"])) {
-                if ($_GET["pagemenu2"] == "menu2") {
-                    include "pages/front/" . $_GET["pagemenu2"] . ".php";
-                } else if ($_GET["pagemenu2"] == "menu3") {
-                    include "pages/menu2/" . $_GET["pagemenu2"] . ".php";
-                }
-                // include "pages/front/error.php";
-            } else {
-                include "pages/front/error.php";
-            }
-            ?> -->
+    
 
-
-    <!--  -->
 
 
     <!-- *********************************************************************** -->
@@ -267,5 +250,6 @@ echo $validaringreso;
 <script src="views/js/login.js"></script>
 <script src="views/js/menu_flotante.js"></script>
 
+<script src="views/js/info_proveedor.js"></script>
 
 </html>

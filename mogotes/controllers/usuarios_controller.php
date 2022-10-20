@@ -43,11 +43,18 @@ class ControladorUsuario
             //------------------------------------------
         }
     }
-    //cambio clave
+    //cambio clave desde el usuario del administrador
     static public function ctrCambioClave($data)
     {
         $tabla = "usuarios";
         $respuesta = ModelUsuario::mdlCambioClave($tabla, $data);
+        return $respuesta;
+    }
+    //cambio clave desde el usuario de empleado
+    static public function ctrCambioClaveEmp($data)
+    {
+        $tabla = "usuarios";
+        $respuesta = ModelUsuario::mdlCambioClaveEmp($tabla, $data);
         return $respuesta;
     }
     function ctrMenu()
@@ -183,7 +190,17 @@ class ControladorUsuario
                             </div>
                         </li>
                    
+    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-unlock-fill"></i>
+                                Opciones</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class=" nav-link  sub-nav" href="index.php?page=o_cambioContrasena"> Cambiar contraseña </a>
 
+
+                            
+                            </div>
+                        </li>
                     
                         <li class="nav-item">
                             <a class=" nav-link text-uppercase" id="btnCerrarSesion" href="#"> <i class="bi bi-person"></i>

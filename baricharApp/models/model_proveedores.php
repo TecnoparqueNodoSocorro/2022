@@ -45,7 +45,7 @@ class ModelProveedor
 
     static public function MdlSelectAllProveedores($tabla)
     {
-        $stmt = conexion::conectar()->prepare("select * from $tabla");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla");
         if ($stmt->execute()) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();

@@ -44,6 +44,18 @@
 }
 
 
+.modal-header{
+    background: #5ac15d !important;
+}
+
+.modal-footer{
+    background: #5ac15d !important;
+}
+
+
+
+
+
 .btn-warning {
     color: #000;
     background-color: #5ac15d !important;

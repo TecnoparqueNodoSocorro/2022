@@ -165,8 +165,11 @@ class ModelProducto
     static public function mdlGetProductoByIdCategoria($tabla, $data)
     {
         $stmt = conexion::conectar()->prepare("SELECT $tabla.id, $tabla.nombre, $tabla.precio, $tabla.img1,
-             $tabla.descripcion, p.nombre AS 'nombre_proveedor', p.logo
-             FROM $tabla LEFT JOIN proveedores p ON $tabla.idproveedor = p.id WHERE $tabla.idcategoria = :idcat");
+             $tabla.descripcion, p.nombre AS 'nombre_proveedor', p.logo, c.nombre AS 'nombre_categoria'
+             FROM $tabla INNER JOIN proveedores p ON $tabla.idproveedor = p.id
+             INNER JOIN product_categorias c ON $tabla.idcategoria = c.id
+             
+              WHERE $tabla.idcategoria = :idcat");
         $stmt->bindParam(":idcat", $data["id"]);
 
         if ($stmt->execute()) {
@@ -180,4 +183,22 @@ class ModelProducto
             $stmt = null;
         }
     }
+
+        // consultar producto por id del proveedor
+        static public function mdlGetProductoByIdProveedor($tabla, $data)
+        {
+            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $tabla.idproveedor = :idprov");
+            $stmt->bindParam(":idprov", $data["id"]);
+    
+            if ($stmt->execute()) {
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        }
 }

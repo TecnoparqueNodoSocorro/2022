@@ -62,7 +62,7 @@
         </div>
         <div class="row">
 
-
+<!-- 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
                     <span class="input-group-text" id="basic-addon1">Recortes/espumas</span>
@@ -71,12 +71,12 @@
             <div class="col-6  col-sm-3">
                 <input type="number" class="form-control" id="recortesE" placeholder="" aria-label="Username"
                     aria-describedby="basic-addon1">
-            </div>
+            </div> -->
 
 
 
 
-            <div class="col-6 col-sm-3">
+      <!--       <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
                     <span class="input-group-text" id="basic-addon1">Devolucción Tablas</span>
                 </div>
@@ -84,7 +84,7 @@
             <div class="col-6 col-sm-3">
                 <input type="number" class="form-control" id="dev_tablas" placeholder="" aria-label="Username"
                     aria-describedby="basic-addon1">
-            </div>
+            </div> -->
         </div>
         <div class="row">
 
@@ -135,7 +135,7 @@
         <div class="row">
 
 
-            <div class="col-6 col-sm-3">
+           <!--  <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
                     <span class="input-group-text" id="basic-addon1">Tabla Madera</span>
                 </div>
@@ -144,7 +144,7 @@
                 <input type="number" class="form-control" id="maderaEsp" placeholder="" aria-label="Username"
                     aria-describedby="basic-addon1">
             </div>
-
+ -->
 
 
 
@@ -175,7 +175,7 @@
 
 
 
-            <div class="col-6 col-sm-3">
+          <!--   <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
                     <span class="input-group-text mr-2" id="basic-addon1">Suvenir</span>
                 </div>
@@ -184,7 +184,7 @@
                 <input type="number" class="form-control" id="suvenir" placeholder="" aria-label="Username"
                     aria-describedby="basic-addon1">
             </div>
-
+ -->
 
         </div>
 
