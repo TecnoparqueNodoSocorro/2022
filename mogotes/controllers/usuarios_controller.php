@@ -96,7 +96,7 @@ class ControladorUsuario
                                 Recepción</a>
                         </li>
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=escaldado"> <i class="bi bi-person"></i>
+                            <a class=" nav-link text-uppercase" href="index.php?page=escaldado"> <i class="bi bi-droplet"></i>
                                 Escaldado</a>
                         </li>
 
@@ -115,10 +115,13 @@ class ControladorUsuario
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-person"></i>
+                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-box-seam"></i>
                                 Embalaje</a>
                         </li>
-
+                        <li class="nav-item">
+                        <a class=" nav-link text-uppercase" href="index.php?page=a_finalizarLote"> <i class="bi bi-calendar2-check"></i>
+                            Finalizar lote</a>
+                    </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
                                 Informes</a>

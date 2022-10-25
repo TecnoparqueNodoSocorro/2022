@@ -32,8 +32,8 @@ if (isset($_SESSION["id_cargo"])) {
 
     <!-- iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
-    </script>
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
+    </script> -->
     <!-- Sweet alert y grafica -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -75,6 +75,7 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "a_registroEmbalaje" ||
             $_GET["page"] == "a_informe" ||
             $_GET["page"] == "o_cambioContrasena" ||
+            $_GET["page"] == "a_finalizarLote" ||
 
 
             $_GET["page"] == "login"
@@ -107,6 +108,7 @@ if (isset($_SESSION["id_cargo"])) {
 
     <script src="views/js/cambioContrasena.js"></script>
     <script src="views/js/calcularCantidad.js"></script>
+    <script src="views/js/a_finalizarLote.js"></script>
 
 
 

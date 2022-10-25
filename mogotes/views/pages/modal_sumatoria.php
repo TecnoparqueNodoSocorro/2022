@@ -16,7 +16,7 @@
 
                 <div class="row">
                     <div class="col-8">
-                        <input type="number" class="form-control" id="cantidad" placeholder="">
+                        <input type="number"  class="form-control" id="cantidad" placeholder="Cantidad en kg">
                     </div>
                     <div class="col-4">
                         <button class="btn btn-success" id="btn_agregarCantidad">Agregar </button>
@@ -40,13 +40,15 @@
 
 
                             </tbody>
+                          
                         </table>
+                        <span id="textoSumatoria"></span>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
+                <button type="button" id="guardarSumatoria" class="btn btn-success">Guardar</button>
             </div>
         </div>
     </div>

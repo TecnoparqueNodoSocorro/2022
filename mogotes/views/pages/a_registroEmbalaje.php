@@ -7,6 +7,10 @@ if (isset($_SESSION["validar_ingreso"])) {
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
+
+$lotesEmb = ControladorLote::mdlGetLotesReporte();
+
+//print_r($lotesEmb)
 ?>
 <div class="container">
     <h5 class="my-2">Registro de Embalaje</h5>
@@ -15,16 +19,17 @@ if (isset($_SESSION["validar_ingreso"])) {
 
         <div class="row justify-content-md-center mt-2">
             <div class="col-6 col-sm-6">
-                <label class="form-label">
-                    lote
-                </label>
-                <select class="form-select" id="lote_embalaje" aria-label="Default select example">
-                    <option value="0" selected>Seleccione el lote</option>
-                    <option value="1">01</option>
-                    <option value="2">02</option>
-                    <option value="2">03</option>
+                    <label class="form-label">
+                        lote
+                    </label>
+                    <select class="form-select" id="lote_embalaje" aria-label="Default select example">
+                        <option selected value="0">--Lote--</option>
 
-                </select>
+                        <?php foreach ($lotesEmb as $key => $value) : ?>
+                            <option data-fecha="<?php echo $value["codigo"] ?>" value="<?php echo $value["codigo"] ?>">Codigo: <?php echo $value["codigo"] ?> </option>
+                        <?php endforeach ?>
+
+                    </select>
             </div>
             <div class="col-6  col-sm-6">
 
@@ -83,143 +88,152 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 
 
-
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs pt-3" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="bocadillo-tab" data-bs-toggle="tab" data-bs-target="#bocadillo" type="button" role="tab" aria-controls="bocadillo" aria-selected="true">Bocadillo</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="espejuelo-tab" data-bs-toggle="tab" data-bs-target="#espejuelo" type="button" role="tab" aria-controls="espejuelo" aria-selected="false">Espejuelo</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="arequipe-tab" data-bs-toggle="tab" data-bs-target="#arequipe" type="button" role="tab" aria-controls="arequipe" aria-selected="false">Arequipe</button>
-        </li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content" style="background-color:#e3f8e0;">
-        <div class=" tab-pane active" id="bocadillo" role="tabpanel" aria-labelledby="bocadillo-tab">
-            <h6 class="mt-4" style="text-align:left;">Bocadillo</h6>
-            <hr>
-            <div class="row">
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Especial Navideño </span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="espNav" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Extrafino 28x16 </span>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3">
-                    <input type="number" class="form-control" id="extrafino" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+    <div class="container my-3 py-3" id="" style="background-color:#e3f8e0;">
+        <select class="form-select" id="select_producto_embalaje" aria-label="Default select example">
+            <option selected value="0">Seleccione el producto</option>
+            <option value="Bocadillo">Bocadillo</option>
+            <option value="Espejuelo">Arequipe</option>
+            <option value="Arequipe">Espejuelo</option>
+        </select>
+    </div>
+    <div class="contaier mb-5 pb-3" style="background-color:#e3f8e0; ;">
+        <div class="row pt-3 my-1 mx-1" id="container">
+            <!--   <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Especial Navideño </span>
                 </div>
             </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="espNav" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div> -->
 
-            <div class="row">
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">20x30 </span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="veinte_t" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text mr-2" id="basic-addon1"> 28x20</span>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3">
-                    <input type="number" class="form-control" id="venti_ocho" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" id="btnGuardarEmbB" class="btn  btn-primary mt-3 mb-5">Guardar</button>
+    </div>
+</div>
+
+
+<!--   <div class="contaier" id="container_bocadillo" style="background-color:#e3f8e0; display:none;">
+        <h6 class="mt-4" style="text-align:left;">Bocadillo</h6>
+        <hr>
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Especial Navideño </span>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">84x10</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="ochenta_cuatro" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Mooticos x 10</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="mooticos" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="espNav" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Extrafino 28x16 </span>
                 </div>
             </div>
+            <div class="col-6 col-sm-3">
+                <input type="number" class="form-control" id="extrafino" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Mooticos x5</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="mooticos_c" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Unidades</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="unidades" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">20x30 </span>
                 </div>
             </div>
-
-            <div class="row">
-
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Mooticos Unidades</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="moticos_unidades" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Bocadillo Manzana</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="bocadillo_manzana" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="veinte_t" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-
-            <div class="row">
-                <div class="col-6 col-sm-3">
-                    <div class="input-group  mb-1">
-                        <span class="input-group-text" id="basic-addon1">Lonja</span>
-                    </div>
-                </div>
-                <div class="col-6  col-sm-3">
-                    <input type="number" class="form-control" id="lonja" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text mr-2" id="basic-addon1"> 28x20</span>
                 </div>
             </div>
-            <button type="submit" id="btnGuardarEmbB" class="btn  btn-primary mt-3 mb-5">Guardar</button>
+            <div class="col-6 col-sm-3">
+                <input type="number" class="form-control" id="venti_ocho" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">84x10</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="ochenta_cuatro" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Mooticos x 10</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="mooticos" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Mooticos x5</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="mooticos_c" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Unidades</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="unidades" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Mooticos Unidades</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="moticos_unidades" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Bocadillo Manzana</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="bocadillo_manzana" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
 
         </div>
 
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">Lonja</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="lonja" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <button type="submit" id="btnGuardarEmbB" class="btn  btn-primary mt-3 mb-5">Guardar</button>
+
+    </div>
 
 
 
 
 
 
+    <div class="container" id="container_espejuelo" style="background-color:#e3f8e0; display:none;">
 
         <div class="tab-pane" id="espejuelo" role="tabpanel" aria-labelledby="espejuelo-tab">
             <h6 class="mt-4" style="text-align:left;">Espejuelo</h6>
@@ -315,10 +329,12 @@ if (isset($_SESSION["validar_ingreso"])) {
         </div>
 
 
+    </div>
 
 
 
 
+    <div class="container" id="container_arequipe" style="background-color:#e3f8e0; display:none;">
 
 
         <div class="tab-pane" id="arequipe" role="tabpanel" aria-labelledby="arequipe-tab">
@@ -379,5 +395,4 @@ if (isset($_SESSION["validar_ingreso"])) {
 
         </div>
     </div>
-
-</div>
+</div> -->

@@ -31,7 +31,6 @@
 }
 
 .offcanvas-header {
-
     background: #5ac15d !important;
 }
 
@@ -54,7 +53,11 @@
 
 
 
+.input-group-text {
+    font-size: 0.8rem !important;
 
+
+}
 
 .btn-warning {
     color: #000;
