@@ -9,7 +9,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 }
 
 
-$lotes = ControladorLote::ctrGetLotes();
+$lotes = ControladorLote::ctrGetLotesEmbalaje();
 ?>
 <div class="container">
     <h3>

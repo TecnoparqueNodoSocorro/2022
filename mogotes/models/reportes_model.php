@@ -9,23 +9,23 @@ class ModelReportes
     static public function mdlPostReporteBocadillo($tabla, $data)
     {
         try {
-
-            $sql = conexion::conectar()->prepare("UPDATE lote SET estado=3 WHERE codigo=:lote ");
+            $fecha_actual = date("Ymd");
+            //sumo 1 mes
+            $fecha_vencimiento = date("Ymd", strtotime($fecha_actual . "+ 4 month"));
+            $sql = conexion::conectar()->prepare("UPDATE lote SET estado=3, fecha_fabricacion = $fecha_actual, fecha_vencimiento =  $fecha_vencimiento WHERE codigo=:lote ");
             $sql->bindParam(":lote", $data["codigo_lote"]);
             if ($sql->execute()) {
                 echo "ok";
                 $sql->closeCursor();
                 $sql = null;
             }
-            $fecha_actual = date("Ymd");
-            //sumo 1 mes
-            $fecha_vencimiento= date("Ymd", strtotime($fecha_actual . "+ 4 month"));
-           
+
+
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo_lote, id_empleado, 
             recortes, botes_marmitas, azucar, devolucion_tablas,
-            botes_pailas, brix, tabla_extrafino, tabla_bocadillos, tabla_lonja, tabla_manzana, fecha_vencimiento ) 
+            botes_pailas, brix, tabla_extrafino, tabla_bocadillos, tabla_lonja, tabla_manzana ) 
             VALUES(:lote, :usuario, :azucar, :recortes, :devolucion, :botes_marmitas,
-             :botes_pailas, :brix, :tabla_extrafino, :tabla_bocadillos, :tabla_lonja, :tabla_manzana, $fecha_vencimiento) ");
+             :botes_pailas, :brix, :tabla_extrafino, :tabla_bocadillos, :tabla_lonja, :tabla_manzana) ");
             $stmt->bindParam(":lote", $data["codigo_lote"]);
             $stmt->bindParam(":usuario",  $data["id_usuario"]);
             $stmt->bindParam(":azucar",  $data["azucar"]);
@@ -57,19 +57,19 @@ class ModelReportes
     static public function mdlPostReporteArequipe($tabla, $data)
     {
         try {
-
-            $sql = conexion::conectar()->prepare("UPDATE lote SET estado=3 WHERE codigo=:lote ");
+            $fecha_actualAre = date("Ymd");
+            //sumo 1 mes
+            $fecha_vencimientoAre = date("Ymd", strtotime($fecha_actualAre . "+ 3 month"));
+            $sql = conexion::conectar()->prepare("UPDATE lote SET estado=3, fecha_fabricacion = $fecha_actualAre, fecha_vencimiento =  $fecha_vencimientoAre WHERE codigo=:lote ");
             $sql->bindParam(":lote", $data["codigo_lote"]);
             if ($sql->execute()) {
                 echo "ok";
                 $sql->closeCursor();
                 $sql = null;
             }
-            $fecha_actual = date("Ymd");
-            //sumo 1 mes
-            $fecha_vencimientoAre= date("Ymd", strtotime($fecha_actual . "+ 3 month"));
-            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo_lote, id_empleado,leche, azucar, botes_marmitas, botes_pailas,tabla_extrafino, tabla_bocadillo, fecha_vencimiento) 
-            VALUES(:lote, :usuario,:leche,:azucar, :bmarmitas,:bpailas, :textrafino, :tbocadillo,  $fecha_vencimientoAre) ");
+
+            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo_lote, id_empleado,leche, azucar, botes_marmitas, botes_pailas,tabla_extrafino, tabla_bocadillo) 
+            VALUES(:lote, :usuario,:leche,:azucar, :bmarmitas,:bpailas, :textrafino, :tbocadillo) ");
             $stmt->bindParam(":lote", $data["codigo_lote"]);
             $stmt->bindParam(":usuario",  $data["id_usuario"]);
             $stmt->bindParam(":leche",  $data["leche"]);
@@ -97,21 +97,21 @@ class ModelReportes
     static public function mdlPostReporteEspejuelo($tabla, $data)
     {
         try {
-
-            $sql = conexion::conectar()->prepare("UPDATE lote SET estado=3 WHERE codigo=:lote ");
+            $fecha_actualEsp = date("Ymd");
+            //sumo 1 mes
+            $fecha_vencimientoEsp = date("Ymd", strtotime($fecha_actualEsp . "+ 10 month"));
+            $sql = conexion::conectar()->prepare("UPDATE lote SET estado=3, fecha_fabricacion = $fecha_actualEsp, fecha_vencimiento =  $fecha_vencimientoEsp   WHERE codigo=:lote ");
             $sql->bindParam(":lote", $data["codigo_lote"]);
             if ($sql->execute()) {
                 echo "ok";
                 $sql->closeCursor();
                 $sql = null;
             }
-            $fecha_actual = date("Ymd");
-            //sumo 1 mes
-            $fecha_vencimientoEsp= date("Ymd", strtotime($fecha_actual . "+ 10 month"));
+     
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo_lote, id_empleado, 
-            azucar, aceite_oliva, pectina, botes_marmitas,botes_pailas, brix, redonda, tabla_metalica, fecha_vencimiento) 
+            azucar, aceite_oliva, pectina, botes_marmitas,botes_pailas, brix, redonda, tabla_metalica) 
             VALUES(:lote, :usuario, :azucar, :aceite_oliva, :pectina, :bmarmitas,
-             :bpailas, :brix, :redonda, :tmetalicas,  $fecha_vencimientoEsp) ");
+             :bpailas, :brix, :redonda, :tmetalicas) ");
             $stmt->bindParam(":lote", $data["codigo_lote"]);
             $stmt->bindParam(":usuario",  $data["id_usuario"]);
             $stmt->bindParam(":azucar",  $data["azucar"]);
