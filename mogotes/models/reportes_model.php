@@ -20,7 +20,6 @@ class ModelReportes
                 $sql = null;
             }
 
-
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo_lote, id_empleado, 
             recortes, botes_marmitas, azucar, devolucion_tablas,
             botes_pailas, brix, tabla_extrafino, tabla_bocadillos, tabla_lonja, tabla_manzana ) 
@@ -107,7 +106,7 @@ class ModelReportes
                 $sql->closeCursor();
                 $sql = null;
             }
-     
+
             $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo_lote, id_empleado, 
             azucar, aceite_oliva, pectina, botes_marmitas,botes_pailas, brix, redonda, tabla_metalica) 
             VALUES(:lote, :usuario, :azucar, :aceite_oliva, :pectina, :bmarmitas,
@@ -136,11 +135,21 @@ class ModelReportes
             die("Oh noes! There's an error in the query!" . $e);
         }
     }
+
+
+
+
+
+
+
+
     // --------- TRAER REPORTES DE LOTES DE BOCADILLO POR CODIGO-----------
     static public function mdlGetInfoByCodigo($tabla, $data)
     {
         try {
-            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE codigo_lote = :lote");
+            $stmt = conexion::conectar()->prepare("SELECT *, usuarios.id AS 'idEmpl',$tabla.id AS 'idL' FROM $tabla 
+            
+            INNER JOIN usuarios ON $tabla.id_empleado = usuarios.id WHERE $tabla.codigo_lote = :lote");
             $stmt->bindParam(":lote", $data["codigo"]);
             if ($stmt->execute()) {
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -158,11 +167,13 @@ class ModelReportes
     }
 
 
-    // --------- TRAER REPORTES DE LOTES DE BOCADILLO POR CODIGO-----------
+    // --------- TRAER REPORTES DE LOTES DE BOCADILLO POR ID-----------
     static public function mdlGetRegistroById($tabla, $data)
     {
         try {
-            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id = :id");
+            $stmt = conexion::conectar()->prepare("SELECT *, usuarios.id AS 'idEmpl',$tabla.id AS 'idL' FROM $tabla
+            INNER JOIN usuarios ON $tabla.id_empleado = usuarios.id
+             WHERE $tabla.id = :id");
             $stmt->bindParam(":id", $data["id"]);
             if ($stmt->execute()) {
                 return $stmt->fetchObject();
@@ -182,7 +193,9 @@ class ModelReportes
     static public function mdlGetInfoByCodigoEsp($tabla, $data)
     {
         try {
-            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE codigo_lote = :lote");
+            $stmt = conexion::conectar()->prepare("SELECT *, usuarios.id AS 'idEmpl', $tabla.id AS 'idL' FROM $tabla
+            INNER JOIN usuarios ON $tabla.id_empleado = usuarios.id
+             WHERE $tabla.codigo_lote = :lote");
             $stmt->bindParam(":lote", $data["codigo"]);
             if ($stmt->execute()) {
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -200,11 +213,13 @@ class ModelReportes
     }
 
 
-    // --------- TRAER REPORTES DE LOTES DE ESPEJUELO POR CODIGO-----------
+    // --------- TRAER REPORTES DE LOTES DE ESPEJUELO POR ID-----------
     static public function mdlGetRegistroByIdEsp($tabla, $data)
     {
         try {
-            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id = :id");
+            $stmt = conexion::conectar()->prepare("SELECT *, usuarios.id AS 'idEmpl', $tabla.id AS 'idL' FROM $tabla 
+            INNER JOIN usuarios ON $tabla.id_empleado = usuarios.id
+            WHERE $tabla.id = :id");
             $stmt->bindParam(":id", $data["id"]);
             if ($stmt->execute()) {
                 return $stmt->fetchObject();
@@ -224,7 +239,9 @@ class ModelReportes
     static public function mdlGetInfoByCodigoAre($tabla, $data)
     {
         try {
-            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE codigo_lote = :lote");
+            $stmt = conexion::conectar()->prepare("SELECT *, usuarios.id AS 'idEmpl', $tabla.id AS 'idL' FROM $tabla
+            INNER JOIN usuarios ON $tabla.id_empleado = usuarios.id
+             WHERE $tabla.codigo_lote = :lote");
             $stmt->bindParam(":lote", $data["codigo"]);
             if ($stmt->execute()) {
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -242,11 +259,13 @@ class ModelReportes
     }
 
 
-    // --------- TRAER REPORTES DE LOTES DE AREQUIPE POR CODIGO-----------
+    // --------- TRAER REPORTES DE LOTES DE AREQUIPE POR ID-----------
     static public function mdlGetRegistroByIdAre($tabla, $data)
     {
         try {
-            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id = :id");
+            $stmt = conexion::conectar()->prepare("SELECT *, usuarios.id AS 'idEmpl', $tabla.id AS 'idL' FROM $tabla
+            INNER JOIN usuarios ON $tabla.id_empleado = usuarios.id
+           WHERE $tabla.id = :id");
             $stmt->bindParam(":id", $data["id"]);
             if ($stmt->execute()) {
                 return $stmt->fetchObject();

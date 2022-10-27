@@ -269,53 +269,88 @@ function guardar_embalaje() {
 
 
 //FUNCION PARA GUARDAR EL DATO DE LA DESCRIPCION DEL TRATAMIENTO Y YLA FECHA Y RETORNA EL ID PARA USARLO EN LAS CONSULTAS SIGUIENTES
-async function GuardarIDembalaje() {
-    const datosEcabezadoEmbalaje = {
-        codigo_lote: lote_embalaje.value,
-        id_usuario: id_usuario_oculto,
-        azucar: azucarEmb.value,
-        bijao: bijaoEmb.value,
-        celofan: celofanEmb.value,
-        recortes: recortesEmb.value,
-        madera: maderaEmb.value,
-        tablas: tablasEmb.value,
-        fabricacion: fecha_fabricacion,
-        vencimiento: fecha_vencimiento
-    }
-   // console.log(datosEcabezadoEmbalaje);
-    //SI EL ARRAY ESTÁ VACIO SE TRAE EL ID DEL TRATAMIENTO QUE ES LA RESPUESTA DEL AJAX
-   
-        const idEncabezadoEmbalaje = await $.post("views/ajax/embalaje_ajax.php", { datosEcabezadoEmbalaje });
-        console.log(idEncabezadoEmbalaje);
-        let response = JSON.parse(idEncabezadoEmbalaje)
-        console.log(response);
-        let id = parseInt(response.idEncabezado)
-        console.log(id);
-          guardarDetalleEmbalaje(id, empaque_cantidad)
-         Swal.fire({
-             title: 'Listo',
-             text: `Caprinos agregados al tratamiento #${id}`,
-             icon: 'success',
-             showCancelButton: false,
-             confirmButtonColor: '#f69100',
-             cancelButtonColor: '#3085d6',
-             confirmButtonText: 'OK',
-             allowOutsideClick: () => {
-                 const popup = Swal.getPopup()
-                 popup.classList.remove('swal2-show')
-                 setTimeout(() => {
-                     popup.classList.add('animate__animated', 'animate__headShake')
-                 })
-                 setTimeout(() => {
-                     popup.classList.remove('animate__animated', 'animate__headShake')
-                 }, 500)
-                 return false
-             }
-         }).then((result) => {
-             if (result.isConfirmed) {
-                 location.href = 'index.php?page=c_registroTratamientos'
-             }
-         }) 
+function GuardarIDembalaje() {
+
+    Swal.fire({
+        title: 'Listo',
+        text: `¿Registrar Embalaje?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#5ac15d',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Registrar',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const datosEcabezadoEmbalaje = {
+                codigo_lote: lote_embalaje.value,
+                id_usuario: id_usuario_oculto,
+                azucar: azucarEmb.value,
+                bijao: bijaoEmb.value,
+                celofan: celofanEmb.value,
+                recortes: recortesEmb.value,
+                madera: maderaEmb.value,
+                tablas: tablasEmb.value,
+                fabricacion: fecha_fabricacion,
+                vencimiento: fecha_vencimiento
+            }
+            const idEncabezadoEmbalaje = $.post("views/ajax/embalaje_ajax.php", { datosEcabezadoEmbalaje })
+            idEncabezadoEmbalaje.done(function (data) {
+                console.log(data);
+              
+                let response = JSON.parse(data)
+                console.log(response);
+                let id = parseInt(response.idEncabezado)
+                console.log(id);
+                guardarDetalleEmbalaje(id, empaque_cantidad)
+            })
+
+
+
+            Swal.fire({
+                title: 'Listo',
+                text: `Embalaje guardado`,
+                icon: 'success',
+                showCancelButton: false,
+                confirmButtonColor: '#157347',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+                allowOutsideClick: () => {
+                    const popup = Swal.getPopup()
+                    popup.classList.remove('swal2-show')
+                    setTimeout(() => {
+                        popup.classList.add('animate__animated', 'animate__headShake')
+                    })
+                    setTimeout(() => {
+                        popup.classList.remove('animate__animated', 'animate__headShake')
+                    }, 500)
+                    return false
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                }
+            })
+
+
+        }
+
+        // console.log(datosEcabezadoEmbalaje);
+        //SI EL ARRAY ESTÁ VACIO SE TRAE EL ID DEL TRATAMIENTO QUE ES LA RESPUESTA DEL AJAX
+
+    })
+
 
 }
 
@@ -323,10 +358,10 @@ function guardarDetalleEmbalaje(id, empaque_cantidad) {
     //SE CONVIERTE EL JSON EN UNA CADENA DE TEXTO PARA PODER ENVIARLA Y EN EL AJAX VOLVERLA A DECODIFICAR
     let cantidadEmpaques = JSON.stringify(empaque_cantidad)
     // console.log(caprinosTratamiento);
-    $.post("views/ajax/embalaje_ajax.php", { idEncabezado: id, cantidades: cantidadEmpaques }, function (dato) {
+    $.post("views/ajax/embalaje_ajax.php", { idEncabezado: id,  codigo_lote: lote_embalaje.value, cantidades: cantidadEmpaques }, function (dato) {
         // let res = JSON.parse(dato);
         console.log(dato);
-     
+
     })
 }
 

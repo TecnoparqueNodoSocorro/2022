@@ -8,7 +8,7 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
 
-$lotesEmb = ControladorLote::mdlGetLotesReporte();
+$lotesEmb = ControladorLote::ctrGetLotesEmbalaje();
 
 //print_r($lotesEmb)
 ?>

@@ -62,7 +62,7 @@ function infoReportesPorCodigo(codigo) {
             `
             tbodyReporteBocadillo.innerHTML += `
             <tr>
-            <td><button type="button" data-id="${x.id}" class="extraerIdBoc btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <td><button type="button" data-id="${x.idL}" class="extraerIdBoc btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="bi bi-eye-fill"></i>
             </button></td>
             <td>${x.fecha_fabricacion}</td>

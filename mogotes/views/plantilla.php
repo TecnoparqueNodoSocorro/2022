@@ -109,6 +109,7 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/cambioContrasena.js"></script>
     <script src="views/js/calcularCantidad.js"></script>
     <script src="views/js/a_finalizarLote.js"></script>
+    <script src="views/js/a_informe.js"></script>
 
 
 

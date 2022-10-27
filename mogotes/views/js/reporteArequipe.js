@@ -50,7 +50,7 @@ function infoReportesPorCodigoArequipe(codigo) {
             `
             tbodyReporteArequipe.innerHTML += `
             <tr>
-            <td><button type="button" data-id="${x.id}" class="extraerIdAre btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_arequipe">
+            <td><button type="button" data-id="${x.idL}" class="extraerIdAre btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_arequipe">
             <i class="bi bi-eye-fill"></i>
             </button></td>
             <td>${x.fecha_fabricacion}</td>

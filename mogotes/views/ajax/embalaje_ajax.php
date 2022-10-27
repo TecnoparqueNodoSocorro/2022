@@ -23,10 +23,16 @@ class EmbalajeAjax
         echo json_encode($response);
     }
     /* --------------------POST DE LA CABECERA DEL EMBALAJE---------------------------------- */
-    public function postDetalleEmb($idEncabezado, $data)
+    public function postDetalleEmb($idEncabezado, $data,  $codigoLote)
     {
-        $RtaDetalleEmb = ControladorEmbalaje::ctrPostDetalleEmb($idEncabezado, $data);
+        $RtaDetalleEmb = ControladorEmbalaje::ctrPostDetalleEmb($idEncabezado, $data,  $codigoLote);
         echo json_encode($RtaDetalleEmb);
+    }
+    //traer embalajes por codigo
+    public function GetEmbalajesByCodigo( $data)
+    {
+        $datos = ControladorEmbalaje::ctrGetEmbalajesByCodigo($data);
+        print_r(json_encode($datos));
     }
 }
 
@@ -46,10 +52,17 @@ if (isset($_POST['datosEcabezadoEmbalaje'])) {
     $ajaxCabecera->postEncabezadoEmb($data);
 }
 /* ---POST DETALLE DE EMBALAJE----- */
-if (isset($_POST['idEncabezado']) && isset($_POST['cantidades'])) {
+if (isset($_POST['idEncabezado']) && isset($_POST['cantidades']) && isset($_POST['codigo_lote'])) {
 
     $ajaxDetalle = new EmbalajeAjax();
     $data = JSON_decode($_POST['cantidades'], true);
     $idEncabezado = $_POST['idEncabezado'];
-    $ajaxDetalle->postDetalleEmb($idEncabezado, $data);
+    $codigoLote = $_POST['codigo_lote'];
+    $ajaxDetalle->postDetalleEmb($idEncabezado, $data,  $codigoLote);
+}
+//traer embalajes por codigo
+if (isset($_POST['infoEmbalaje'])) {
+    $postData = new EmbalajeAjax();
+    $data = $_POST['infoEmbalaje'];
+    $postData->GetEmbalajesByCodigo($data);
 }

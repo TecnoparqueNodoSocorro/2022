@@ -375,7 +375,7 @@ function ValidarLote() {
             text: 'Digite el número del lote',
             confirmButtonColor: '#157347',
         })
-    } else if (lebrija.value <=0 && cristalina.value <=0 && villaMercedes.value <=0 && manzanaBlanca.value <=0) {
+    } else if (lebrija.value <= 0 && cristalina.value <= 0 && villaMercedes.value <= 0 && manzanaBlanca.value <= 0) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -391,7 +391,7 @@ function ValidarLote() {
             confirmButtonColor: '#157347',
         })
 
-    } else if (cantidad_loteAnterior.value <0) {
+    } else if (cantidad_loteAnterior.value < 0) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -419,7 +419,7 @@ function ValidarLote() {
             peso_lote_anterior: cantidad_loteAnterior.value,
 
         }
-       // console.log(recepcionGuayaba);
+        // console.log(recepcionGuayaba);
         CrearLote(recepcionGuayaba)
 
 
@@ -453,31 +453,51 @@ function CrearLote(recepcionGuayaba) {
         if (result.isConfirmed) {
             //se envia al ajax
             $.post("views/ajax/lotes_ajax.php", { recepcionGuayaba }, function (dato) {
-                console.log(dato);
-            })
-            Swal.fire({
-                icon: 'success',
-                title: `Lote guardado`,
-                scrollbarPadding: false,
-                heightAuto: false,
-                showConfirmButton: true,
-                confirmButtonColor: '#157347',
-                allowOutsideClick: () => {
-                    const popup = Swal.getPopup()
-                    popup.classList.remove('swal2-show')
-                    setTimeout(() => {
-                        popup.classList.add('animate__animated', 'animate__headShake')
+               // console.log(dato);
+                let response = dato.trim()
+               // console.log(response);
+                if (response == "ok") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: `Lote guardado`,
+                        scrollbarPadding: false,
+                        heightAuto: false,
+                        showConfirmButton: true,
+                        confirmButtonColor: '#157347',
+                        allowOutsideClick: () => {
+                            const popup = Swal.getPopup()
+                            popup.classList.remove('swal2-show')
+                            setTimeout(() => {
+                                popup.classList.add('animate__animated', 'animate__headShake')
+                            })
+                            setTimeout(() => {
+                                popup.classList.remove('animate__animated', 'animate__headShake')
+                            }, 500)
+                            return false
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload()
+                        }
                     })
-                    setTimeout(() => {
-                        popup.classList.remove('animate__animated', 'animate__headShake')
-                    }, 500)
-                    return false
+                } else if (response == "") {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: `Código de lote ya registrado`,
+                        confirmButtonColor: '#157347',
+                    })
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: `Contacte al administrador`,
+                        confirmButtonColor: '#157347',
+                    })
                 }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    location.reload()
-                }
+
             })
+
         }
     })
 }

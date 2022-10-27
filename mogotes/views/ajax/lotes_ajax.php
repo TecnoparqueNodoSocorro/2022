@@ -24,14 +24,20 @@ class LoteAjax
             echo json_encode($respuesta); */
         echo $datosusuario;
     }
-    //finalizar LOTE
+    //get lote by codigo
     static public function GetLoteByCodigo($data)
     {
         $datosLote = ControladorLote::ctrGetLoteByCodigo($data);
         $datos = json_encode($datosLote);
         echo ($datos);
     }
-
+    //get lote by codigo
+    static public function GetLoteInfo($data)
+    {
+        $datosLote = ControladorLote::ctrGetLoteInfo($data);
+        $datos = json_encode($datosLote);
+        echo ($datos);
+    }
 }
 //GUARDAR LOTE
 if (isset($_POST['recepcionGuayaba'])) {
@@ -54,3 +60,9 @@ if (isset($_POST['codigoLote'])) {
 }
 
 
+//get lote by codigo
+if (isset($_POST['info'])) {
+    $postData = new LoteAjax();
+    $data = $_POST['info'];
+    $postData->GetLoteInfo($data);
+}

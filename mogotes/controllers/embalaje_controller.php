@@ -20,11 +20,19 @@ class ControladorEmbalaje
         return $crearIdEncabezado;
     }
     /* --------------------POST DE LA CABECERA DEL EMBALAJE---------------------------------- */
-    static public function ctrPostDetalleEmb($idEncabezado, $data)
+    static public function ctrPostDetalleEmb($idEncabezado, $data,  $codigoLote)
     {
         $tabla = "embalaje_detalle";
 
-        $crearDetalleEmbalaje = ModelEmbalaje::mdlPostDetalleEmb($tabla, $idEncabezado,  $data);
+        $crearDetalleEmbalaje = ModelEmbalaje::mdlPostDetalleEmb($tabla, $idEncabezado,  $data,  $codigoLote);
         return $crearDetalleEmbalaje;
+    }
+
+//traer embalajes por codigo
+static public function ctrGetEmbalajesByCodigo($data)
+    {
+        $tabla = "embalaje_encabezado";
+        $crearIdEncabezado = ModelEmbalaje::mdlGetEmbalajesByCodigo($tabla, $data);
+        return $crearIdEncabezado;
     }
 }

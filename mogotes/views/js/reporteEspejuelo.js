@@ -58,7 +58,7 @@ function infoReportesPorCodigoEsp(codigo) {
             `
             tbodyReporteEspejuelo.innerHTML += `
             <tr>
-            <td><button type="button" data-id="${y.id}" class="extraerIdEsp btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_espejuelo">
+            <td><button type="button" data-id="${y.idL}" class="extraerIdEsp btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_espejuelo">
             <i class="bi bi-eye-fill"></i>
             </button></td>
             <td>${y.fecha_fabricacion}</td>

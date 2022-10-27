@@ -11,7 +11,13 @@ class ControladorLote
         $respuesta = ModelLote::mdlPostLote($tabla, $data);
         echo $respuesta;
     }
-
+    //TRAER TODOS LOS LOTES PARA EL INFORME
+    static public function ctrGetLotesInformes()
+    {
+        $tabla = "lote";
+        $respuesta = ModelLote::mdlGetLotesInformes($tabla);
+        return $respuesta;
+    }
     //TRAER TODOS LOS LOTES que esten es tado 1 o 2 para el escaldado
     static public function ctrGetLotesEscaldado()
     {
@@ -46,6 +52,13 @@ class ControladorLote
     {
         $tabla = "lote";
         $respuesta = ModelLote::mdlGetLoteByCodigo($tabla, $data);
+        return $respuesta;
+    }
+    //traer lote por codigo
+    static public function ctrGetLoteInfo($data)
+    {
+        $tabla = "lote";
+        $respuesta = ModelLote::mdlGetLoteInfo($tabla, $data);
         return $respuesta;
     }
 }
