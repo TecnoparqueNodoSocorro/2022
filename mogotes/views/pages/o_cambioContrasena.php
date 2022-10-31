@@ -1,3 +1,17 @@
+<?php
+if (isset($_SESSION["validar_ingreso"])) {
+    if ($_SESSION["id_cargo"] != "2") {
+        echo '<script>window.location="index.php?page=error_credenciales"; </script>';
+        return;
+    }
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+
+$lotesEmb = ControladorLote::ctrGetLotesEmbalaje();
+
+//print_r($lotesEmb)
+?>
 <div class="container-fluid" style="text-align: center;">
     <h3 class="mt-2">Cambio de contraseña</h3>
     <div class="container shadow p-3" style="background-color:#e3f8e0; border-radius:5px;">
@@ -20,7 +34,7 @@
                 <label class="form-label">
                     <h5>Nueva      contraseña</h5>
                 </label>
-                <input type="password" name="new_contra" onkeypress="return valideKey(event)" id="new_contra" class="form-control" value="" required>
+                <input type="password" name="new_contra"  id="new_contra" class="form-control only_numbers" value="" required>
                 <h7 >La clave tiene que ser de 4 números</h7>
 
             </div>
@@ -28,7 +42,7 @@
                 <label class="form-label">
                     <h5>Confirmar contraseña</h5>
                 </label>
-                <input type="password" name="confirm_new_contra" onkeypress="return valideKey(event)" id="confirm_new_contra" class="form-control" value="" required>
+                <input type="password" name="confirm_new_contra"  id="confirm_new_contra" class="form-control only_numbers"  value="" required>
             </div>
         </div>
 

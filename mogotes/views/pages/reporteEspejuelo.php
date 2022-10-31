@@ -1,7 +1,11 @@
 <?php
+if (isset($_SESSION["validar_ingreso"])) {
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
 $lotesRe = ControladorLote::mdlGetLotesReporte();
-?>
 
+?>
 <div class="container">
     <h5>Reporte Espejuelo</h5>
 

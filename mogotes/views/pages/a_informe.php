@@ -11,10 +11,12 @@ if (isset($_SESSION["validar_ingreso"])) {
 $lotes = ControladorLote::ctrGetLotesInformes();
 //print_r($lotes)
 ?>
+
+
 <div class="container-fluid" style="background-color:#e3f8e0; ">
     <div class="container">
 
-        <h5>Informe</h5>
+        <h3 class="fw-bold">Informe</h3>
         <div class="table-responsive mt-3 mb-5">
             <table class="table table-ligh table-bordered table-sm">
                 <thead class="table-light">
@@ -79,8 +81,24 @@ $lotes = ControladorLote::ctrGetLotesInformes();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5>Cantidad y origen</h5>
-                <div class="row">
+                <h5 class="titulo-reporte titulo-recepcion ">Recepción</h5>
+                <div class="row div-reporte  div-recepcion">
+
+                    <div class="col-6 ">
+                        <div class="input-group  mb-1">
+                            <span class="text-informe  input-group-text " id="">F. recepción: <strong id="fecha_recepcionInfo"></strong></span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6 ">
+                        <div class="input-group  mb-1">
+                            <span class="text-informe  input-group-text " id="">Peso total: <strong id="pesoTotalLote"></strong></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row div-reporte div-recepcion">
 
 
                     <div class="col-6">
@@ -102,7 +120,7 @@ $lotes = ControladorLote::ctrGetLotesInformes();
 
 
 
-                <div class="row">
+                <div class="row div-reporte  div-recepcion">
 
                     <div class="col-6 ">
                         <div class="input-group  mb-1">
@@ -120,42 +138,41 @@ $lotes = ControladorLote::ctrGetLotesInformes();
 
 
                 </div>
-                <div class="row">
+                <div class="row div-reporte  div-recepcion">
 
-                    <div class="col-6 ">
+                    <div class="col-12">
                         <div class="input-group  mb-1">
                             <span class="text-informe  input-group-text " id="textLoteAnteriorInfo"></span>
                         </div>
 
                     </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-6 ">
+                    <div class="col-12">
                         <div class="input-group  mb-1">
-                            <span class="text-informe  input-group-text " id="">Fecha de recepción: <strong id="fecha_recepcionInfo"></strong></span>
+                            <span class="text-informe  input-group-text " id="textUsuarioRecepcion"></span>
                         </div>
 
                     </div>
                 </div>
+
                 <hr>
-                <h5>Escaldado</h5>
+                <h5 class="titulo-reporte titulo-escaldado">Escaldado</h5>
 
 
-                <div class="row" id="" style="width: 100%;">
-                    <div class="col-6 " id="divInfoEscaldado1">
+                <div class="row div-escaldado" id="">
+                    <div class="col-6  div-escaldado" id="divInfoEscaldado1">
 
 
                     </div>
-                    <div class="col-6 " id="divInfoEscaldado2">
+                    <div class="col-6  div-escaldado" id="divInfoEscaldado2">
 
 
                     </div>
                 </div>
+
                 <hr>
-                <h5>Producción</h5>
-                <div class="row" id="" style="width: 100%;">
-                    <h7 class="fw-bold">Reporte bocadillo</h7>
+                <h5 class="titulo-reporte titulo-produccion">Producción</h5>
+                <div class="row div-produccion" id="" style="text-align: center;">
+                    <h7 class="" id="textBocadillo"></h7>
                     <div class="col-6 " id="ReporteBocadilloInfo1">
 
                     </div>
@@ -163,14 +180,14 @@ $lotes = ControladorLote::ctrGetLotesInformes();
 
                     </div>
 
-                    <h7 class="fw-bold">Reporte Espejuelo</h7>
+                    <h7 class="" id="textEspejuelo"></h7>
                     <div class="col-6 " id="ReporteEspejueloInfo1">
 
                     </div>
                     <div class="col-6 " id="ReporteEspejueloInfo2">
 
                     </div>
-                    <h7 class="fw-bold">Reporte Arequipe</h7>
+                    <h7 class="" id="textArequipe"></h7>
                     <div class="col-6 " id="ReporteArequipeInfo1">
 
                     </div>
@@ -178,7 +195,15 @@ $lotes = ControladorLote::ctrGetLotesInformes();
 
                     </div>
                 </div>
-                <h5>Embalaje</h5>
+                <hr>
+                <h5 class="titulo-reporte titulo-embalaje">Embalaje</h5>
+                <div class="container div-embalaje">
+                    <div class="row row-cols-2" id="containerEmbalaje">
+
+
+                    </div>
+
+                </div>
 
             </div>
 

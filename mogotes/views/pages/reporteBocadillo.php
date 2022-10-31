@@ -1,6 +1,14 @@
 <?php
+if (isset($_SESSION["validar_ingreso"])) {
+    
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+
 $lotesRe = ControladorLote::mdlGetLotesReporte();
 ?>
+
+
 <div class="container">
     <h5>Reporte Bocadillo</h5>
 
@@ -209,7 +217,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number" readonly  class="form-control" id="recortesView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="recortesView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -221,7 +229,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number" readonly  class="form-control" id="devolucionView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="devolucionView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="row">
@@ -233,7 +241,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number"  readonly class="form-control" id="botesMView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="botesMView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -245,7 +253,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number" readonly  class="form-control" id="botesPView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="botesPView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="row">
@@ -257,7 +265,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number" readonly  class="form-control" id="brixView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="brixView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -274,7 +282,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number"  readonly class="form-control" id="tablaExtView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="tablaExtView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -286,7 +294,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number"  readonly class="form-control" id="tablaBocView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="tablaBocView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
@@ -300,7 +308,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number" readonly  class="form-control" id="tablaLonView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="tablaLonView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -311,7 +319,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number" readonly  class="form-control" id="tablaManView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="tablaManView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 

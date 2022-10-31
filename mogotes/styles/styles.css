@@ -43,11 +43,11 @@
 }
 
 
-.modal-header{
+.modal-header {
     background: #a5eea0 !important;
 }
 
-.modal-footer{
+.modal-footer {
     background: #a5eea0 !important;
 }
 
@@ -80,6 +80,39 @@
 
     height: 100%;
 
+}
+
+.titulo-reporte {
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+.titulo-recepcion {
+    background-color: #cfe2ff;
+}
+.titulo-escaldado {
+    background-color: #d7d8da;
+}
+.titulo-produccion{
+    background-color: #fff3cd;
+}
+.titulo-embalaje{
+    background-color: #cff4fc;
+}
+
+
+.div-recepcion {
+    background-color: #cfe2ff;
+}
+.div-escaldado {
+    background-color: #d7d8da;
+}
+.div-produccion{
+    background-color: #fff3cd;
+}
+.div-embalaje{
+    background-color: #cff4fc;
 }
 
 textarea:focus,
@@ -216,6 +249,7 @@ select:focus,
         max-width: 740px !important;
     }
 }
+
 .text-informe {
-font-size: 0.6rem !important;
+    font-size: 0.6rem !important;
 }

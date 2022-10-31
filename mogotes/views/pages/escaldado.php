@@ -1,5 +1,11 @@
 <?php
-$lotes = ControladorLote::ctrGetLotesEscaldado();
+if (isset($_SESSION["validar_ingreso"])) {
+    
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
+$lotes = ControladorLote::ctrGetLotesEscaldado()
+
 ?>
 <div class="container">
     <h5 class="mt-3">Escaldado de Guayaba</h5>

@@ -17,6 +17,9 @@ require_once "models/reportes_model.php";
 
 require_once "controllers/embalaje_controller.php";
 require_once "models/embalaje_model.php";
+
+require_once "controllers/informe_home_controller.php";
+require_once "models/informe_home_model.php";
 /* creamos un objeto */
 $plantilla = new ControladorPlantilla();
 /* llamamos el metodo  */

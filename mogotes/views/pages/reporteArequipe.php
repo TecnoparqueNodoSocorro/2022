@@ -1,6 +1,12 @@
 <?php
+if (isset($_SESSION["validar_ingreso"])) {
+} else {
+    echo '<script>window.location="index.php?page=error"; </script>';
+}
 $lotesRe = ControladorLote::mdlGetLotesReporte();
+
 ?>
+
 <div class="container">
     <h5>Reporte Arequipe Mogotino</h5>
 
@@ -130,7 +136,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
             </div>
             <div class="modal-body">
                 <div class="container" style="background-color:#e3f8e0;">
-             
+
                     <div class="row pt-2">
 
                         <div class="col-6 col-sm-3">

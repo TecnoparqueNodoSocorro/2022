@@ -15,12 +15,13 @@ class ModelLote
         if ($count > 0) {
             return "";
         } else if ($count == 0) {
-            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (codigo, lebrija,
+            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (id_usuario, codigo, lebrija,
         cristalina, villa_mercedes, manzana_blanca, peso, codigo_lote_anterior, peso_lote_anteior ) 
-        VALUES( :lote, :lebrija, :cristalina, :villaMercedes, :manzanaBlanca, :peso_lote,
+        VALUES(:id_usuario, :lote, :lebrija, :cristalina, :villaMercedes, :manzanaBlanca, :peso_lote,
         :lote_anterior, :peso_lote_anterior) ");
-            $stmt->bindParam(":lote", $data["lote"], PDO::PARAM_STR);
-            $stmt->bindParam(":lebrija",  $data["lebrija"], PDO::PARAM_STR);
+            $stmt->bindParam(":id_usuario", $data["id_usuario"]);
+            $stmt->bindParam(":lote", $data["lote"]);
+            $stmt->bindParam(":lebrija",  $data["lebrija"]);
             $stmt->bindParam(":cristalina",  $data["cristalina"]);
             $stmt->bindParam(":manzanaBlanca",  $data["manzanaBlanca"]);
             $stmt->bindParam(":peso_lote", $data["peso_lote"]);
@@ -138,8 +139,9 @@ class ModelLote
     static public function mdlGetLoteInfo($tabla, $data)
     {
 
-        $stmt = conexion::conectar()->prepare("SELECT $tabla.codigo_lote_anterior, $tabla.cristalina, $tabla.fecha_recepcion, $tabla.lebrija,  $tabla.manzana_blanca, $tabla.peso, $tabla.peso_lote_anteior, $tabla.villa_mercedes
+        $stmt = conexion::conectar()->prepare("SELECT usuarios.nombres, usuarios.apellidos, $tabla.codigo_lote_anterior, $tabla.cristalina, $tabla.fecha_recepcion, $tabla.lebrija,  $tabla.manzana_blanca, $tabla.peso, $tabla.peso_lote_anteior, $tabla.villa_mercedes
          FROM $tabla 
+         INNER JOIN usuarios ON $tabla.id_usuario = usuarios.id
          WHERE codigo=:codigo");
         $stmt->bindParam(":codigo", $data["codigo"], PDO::PARAM_STR);
         if ($stmt->execute()) {

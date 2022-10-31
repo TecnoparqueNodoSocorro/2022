@@ -8,6 +8,10 @@ let manzanaBlancaInfo = document.getElementById('manzanaBlancaInfo')
 let loteAnteriorInfo = document.getElementById('loteAnteriorInfo')
 let textLoteAnteriorInfo = document.getElementById('textLoteAnteriorInfo')
 let fecha_recepcionInfo = document.getElementById('fecha_recepcionInfo')
+let pesoTotalLote = document.getElementById('pesoTotalLote')
+let textUsuarioRecepcion = document.getElementById('textUsuarioRecepcion')
+
+
 
 //variables escaldado info
 let desperdicioInfo = document.getElementById('desperdicioInfo')
@@ -28,7 +32,16 @@ let ReporteEspejueloInfo2 = document.getElementById('ReporteEspejueloInfo2')
 let ReporteArequipeInfo1 = document.getElementById('ReporteArequipeInfo1')
 let ReporteArequipeInfo2 = document.getElementById('ReporteArequipeInfo2')
 
+let textBocadillo = document.getElementById('textBocadillo')
+let textEspejuelo = document.getElementById('textEspejuelo')
+let textArequipe = document.getElementById('textArequipe')
 
+//variables reporte embalaje
+let ReporteEmbalajeDetalle1 = document.getElementById('ReporteEmbalajeDetalle1')
+let ReporteEmbalajeDetalle2 = document.getElementById('ReporteEmbalajeDetalle2')
+let ReporteEmbalajeEncabezado2 = document.getElementById('ReporteEmbalajeEncabezado2')
+let ReporteEmbalajeEncabezado1 = document.getElementById('ReporteEmbalajeEncabezado1')
+let containerEmbalaje = document.getElementById('containerEmbalaje')
 
 const btnInfo = document.querySelectorAll('.btnInfo')
 btnInfo.forEach(x => {
@@ -49,13 +62,15 @@ function traerRecepcion(codigo) {
     info = { codigo: codigo }
     $.post("views/ajax/lotes_ajax.php", { info }, function (dato) {
         let response = JSON.parse(dato)
-        //   console.log(response);
+           console.log(response);
         lebrijaInfo.innerText = `Lebrija ${response.lebrija} kg`
         cristalinaInfo.innerText = `La Cristalina ${response.cristalina} kg`
         villaMercedesInfo.innerText = `Villa Mercedes ${response.villa_mercedes} kg`
         manzanaBlancaInfo.innerText = `Manzana Blanca ${response.manzana_blanca} kg`
         textLoteAnteriorInfo.innerText = `Código del lote anterior: ${response.codigo_lote_anterior} -  Cantidad: ${response.peso_lote_anteior} kg`
         fecha_recepcionInfo.innerText = ` ${response.fecha_recepcion}`
+        pesoTotalLote.innerText = ` ${response.peso} kg`
+        textUsuarioRecepcion.innerText=`Usuario: ${response.nombres} ${response.apellidos}`
 
     })
     traerEscaldado(codigo)
@@ -112,15 +127,21 @@ function traerReportes(codigo) {
     $.post("views/ajax/reportes_ajax.php", { infoReporteAre }, function (dato) {
         let response = JSON.parse(dato)
         //  console.log(response);
+        response.length != 0
+        ? textArequipe.innerText = `Reporte arequipe`
+        : ''
         response.forEach(x => {
 
+
             ReporteArequipeInfo1.innerHTML += `
+
+
             <div class="input-group  mb-1">
                  <span class="text-informe  input-group-text " >  Usuario:  <strong> ${x.nombres} ${x.apellidos}</strong></span>
             </div>
 
             <div class="input-group  mb-1">
-                 <span class="text-informe  input-group-text " >  Leche:   ${x.botes_pailas} (L) </span>
+                 <span class="text-informe  input-group-text " >  Leche:   ${x.leche} (L) </span>
             </div>
 
             <div class="input-group  mb-1">
@@ -169,8 +190,15 @@ function traerReportes(codigo) {
     $.post("views/ajax/reportes_ajax.php", { infoReporte }, function (dato) {
         let response = JSON.parse(dato)
         // console.log(response);
+        response.length != 0
+            ? textBocadillo.innerText = `Reporte bocadillo`
+            : ''
+
+
         response.forEach(x => {
             ReporteBocadilloInfo1.innerHTML += `
+
+            
             <div class="input-group  mb-1">
                  <span class="text-informe  input-group-text " >  Usuario:  <strong> ${x.nombres} ${x.apellidos}</strong></span>
             </div>
@@ -229,6 +257,9 @@ function traerReportes(codigo) {
     $.post("views/ajax/reportes_ajax.php", { infoReporteEsp }, function (dato) {
         let responses = JSON.parse(dato)
         //console.log(responses);
+        responses.length != 0
+        ? textEspejuelo.innerText = `Reporte espejuelo`
+        : ''
         responses.forEach(x => {
 
             ReporteEspejueloInfo1.innerHTML += `
@@ -293,7 +324,67 @@ function traerEmbalaje(codigo) {
     infoEmbalaje = { codigo: codigo }
     $.post("views/ajax/embalaje_ajax.php", { infoEmbalaje }, function (dato) {
         let responses = JSON.parse(dato)
-        console.log(responses);
+       // console.log(responses);
+        responses.forEach(x => {
+            containerEmbalaje.innerHTML += `
+
+            <div class="col" id="ReporteEmbalajeEncabezado1">
+
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  Usuario:  <strong> ${x.nombres} ${x.apellidos}</strong> </span>
+                    </div>
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  F embalaje: <strong>  ${x.fecha_embalaje} </strong> </span>
+                    </div>
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text ">Azúcar: ${x.azucar} (lb) </span>
+                    </div>
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  Celofán: ${x.celofan} </span>
+                    </div>
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  Madera: ${x.madera} </span>
+                    </div>           
+         
+            </div>
+
+            <div class="col" id="ReporteEmbalajeEncabezado2">
+
+                <div class="input-group  mb-1">
+                    <span class="text-informe  input-group-text " >  F fabricación:  <strong> ${x.fecha_fabricacion}</strong></span>
+                  </div>
+                <div class="input-group  mb-1">
+                    <span class="text-informe  input-group-text " >  F vencimiento:  <strong> ${x.fecha_vencimiento}</strong> </span>
+                </div> 
+                <div class="input-group  mb-1">
+                    <span class="text-informe  input-group-text " >  Bijao:  ${x.bijao}</span>
+                </div>
+                <div class="input-group  mb-1">
+                    <span class="text-informe  input-group-text " >  Recortes. :  ${x.recortes}</span>
+                </div>
+                <div class="input-group  mb-1">
+                    <span class="text-informe  input-group-text " >  Tablas: ${x.tablas} </span>
+                </div>          
+       
+            </div>
+            <div class="col-12" id="ReporteEmbalajeDetalle1">
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  Producto:  <strong> ${x.producto}</strong></span>
+                    </div>
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  Empaque:  <strong> ${x.empaque}</strong> </span>
+                    </div> 
+                    <div class="input-group  mb-1">
+                        <span class="text-informe  input-group-text " >  Cantidad:  ${x.cantidad}</span>
+                    </div>    
+                <hr>
+                <hr>
+            </div>
+            
+            `
+
+
+        })
     })
 }
 
@@ -310,4 +401,9 @@ function limpiarListados() {
     ReporteArequipeInfo2.innerHTML = ``
     ReporteEspejueloInfo1.innerHTML = ``
     ReporteEspejueloInfo2.innerHTML = ``
+    containerEmbalaje.innerHTML = ``
+
+    textArequipe.innerText = ``
+    textBocadillo.innerText = ``
+    textEspejuelo.innerText = ``
 }

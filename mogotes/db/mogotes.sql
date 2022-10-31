@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2022 a las 23:59:40
+-- Tiempo de generación: 31-10-2022 a las 21:53:20
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -44,7 +44,10 @@ INSERT INTO `embalaje_detalle` (`id`, `id_encabezado`, `codigo_lote`, `id_empaqu
 (19, 24, 999, 9, 65),
 (20, 25, 1234, 2, 3),
 (21, 25, 1234, 1, 2),
-(22, 25, 1234, 3, 1);
+(22, 25, 1234, 3, 1),
+(23, 26, 1234, 1, 54),
+(24, 26, 1234, 5, 56),
+(25, 26, 1234, 6, 98);
 
 -- --------------------------------------------------------
 
@@ -114,7 +117,8 @@ CREATE TABLE `embalaje_encabezado` (
 
 INSERT INTO `embalaje_encabezado` (`id`, `codigo_lote`, `id_empleado`, `azucar`, `bijao`, `celofan`, `recortes`, `madera`, `tablas`, `fecha_fabricacion`, `fecha_vencimiento`, `fecha_embalaje`) VALUES
 (24, 999, 3, 67, 67, 67, 67, 676, 676, '2022-10-27', '2023-02-27', '2022-10-27'),
-(25, 1234, 3, 2, 34, 23, 234, 234, 23, '2022-10-26', '2023-02-26', '2022-10-27');
+(25, 1234, 3, 2, 34, 23, 234, 234, 23, '2022-10-26', '2023-02-26', '2022-10-27'),
+(26, 1234, 3, 5, 6, 3, 5, 6, 5, '2022-10-26', '2023-02-26', '2022-10-31');
 
 -- --------------------------------------------------------
 
@@ -163,7 +167,8 @@ INSERT INTO `escaldado` (`id`, `codigo_lote`, `id_empleado`, `desperdicio`, `des
 (24, 4534, 3, 4, 4, 4, 4, '2022-10-27'),
 (25, 4354, 3, 6, 5, 4, 3, '2022-10-27'),
 (26, 999, 3, 14, 14, 1414, 14, '2022-10-27'),
-(28, 1425, 3, 32, 3, 3, 21, '2022-10-27');
+(28, 1425, 3, 32, 3, 3, 21, '2022-10-27'),
+(29, 1111, 4, 76, 78, 7, 6, '2022-10-31');
 
 -- --------------------------------------------------------
 
@@ -173,6 +178,7 @@ INSERT INTO `escaldado` (`id`, `codigo_lote`, `id_empleado`, `desperdicio`, `des
 
 CREATE TABLE `lote` (
   `id` int(20) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `codigo` int(11) NOT NULL,
   `lebrija` float NOT NULL,
   `cristalina` float NOT NULL,
@@ -191,20 +197,23 @@ CREATE TABLE `lote` (
 -- Volcado de datos para la tabla `lote`
 --
 
-INSERT INTO `lote` (`id`, `codigo`, `lebrija`, `cristalina`, `villa_mercedes`, `manzana_blanca`, `peso`, `codigo_lote_anterior`, `fecha_recepcion`, `peso_lote_anteior`, `estado`, `fecha_fabricacion`, `fecha_vencimiento`) VALUES
-(1, 756, 568, 0, 0, 0, 634.9, 6766, '2022-10-24', 67.25, 5, NULL, NULL),
-(2, 4354, 25, 0, 0, 0, 25.22, 0, '2022-10-24', 0, 2, '2022-10-27', '2023-02-27'),
-(3, 9655, 86, 0, 0, 0, 101.84, 9654, '2022-10-24', 15.63, 5, NULL, NULL),
-(4, 4534, 23, 0, 0, 0, 0, 0, '2022-10-24', 0, 3, '2022-10-27', '2023-02-27'),
-(5, 1425, 14, 0, 0, 0, 14.22, 0, '2022-10-24', 0, 2, NULL, NULL),
-(6, 675, 14, 5, 1, 44, 64.69, 0, '2022-10-24', 0, 5, NULL, NULL),
-(7, 890, 1425, 0, 0, 0, 1427.22, 890, '2022-10-24', 2.22, 5, NULL, NULL),
-(9, 564, 77.68, 0, 0, 0, 77.68, 0, '2022-10-24', 0, 5, NULL, NULL),
-(10, 1234, 21.76, 0, 23.58, 0, 90.34, 1233, '2022-10-26', 45, 4, '2022-10-26', '2023-02-26'),
-(11, 999, 12.5, 0, 0, 0, 22.5, 342, '2022-10-27', 10, 4, '2022-10-27', '2023-02-27'),
-(12, 1111, 21.9, 0, 0, 0, 21.9, 0, '2022-10-27', 0, 1, NULL, NULL),
-(13, 5, 25, 0, 0, 0, 25, 0, '2022-10-27', 0, 1, NULL, NULL),
-(14, 55, 2542, 0, 0, 0, 2542, 0, '2022-10-27', 0, 1, NULL, NULL);
+INSERT INTO `lote` (`id`, `id_usuario`, `codigo`, `lebrija`, `cristalina`, `villa_mercedes`, `manzana_blanca`, `peso`, `codigo_lote_anterior`, `fecha_recepcion`, `peso_lote_anteior`, `estado`, `fecha_fabricacion`, `fecha_vencimiento`) VALUES
+(1, 0, 756, 568, 0, 0, 0, 634.9, 6766, '2022-10-24', 67.25, 5, NULL, NULL),
+(2, 0, 4354, 25, 0, 0, 0, 25.22, 0, '2022-10-24', 0, 2, '2022-10-27', '2023-02-27'),
+(3, 0, 9655, 86, 0, 0, 0, 101.84, 9654, '2022-10-24', 15.63, 5, NULL, NULL),
+(4, 0, 4534, 23, 0, 0, 0, 0, 0, '2022-10-24', 0, 3, '2022-10-27', '2023-02-27'),
+(5, 0, 1425, 14, 0, 0, 0, 14.22, 0, '2022-10-24', 0, 3, '2022-10-31', '2023-08-31'),
+(6, 0, 675, 14, 5, 1, 44, 64.69, 0, '2022-10-24', 0, 5, NULL, NULL),
+(7, 0, 890, 1425, 0, 0, 0, 1427.22, 890, '2022-10-24', 2.22, 5, NULL, NULL),
+(9, 0, 564, 77.68, 0, 0, 0, 77.68, 0, '2022-10-24', 0, 5, NULL, NULL),
+(10, 0, 1234, 21.76, 0, 23.58, 0, 90.34, 1233, '2022-10-26', 45, 4, '2022-10-26', '2023-02-26'),
+(11, 0, 999, 12.5, 0, 0, 0, 22.5, 342, '2022-10-27', 10, 4, '2022-10-27', '2023-02-27'),
+(12, 0, 1111, 21.9, 0, 0, 0, 21.9, 0, '2022-10-27', 0, 2, NULL, NULL),
+(13, 0, 5, 25, 0, 0, 0, 25, 0, '2022-10-27', 0, 1, NULL, NULL),
+(14, 0, 55, 2542, 0, 0, 0, 2542, 0, '2022-10-27', 0, 1, NULL, NULL),
+(15, 2, 5426, 220.2, 0, 0, 0, 278.35, 5225, '2022-10-31', 58.15, 1, NULL, NULL),
+(16, 3, 5464, 456, 0, 0, 0, 456, 0, '2022-10-31', 0, 1, NULL, NULL),
+(17, 3, 7845, 0, 0, 87, 0, 965, 5478, '2022-10-31', 878, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -233,9 +242,9 @@ INSERT INTO `reporte_arequipe` (`id`, `codigo_lote`, `id_empleado`, `leche`, `az
 (1, 9655, 3, 2, 1, 3, 4, 5, 6, '2022-10-27'),
 (2, 756, 3, 1.4, 4.3, 6.3, 9.65, 6.45, 1.65, '2022-10-27'),
 (3, 9655, 3, 14.2, 42.6, 41.5, 487.4, 4.4, 25.4, '2022-10-27'),
-(4, 756, 3, 10.5, 12.4, 0, 0, 45.2, 41.4, '2022-10-27'),
-(5, 9655, 3, 7678, 67867, 67867, 8678, 67867, 678, '2022-10-27'),
-(6, 4534, 3, 3, 1, 313, 1, 23, 132, '2022-10-27');
+(4, 756, 3, 10.5, 12.4, 0, 0, 45.2, 41.4, '2022-10-31'),
+(5, 9655, 3, 7678, 67867, 67867, 8678, 67867, 678, '2022-10-31'),
+(6, 4534, 3, 3, 1, 313, 1, 23, 132, '2022-10-31');
 
 -- --------------------------------------------------------
 
@@ -278,8 +287,8 @@ INSERT INTO `reporte_bocadillo` (`id`, `codigo_lote`, `id_empleado`, `recortes`,
 (11, 756, 3, 567, 5675, 567756, 56756, 567, 6567, 567, 567, 657, 67, '2022-10-27'),
 (12, 756, 3, 76, 5656, 756, 567, 756, 56756, 756, 567, 756, 567, '2022-10-27'),
 (13, 9655, 3, 675, 67, 567567, 567, 7567, 56756, 756, 756, 756, 56756, '2022-10-27'),
-(14, 1234, 3, 3, 32, 23, 4, 2, 4, 3, 2, 14, 4, '2022-10-27'),
-(17, 4534, 3, 21, 12, 2131, 3, 0, 12, 3, 66, 45, 6, '2022-10-27');
+(14, 1234, 3, 3, 32, 23, 4, 2, 4, 3, 2, 14, 4, '2022-10-31'),
+(17, 4534, 3, 21, 12, 2131, 3, 0, 12, 3, 66, 45, 6, '2022-10-31');
 
 -- --------------------------------------------------------
 
@@ -312,7 +321,8 @@ INSERT INTO `reporte_espejuelo` (`id`, `codigo_lote`, `id_empleado`, `azucar`, `
 (3, 9655, 3, 1.23, 23.2, 32.6, 2.3, 32.2, 520.5, 534.5, 5.4, '2022-10-27'),
 (4, 9655, 3, 2.22, 3.63, 4.44, 1.552, 45.11, 12.445, 14.54, 12.44, '2022-10-27'),
 (5, 9655, 3, 6756, 756756, 6575, 7567, 756, 56756, 7567, 56756, '2022-10-27'),
-(6, 9655, 3, 56567, 567, 567, 56756, 567565, 56756, 567, 67, '2022-10-27');
+(6, 9655, 3, 56567, 567, 567, 56756, 567565, 56756, 567, 67, '2022-10-27'),
+(10, 1425, 4, 23, 4, 23, 4, 23, 2, 345, 23, '2022-10-31');
 
 -- --------------------------------------------------------
 
@@ -336,10 +346,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `numero_telefono`, `numero_documento`, `id_cargo`, `clave`, `estado`) VALUES
-(1, 'Hector', 'Herrera', '56756', '75675676', 2, 3333, 1),
+(1, 'Hector', 'Herrera', '56756', '75675676', 2, 3333, 0),
 (2, 'Carlos', '456456', '2132', '123123', 2, 1111, 1),
 (3, 'juan', 'sandoval', '312131131', '1111', 1, 1111, 1),
-(4, 'carlos', 'perez', '13121321', '2222', 2, 2222, 0);
+(4, 'carlos', 'perez', '13121321', '2222', 2, 2222, 1);
 
 --
 -- Índices para tablas volcadas
@@ -407,7 +417,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `embalaje_detalle`
 --
 ALTER TABLE `embalaje_detalle`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `embalaje_empaque`
@@ -419,19 +429,19 @@ ALTER TABLE `embalaje_empaque`
 -- AUTO_INCREMENT de la tabla `embalaje_encabezado`
 --
 ALTER TABLE `embalaje_encabezado`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `escaldado`
 --
 ALTER TABLE `escaldado`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `lote`
 --
 ALTER TABLE `lote`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `reporte_arequipe`
@@ -449,7 +459,7 @@ ALTER TABLE `reporte_bocadillo`
 -- AUTO_INCREMENT de la tabla `reporte_espejuelo`
 --
 ALTER TABLE `reporte_espejuelo`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

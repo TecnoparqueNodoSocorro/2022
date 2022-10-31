@@ -44,7 +44,7 @@ if (isset($_SESSION["id_cargo"])) {
 
     <nav class="navbar navbar-light ">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="index.php?page=home">Industrias Mogotes</a>
+            <a class="navbar-brand text-white" href="<?php echo $id_cargo=="1"? 'index.php?page=a_home' :'index.php?page=e_home'  ?>">Industrias Mogotes</a>
             <input type="hidden" name="id_usuario_oculto" id="id_usuario_oculto" value="<?php echo $id ?>">
 
             <?php
@@ -64,7 +64,8 @@ if (isset($_SESSION["id_cargo"])) {
 
         if (
 
-            $_GET["page"] == "home" ||
+            $_GET["page"] == "a_home" ||
+            $_GET["page"] == "e_home" ||
             $_GET["page"] == "a_registrarEmpleado" ||
             $_GET["page"] == "a_recepcionGuayaba" ||
             $_GET["page"] == "escaldado" ||

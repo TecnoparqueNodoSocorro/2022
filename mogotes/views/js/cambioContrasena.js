@@ -82,7 +82,7 @@ function CambiarContrasena() {
                             }
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                location.href = 'index.php?page=home'
+                                location.href = 'index.php?page=e_home'
                             }
                         })
                     }

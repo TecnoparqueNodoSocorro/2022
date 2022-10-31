@@ -409,6 +409,7 @@ function ValidarLote() {
 
     } else {
         recepcionGuayaba = {
+            id_usuario : id_usuario_oculto,
             lote: newLote.value,
             lebrija: lebrija.value,
             cristalina: cristalina.value,

@@ -108,16 +108,6 @@ function DatosIncompletos() {
 }
 
 //FUNCION SE LE AGREGA A LOS INPUT DE LA CONTRASEÑA DEL REGISTRO DE USUARIOS PARA QUE SOLO PERMITA EL INGRESO DE NUMEROS
-function valideKey(evt){
-			
-    // code is the decimal ASCII representation of the pressed key.
-    var code = (evt.which) ? evt.which : evt.keyCode;
-    
-    if(code==8) { // backspace.
-      return true;
-    } else if(code>=48 && code<=57) { // is a number.
-      return true;
-    } else{ // other keys.
-      return false;
-    }
-}
+$('.only_numbers').on('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});

@@ -84,7 +84,7 @@ class ControladorUsuario
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=home"> <i class="bi bi-house"></i> Home</a>
+                            <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=a_home"> <i class="bi bi-house"></i> Home</a>
                         </li>
                         <li class="nav-item">
                             <a class=" nav-link text-uppercase" href="index.php?page=a_registrarEmpleado"> <i class="bi bi-person"></i>
@@ -127,7 +127,7 @@ class ControladorUsuario
                                 Informes</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <a class=" nav-link  sub-nav" href="index.php?page=a_informe"> Registro de
-                                    Informe de ...</a>
+                                    Informe de lotes</a>
 
                             </div>
                         </li>
@@ -165,14 +165,14 @@ class ControladorUsuario
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=home"> <i class="bi bi-house"></i> Home</a>
+                            <a class="nav-link text-uppercase" aria-current="page" href="index.php?page=e_home"> <i class="bi bi-house"></i> Home</a>
                         </li>
                     
 
-                       <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class=" nav-link text-uppercase" href="index.php?page=a_recepcionGuayaba"> <i class="bi bi-activity"></i>
                                 Recepción</a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a class=" nav-link text-uppercase" href="index.php?page=escaldado"> <i class="bi bi-person"></i>
                                 Escaldado</a>
@@ -192,7 +192,11 @@ class ControladorUsuario
                                 <a class=" nav-link  sub-nav" href="index.php?page=reporteArequipe"> Arequipe mogoticos</a>
                             </div>
                         </li>
-                   
+                        
+                        <li class="nav-item">
+                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-box-seam"></i>
+                                Embalaje</a>
+                        </li>
     
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-unlock-fill"></i>

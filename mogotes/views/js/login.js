@@ -22,16 +22,17 @@ function Login() {
                     text: 'Credenciales incorrectas',
                     confirmButtonColor: '#5ac15d',
                 })
-            } else if (response.estado =="0") {
+            } else if (response.estado == "0") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Contacte al administrador',
                     confirmButtonColor: '#5ac15d',
                 })
-            } else {
-                location.href = 'index.php?page=home'
-
+            } else if (response.id_cargo == "1") {
+                location.href = 'index.php?page=a_home'
+            } else if (response.id_cargo == "2") {
+                location.href = 'index.php?page=e_home'
             }
 
         })

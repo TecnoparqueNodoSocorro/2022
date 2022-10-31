@@ -47,14 +47,14 @@ if (isset($_SESSION["validar_ingreso"])) {
                 <label class="form-label">
                     <h6>Contraseña</h6>
                 </label>
-                <input type="password" name="password_user" onkeypress="return valideKey(event)" id="password_user" class="form-control" value="" required>
+                <input type="password" name="password_user"  id="password_user" class="form-control only_numbers" value="" required>
 
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
                 <label class="form-label">
                     <h6>Confirm contraseña</h6>
                 </label>
-                <input type="password" name="confirm_password" onkeypress="return valideKey(event)" id="confirm_password" class="form-control" value="" required>
+                <input type="password" name="confirm_password"  id="confirm_password" class="form-control only_numbers" value="" required>
             </div>
         </div>
 
@@ -80,7 +80,8 @@ if (isset($_SESSION["validar_ingreso"])) {
     <div class="table-responsive mt-3 mb-5">
         <table class="table table-success table-bordered table-sm">
             <?php
-            $usuarios = ControladorUsuario::ctrGetUsuarios()
+            $usuarios = ControladorUsuario::ctrGetUsuarios();
+
             ?>
             <thead>
                 <tr>
@@ -98,7 +99,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
                 <?php foreach ($usuarios as $key => $value) : ?>
                     <tr>
-                        <td> <button type="button" class="ExtraerId btn btn-sm btn-danger" id="traerid" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" data-estado="<?php echo $value["estado"] ?>" data-id="<?php echo $value["id"] ?>"> <?php echo $value["estado"] == 1  ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-check-lg"></i>' ?></button>
+                        <td> <button type="button" class="ExtraerId btn btn-sm  <?php echo $value["estado"] == 1 ? 'btn-primary' : 'btn-danger' ?>" id="traerid" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" data-estado="<?php echo $value["estado"] ?>" data-id="<?php echo $value["id"] ?>"> <?php echo $value["estado"] == 1  ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-check-lg"></i>' ?></button>
 
                             <button type="button" data-id="<?php echo $value["id"] ?>" data-nombre="<?php echo $value["nombres"] . " " . $value["apellidos"] ?>" class="editPass btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="bi bi-key"></i>
@@ -132,14 +133,14 @@ if (isset($_SESSION["validar_ingreso"])) {
                                 <label class="form-label">
                                     <h6 class="text-dark">Nueva clave</h6>
                                 </label>
-                                <input type="password" onkeypress="return valideKey(event)" name="newclave" id="newclave" class="form-control" value="" required>
+                                <input type="password" name="newclave" id="newclave" class="form-control only_numbers" value="" required>
 
                             </div>
                             <div class="col col-xs-6 col-md-6 col-lg-6">
                                 <label class="form-label">
                                     <h6 class="text-dark">Confirmar clave</h6>
                                 </label>
-                                <input type="password" name="newclaveConfirm" onkeypress="return valideKey(event)" id="newclaveConfirm" class="form-control" value="" required>
+                                <input type="password" name="newclaveConfirm" id="newclaveConfirm" class="form-control only_numbers" value="" required>
                             </div>
                         </div>
                     </div>
