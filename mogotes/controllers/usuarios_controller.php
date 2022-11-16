@@ -4,14 +4,14 @@
 class ControladorUsuario
 {
 
-    //CREAR CAPRINOCULTOR
+    //CREAR usuario
     static public function ctrPostUsuario($data)
     {
         $tabla = "usuarios";
         $respuesta = ModelUsuario::registroUsuario($tabla, $data);
         echo $respuesta;
     }
-    //CREAR CAPRINOCULTOR
+    //CREAR usuario
     static public function ctrGetUsuarios()
     {
         $tabla = "usuarios";
@@ -118,22 +118,26 @@ class ControladorUsuario
                             <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-box-seam"></i>
                                 Embalaje</a>
                         </li>
+
                         <li class="nav-item">
                         <a class=" nav-link text-uppercase" href="index.php?page=a_finalizarLote"> <i class="bi bi-calendar2-check"></i>
                             Finalizar lote</a>
-                    </li>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text"></i>
                                 Informes</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <a class=" nav-link  sub-nav" href="index.php?page=a_informe"> Registro de
                                     Informe de lotes</a>
-
+                                    <a class=" nav-link  sub-nav" href="index.php?page=a_informeTablasBoc"> Registro de
+                                    Informe de tablas bocadillo</a>
                             </div>
+
                         </li>
+
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" id="btnCerrarSesion" href="#"> <i class="bi bi-person"></i>
-                                Cerrar Sesión</a>
+                            <a class=" nav-link text-uppercase" id="btnCerrarSesion" href="#"> <i class="bi bi-person"></i>Cerrar Sesión</a>
                         </li>
 
 
@@ -148,10 +152,11 @@ class ControladorUsuario
                     //SI EL UD DE CARGO ES 2 SE DIBUJA EL MENU DEL EMPLEADO
                     echo '
                     <button class="btn btn-outline-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                 <div class="boton">
-                    <i class="bi bi-chevron-double-left"></i>
-                 </div>
+                        <div class="boton">
+                            <i class="bi bi-chevron-double-left"></i>
+                        </div>
                     </button>
+
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Industrias Mogotes</h2>
@@ -184,18 +189,13 @@ class ControladorUsuario
                                 Reporte de Producción</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <a class=" nav-link  sub-nav" href="index.php?page=reporteBocadillo"> Bocadillo </a>
-
-
                                 <a class=" nav-link  sub-nav" href="index.php?page=reporteEspejuelo"> Espejuelo</a>
-
-
                                 <a class=" nav-link  sub-nav" href="index.php?page=reporteArequipe"> Arequipe mogoticos</a>
                             </div>
                         </li>
                         
                         <li class="nav-item">
-                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-box-seam"></i>
-                                Embalaje</a>
+                            <a class=" nav-link text-uppercase" href="index.php?page=a_registroEmbalaje"> <i class="bi bi-box-seam"></i>Embalaje</a>
                         </li>
     
                         <li class="nav-item dropdown">
@@ -203,9 +203,6 @@ class ControladorUsuario
                                 Opciones</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <a class=" nav-link  sub-nav" href="index.php?page=o_cambioContrasena"> Cambiar contraseña </a>
-
-
-                            
                             </div>
                         </li>
                     

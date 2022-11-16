@@ -1,0 +1,486 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-background {
+    background-color: #289cbd !important;
+}
+
+
+
+.offcanvas-header {
+
+    background: #289cbd !important;
+}
+
+.body-menu {
+    background: #289cbd !important;
+
+}
+
+.boton {
+    color: white;
+}
+
+.botonClose {
+    color: white;
+}
+
+.form-label {
+    text-shadow: 1px 1px 0px #ffffff;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0rem !important;
+}
+
+.text-titulo {
+    text-shadow: 1px 1px 0px #555252 !important;
+    color: rgb(0, 0, 0) !important;
+
+}
+
+.sub-menu {
+
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+
+
+
+
+.img-logo {
+    padding: 0.0rem !important;
+
+    max-width: 50px !important;
+
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+
+.input-caja  {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+.input-caja:focus{
+    border: 1px solid #009688;
+    outline: 0;
+}
+
+
+#signUpForm {
+    max-width: 100%;
+    background-color: #ffffff;
+    margin: 40px auto;
+    padding: 40px;
+    box-shadow: 0px 6px 18px rgb(0 0 0 / 9%);
+    border-radius: 12px;
+  position: static;
+
+}
+
+#signUpForm .form-header {
+    gap: 5px;
+    text-align: center;
+    font-size: .9em;
+}
+
+#signUpForm .form-header .stepIndicator {
+    position: relative;
+    flex: 1;
+    padding-bottom: 30px;
+}
+
+#signUpForm .form-header .stepIndicator.active {
+    font-weight: 600;
+}
+
+#signUpForm .form-header .stepIndicator.finish {
+    font-weight: 600;
+    color: #009688;
+}
+
+#signUpForm .form-header .stepIndicator::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 9;
+    width: 20px;
+    height: 20px;
+    background-color: #d5efed;
+    border-radius: 50%;
+    border: 3px solid #ecf5f4;
+}
+
+#signUpForm .form-header .stepIndicator.active::before {
+    background-color: #a7ede8;
+    border: 3px solid #d5f9f6;
+}
+
+#signUpForm .form-header .stepIndicator.finish::before {
+    background-color: #009688;
+    border: 3px solid #b7e1dd;
+}
+
+#signUpForm .form-header .stepIndicator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    width: 100%;
+    height: 3px;
+    background-color: #f3f3f3;
+}
+
+#signUpForm .form-header .stepIndicator.active::after {
+    background-color: #a7ede8;
+}
+
+#signUpForm .form-header .stepIndicator.finish::after {
+    background-color: #009688;
+}
+
+#signUpForm .form-header .stepIndicator:last-child:after {
+    display: none;
+}
+
+#signUpForm input {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+
+#signUpForm input:focus {
+    border: 1px solid #009688;
+    outline: 0;
+}
+
+#signUpForm input.invalid {
+    border: 1px solid #ffaba5;
+}
+
+#signUpForm textarea {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #e3e3e3;
+    /* border-radius: 5px; */
+}
+
+#signUpForm textarea:focus {
+    border: 1px solid #009688 !important;
+    border-color: #009688 !important;
+    outline: 0;
+}
+
+#signUpForm textarea.invalid {
+    border: 1px solid #ffaba5;
+}
+
+#signUpForm input[type=checkbox] {
+    padding: 10px 8px;
+    width: 1em;
+    height: 1em;
+    font-size: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+
+#signUpForm select {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+
+#signUpForm select:focus {
+    border: 1px solid #009688;
+    outline: 0;
+}
+
+#signUpForm select.invalid {
+    border: 1px solid #ffaba5;
+}
+
+
+
+#signUpForm .inputfile {
+    width: 0.1px;
+    width: 100%;
+
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#signUpForm .check_style {
+    width: 0;
+}
+
+/* .file-delete > span {
+    transform: rotate(45deg);
+} */
+
+#files-area {
+    width: 30%;
+    margin: 0 auto;
+}
+.file-block {
+    border-radius: 10px;
+    background-color: rgba(144, 163, 203, 0.2);
+    margin: 5px;
+    color: initial;
+    display: inline-flex;
+}
+.file-block > span.name {
+    padding-right: 10px;
+    width: max-content;
+    display: contents;
+}
+.file-delete {
+    display: flex;
+    width: 24px;
+    color: initial;
+    background-color: #6eb4ff 0;
+    font-size: large;
+    justify-content: center;
+    margin-right: 3px;
+    cursor: pointer;
+}
+.file-delete:hover {
+    background-color: rgba(144, 163, 203, 0.2);
+    border-radius: 10px;
+}
+.file-delete > span {
+    transform: rotate(45deg);
+}
+/* 
+#files-area{
+	width: 100%;
+	margin: 0 auto;
+}
+.file-block{
+	border-radius: 10px;
+	background-color: rgba(144, 163, 203, 0.2);
+	margin: 5px;
+	color: initial;
+	display: inline-flex;
+
+}
+#signUpForm span{
+    
+    width: 100%;
+    display: block;
+}
+.file-delete{
+	display: flex;
+	width: 24px;
+	color: initial;
+	background-color: #6eb4ff00;
+	font-size: large;
+	justify-content: center;
+	margin-right: 3px;
+	cursor: pointer;
+
+}
+
+#signUpForm .filedelete:hover{
+    background-color: rgba(144, 163, 203, 0.2);
+    border-radius: 10px;
+}
+
+#signUpForm .filedelete{
+    transform: rotate(45deg);
+}
+.form-check-input:checked {
+    background-color: #009688 !important;
+    border-color: #009688 !important;
+} */
+
+/* .inputfile + label bi {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+} */
+
+.iborrainputfile {
+    font-size: 16px;
+    font-weight: normal;
+
+}
+
+/* style 1 */
+
+.inputfile-1+label {
+    width: 100%;
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    color: #009688;
+    background-color: #ffffff;
+}
+
+.inputfile-1:focus+label,
+.inputfile-1.has-focus+label,
+.inputfile-1+label:hover {
+    background-color: #ffffff;
+}
+
+
+
+#signUpForm .step {
+    display: none;
+}
+
+#signUpForm .form-footer {
+    overflow: auto;
+    gap: 20px;
+}
+
+#signUpForm .form-footer button {
+    background-color: #009688;
+    border: 1px solid #009688 !important;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 1;
+    margin-top: 5px;
+}
+
+#signUpForm .form-footer button:hover {
+    opacity: 0.8;
+}
+
+#signUpForm .form-footer #prevBtn {
+    background-color: #fff;
+    color: #009688;
+}
+
+/* imagen */
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto;
+}
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+.avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+.avatar-upload .avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+}
+.avatar-upload .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+small {
+    display: block;
+    font-size: 15px;
+    padding-top: 8px;
+    color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 500px) and (min-width: 160px) {
+
+    .tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+        font-size: 3vw;
+    }
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+    background: #289cbd;
+    color: white;
+}

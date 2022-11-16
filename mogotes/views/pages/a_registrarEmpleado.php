@@ -46,15 +46,17 @@ if (isset($_SESSION["validar_ingreso"])) {
             <div class="col col-xs-6 col-md-6 col-lg-6">
                 <label class="form-label">
                     <h6>Contraseña</h6>
+                    <small>(4 números)</small>
                 </label>
-                <input type="password" name="password_user"  id="password_user" class="form-control only_numbers" value="" required>
+                <input type="password" maxlength="4" name="password_user"  id="password_user" class="form-control only_numbers" value="" required>
+             
 
             </div>
             <div class="col col-xs-6 col-md-6 col-lg-6">
                 <label class="form-label">
-                    <h6>Confirm contraseña</h6>
+                    <h6>Confirmar contraseña</h6>
                 </label>
-                <input type="password" name="confirm_password"  id="confirm_password" class="form-control only_numbers" value="" required>
+                <input type="password" maxlength="4" name="confirm_password"  id="confirm_password" class="form-control only_numbers" value="" required>
             </div>
         </div>
 
@@ -133,14 +135,14 @@ if (isset($_SESSION["validar_ingreso"])) {
                                 <label class="form-label">
                                     <h6 class="text-dark">Nueva clave</h6>
                                 </label>
-                                <input type="password" name="newclave" id="newclave" class="form-control only_numbers" value="" required>
+                                <input type="password" maxlength="4" name="newclave" id="newclave" class="form-control only_numbers" value="" required>
 
                             </div>
                             <div class="col col-xs-6 col-md-6 col-lg-6">
                                 <label class="form-label">
                                     <h6 class="text-dark">Confirmar clave</h6>
                                 </label>
-                                <input type="password" name="newclaveConfirm" id="newclaveConfirm" class="form-control only_numbers" value="" required>
+                                <input type="password" maxlength="4" name="newclaveConfirm" id="newclaveConfirm" class="form-control only_numbers" value="" required>
                             </div>
                         </div>
                     </div>

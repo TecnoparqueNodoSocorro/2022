@@ -65,18 +65,19 @@ if (isset($_SESSION["id_cargo"])) {
         if (
 
             $_GET["page"] == "a_home" ||
-            $_GET["page"] == "e_home" ||
             $_GET["page"] == "a_registrarEmpleado" ||
             $_GET["page"] == "a_recepcionGuayaba" ||
+            $_GET["page"] == "a_registroEmbalaje" ||
+            $_GET["page"] == "a_informe" ||
+            $_GET["page"] == "a_informeTablasBoc" ||
+            $_GET["page"] == "a_finalizarLote" ||
+            $_GET["page"] == "e_home" ||
+            $_GET["page"] == "o_cambioContrasena" ||
             $_GET["page"] == "escaldado" ||
             $_GET["page"] == "reporteProduccion" ||
             $_GET["page"] == "reporteBocadillo" ||
             $_GET["page"] == "reporteArequipe" ||
             $_GET["page"] == "reporteEspejuelo" ||
-            $_GET["page"] == "a_registroEmbalaje" ||
-            $_GET["page"] == "a_informe" ||
-            $_GET["page"] == "o_cambioContrasena" ||
-            $_GET["page"] == "a_finalizarLote" ||
 
 
             $_GET["page"] == "login"
@@ -99,6 +100,10 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/a_activarDesactivarUsuarios.js"></script>
     <script src="views/js/a_cambioClave.js"></script>
     <script src="views/js/a_recepcionGuayaba.js"></script>
+    <script src="views/js/a_reporteTablas.js"></script>
+    <script src="views/js/a_informe.js"></script>
+    <script src="views/js/a_finalizarLote.js"></script>
+
 
     <script src="views/js/escaldadoGuayaba.js"></script>
     <script src="views/js/login.js"></script>
@@ -109,8 +114,6 @@ if (isset($_SESSION["id_cargo"])) {
 
     <script src="views/js/cambioContrasena.js"></script>
     <script src="views/js/calcularCantidad.js"></script>
-    <script src="views/js/a_finalizarLote.js"></script>
-    <script src="views/js/a_informe.js"></script>
 
 
 

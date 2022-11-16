@@ -3,7 +3,13 @@
     padding: 0;
 
 }
+.contenedor-principal {
+    background-image: url(../images/home2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
 
+}
 
 
 .container {
@@ -142,13 +148,7 @@ select:focus,
     border-color: transparent;
 }
 
-.contenedor-principal {
-    background-image: url(../images/home2.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
 
-}
 
 .input-group-text {
 
@@ -251,5 +251,5 @@ select:focus,
 }
 
 .text-informe {
-    font-size: 0.6rem !important;
+    font-size: 0.78rem !important;
 }

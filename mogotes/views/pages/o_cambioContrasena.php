@@ -8,9 +8,7 @@ if (isset($_SESSION["validar_ingreso"])) {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
 
-$lotesEmb = ControladorLote::ctrGetLotesEmbalaje();
 
-//print_r($lotesEmb)
 ?>
 <div class="container-fluid" style="text-align: center;">
     <h3 class="mt-2">Cambio de contraseña</h3>

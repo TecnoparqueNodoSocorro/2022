@@ -14,46 +14,47 @@ $escaldadas = ControladorHome::ctrEscaldadasHoy();
 $reporte_bocadillo = ControladorHome::ctrReporteBocadilloHoy();
 $reporte_arequipe = ControladorHome::ctrReporteArequipeHoy();
 $reporte_espejuelo = ControladorHome::ctrReporteEspejueloHoy();
+$embalajes= ControladorHome::ctrEmbalajesHoy();
 $lotes = ControladorHome::ctrLotesPorEstado();
 
 ?>
-<div class="contenedor-principal">
-    <div class="container pt-3 shadow-lg rounded">
+<div class="contenedor-principal ">
+    <div class="container">
         <h2 style="text-shadow:2px 2px 0px #000000  ; color:white">Registros del día de hoy</h2>
-
-        <ul class="list-group">
+        <h4 style="text-shadow:4px 2px 0px #000000  ; color:white">Administrador</h4>
+        <ul class="list-group shadow-lg rounded">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Recepciones hoy
+                Recepciones 
                 <span class="badge bg-success rounded-pill"><?php echo $recepciones ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Escaldadas hoy
+                Escaldadas 
                 <span class="badge bg-success rounded-pill"><?php echo $escaldadas ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Reportes de bocadillo hoy
+                Reportes de bocadillo 
                 <span class="badge bg-success rounded-pill"><?php echo $reporte_bocadillo ?></span>
             </li>
 
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Reportes de arequipe hoy
+                Reportes de arequipe 
                 <span class="badge bg-success rounded-pill"><?php echo $reporte_arequipe ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Reportes de espejuelo hoy
+                Reportes de espejuelo 
                 <span class="badge bg-success rounded-pill"><?php echo $reporte_espejuelo ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                Embalajes hoy
-                <span class="badge bg-success rounded-pill">1</span>
+                Embalajes 
+                <span class="badge bg-success rounded-pill"><?php echo $embalajes ?></span>
             </li>
         </ul>
 
     </div>
-    <div class="container pt-4  shadow-lg rounded">
+    <div class="container mt-3 pb-5 ">
         <h2 style="text-shadow:2px 2px 0px #000000  ; color:white">Resumen lotes</h2>
 
-        <ul class="list-group">
+        <ul class="list-group shadow-lg rounded">
             <?php foreach ($lotes as $key => $value) : ?>
 
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -72,24 +73,7 @@ $lotes = ControladorHome::ctrLotesPorEstado();
                     <span class="badge bg-success rounded-pill"><?php echo $value["cantidad"] ?></span>
                 </li>
             <?php endforeach ?>
-            <!-- 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Lotes en escaldado
-                <span class="badge bg-success rounded-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Lotes en producción
-                <span class="badge bg-success rounded-pill">1</span>
-            </li>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Lotes en embalaje
-                <span class="badge bg-success rounded-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Lotes finalizados
-                <span class="badge bg-success rounded-pill">2</span>
-            </li> -->
 
         </ul>
 

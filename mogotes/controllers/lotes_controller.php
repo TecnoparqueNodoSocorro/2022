@@ -18,6 +18,13 @@ class ControladorLote
         $respuesta = ModelLote::mdlGetLotesInformes($tabla);
         return $respuesta;
     }
+    //TRAER TODOS LOS LOTES finalizados PARA EL INFORME
+    static public function ctrGetLotesFinalizadosInformes()
+    {
+        $tabla = "lote";
+        $respuesta = ModelLote::mdlGetLotessFinalizadosInformes($tabla);
+        return $respuesta;
+    }
     //TRAER TODOS LOS LOTES que esten es tado 1 o 2 para el escaldado
     static public function ctrGetLotesEscaldado()
     {

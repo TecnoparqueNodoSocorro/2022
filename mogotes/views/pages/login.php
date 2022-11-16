@@ -1,8 +1,12 @@
-
 <?php
 if (isset($_SESSION["validar_ingreso"])) {
     if ($_SESSION["validar_ingreso"] == "ok") {
-        echo '<script>window.location="index.php?page=home" </script>';
+        if ($_SESSION["id_cargo"] == "1") {
+            echo '<script>window.location="index.php?page=a_home" </script>';
+        }
+        if ($_SESSION["id_cargo"] == "2") {
+            echo '<script>window.location="index.php?page=e_home" </script>';
+        }
     }
 }
 ?>
@@ -15,23 +19,23 @@ if (isset($_SESSION["validar_ingreso"])) {
             <section class="page-section">
                 <div class="container">
                     <div class="bg-faded  rounded">
-                    <img src="images/logohd2.png" class="img-fluid" alt="Phone image">
+                        <img src="images/logohd2.png" class="img-fluid" alt="Phone image">
 
                     </div>
                 </div>
             </section>
 
         </div>
-      <!-- ---------------------------------------- Borrar---------------------------------------- -->
-      <p class="text-black"> empleado
-                2222
-                clave:
-                2222
-                <br>
-                administrador 1111
-                clave: 1111
-            </p>
-            <!-- ---------------------------------------- Borrar---------------------------------------- -->
+        <!-- ---------------------------------------- Borrar---------------------------------------- -->
+        <p class="text-black"> empleado
+            2222
+            clave:
+            2222
+            <br>
+            administrador 1111
+            clave: 1111
+        </p>
+        <!-- ---------------------------------------- Borrar---------------------------------------- -->
 
         <div class="col-sm-12 col-md-12 col-lg-6">
             <form method="post">
@@ -42,7 +46,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                 </div>
                 <div class="input-group mt-3">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
-                    <input type="password"  class="form-control only_numbers" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
+                    <input type="password" maxlength="4" class="form-control only_numbers" id="pass" name="password" autocomplete="on" placeholder="Contraseña" aria-label="passw" aria-describedby="passwordHelpInline">
 
                 </div>
 
@@ -51,6 +55,6 @@ if (isset($_SESSION["validar_ingreso"])) {
             </form>
 
         </div>
-      
+
     </div>
 </div>

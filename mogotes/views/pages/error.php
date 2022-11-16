@@ -7,9 +7,10 @@
             } else {
                 echo '<script>window.location="index.php?page=login"; </script>';
             } ?>
-            <!--   <?php
-                    session_destroy();
-                    ?>  -->
+
+                       <?php
+            session_destroy();
+            ?> 
             <h1>401 error page</h1>
             <a href="index.php?page=home" class="btn btn-warning mb-3"> Volver</a>
         </div>

@@ -111,7 +111,7 @@ class ModelHome
     {
         try {
             $hoy = date("Ymd");
-            $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE fecha_embalaje  = $hoy");
+            $stmt = conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE fecha_embalaje  = $hoy ");
             if ($stmt->execute()) {
                 return $stmt->fetchColumn();
                 $stmt->closeCursor();

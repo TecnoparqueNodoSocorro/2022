@@ -32,7 +32,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Azúcar</span>
+                    <span class="input-group-text" id="basic-addon1">Azúcar (kg)</span>
                 </div>
             </div>
             <div class="col-6 col-sm-3">
@@ -44,7 +44,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Aceite de Oliva</span>
+                    <span class="input-group-text" id="basic-addon1">Aceite de Oliva  (gr)</span>
                 </div>
             </div>
             <div class="col-6  col-sm-3">
@@ -56,7 +56,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Pectina</span>
+                    <span class="input-group-text" id="basic-addon1">Pectina  (gr)</span>
                 </div>
             </div>
             <div class="col-6 col-sm-3">

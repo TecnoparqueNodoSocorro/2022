@@ -12,11 +12,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+                <small class="fw-light">Agrega las cantidad y el sistema las sumará automaticamente</small>
 
                 <div class="row">
                     <div class="col-8">
-                        <input type="number"  class="form-control" id="cantidad" placeholder="Cantidad en kg">
+                        <input type="number" class="form-control" id="cantidad" placeholder="Cantidad en kg">
                     </div>
                     <div class="col-4">
                         <button class="btn btn-success" id="btn_agregarCantidad">Agregar </button>
@@ -29,7 +29,7 @@
                                 <tr>
                                     <th style="width: 80px;">Eliminar</th>
                                     <th>Cantidad</th>
-                                  
+
 
                                 </tr>
                             </thead>
@@ -40,7 +40,7 @@
 
 
                             </tbody>
-                          
+
                         </table>
                         <span id="textoSumatoria"></span>
                     </div>

@@ -43,7 +43,7 @@ class ModelLote
     //--TRAER TODOS LOS LOTES PARA EL INFORME
     static public function mdlGetLotesInformes($tabla)
     {
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla  ORDER BY estado, id DESC ");
+        $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estado !=5  ORDER BY estado, id DESC ");
         if ($stmt->execute()) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
@@ -55,6 +55,21 @@ class ModelLote
             $stmt = null;
         }
     }
+        //--TRAER TODOS LOS LOTES PARA EL INFORME
+        static public function mdlGetLotessFinalizadosInformes($tabla)
+        {
+            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla  WHERE estado = 5  ORDER BY estado, id DESC ");
+            if ($stmt->execute()) {
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        }
 
     //--TRAER TODOS LOS LOTES PARA EL ESCALDADO
     static public function mdlGetLotesEscaldado($tabla)
@@ -155,4 +170,24 @@ class ModelLote
             $stmt = null;
         }
     }
+        //traer lote por codigo
+        static public function mdlGetLoteFinalizadosInfo($tabla, $data)
+        {
+    
+            $stmt = conexion::conectar()->prepare("SELECT usuarios.nombres, usuarios.apellidos, $tabla.codigo_lote_anterior, $tabla.cristalina, $tabla.fecha_recepcion, $tabla.lebrija,  $tabla.manzana_blanca, $tabla.peso, $tabla.peso_lote_anteior, $tabla.villa_mercedes
+             FROM $tabla 
+             INNER JOIN usuarios ON $tabla.id_usuario = usuarios.id
+             WHERE codigo=:codigo");
+            $stmt->bindParam(":codigo", $data["codigo"], PDO::PARAM_STR);
+            if ($stmt->execute()) {
+                return ($stmt->fetchObject());
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        }
 }

@@ -34,7 +34,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Leche (L)</span>
+                    <span class="input-group-text" id="basic-addon1">Leche (kg)</span>
                 </div>
             </div>
             <div class="col-6  col-sm-3">
@@ -43,7 +43,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Azúcar (lb)</span>
+                    <span class="input-group-text" id="basic-addon1">Azúcar (kg)</span>
                 </div>
             </div>
             <div class="col-6 col-sm-3">
@@ -141,20 +141,20 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
                         <div class="col-6 col-sm-3">
                             <div class="input-group  mb-1">
-                                <span class="input-group-text" id="basic-addon1">Leche (L)</span>
+                                <span class="input-group-text" id="basic-addon1">Leche (kg)</span>
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number" class="form-control" id="lecheView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="lecheView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
                         <div class="col-6 col-sm-3">
                             <div class="input-group  mb-1">
-                                <span class="input-group-text" id="basic-addon1">Azúcar (lb)</span>
+                                <span class="input-group-text" id="basic-addon1">Azúcar (kg)</span>
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number" class="form-control" id="azucarAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" readonly class="form-control" id="azucarAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
@@ -171,7 +171,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number" class="form-control" id="marmitasAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" readonly id="marmitasAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -183,7 +183,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number" class="form-control" id="pailasAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" readonly id="pailasAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
@@ -199,7 +199,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6  col-sm-3">
-                            <input type="number" class="form-control" id="extrafinoAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" readonly id="extrafinoAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
 
@@ -211,7 +211,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                             </div>
                         </div>
                         <div class="col-6 col-sm-3">
-                            <input type="number" class="form-control" id="bocadillosAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" readonly id="bocadillosAView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
 

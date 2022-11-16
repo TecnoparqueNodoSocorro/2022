@@ -9,11 +9,12 @@ if (isset($_SESSION["validar_ingreso"])) {
 }
 
 $lotes = ControladorLote::ctrGetLotesInformes();
+$lotesFinalizados = ControladorLote::ctrGetLotesFinalizadosInformes();
 //print_r($lotes)
 ?>
 
 
-<div class="container-fluid" style="background-color:#e3f8e0; ">
+<div class="container">
     <div class="container">
 
         <h3 class="fw-bold">Informe</h3>
@@ -68,11 +69,85 @@ $lotes = ControladorLote::ctrGetLotesInformes();
                 <?php endforeach ?>
             </table>
         </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btm-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-finalizados">
+            Ver lotes finalizados
+        </button>
     </div>
+
 </div>
 
 
-<!-- Modal -->
+<!-- Modal finalizados-->
+<div class="modal fade" id="modal-finalizados" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="width:100%">
+                <div class="table-responsive mt-3 mb-5">
+                    <table class="table table-ligh table-bordered table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Registros</th>
+                                <th>Código</th>
+                                <th>Fecha recepción</th>
+                                <th>Etapa</th>
+                            </tr>
+                        </thead>
+                        <?php foreach ($lotesFinalizados as $key => $value) : ?>
+                            <tbody>
+                                <tr class=" <?php if ($value["estado"] == "1") {
+                                                echo 'table-primary';
+                                            } elseif ($value["estado"] == "2") {
+                                                echo  'table-secondary';
+                                            } elseif ($value["estado"] == "3") {
+                                                echo  'table-warning';
+                                            } elseif ($value["estado"] == "4") {
+                                                echo   'table-info';
+                                            } elseif ($value["estado"] == "5") {
+                                                echo  'table-danger';
+                                            } ?>">
+
+                                    <td>
+                                        <button type="button" data-cod="<?php echo $value["codigo"] ?>" class="btnInfo btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal_informes"><i class="bi bi-plus-square-fill"></i></button>
+                                    </td>
+                                    <td><?php echo $value["codigo"] ?></td>
+                                    <td><?php echo $value["fecha_recepcion"] ?></td>
+                                    <td>
+                                        <?php if ($value["estado"] == "1") {
+                                            echo "Recepción";
+                                        } elseif ($value["estado"] == "2") {
+                                            echo "Escaldado";
+                                        } elseif ($value["estado"] == "3") {
+                                            echo "Producción";
+                                        } elseif ($value["estado"] == "4") {
+                                            echo "Embalaje";
+                                        } elseif ($value["estado"] == "5") {
+                                            echo "Finalizado";
+                                        } ?>
+
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        <?php endforeach ?>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ifnorme-->
 <div class="modal fade" id="modal_informes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -80,7 +155,7 @@ $lotes = ControladorLote::ctrGetLotesInformes();
                 <h1 class="modal-title fs-5" id="tituloModalInforme"></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width:100%">
                 <h5 class="titulo-reporte titulo-recepcion ">Recepción</h5>
                 <div class="row div-reporte  div-recepcion">
 
@@ -197,13 +272,13 @@ $lotes = ControladorLote::ctrGetLotesInformes();
                 </div>
                 <hr>
                 <h5 class="titulo-reporte titulo-embalaje">Embalaje</h5>
-                <div class="container div-embalaje">
-                    <div class="row row-cols-2" id="containerEmbalaje">
 
+                <div class=" div-embalaje row row-cols-2" id="containerEmbalaje">
 
-                    </div>
 
                 </div>
+
+
 
             </div>
 

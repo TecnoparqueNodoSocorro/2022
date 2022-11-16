@@ -18,13 +18,15 @@ $escaldadas = ControladorHome::ctrEscaldadasHoyPorUsuario($id);
 $reporte_bocadillo = ControladorHome::ctrReporteBocadilloHoyPorUsuario($id);
 $reporte_arequipe = ControladorHome::ctrReporteArequipeHoyPorUsuario($id);
 $reporte_espejuelo = ControladorHome::ctrReporteEspejueloHoyPorUsuario($id);
-
+$embalajes = ControladorHome::ctrEmbalajesHoyPorUsuario($id)
 
 ?>
 <div class="contenedor-principal">
 
     <div class="container pt-5">
     <h2 style="text-shadow:2px 2px 0px #000000  ; color:white">Registros del día de hoy</h2>
+    <h4 style="text-shadow:4px 2px 0px #000000  ; color:white">Empleado</h4>
+
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Recepciones
@@ -49,7 +51,7 @@ $reporte_espejuelo = ControladorHome::ctrReporteEspejueloHoyPorUsuario($id);
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Embalajes
-                <span class="badge bg-success rounded-pill">1</span>
+                <span class="badge bg-success rounded-pill"><?php echo$embalajes ?></span>
             </li>
         </ul>
 

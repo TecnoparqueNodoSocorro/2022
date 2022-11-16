@@ -1,6 +1,5 @@
 <?php
 if (isset($_SESSION["validar_ingreso"])) {
-    
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
@@ -37,7 +36,7 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
             <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Azúcar</span>
+                    <span class="input-group-text" id="basic-addon1">Azúcar (kg)</span>
                 </div>
             </div>
             <div class="col-6 col-sm-3">
@@ -57,16 +56,23 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
             </div>
 
 
-
-
             <div class="col-6 col-sm-3">
+                <div class="input-group  mb-1">
+                    <span class="input-group-text" id="basic-addon1">°Brix</span>
+                </div>
+            </div>
+            <div class="col-6  col-sm-3">
+                <input type="number" class="form-control" id="brix" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <!-- <div class="col-6 col-sm-3">
                 <div class="input-group  mb-1">
                     <span class="input-group-text" id="basic-addon1">Devolución Tablas</span>
                 </div>
             </div>
             <div class="col-6 col-sm-3">
                 <input type="number" class="form-control" id="devolucion" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
+            </div> -->
         </div>
         <div class="row">
 
@@ -92,75 +98,104 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
                 <input type="number" class="form-control" id="botesP" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
         </div>
-        <div class="row">
 
-
-            <div class="col-6 col-sm-3">
-                <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">°Brix</span>
-                </div>
-            </div>
-            <div class="col-6  col-sm-3">
-                <input type="number" class="form-control" id="brix" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-
-
-        </div>
 
         <h6 class="mt-4" style="text-align:left;">Tablas</h6>
         <hr>
         <div class="row">
 
 
-            <div class="col-6 col-sm-3">
-                <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Tabla extrafino</span>
-                </div>
-            </div>
-            <div class="col-6  col-sm-3">
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Tabla extrafino</span>
+
                 <input type="number" class="form-control" id="tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
 
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
 
+                <input type="number" class="form-control" id="dev_tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 
-
-            <div class="col-6 col-sm-3">
-                <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Tabla Bocadillos</span>
-                </div>
             </div>
-            <div class="col-6 col-sm-3">
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" id="adic_tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+
+
+
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Tabla Bocadillos</span>
+
                 <input type="number" class="form-control" id="tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-        </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+                <input type="number" class="form-control" id="dev_tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 
-
-        <div class="row  pb-2">
-
-
-            <div class="col-6 col-sm-3">
-                <div class="input-group  mb-1">
-                    <span class="input-group-text" id="basic-addon1">Tabla Lonja</span>
-                </div>
             </div>
-            <div class="col-6  col-sm-3">
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" id="adic_tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+
+
+
+
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Tabla Lonja</span>
+
                 <input type="number" class="form-control" id="tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
 
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+                <input type="number" class="form-control" id="dev_tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 
 
-            <div class="col-6 col-sm-3">
-                <div class="input-group  mb-1">
-                    <span class="input-group-text mr-2" id="basic-addon1">Tabla Manzana</span>
-                </div>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" id="adic_tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+
+
+            <div class="col-4">
+                <span class="input-group-text mr-2" id="basic-addon1">Tabla Manzana</span>
+
                 <input type="number" class="form-control" id="tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
             </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+                <input type="number" class="form-control" id="dev_tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 
+            </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" id="adic_tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 
+            </div>
+            <div class="col-sm-12">
+
+                <div class="input-group  mb-1">
+                    <span class="input-group-text mr-2" id="basic-addon1">Lote del cual se va a adicionar</span>
+                </div>
+            </div>
+            <div class="col-sm-12">
+
+                <input type="number" class="form-control" id="adic_codigo_lote" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
         </div>
-
 
 
 
@@ -223,14 +258,6 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
 
 
-                        <div class="col-6 col-sm-3">
-                            <div class="input-group  mb-1">
-                                <span class="input-group-text" id="basic-addon1">Devolución Tablas</span>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-3">
-                            <input type="number" readonly class="form-control" id="devolucionView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
                     </div>
                     <div class="row">
 
@@ -270,6 +297,132 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
 
                     </div>
+
+
+
+
+
+                    <h6 class="mt-4" style="text-align:left;">Tablas</h6>
+        <hr>
+        <div class="row">
+
+
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Tabla extrafino</span>
+
+                <input type="number" readonly class="form-control" id="tablaExtView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+
+                <input type="number" class="form-control" readonly id="view_dev_tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+            </div>
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" readonly id="view_adic_tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+
+
+
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Tabla Bocadillos</span>
+
+                <input type="number" class="form-control" readonly id="tablaBocView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+                <input type="number" class="form-control" readonly id="view_dev_tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+            </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" readonly id="view_adic_tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+
+
+
+
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Tabla Lonja</span>
+
+                <input type="number" readonly class="form-control" id="tablaLonView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+                <input type="number" class="form-control" readonly id="view_dev_tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" readonly id="view_adic_tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+
+            </div>
+
+
+            <div class="col-4">
+                <span class="input-group-text mr-2" id="basic-addon1">Tabla Manzana</span>
+
+                <input type="number" class="form-control" readonly id="tablaManView" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Devolución</span>
+                <input type="number" class="form-control" readonly id="view_dev_tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+            </div>
+            <div class="col-4">
+                <span class="input-group-text" id="basic-addon1">Adición</span>
+                <input type="number" class="form-control" readonly id="view_adic_tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+
+            </div>
+            <div class="col-sm-12">
+
+                <div class="input-group  mb-1">
+                    <span class="input-group-text mr-2" id="basic-addon1">Lote del cual se adicionó</span>
+                </div>
+            </div>
+            <div class="col-sm-12">
+
+                <input type="number" readonly class="form-control" id="view_adic_codigo_lote" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 
                     <h6 class="mt-4" style="text-align:left;">Tablas</h6>
                     <hr>
@@ -325,10 +478,122 @@ $lotesRe = ControladorLote::mdlGetLotesReporte();
 
                     </div>
 
+
+                    <div class="row mb-1 pb-3">
+
+                        <div class="col-sm-12 col-md-6">
+                            <hr>
+                            <h6 class="mt-4" style="text-align:left;">Devolución tablas</h6>
+
+
+
+                            <div class="col-sm-12">
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text" id="basic-addon1">Devolución tabla extrafino</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="number" class="form-control" readonly id="view_dev_tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text" id="basic-addon1">Devolución tabla Bocadillos</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="number" class="form-control" readonly id="view_dev_tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text" id="basic-addon1">Devolución tabla Lonja</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12"> <input type="number" readonly class="form-control" id="view_dev_tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text mr-2" id="basic-addon1">Devolución tabla Manzana</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12"> <input type="number" readonly class="form-control" id="view_dev_tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <hr>
+                            <h6 class="mt-4" style="text-align:left;">Adición tablas</h6>
+
+                            <div class="col-sm-12">
+
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text" id="basic-addon1">Adición tabla extrafino</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <input type="number" class="form-control" readonly id="view_adic_tablaExt" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+
+
+
+                            <div class="col-sm-12">
+
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text" id="basic-addon1">Adición tabla Bocadillos</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <input type="number" class="form-control" readonly id="view_adic_tablaBoc" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+
+
+
+
+                            <div class="col-sm-12">
+
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text" id="basic-addon1">Adición tabla Lonja</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <input type="number" class="form-control" readonly id="view_adic_tablaLon" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+
+
+                            <div class="col-sm-12">
+
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text mr-2" id="basic-addon1">Adición tabla Manzana</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <input type="number" class="form-control" readonly id="view_adic_tablaMan" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="col-sm-12">
+
+                                <div class="input-group  mb-1">
+                                    <span class="input-group-text mr-2" id="basic-addon1">Lote del cual se va a adicionar</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <input type="number" class="form-control" readonly id="view_adic_codigo_lote" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+
+ -->
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>

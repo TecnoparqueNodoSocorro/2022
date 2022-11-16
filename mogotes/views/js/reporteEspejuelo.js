@@ -34,6 +34,7 @@ let tbodyReporteEspejuelo = document.getElementById('tbodyReporteEspejuelo')
 let textoTituloReporteEspejuelo = document.getElementById('textoTituloReporteEspejuelo')
 
 
+
 lote_espejuelo
     ? lote_espejuelo.addEventListener("change", () => {
         theadReporteEspejuelo.innerHTML = ``
