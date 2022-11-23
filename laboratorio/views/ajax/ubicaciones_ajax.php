@@ -19,8 +19,12 @@ class UbicacionesAjax
         $datos = ControladorUbicaciones::CtrGetUbicacionesByCliente($data);
         $rta = json_encode($datos);
         print_r($rta);
-    
-
+    }
+    //editar ubicacion
+    static public function EditUbicacion($data)
+    {
+        $datos = ControladorUbicaciones::CtrEditUbicacion($data);
+        echo ($datos);
     }
 }
 
@@ -36,4 +40,14 @@ if (isset($_POST['id_c'])) {
     $data = $_POST['id_c'];
 
     $postData->GetUbicacionesByCliente($data);
+}
+//editar ubicacion 
+if (isset($_POST['id']) && isset($_POST['nombre'])) {
+    $postData = new UbicacionesAjax();
+    $data = $_POST['id'];
+    $data = array(
+        "id" => $_POST["id"],
+        "nombre" => $_POST["nombre"],
+    );
+    $postData->EditUbicacion($data);
 }

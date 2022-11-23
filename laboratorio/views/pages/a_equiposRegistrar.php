@@ -1,9 +1,9 @@
 <?php
 if (isset($_SESSION["validar_ingreso"])) {
-    if ($_SESSION["id_cargo"] != "1") {
+    /* if ($_SESSION["id_cargo"] == "3") {
         echo '<script>window.location="index.php?page=error_credenciales"; </script>';
         return;
-    }
+    } */
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
@@ -20,7 +20,7 @@ $clientes = ControladorClientes::ctrGetClientes();
 
 <h1 class="text-center fs-4">Registrar equipo</h1>
 <div class="container">
-    <form id="signUpForm" action="#!">
+    <form id="signUpForm" enctype="multipart/form-data">
         <!-- start step indicators -->
         <div class="form-header d-flex mb-4">
             <span class="stepIndicator">1</span>
@@ -34,6 +34,8 @@ $clientes = ControladorClientes::ctrGetClientes();
             <span class="stepIndicator">9</span>
             <span class="stepIndicator">10</span>
             <span class="stepIndicator">11</span>
+            <span class="stepIndicator">12</span>
+
 
 
 
@@ -44,7 +46,7 @@ $clientes = ControladorClientes::ctrGetClientes();
         <div class="step">
             <p class="text-center mb-4">SELECCIÓN CLIENTE Y UBICACIÓN</p>
             <div class="mb-3">
-                <select class="validar" class="validar" oninput="this.className = ''" name="regEqui_cliente" id="regEqui_cliente">
+                <select class="validarStep1" oninput="this.className = ''" name="regEqui_cliente" id="regEqui_cliente">
                     <option selected value="">--Seleccionar cliente--</option>
                     <?php foreach ($clientes as $key => $value) : ?>
                         <option value="<?php echo $value["id"] ?>"><?php echo $value["nombre"] ?></option>
@@ -53,7 +55,7 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </select>
             </div>
             <div class="mb-3">
-                <select class="validar" class="validar" oninput="this.className = ''" name="regEqui_ubic" id="regEqui_ubic">
+                <select class="validarStep1" oninput="this.className = ''" name="regEqui_ubic" id="regEqui_ubic">
                     <option selected value="">--Seleccionar ubicación--</option>
 
                 </select>
@@ -68,22 +70,22 @@ $clientes = ControladorClientes::ctrGetClientes();
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Equipo" name="regEqui_" id="regEqui_" oninput="this.className = ''">
+                        <input class="ValidInput" type="text" placeholder="Equipo" name="regEqui_nombre" id="regEqui_nombre" oninput="this.className = ''">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Código identificacion" name="regEqui_" id="regEqui_" oninput="this.className = ''">
+                        <input type="text" placeholder="Código identificacion" name="regEqui_ident" id="regEqui_ident" oninput="this.className = ''">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_" id="regEqui_">
+                        <input type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_marca" id="regEqui_marca">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_" id="regEqui_">
+                        <input type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_modelo" id="regEqui_modelo">
                     </div>
                 </div>
             </div>
@@ -91,17 +93,17 @@ $clientes = ControladorClientes::ctrGetClientes();
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Fabricante" oninput="this.className = ''" name="regEqui_" id="regEqui_">
+                        <input type="text" placeholder="Fabricante" oninput="this.className = ''" name="regEqui_fabr" id="regEqui_fabr">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_" id="regEqui_">
+                        <input type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_serie" id="regEqui_serie">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Lote" oninput="this.className = ''" name="regEqui_" id="regEqui_">
+                        <input type="text" placeholder="Lote" oninput="this.className = ''" name="regEqui_lote" id="regEqui_lote">
                     </div>
                 </div>
                 <!--                 <div class="col-12 col-md-6 col-lg-3">
@@ -120,12 +122,12 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Tipo" oninput="this.className = ''" name="regEqui_" id="regEqui_">
+                        <input type="text" placeholder="Tipo" oninput="this.className = ''" name="regEqui_tipo" id="regEqui_tipo">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <select class="validar" oninput="this.className = ''" name="equipo" id="equipo">
+                        <select class="validar" oninput="this.className = ''" name="regEqui_equipo" id="regEqui_equipo">
                             <option selected value="">--Equipo--</option>
                             <option value="Móvil">Móvil</option>
                             <option value="Fijo">Fijo</option>
@@ -182,18 +184,19 @@ $clientes = ControladorClientes::ctrGetClientes();
                         <input type="text" placeholder="Código UMDNS" oninput="this.className = ''" name="regEqui_codigo_umdns">
                     </div>
                 </div>
+
                 <div class="col-12 col-md-12 col-lg-6">
                     <div class="mb-3">
 
-                        <small>Seleccione la imagen</small>
+                        <small>Seleccione la imagen (máximo 600 kb)</small>
 
                         <div class="avatar-upload">
                             <div class="avatar-edit">
-                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                <input type='file' name="imagen_equipo" id="imageUpload" accept=".jpg, .jpeg" />
                                 <label for="imageUpload"><i class="bi bi-pencil"></i></label>
                             </div>
                             <div class="avatar-preview">
-                                <div id="imagePreview" style="background-image: url(images/registro_equipo/imagen_defecto2.jpg);">
+                                <div id="imagePreview" style="background-image: url(images/registro_equipo/imagen_defecto.jpg);">
                                 </div>
                             </div>
                         </div>
@@ -220,37 +223,48 @@ $clientes = ControladorClientes::ctrGetClientes();
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Componente" oninput="this.className = ''" name="regEqui_compoente">
+                        <input type="text" placeholder="Componente" id="componente" oninput="this.className = ''" name="regEqui_componente">
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_marca">
+                        <input type="text" placeholder="Marca" id="marca" oninput="this.className = ''" name="regEqui_marca">
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_modelo">
+                        <input type="text" placeholder="Modelo" id="modelo" oninput="this.className = ''" name="regEqui_modelo">
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_serie">
+                        <input type="text" placeholder="Serie" id="serie" oninput="this.className = ''" name="regEqui_serie">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Código identificación" oninput="this.className = ''" name="regEqui_codigo_identificacion">
+                        <input type="text" placeholder="Código identificación" id="codigo" oninput="this.className = ''" name="regEqui_codigo_identificacion">
                     </div>
                 </div>
 
-
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="mb-3">
+                        <button style="float: right; width:100%" type="button" id="btnAgregarComponente" class="btn btn-lg btn-primary">Agregar</button>
+                    </div>
+                </div>
                 <div class="col-12">
-                    <div class="mb-3">
-                        <button style="float: right;" type="button" class="btn btn-primary">Agregar</button>
+                    <div class="table-responsive-sm mt-3 mb-5">
+                        <table class="table table-striped table-primary table-bordered table-sm">
+
+                            <thead id="theadComponentes">
+
+                            </thead>
+                            <tbody id="tbodyComponentes">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -267,21 +281,21 @@ $clientes = ControladorClientes::ctrGetClientes();
                                 <div class="fw-bold"><img src="images/iconos/bio2.png" class="img-thumbnail" alt="Riesgo biológico"> Biológico</div>
 
                             </div>
-                            <input class="form-check-input" type="checkbox" value="0" id="r_biologogico" name="r_biologogico" style="width: 0;">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo biológico" id="r_biologogico" name="r_biologogico" style="width: 0;">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold"><img src="images/iconos/atra.png" class="img-thumbnail" alt="Riesgo de atrapamiento"> Atrapamiento</div>
 
                             </div>
-                            <input class="form-check-input" type="checkbox" value="0" id="r_atrapamiento" name="r_atrapamiento" style="width: 0;">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo de atrapamiento" id="r_atrapamiento" name="r_atrapamiento" style="width: 0;">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold"><img src="images/iconos/advertencia.png" class="img-thumbnail" alt="Riesgo específico"> Específico</div>
 
                             </div>
-                            <input class="form-check-input" type="checkbox" value="0" id="r_especifico" name="r_especifico" style="width: 0;">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo específico" id="r_especifico" name="r_especifico" style="width: 0;">
                         </li>
                     </ol>
                 </div>
@@ -295,21 +309,21 @@ $clientes = ControladorClientes::ctrGetClientes();
                                 <div class="fw-bold"><img src="images/iconos/pun.png" class="img-thumbnail" alt="Riesgo por puncion"> Punción</div>
 
                             </div>
-                            <input class="form-check-input" type="checkbox" value="0" id="r_puncion" name="r_puncion" style="width: 0;">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo de punción" id="r_puncion" name="r_puncion" style="width: 0;">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold"><img src="images/iconos/quema.png" class="img-thumbnail" alt="Riesgo por quemadura"> Quemadura</div>
 
                             </div>
-                            <input class="form-check-input" type="checkbox" value="0" id="r_quemadura" name="r_quemadura" style="width: 0;">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo quemaduras" id="r_quemadura" name="r_quemadura" style="width: 0;">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold"><img src="images/iconos/las.png" class="img-thumbnail" alt="Riesgo por radiacón láser"> Radiación Láser</div>
 
                             </div>
-                            <input class="form-check-input" type="checkbox" value="0" id="r_laser" name="r_laser" style="width: 0;">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo láser" id="r_laser" name="r_laser" style="width: 0;">
                         </li>
                     </ol>
                 </div>
@@ -322,24 +336,26 @@ $clientes = ControladorClientes::ctrGetClientes();
                                 <div class="fw-bold"><img src="images/iconos/alto-voltaje.png" class="img-thumbnail" alt="Riesgo Eléctrico"> Eléctrico</div>
 
                             </div>
-                            <input class="form-check-input check_style" type="checkbox" value="0" id="r_electrico" name="r_electrico">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo eléctrico" id="r_electrico" name="r_electrico">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold"><img src="images/iconos/nieve.png" class="img-thumbnail" alt="Riesgo de congelamiento"> Congelamiento</div>
 
                             </div>
-                            <input class="form-check-input check_style" type="checkbox" value="0" id="r_congelamiento" name="r_congelamiento">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo de congelamiento" id="r_congelamiento" name="r_congelamiento">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold"><img src="images/iconos/electro.png" class="img-thumbnail" alt="Riesgo electrostático"> Electrostático</div>
 
                             </div>
-                            <input class="form-check-input check_style" type="checkbox" value="0" id="r_electrostatico" name="r_electrostatico">
+                            <input class="form-check-input check_style" type="checkbox" value="Riesgo electrostático" id="r_electrostatico" name="r_electrostatico">
                         </li>
                     </ol>
                 </div>
+                <!-- 
+                <a name="" id="btncheckprueba" class="btn btn-primary" href="#" role="button">Button</a> -->
             </div>
         </div>
 
@@ -596,9 +612,9 @@ $clientes = ControladorClientes::ctrGetClientes();
                     <label class="mt-2">Limpieza</label>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
-                            <input class="form-check-input" type="checkbox" value="" name="check_limp" id="check_limp" aria-label="Checkbox for following text input">
+                            <input class="form-check-input check-limpieza" type="checkbox" value="Limpieza" name="check_limp" id="check_limp" aria-label="Checkbox for following text input">
                         </div>
-                        <textarea style="width: 0;" class="form-control" name="metodo_limpieza" id="metodo_limpieza" disabled></textarea>
+                        <textarea style="width: 0;" class="form-control text-limpieza" name="metodo_limpieza" id="metodo_limpieza" disabled></textarea>
 
                     </div>
 
@@ -607,9 +623,9 @@ $clientes = ControladorClientes::ctrGetClientes();
                     <label class="mt-2">Desinfección</label>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
-                            <input class="form-check-input" type="checkbox" value="" name="check_des" id="check_des" aria-label="Checkbox for following text input">
+                            <input class="form-check-input check-limpieza" type="checkbox" value="Desinfeccion" name="check_des" id="check_des" aria-label="Checkbox for following text input">
                         </div>
-                        <textarea style="width: 0;" type="text" class="form-control" name="metodo_desinfeccion" id="metodo_desinfeccion" aria-label="Text input with checkbox" disabled></textarea>
+                        <textarea style="width: 0;" type="text" class="form-control text-limpieza" name="metodo_desinfeccion" id="metodo_desinfeccion" aria-label="Text input with checkbox" disabled></textarea>
                     </div>
 
                 </div>
@@ -617,9 +633,9 @@ $clientes = ControladorClientes::ctrGetClientes();
                     <label class="mt-2">Esterilización</label>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
-                            <input class="form-check-input" type="checkbox" name="check_ester" id="check_ester" aria-label="Checkbox for following text input">
+                            <input class="form-check-input check-limpieza" type="checkbox" value="Esterilizacion" name="check_ester" id="check_ester" aria-label="Checkbox for following text input">
                         </div>
-                        <textarea style="width: 0;" type="text" class="form-control" name="metodo_esterilizacion" id="metodo_esterilizacion" aria-label="Text input with checkbox" disabled></textarea>
+                        <textarea style="width: 0;" type="text" class="form-control text-limpieza" name="metodo_esterilizacion" id="metodo_esterilizacion" aria-label="Text input with checkbox" disabled></textarea>
                     </div>
 
                 </div>
@@ -647,7 +663,7 @@ $clientes = ControladorClientes::ctrGetClientes();
                 <div class="col-12 col-md-6 ">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_copia_satisfaccion" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_copia_satisfaccion" aria-label="...">
                             C. acta de recibo a satisfacción
                         </li>
 
@@ -656,20 +672,20 @@ $clientes = ControladorClientes::ctrGetClientes();
                                 id="copia_satisfaccion" name="copia_satisfaccion" disabled>
                         </li> -->
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_copia_per_comerc" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_copia_per_comerc" aria-label="...">
                             Copia Permiso Comercialización
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_registro_impor" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_registro_impor" aria-label="...">
                             Copia Registro de importación
 
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_copia_factura" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_copia_factura" aria-label="...">
                             C. factura o doc. Equivalente
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_registro_sanitario" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_registro_sanitario" aria-label="...">
                             Copia Registro Sanitario
 
                         </li>
@@ -680,24 +696,24 @@ $clientes = ControladorClientes::ctrGetClientes();
                 <div class="col-12 col-md-6">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_protocolo_mant" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_protocolo_mant" aria-label="...">
                             Protocolo de mantenimiento
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_cronograma_man" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_cronograma_man" aria-label="...">
                             Cronograma de mantenimiento
                         </li>
 
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_recomendaciones_fabr" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_recomendaciones_fabr" aria-label="...">
                             Recomendaciones del fabricante
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_acta_r_op" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_acta_r_op" aria-label="...">
                             Acta de recibo por el operador
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value="" id="check_guia_op_rapida" aria-label="...">
+                            <input class="form-check-input me-1 check_style" type="checkbox" value="0" id="check_guia_op_rapida" aria-label="...">
                             Guía rápida de operación
                         </li>
 
@@ -709,146 +725,10 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                 </div>
 
-                <!--  <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_copia_per_comerc" aria-label="...">
-                            Copia Permiso Comercialización
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="copia_per_comerc" name="copia_per_comerc" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_registro_impor" aria-label="...">
-                            Copia Registro de importación
-
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="registro_impor" name="registro_impor" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_copia_factura" aria-label="...">
-                            C. factura o doc. Equivalente
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="copia_factura" name="copia_factura" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_registro_sanitario" aria-label="...">
-                            Copia Registro Sanitario
-
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="registro_sanitario" name="registro_sanitario" disabled>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_protocolo_mant" aria-label="...">
-                            Protocolo de mantenimiento
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="protocolo_mant" name="protocolo_mant" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_cronograma_man" aria-label="...">
-                            Cronograma de mantenimiento
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="cronograma_man" name="cronograma_man" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_recomendaciones_fabr" aria-label="...">
-                            Recomendaciones del fabricante
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="recomendaciones_fabr" name="recomendaciones_fabr" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_acta_r_op" aria-label="...">
-                            Acta de recibo por el operador
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''" id="acta_r_op"
-                                name="acta_r_op" disabled>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 my-2">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1 check_style" type="checkbox" value=""
-                                id="check_guia_op_rapida" aria-label="...">
-                            Guía rápida de operación
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" placeholder="Observaciones" oninput="this.className = ''"
-                                id="guia_op_rapida" name="guia_op_rapida" disabled>
-                        </li>
-
-                    </ul>
-                </div> -->
                 <div class="col-12 my-2">
 
                     <p class="mt-2 text-center">
-   
+
                         <input type="file" name="file[]" id="attachment" style="visibility: hidden;" multiple />
                         <label for="attachment">
                             <a class="btn btn-primary text-light" role="button" aria-disabled="false">Agregar
@@ -856,8 +736,7 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                         </label>
                     </p>
-                    <div class="container" id="files-area" style="background-color: gray; width: 100%; height: auto;border-radius: 5px;
-">
+                    <div class="container" id="files-area" style="background-color: gray; width: 100%; height: auto;border-radius: 5px;">
                         <span id="filesList">
                             <span id="files-names"></span>
                         </span>
@@ -878,10 +757,13 @@ $clientes = ControladorClientes::ctrGetClientes();
             </div>
         </div>
 
+
         <!-- start previous / next buttons -->
         <div class="form-footer d-flex">
             <button type="button" class="btn-sm" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+            <button style="display: none;" type="submit" id="btnGuardarEquipo">Guardar.</button>
+
         </div>
         <!-- end previous / next buttons -->
     </form>

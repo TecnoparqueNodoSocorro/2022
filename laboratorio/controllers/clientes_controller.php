@@ -114,10 +114,11 @@ class ControladorClientes
                                 <a class="nav-link text-white dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-pc-display"></i>
                                     Equipos</a>
                                 <div class="dropdown-menu sub-menu" aria-labelledby="dropdownId">
-                                    <a class=" nav-link  sub-nav" href="index.php?page=c_equiposRegistrar"><i class="bi bi-file-plus-fill"></i> Registrar </a>
+                                    <a class=" nav-link  sub-nav" href="index.php?page=a_equiposRegistrar"><i class="bi bi-file-plus-fill"></i> Registrar </a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposHojasVida"><i class="bi bi-file-text-fill"></i> Hoja de vida </a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposInventarios"><i class="bi bi-journal-album"></i> Inventarios</a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposEditar"><i class="bi bi-pencil-fill"></i> Editar</a>
+                                    <a class=" nav-link  sub-nav" href="index.php?page=todos_ubicaciones"><i class="bi bi-geo-fill"></i> Ubicaciones</a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposBaja"><i class="bi bi-arrow-down-right-square-fill"></i> Bajas</a>
 
                                 </div>
@@ -133,7 +134,13 @@ class ControladorClientes
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_mantenimientosConsultar"><i class="bi bi-search"></i> Consultar </a>
                                 </div>
                             </li>
-                            
+
+                            <li class="nav-item">
+                                    <a class="nav-link text-white text-uppercase" aria-current="page" href="index.php?page=cambioContrasena"> <i class="bi bi-unlock-fill"></i>
+                                        Cambiar contraseña
+                                    </a>
+                            </li> 
+
                             <li class="nav-item">
                                     <a class="nav-link text-white text-uppercase" aria-current="page" id="btnCerrarSesion" > <i class="bi bi-box-arrow-right"></i>
                                         Cerrar sesión
@@ -154,7 +161,7 @@ class ControladorClientes
     //desactivar O ACTIVAR USUARIOS
     static public function ctrDesactivarClientes($data)
     {
-        $tabla = "clientes    ";
+        $tabla = "clientes";
         //SI EL USUARIO ESTA ACTIVO, SE ENVIA AL MODELO QUE DESACTIVA AL USUARIO
         if ($data["state"] == 1) {
             $respuesta = ModelClientes::mdlDesactivarClientes($tabla, $data);

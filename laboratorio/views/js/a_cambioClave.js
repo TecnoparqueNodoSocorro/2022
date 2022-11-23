@@ -1,5 +1,6 @@
+//ADMINISTRADOR
 
-//variablees cambiar calve
+// cambiar clave empleados Y CLIENTE
 
 let newclave = document.getElementById("newclave")
 let newclaveConfirm = document.getElementById("newclaveConfirm")
@@ -22,20 +23,12 @@ editPass.forEach((el) => {
 let btnCambiarClave = document.getElementById('cambiarClave')
 btnCambiarClave ? btnCambiarClave.addEventListener("click", cambiarClave) : ""
 function cambiarClave() {
-    if (newclave.value.trim().length < 4) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'La clave tiene que ser mínimo de 4 caracteres ',
-            confirmButtonColor: '#f27474',
-
-        })
-    } else if (newclaveConfirm.value !== newclave.value) {
+if (newclaveConfirm.value !== newclave.value) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Las claves no coinciden',
-            confirmButtonColor: '#f27474',
+            confirmButtonColor: '#5ac15d',
 
         })
     } else {
@@ -134,7 +127,7 @@ function cambiarClaveCliente() {
             icon: 'error',
             title: 'Oops...',
             text: 'El campo de contraseña no puede estar vacío',
-            confirmButtonColor: '#f27474',
+            confirmButtonColor: '#5ac15d',
 
         })
     } else if (newclaveConfirmClient.value !== newclaveClient.value) {
@@ -142,7 +135,7 @@ function cambiarClaveCliente() {
             icon: 'error',
             title: 'Oops...',
             text: 'Las claves no coinciden',
-            confirmButtonColor: '#f27474',
+            confirmButtonColor: '#5ac15d',
 
         })
     } else {

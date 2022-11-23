@@ -11,7 +11,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 
 ?>
-<div class="container-fluid" style="text-align: center;">
+<div class="container shadow p-3" style="text-align: center;">
     <h3 class="text-titulo">Registrar Empleado</h3>
     <div class="container-fluid mb-5" style="background-color:#ffffff; border-radius:5px;  text-align: initial;">
         <div class="row justify-content-md-center">

@@ -1,3 +1,4 @@
+//ADMINISTRADOR
 
 //.-----------------------------------editar cliente----------------------------------------//
 // VARIABLES PARA GUARDAR LOS DATOS

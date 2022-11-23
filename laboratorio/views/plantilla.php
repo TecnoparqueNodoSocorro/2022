@@ -22,7 +22,7 @@ if (isset($_SESSION["id_cargo"])) {
     <title>Laboratorio</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/styles.css?v=<?php echo (rand()); ?>" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -37,20 +37,23 @@ if (isset($_SESSION["id_cargo"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Sweet alert  -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     </script>
 </head>
 
 <body>
     <nav class="navbar navbar-dark navbar-background">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?php if ($id_cargo == "1") {
-                                                'index.php?page=a_home';
-                                            } else if ($id_cargo == "2") {
-                                                'index.php?page=e_home';
-                                            } else if ($id_cargo == "3") {
-                                                'index.php?page=u_home';
-                                            } ?>">LABORATORIO</a>
+            <a class="navbar-brand" href="index.php?page=<?php if ($id_cargo == "1") {
+                                                                echo 'a_home';
+                                                            } else if ($id_cargo == "2") {
+                                                                echo 'e_home';
+                                                            } else if ($id_cargo == "3") {
+                                                                echo 'c_home';
+                                                            } ?>">LABORATORIO</a>
             <input type="hidden" name="id_usuario_oculto" id="id_usuario_oculto" value="<?php echo $id ?>">
+            <input type="hidden" name="id_cargo" id="id_cargo" value="<?php echo $id_cargo ?>">
 
             <?php
             $menu = new ControladorUsuario();
@@ -71,11 +74,10 @@ if (isset($_SESSION["id_cargo"])) {
     if (isset($_GET["page"])) {
 
         if (
-
+            //administrador
             $_GET["page"] == "a_home" ||
 
             $_GET["page"] == "a_clientesRegistrar" ||
-            $_GET["page"] == "a_clientesAgregarUbicaciones" ||
             $_GET["page"] == "a_clientesGestionar" ||
 
             $_GET["page"] == "a_equiposRegistrar" ||
@@ -92,7 +94,8 @@ if (isset($_SESSION["id_cargo"])) {
             $_GET["page"] == "a_empleadosGestion" ||
 
 
-
+            //todos
+            $_GET["page"] == "todos_ubicaciones" ||
 
 
             $_GET["page"] == "e_home" ||
@@ -109,7 +112,9 @@ if (isset($_SESSION["id_cargo"])) {
 
             $_GET["page"] == "e_reparacionRegistro" ||
 
-            $_GET["page"] == "e_cambioContrasena" ||
+
+
+            $_GET["page"] == "cambioContrasena" ||
 
 
 

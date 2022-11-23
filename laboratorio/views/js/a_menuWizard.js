@@ -1,4 +1,6 @@
-let currentTab = 10; // Current tab is set to be the first tab (0)
+//ADMINISTRADOR
+
+let currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
@@ -7,14 +9,27 @@ function showTab(n) {
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
   if (n == 0) {
+    //en el primer tab se oculta el boton de ir hacia atras
     document.getElementById("prevBtn").style.display = "none";
   } else {
+
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Guardar";
+    //si ya se llegó al ultimo tab se oculta el de boton de avanzar
+    document.getElementById("nextBtn").style.display = "none";
+    // se muestra el boton de guardar
+    document.getElementById("btnGuardarEquipo").style.display = "block";
+
+
   } else {
+    //si no se ha llegado al final
     document.getElementById("nextBtn").innerHTML = "Siguiente";
+    //se oculta el boton de guardar
+    document.getElementById("btnGuardarEquipo").style.display = "none";
+    //se muestra el boton de ir hacia adelante
+    document.getElementById("nextBtn").style.display = "block";
+
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
@@ -24,17 +39,36 @@ function nextPrev(n) {
   // This function will figure out which tab to display
   let x = document.getElementsByClassName("step");
   // Exit the function if any field in the current tab is invalid:
-  //  if (n == 1 && !validateForm()) return false;
+
+  //DESCOMENTAR PARA QUE LAS VALIDACIONES NO PERMITAN CAMBIAR DE PAGINA
+  // if (n == 1 && !validateForm()) return false;
+
+
   // Hide the current tab:
-  x[currentTab].style.display = "none";
+  //ocultar el tan anterior
+  if (currentTab <= x.length) {
+    x[currentTab].style.display = "none";
+  }
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:
-    document.getElementById("signUpForm").submit();
+    x[currentTab].style.display = "block";
+    // document.getElementById("signUpForm").submit();
     return false;
   }
+  //al avanzar la pagina de riesgos asociados guarda los riesgos checkeados
+  if (currentTab === 4) {
+    //funcion en la pagina de a_registroEquipo.js
+    GuardarRiesgos()
+  }
+  //al avanzar a la siguiente pagina se guardan los procesos de liempieza en un array para luego guardarse
+  if (currentTab === 9) {
+    //funcion en la pagina de a_registroEquipo.js
+    guardarLimpieza()
+  }
+
   // Otherwise, display the correct tab:
   showTab(currentTab);
 }
@@ -43,21 +77,21 @@ function validateForm() {
   // This function deals with validation of the form fields
   let x, y, z, t, valid = true;
   x = document.getElementsByClassName("step");
-  //validar input
-  y = x[currentTab].getElementsByTagName("input");
-  //validar select
-  z = x[currentTab].querySelectorAll(".validar");
-
+  //validar input QUE TENGAN LA CLASE  ValidInput
+  //y = x[currentTab].querySelectorAll(".ValidInput");
+  //validar select 
+  // z = x[currentTab].querySelectorAll(".validar");
+  z = x[currentTab].querySelectorAll(".validarStep1");
   // A loop that checks every input field in the current tab:
-  for (let i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
+  /*   for (let i = 0; i < y.length; i++) {
+      // If a field is empty...
+      if (y[i].value == "") {
+        // add an "invalid" class to the field:
+        y[i].className += " invalid";
+        // and set the current valid status to false
+        valid = false;
+      }
+    } */
   for (let i = 0; i < z.length; i++) {
     // If a field is empty...
     if (z[i].value == "") {
@@ -78,7 +112,7 @@ function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   let i, x = document.getElementsByClassName("stepIndicator");
   for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
+    x[i].className = x[i].className.replace("active", "");
   }
   //... and adds the "active" class on the current step:
   x[n].className += " active";
@@ -143,6 +177,9 @@ $("#attachment").on('change', function (e) {
 //codigo imagen registro equipo
 function readURL(input) {
   if (input.files && input.files[0]) {
+    if (input.files[0].size / 1024 > 650) {
+      return false
+    }
     var reader = new FileReader();
     reader.onload = function (e) {
       $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
@@ -156,57 +193,15 @@ $("#imageUpload").change(function () {
   readURL(this);
 });
 
-// MENU 9 LIMPIEZA, DESINFECCIÓN Y ESTERILIZACIÓN
-let check_limp = document.getElementById('check_limp');
-let metodo_limpieza = document.getElementById('metodo_limpieza')
-
-let check_des = document.getElementById('check_des')
-let metodo_desinfeccion = document.getElementById('metodo_desinfeccion')
-
-let check_ester = document.getElementById('check_ester')
-let metodo_esterilizacion = document.getElementById('metodo_esterilizacion')
 
 
-//cada cambio de cualquier select ejecuta la funcion
-check_limp.addEventListener("change", validaCheckbox, false);
-check_des.addEventListener("change", validaCheckbox, false);
-check_ester.addEventListener("change", validaCheckbox, false);
-
-
-//activar o desactivar los checkbox para habilitar o dehabilitar la textarea
-function validaCheckbox() {
-  let checked_limp = check_limp.checked;
-  let checked_des = check_des.checked;
-  let checked_ester = check_ester.checked;
-
-  if (checked_limp) {
-    metodo_limpieza.disabled = false
-  } else {
-    metodo_limpieza.disabled = true
-    metodo_limpieza.value = ""
-  }
-
-  if (checked_des) {
-    metodo_desinfeccion.disabled = false
-  } else {
-    metodo_desinfeccion.disabled = true
-    metodo_desinfeccion.value = ""
-
-  }
-
-  if (checked_ester) {
-    metodo_esterilizacion.disabled = false
-  } else {
-    metodo_esterilizacion.disabled = true
-    metodo_esterilizacion.value = ""
-
-  }
-}
 
 //MENU 10 ANEXOS A LA HOJA DE VIDA
 
-function checkAnexos(){
+function checkAnexos() {
   let x = document.getElementsByClassName("step");
   let check = x[10].getElementsByTagName('input["type=checkbox"]');
   console.log(check);
 }
+
+//

@@ -1,4 +1,5 @@
 
+//ADMINISTRADOR
 
 //.------------------------------------ACTIVAR O DESACTIVAR UN USUARIO PARA EL INGRESO AL SISTEMA----------------------------------------//
 // VARIABLES PARA GUARDAR LOS DATOS

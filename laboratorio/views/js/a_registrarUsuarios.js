@@ -1,3 +1,6 @@
+//ADMINISTRADOR
+
+
 //registro de EMPLEADO
 let nuevoUsuario = {}
 let name_user = document.getElementById('name_user')

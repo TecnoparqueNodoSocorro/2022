@@ -183,7 +183,7 @@ class ModelClientes
         }
     }
     //cambio clave desde el usuario de empleado
-    static public function mdlCambioClaveEmp($tabla, $data)
+    static public function mdlCambioClaveCli($tabla, $data)
     {
 
         // SE COMPARA LA CLAVE ENVIADA PARA CONTAR SI ES LA QUE ESTÁ EN LA BASE DE DATOS

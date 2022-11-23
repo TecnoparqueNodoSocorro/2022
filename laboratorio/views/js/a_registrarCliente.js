@@ -1,3 +1,4 @@
+//ADMINISTRADOR
 
 
 let logo_emp = document.getElementById('logo_emp')
@@ -62,6 +63,7 @@ function PostCliente() {
     }).then((result) => {
         if (result.isConfirmed) {
             //AL DARLE CLICK A CAMBIAR SE ENVIAN LOS DATOS DEL JSON 
+
             $.ajax({
                 type: 'POST',
                 url: 'views/ajax/clientes_ajax.php',
@@ -69,36 +71,45 @@ function PostCliente() {
                 contentType: false,
                 cache: false,
                 processData: false,
-                success: function (data) {
-                    console.log(data);
-                }
-            })
-            .fail(function() {
-                alert( "error" );
-              })
-            Swal.fire({
-                icon: 'success',
-                title: `Cliente guardado`,
-                showConfirmButton: true,
-                scrollbarPadding: false,
-                heightAuto: false,
-                confirmButtonColor: '#a20202',
-                allowOutsideClick: () => {
-                    const popup = Swal.getPopup()
-                    popup.classList.remove('swal2-show')
-                    setTimeout(() => {
-                        popup.classList.add('animate__animated', 'animate__headShake')
-                    })
-                    setTimeout(() => {
-                        popup.classList.remove('animate__animated', 'animate__headShake')
-                    }, 500)
-                    return false
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    location.reload()
-                }
-            })
+
+            }).done(function (data, textStatus, jqXHR) {
+                console.log(data);
+                Swal.fire({
+                    icon: 'success',
+                    title: `Cliente guardado`,
+                    showConfirmButton: true,
+                    scrollbarPadding: false,
+                    heightAuto: false,
+                    confirmButtonColor: '#0d6efd',
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+                    }
+                })
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo procesar la solicitud ' + textStatus,
+                    confirmButtonColor: '#5ac15d',
+
+                })
+
+            });
+
         }
     })
 

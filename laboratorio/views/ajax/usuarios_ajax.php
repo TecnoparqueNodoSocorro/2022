@@ -1,6 +1,9 @@
 <?php
 require_once "../../controllers/usuarios_controller.php";
 require_once "../../models/usuarios_model.php";
+require_once "../../controllers/clientes_controller.php";
+require_once "../../models/clientes_model.php";
+
 
 
 class UsuarioAjax
@@ -59,7 +62,7 @@ class UsuarioAjax
     //CAMBIAR CLAVE DE EMPLEADO DESDE EL EMPLEADO
     static public function CambioClaveEmp($data)
     {
-        $datos = ControladorUsuario::ctrCambioClaveEmp($data);
+        $datos = ControladorUsuario::ctrCambioClaveEmpAndClie($data);
         echo ($datos);
     }
 }

@@ -28,9 +28,12 @@ class ControladorUsuario
     //editar
     static public function ctrEditEmpleado($data)
     {
-        $tabla = "empleados";
-        $respuesta = ModelUsuario::mdlEditEmpleado($tabla, $data);
-        return $respuesta;
+      
+
+            $tabla = "empleados";
+            $respuesta = ModelUsuario::mdlEditEmpleado($tabla, $data);
+            return $respuesta;
+        
     }
     //LOGIN
     static public function login($data)
@@ -64,12 +67,19 @@ class ControladorUsuario
         $respuesta = ModelUsuario::mdlCambioClave($tabla, $data);
         return $respuesta;
     }
-    //cambio clave desde el usuario de empleado
-    static public function ctrCambioClaveEmp($data)
+    //cambio clave para cliente y empleado
+    static public function ctrCambioClaveEmpAndClie($data)
     {
-        $tabla = "empleados";
-        $respuesta = ModelUsuario::mdlCambioClaveEmp($tabla, $data);
-        return $respuesta;
+
+        if ($data["cargo"] == "3") {
+            $tabla = "clientes";
+            $respuesta = ModelClientes::mdlCambioClaveCli($tabla, $data);
+            return $respuesta;
+        } else {
+            $tabla = "empleados";
+            $respuesta = ModelUsuario::mdlCambioClaveEmp($tabla, $data);
+            return $respuesta;
+        }
     }
     function ctrMenu()
     {
@@ -106,7 +116,7 @@ class ControladorUsuario
                                         Clientes</a>
                                     <div class="dropdown-menu sub-menu" aria-labelledby="dropdownId">
                                         <a class=" nav-link  sub-nav" href="index.php?page=a_clientesRegistrar"><i class="bi bi-person-plus-fill"></i> Registro </a>
-                                        <a class=" nav-link  sub-nav" href="index.php?page=a_clientesAgregarUbicaciones"><i class="bi bi-person-plus-fill"></i> Ubicaciones </a>
+                                        <a class=" nav-link  sub-nav" href="index.php?page=todos_ubicaciones"><i class="bi bi-person-plus-fill"></i> Registrar ubicación </a>
                                         <a class=" nav-link  sub-nav" href="index.php?page=a_clientesGestionar"><i class="bi bi-person-lines-fill"></i> Ver/Editar</a>
                                     </div>
 
@@ -187,10 +197,11 @@ class ControladorUsuario
                                         <a class="nav-link text-white dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-pc-display"></i>
                                             Equipos</a>
                                         <div class="dropdown-menu sub-menu" aria-labelledby="dropdownId">
+                                            <a class=" nav-link  sub-nav" href="index.php?page=a_equiposRegistrar"><i class="bi bi-file-plus-fill"></i> Registrar </a>
                                             <a class=" nav-link  sub-nav" href="index.php?page=e_equiposHojasVida"><i class="bi bi-file-text-fill"></i> Hoja de vida </a>
                                             <a class=" nav-link  sub-nav" href="index.php?page=e_equiposInventarios"><i class="bi bi-journal-album"></i> Inventarios</a>
                                             <a class=" nav-link  sub-nav" href="index.php?page=e_equiposConsultarBajas"><i class="bi bi-arrow-down-right-square-fill"></i> Consultar bajas</a>
-                                            <a class=" nav-link  sub-nav" href="index.php?page=e_equiposUbicaciones"><i class="bi bi-geo-fill"></i> Ubicaciones</a>
+                                            <a class=" nav-link  sub-nav" href="index.php?page=todos_ubicaciones"><i class="bi bi-geo-fill"></i> Ubicaciones</a>
 
                                         </div>
                                     </li>                                
@@ -222,6 +233,11 @@ class ControladorUsuario
                                         </div>
                                     </li>
 
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white text-uppercase" aria-current="page" href="index.php?page=cambioContrasena"> <i class="bi bi-unlock-fill"></i>
+                                            Cambiar contraseña
+                                        </a>
+                                    </li>
 
                                     <li class="nav-item">
                                             <a class="nav-link text-white text-uppercase" aria-current="page" id="btnCerrarSesion"> <i class="bi bi-box-arrow-right"></i>
