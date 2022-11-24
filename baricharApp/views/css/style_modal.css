@@ -1,25 +1,31 @@
+/* *{
+  font-size:50px !important ;
+} */
+
 img.imgtarjeta {
   /*    border: 0px solid darkblue; */
   /*   margin-top: 10px; */
-  width: 90%;
-  height: 90%;
-  border-radius: 15px;
-  margin-left: 10px !important;
-  padding: opx !important;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  /* margin-left: 10px !important; */
+  padding: 0px !important;
+
 }
 
 .nombre {
-  font-size: 110% !important;
+  font-size: 18px !important;
   padding: 2% !important;
   margin: 2px !important;
   text-align: center;
+  font-weight: 700;
 }
 
 .detalleproducto {
-  font-size: 60% !important;
-  line-height: 90% !important;
-  padding: 5% !important;
-  margin: 5px !important;
+  font-size: 12px !important;
+/*   line-height: 90% !important; */
+  padding: 2px !important;
+  margin: 2px !important;
   text-align: justify;
 }
 /* .container-fluid {
@@ -28,33 +34,36 @@ img.imgtarjeta {
   align-content: center;
 } */
 .precioproducto {
-  padding: 1px !important;
+    font-size: 15px !important;
+  padding: 8px !important;
   text-align: center !important;
-  font-size: 13px !important;
   margin: 0% !important;
   font-weight: 700;
+ 
 }
-img.logoE {
-  width: 30px;
-  height: 30px;
-  border-radius: 50% !important;
-  border-color: blue solid;
-}
+
 .name_empresa {
-  font-size: 60% !important;
+  font-size: 60px !important;
   line-height: 100% !important;
-  padding: 5%;
+  padding: 1%;
 }
 hr {
   margin: 3px !important;
 }
 .redondo {
-  display: block;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  padding: 1px;
-  margin: 2px;
+/*   display: block; */
+  width: 40px;
+  height: 40px;
+  border-radius: 50% !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.logoE {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% !important;
+  padding: 1px!important;
+  margin: 1px!important;
 }
 .labelbtn {
   font-size: 8px !important;
@@ -111,7 +120,18 @@ div.col-md-2 {
   margin: 0% !important;
   padding: 0% !important;
 }
-div.modal-header {
+/* div.modal-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0% !important;
+  padding: 0% !important;
+} */
+label {
+  font-size: 50% !important;
+}
+.opciones{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,6 +139,12 @@ div.modal-header {
   margin: 0% !important;
   padding: 0% !important;
 }
-label {
-  font-size: 50% !important;
+
+div.modal-header{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px !important;
+    margin: 0% !important;
 }

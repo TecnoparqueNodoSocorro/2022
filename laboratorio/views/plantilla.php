@@ -162,6 +162,7 @@ if (isset($_SESSION["id_cargo"])) {
     <script src="views/js/a_menuWizard.js"></script>
     <script src="views/js/a_ubicaciones.js"></script>
     <script src="views/js/a_registrarEquipo.js"></script>
+    <script src="views/js/a_equiposInventario.js"></script>
 
 
 

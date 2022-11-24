@@ -11,7 +11,8 @@ require_once "models/clientes_model.php";
 require_once "controllers/ubicaciones_controller.php";
 require_once "models/ubicaciones_model.php";
 
-
+require_once "controllers/equipos_controller.php";
+require_once "models/equipos_model.php";
 /* creamos un objeto */
 $plantilla = new ControladorPlantilla();
 /* llamamos el metodo  */

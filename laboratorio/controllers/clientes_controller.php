@@ -114,7 +114,6 @@ class ControladorClientes
                                 <a class="nav-link text-white dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-pc-display"></i>
                                     Equipos</a>
                                 <div class="dropdown-menu sub-menu" aria-labelledby="dropdownId">
-                                    <a class=" nav-link  sub-nav" href="index.php?page=a_equiposRegistrar"><i class="bi bi-file-plus-fill"></i> Registrar </a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposHojasVida"><i class="bi bi-file-text-fill"></i> Hoja de vida </a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposInventarios"><i class="bi bi-journal-album"></i> Inventarios</a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_equiposEditar"><i class="bi bi-pencil-fill"></i> Editar</a>

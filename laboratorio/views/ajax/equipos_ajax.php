@@ -17,20 +17,50 @@ class EquiposAjax
     /* --------------------POST COMPONENTES ASOCIADOS---------------------------------- */
     public function PostComponentesAsociados($id_equipo, $data,  $id_cliente)
     {
-        $RtaDetalleEmb = ControladorEquipos::ctrPostComponentesAsociados($id_equipo, $data,  $id_cliente);
-        echo json_encode($RtaDetalleEmb);
+        $RtaDetalleComp = ControladorEquipos::ctrPostComponentesAsociados($id_equipo, $data,  $id_cliente);
+        echo json_encode($RtaDetalleComp);
     }
     /* --------------------POST RIESGOS ASOCIADOS---------------------------------- */
     public function PostRiesgosAsociados($id_equipo, $data,  $id_cliente)
     {
-        $RtaDetalleEmb = ControladorEquipos::ctrPostRiesgosAsociados($id_equipo, $data,  $id_cliente);
-        echo json_encode($RtaDetalleEmb);
+        $RtaDetalleRiesgos = ControladorEquipos::ctrPostRiesgosAsociados($id_equipo, $data,  $id_cliente);
+        echo json_encode($RtaDetalleRiesgos);
     }
     /* --------------------POST PROCESOS DE LIEMPIEZA ---------------------------------- */
     public function PostProcesosLimpieza($id_equipo, $data,  $id_cliente)
     {
-        $RtaDetalleEmb = ControladorEquipos::ctrPostProcesosLimpieza($id_equipo, $data,  $id_cliente);
-        echo json_encode($RtaDetalleEmb);
+        $RtaDetalleLimp = ControladorEquipos::ctrPostProcesosLimpieza($id_equipo, $data,  $id_cliente);
+        echo json_encode($RtaDetalleLimp);
+    }
+    /* --------------------ACTIVAR O DESACTIVAR ---------------------------------- */
+    public function Activar_Desactivar($data)
+    {
+        $datosAct = ControladorEquipos::ctrActivar_Desactivar($data);
+        echo json_encode($datosAct);
+    }
+    /* -------------------TRAER COMPONENTES POR EQUIPO ---------------------------------- */
+    public function TraerComponentesByEquipo($id)
+    {
+        $datosAct = ControladorEquipos::ctrTraerComponentesByEquipo($id);
+        echo json_encode($datosAct);
+    }
+    /* -------------------TRAER COMPONENTE POR ID ---------------------------------- */
+    public function TraerComponentesById($id)
+    {
+        $datosAct = ControladorEquipos::ctrTraerComponentesById($id);
+        echo json_encode($datosAct);
+    }
+    /* ------------------ EDITAR COMPONENTE ---------------------------------- */
+    public function EditarComponente($id)
+    {
+        $datosAct = ControladorEquipos::ctrEditarComponente($id);
+        echo json_encode($datosAct);
+    }
+    /* -------------------TRAER DESCRIPCION GENERAL---------------------------------- */
+    public function TraerDescripcion($id)
+    {
+        $datosAct = ControladorEquipos::ctrTraerDescripcion($id);
+        echo json_encode($datosAct);
     }
 }
 //------------------------------------------------------------------------
@@ -44,10 +74,10 @@ if (
     !empty($_POST['regEqui_ubic']) ||
     !empty($_POST['regEqui_nombre']) ||
     !empty($_POST['regEqui_ident']) ||
-    !empty($_POST['regEqui_marca']) ||
-    !empty($_POST['regEqui_modelo']) ||
+    !empty($_POST['regEqui_marcaRE']) ||
+    !empty($_POST['regEqui_modeloRE']) ||
     !empty($_POST['regEqui_fabr']) ||
-    !empty($_POST['regEqui_serie']) ||
+    !empty($_POST['regEqui_serieRE']) ||
     !empty($_POST['regEqui_lote']) ||
     !empty($_POST['regEqui_tipo']) ||
     !empty($_POST['regEqui_equipo']) ||
@@ -137,10 +167,10 @@ if (
         "ubicacion" => $_POST['regEqui_ubic'],
         "nombre" => $_POST['regEqui_nombre'],
         "codigo" => $_POST['regEqui_ident'],
-        "marca" => $_POST['regEqui_marca'],
-        "modelo" => $_POST['regEqui_modelo'],
+        "marca" => $_POST['regEqui_marcaRE'],
+        "modelo" => $_POST['regEqui_modeloRE'],
         "fabricante" => $_POST['regEqui_fabr'],
-        "serie" => $_POST['regEqui_serie'],
+        "serie" => $_POST['regEqui_serieRE'],
         "lote" => $_POST['regEqui_lote'],
         "tipo" => $_POST['regEqui_tipo'],
         "equipo" => $_POST['regEqui_equipo'],
@@ -221,4 +251,41 @@ if (isset($_POST['id_equipo']) && isset($_POST['proceso']) && isset($_POST['id_c
     $id_cliente = $_POST['id_cliente'];
 
     $ajaxDetalle->PostProcesosLimpieza($id_equipo, $data,  $id_cliente);
+}
+
+
+//activar o desactivar
+if (isset($_POST['id']) && isset($_POST['estado'])) {
+    $postData = new EquiposAjax();
+
+    $data = array(
+        "id" => $_POST["id"],
+        "estado" => $_POST["estado"],
+    );
+    $postData->Activar_Desactivar($data);
+}
+
+//traer componentes
+if (isset($_POST['traerComponentes'])) {
+    $postData = new EquiposAjax();
+    $id = $_POST['traerComponentes'];
+    $postData->TraerComponentesByEquipo($id);
+}
+//traer componente por id
+if (isset($_POST['idComponente'])) {
+    $postData = new EquiposAjax();
+    $idComponente = $_POST['idComponente'];
+    $postData->TraerComponentesById($idComponente);
+}
+//editar componente
+if (isset($_POST['dataComponent'])) {
+    $postData = new EquiposAjax();
+    $data = $_POST['dataComponent'];
+    $postData->EditarComponente($data);
+}
+//traer descripcion general
+if (isset($_POST['traerDescrip'])) {
+    $postData = new EquiposAjax();
+    $id = $_POST['traerDescrip'];
+    $postData->TraerDescripcion($id);
 }

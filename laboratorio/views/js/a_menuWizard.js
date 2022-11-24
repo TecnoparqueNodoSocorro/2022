@@ -1,12 +1,13 @@
-//ADMINISTRADOR
+//ADMINISTRADOR Y EMPLEADO
 
-let currentTab = 0; // Current tab is set to be the first tab (0)
+let currentTab = 2; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
   // This function will display the specified tab of the form...
   let x = document.getElementsByClassName("step");
-  x[n].style.display = "block";
+  
+  x ? x[n].style.display = "block" : ''
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     //en el primer tab se oculta el boton de ir hacia atras
@@ -181,6 +182,7 @@ function readURL(input) {
       return false
     }
     var reader = new FileReader();
+    
     reader.onload = function (e) {
       $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
       $('#imagePreview').hide();

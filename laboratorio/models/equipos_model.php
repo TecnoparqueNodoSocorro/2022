@@ -103,11 +103,34 @@ class ModelEquipos
             exit;
         }
     }
-        /* --------------------POST COMPONENTES ASOCIADOS---------------------------------- */
-        static public function mdlPostComponentesAsociados($tabla, $id_equipo, $data,  $id_cliente)
-        {
-    
-            foreach ($data   as $value) {
+
+    //mostrar datos principales de los equipos para el inventario
+    static public function mdlGetEquipos($tabla)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("SELECT $tabla.id, $tabla.id_cliente, c.nombre AS nombre_cliente, 
+            $tabla.ubicacion, u.nombre AS nombre_ubicacion, $tabla.nombre, $tabla.codigo, $tabla.estado
+            FROM $tabla
+            INNER JOIN ubicaciones u ON $tabla.ubicacion= u.id INNER JOIN clientes c ON c.id= $tabla.id_cliente");
+            if ($stmt->execute()) {
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    /* --------------------POST COMPONENTES ASOCIADOS---------------------------------- */
+    static public function mdlPostComponentesAsociados($tabla, $id_equipo, $data,  $id_cliente)
+    {
+        try {
+            foreach ($data as $key => $value) {
                 $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( 
                 id_cliente, id_equipo, componente, marca, modelo, serie, cod_iden) 
                 VALUES( 
@@ -119,22 +142,18 @@ class ModelEquipos
                 $stmt->bindParam(":modelo", $value["modelo"]);
                 $stmt->bindParam(":serie", $value["serie"]);
                 $stmt->bindParam(":cod_iden", $value["codigo"]);
-                if ($stmt->execute()) {
-                    echo "ok";
-                } else {
-                    echo "\nPDO::errorInfo():\n";
-                    print_r($stmt->errorInfo());
-                    $stmt->closeCursor();
-                    $stmt = null;
-                }
+                $stmt->execute();
             }
-          
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-        /* --------------------POST RIESGOS ASOCIADOS---------------------------------- */
-        static public function mdlPostRiesgosAsociados($tabla, $id_equipo, $data,  $id_cliente)
-        {
-    
-            foreach ($data   as $value) {
+        return "Componentes guardados con exito";
+    }
+    /* --------------------POST RIESGOS ASOCIADOS---------------------------------- */
+    static public function mdlPostRiesgosAsociados($tabla, $id_equipo, $data,  $id_cliente)
+    {
+        try {
+            foreach ($data as $key => $value) {
                 $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( 
                 id_cliente, id_equipo, riesgo) 
                 VALUES( 
@@ -142,40 +161,176 @@ class ModelEquipos
                 $stmt->bindParam(":id_cliente", $id_cliente);
                 $stmt->bindParam(":id_equipo",   $id_equipo);
                 $stmt->bindParam(":riesgo", $value["riesgo"]);
-               if ($stmt->execute()) {
-                echo "ok";
-                } else {
-                    echo "\nPDO::errorInfo():\n";
-                    print_r($stmt->errorInfo());
-                    $stmt->closeCursor();
-                    $stmt = null;
-                }
+                $stmt->execute();
             }
-           
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-            /* --------------------POST PROCESOS DE LIEMPIEZA---------------------------------- */
+        return "Riesgos guardados con exito";
+    }
+    /* --------------------POST PROCESOS DE LIEMPIEZA---------------------------------- */
     static public function mdlPostProcesosLimpieza($tabla, $id_equipo, $data,  $id_cliente)
     {
-
-        foreach ($data   as $value) {
-            $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( 
+        try {
+            foreach ($data as $key => $value) {
+                $stmt = conexion::conectar()->prepare("INSERT INTO $tabla ( 
             id_cliente, id_equipo, proceso, metodo) 
             VALUES( 
             :id_cliente, :id_equipo, :proceso, :metodo) ");
-            $stmt->bindParam(":id_cliente", $id_cliente);
-            $stmt->bindParam(":id_equipo",   $id_equipo);
-            $stmt->bindParam(":proceso", $value["proceso"]);
-            $stmt->bindParam(":metodo", $value["metodo"]);
+                $stmt->bindParam(":id_cliente", $id_cliente);
+                $stmt->bindParam(":id_equipo",   $id_equipo);
+                $stmt->bindParam(":proceso", $value["proceso"]);
+                $stmt->bindParam(":metodo", $value["metodo"]);
+                $stmt->execute();
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+        return "Procesos guardados con exito";
+    }
+    /* --------------------DESACTIVAR --------------------------------- */
+    static public function mdlDesactivarEquipo($tabla, $data)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("UPDATE  $tabla SET estado=0 WHERE id=:id ");
+            $stmt->bindParam(":id", $data["id"]);
 
             if ($stmt->execute()) {
-                echo "ok";
+                $stmt->closeCursor();
+                $stmt = null;
+                return "Equipo desactivado";
             } else {
+                print_r($data);
                 echo "\nPDO::errorInfo():\n";
                 print_r($stmt->errorInfo());
                 $stmt->closeCursor();
                 $stmt = null;
             }
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-      
+    }
+    /* --------------------ACTIVAR --------------------------------- */
+    static public function mdlActivarEquipo($tabla, $data)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("UPDATE  $tabla SET estado=1 WHERE id=:id ");
+            $stmt->bindParam(":id", $data["id"]);
+
+            if ($stmt->execute()) {
+
+                $stmt->closeCursor();
+                $stmt = null;
+                return "Equipo activado";
+            } else {
+                print_r($data);
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    /* ---------------------TRAER COMPONENTES POR EQUIPO --------------------------------- */
+    static public function mdlTraerComponentesByEquipo($tabla, $id)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_equipo = $id ");
+
+            if ($stmt->execute()) {
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    /* ---------------------TRAER COMPONENTE POR ID --------------------------------- */
+    static public function mdlTraerComponentesById($tabla, $idComponente)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id = $idComponente ");
+
+            if ($stmt->execute()) {
+                return $stmt->fetchObject();
+
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    /* --------------------EDITAR COMPONENTE --------------------------------- */
+    static public function mdlEditarComponente($tabla, $data)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("UPDATE  $tabla SET componente = :componente,
+            marca = :marca, modelo = :modelo, serie = :serie, cod_iden= :codigo
+            WHERE id=:id ");
+            $stmt->bindParam(":marca", $data["marca"]);
+            $stmt->bindParam(":componente", $data["componente"]);
+            $stmt->bindParam(":modelo", $data["modelo"]);
+            $stmt->bindParam(":serie", $data["serie"]);
+            $stmt->bindParam(":codigo", $data["codigo"]);
+            $stmt->bindParam(":id", $data["id"]);
+
+
+            if ($stmt->execute()) {
+
+                $stmt->closeCursor();
+                $stmt = null;
+                return "Componente editado";
+            } else {
+
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    /* ---------------------TRAER DESCRIPCION GENERAL------------------------------------ */
+    static public function mdlTraerDescripcion($tabla, $id)
+    {
+        try {
+            $stmt = conexion::conectar()->prepare("SELECT $tabla.nombre, $tabla.codigo, $tabla.marca, $tabla.modelo,
+            $tabla.fabricante, $tabla.serie, $tabla.lote, $tabla.tipo, $tabla.equipo, $tabla.claficacion_bio, $tabla.doc_sanitario, $tabla.clasif_riesgo,
+            $tabla.pqs_oms,	 $tabla.codigo_umdns, $tabla.imagen, $tabla.uso_previsto
+             FROM $tabla WHERE id = $id "); 
+
+            if ($stmt->execute()) {
+                return $stmt->fetchObject();
+
+                $stmt->closeCursor();
+                $stmt = null;
+            } else {
+
+                echo "\nPDO::errorInfo():\n";
+                print_r($stmt->errorInfo());
+                $stmt->closeCursor();
+                $stmt = null;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

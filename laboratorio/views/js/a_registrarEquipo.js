@@ -5,10 +5,6 @@ let regEqui_cliente = document.getElementById('regEqui_cliente')
 //variable seleccion ubicacion
 let regEqui_ubic = document.getElementById('regEqui_ubic')
 
-//traer el id del cargo para validar
-const id_cargo_registro_equipo = document.getElementById('id_cargo').value
-//traer el id oculto del cliente
-const id_usuario_oculto_registro_equipo = document.getElementById('id_usuario_oculto').value
 
 //SELECCIONAR EL CLIENTE Y DIBUJAR LAS UBICACIONES YA REGISTRADAS
 regEqui_cliente ? regEqui_cliente.addEventListener("change", () => {
@@ -46,29 +42,22 @@ function traerUbicaciones(id) {
 
     });
 }
-//SI EL ID DE USUARIO ES EL DEL CLIENTE SE OCULTA LA OPCION DE SELECCIONAR CLIENTE
-if (id_cargo.value == "3") {
-    //SE OCULTA EL SELECT
-    regEqui_cliente ? regEqui_cliente.style.display = "none" : ''
-    //SE ASIGNA EL ID DEL CLIENTE LOGUEADO
-    regEqui_cliente.value = id_usuario_oculto_registro_equipo
-    //SE LISTA LOS REGISTROS DE LAS UBICACIONES
- 
-
-    traerUbicaciones(regEqui_cliente.value)
-}
 
 
-//formulario
+
+//formulario todo menu wizard
 let signUpForm = document.querySelector('#signUpForm')
-//imagen 
+//imagen de registro
 let imageUpload = document.getElementById('imageUpload')
 validarImagenRe(imageUpload)
+
+//funcion validar imagen
 function validarImagenRe(fileInput) {
 
     fileInput ? fileInput.addEventListener('change', function () {
         var filePath = this.value;
-        var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+        //solo se acepta jpg o jpeg
+        var allowedExtensions = /(.jpg|.jpeg)$/i;
         var sizeByte = this.files[0].size;
         var siezekiloByte = parseInt(sizeByte / 1024);
         console.log(siezekiloByte);
@@ -78,7 +67,7 @@ function validarImagenRe(fileInput) {
                 text: `Por favor seleccione un archivo de imagen valido (JPEG/JPG/PNG)`,
                 icon: 'error',
                 showConfirmButton: true,
-                confirmButtonColor: '#0d6efd',
+                confirmButtonColor: '#5ac15d',
 
             })
             fileInput.value = '';
@@ -89,7 +78,7 @@ function validarImagenRe(fileInput) {
                 text: `Por favor seleccione un tamaño de imagen más pequeña`,
                 icon: 'error',
                 showConfirmButton: true,
-                confirmButtonColor: '#0d6efd',
+                confirmButtonColor: '#5ac15d',
 
             })
             fileInput.value = '';
@@ -104,35 +93,83 @@ signUpForm ? signUpForm.onsubmit = async (e) => {
 
 
 
-    //console.log(data);
-    $.ajax({
-        type: 'POST',
-        url: 'views/ajax/equipos_ajax.php',
-        data: new FormData(signUpForm),
-        contentType: false,
-        cache: false,
-        processData: false,
+    //console.log(data); 
+    Swal.fire({
+        title: 'Guardar',
+        text: `Guardar registro?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#0d6efd',
+        cancelButtonColor: '#dc3545',
+        confirmButtonText: 'Guardar',
+        allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+                popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+                popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: 'POST',
+                url: 'views/ajax/equipos_ajax.php',
+                data: new FormData(signUpForm),
+                contentType: false,
+                cache: false,
+                processData: false,
 
-    }).done(function (data, textStatus, jqXHR) {
-        console.log(data.trim());
-        let id_registro = data.trim()
-        //si se ejecuto el registro del equipo se ejecutan las funciones para registrar los demas registros
-        guardarComponentesAsociados(id_registro, componentes)
-        guardarRiesgosAsociados(id_registro, riesgos)
-        guardarProcesosLimpieza(id_registro, procesos_limpieza)
+            }).done(function (data, textStatus, jqXHR) {
+                console.log(data.trim());
+                let id_registro = data.trim()
+                //si se ejecuto el registro del equipo se ejecutan las funciones para registrar los demas registros
+                guardarComponentesAsociados(id_registro, componentes)
+                guardarRiesgosAsociados(id_registro, riesgos)
+                guardarProcesosLimpieza(id_registro, procesos_limpieza)
+                Swal.fire({
+                    icon: 'success',
+                    title: `Registro guardado`,
+                    confirmButtonColor: '#0d6efd',
+                    showConfirmButton: true,
+                    allowOutsideClick: () => {
+                        const popup = Swal.getPopup()
+                        popup.classList.remove('swal2-show')
+                        setTimeout(() => {
+                            popup.classList.add('animate__animated', 'animate__headShake')
+                        })
+                        setTimeout(() => {
+                            popup.classList.remove('animate__animated', 'animate__headShake')
+                        }, 500)
+                        return false
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+
+                    }
+                    return
+                })
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo procesar la solicitud ' + textStatus,
+                    confirmButtonColor: '#0d6efd',
+
+                })
+
+            });
 
 
-    }).fail(function (jqXHR, textStatus, errorThrown) {
+        }
+    })
 
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No se pudo procesar la solicitud ' + textStatus,
-            confirmButtonColor: '#5ac15d',
-
-        })
-
-    });
 } : ''
 
 
@@ -221,7 +258,7 @@ function listarComponentes() {
                     text: `¿Eliminar registro?`,
                     icon: 'question',
                     showCancelButton: true,
-                    confirmButtonColor: '#0d6efd',
+                    confirmButtonColor: '#5ac15d',
                     cancelButtonColor: '#dc3545',
                     confirmButtonText: 'Eliminar',
                     allowOutsideClick: () => {
@@ -259,14 +296,19 @@ function LimpiarTablaComponentes() {
 
 //GUARDAR COMPONENTES ASOCIADOS
 function guardarComponentesAsociados(id, array) {
-    //SE CONVIERTE EL JSON EN UNA CADENA DE TEXTO PARA PODER ENVIARLA Y EN EL AJAX VOLVERLA A DECODIFICAR
-    let componentesAsociados = JSON.stringify(array)
-    // console.log(caprinosTratamiento);
-    $.post("views/ajax/equipos_ajax.php", { id_equipo: id, id_cliente: regEqui_cliente.value, componentes: componentesAsociados }, function (dato) {
-        // let res = JSON.parse(dato);
-        console.log(dato);
+    if (array.length == 0) {
+        return
+    } else {
 
-    })
+        //SE CONVIERTE EL JSON EN UNA CADENA DE TEXTO PARA PODER ENVIARLA Y EN EL AJAX VOLVERLA A DECODIFICAR
+        let componentesAsociados = JSON.stringify(array)
+        // console.log(caprinosTratamiento);
+        $.post("views/ajax/equipos_ajax.php", { id_equipo: id, id_cliente: regEqui_cliente.value, componentes: componentesAsociados }, function (dato) {
+            // let res = JSON.parse(dato);
+            console.log(dato);
+
+        })
+    }
 }
 
 
@@ -322,9 +364,9 @@ let metodo_esterilizacion = document.getElementById('metodo_esterilizacion')
 
 
 //cada cambio de cualquier select ejecuta la funcion
-check_limp.addEventListener("change", validaCheckbox, false);
-check_des.addEventListener("change", validaCheckbox, false);
-check_ester.addEventListener("change", validaCheckbox, false);
+check_limp ? check_limp.addEventListener("change", validaCheckbox, false) : ''
+check_des ? check_des.addEventListener("change", validaCheckbox, false) : ''
+check_ester ? check_ester.addEventListener("change", validaCheckbox, false) : ''
 
 
 //activar o desactivar los checkbox para habilitar o dehabilitar la textarea

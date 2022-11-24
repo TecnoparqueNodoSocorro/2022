@@ -1,9 +1,9 @@
 <?php
 if (isset($_SESSION["validar_ingreso"])) {
-    /* if ($_SESSION["id_cargo"] == "3") {
+    if ($_SESSION["id_cargo"] == "3") {
         echo '<script>window.location="index.php?page=error_credenciales"; </script>';
         return;
-    } */
+    }
 } else {
     echo '<script>window.location="index.php?page=error"; </script>';
 }
@@ -80,12 +80,12 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_marca" id="regEqui_marca">
+                        <input type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_marcaRE" id="regEqui_marcaRE">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_modelo" id="regEqui_modelo">
+                        <input type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_modeloRE" id="regEqui_modeloRE">
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_serie" id="regEqui_serie">
+                        <input type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_serieRE" id="regEqui_serieRE">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">

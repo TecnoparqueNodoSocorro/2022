@@ -714,10 +714,10 @@ margin-top: 50% !important;
    font-size: 0.6rem !important;
 }
 .programador1{
-  margin-top: 5%;
+/*   margin-top: 5%; */
  /*  background-color: chartreuse; */
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -726,8 +726,8 @@ margin-top: 50% !important;
 }
 .programador2{
 
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -739,6 +739,7 @@ margin-top: 50% !important;
   justify-content: center;
   align-content: center;
   flex-direction:row;
+
 
 }
 .btn-flotante {
