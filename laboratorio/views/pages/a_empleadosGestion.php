@@ -12,7 +12,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 ?>
 <div class="container" style="text-align: center;">
-    <h3 class="text-titulo">Registrar Usuario</h3>
+    <h3 class="text-titulo">Gestión de Usuarios</h3>
 
     <div class="table-responsive mt-3 mb-5">
         <table class="table table-primary table-sm">
@@ -20,7 +20,7 @@ if (isset($_SESSION["validar_ingreso"])) {
             $usuarios = ControladorUsuario::ctrGetUsuarios();
 
             ?>
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>Acciones</th>
                     <th>Estado</th>

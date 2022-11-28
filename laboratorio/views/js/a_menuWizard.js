@@ -1,12 +1,12 @@
 //ADMINISTRADOR Y EMPLEADO
 
-let currentTab = 2; // Current tab is set to be the first tab (0)
+let currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
   // This function will display the specified tab of the form...
   let x = document.getElementsByClassName("step");
-  
+
   x ? x[n].style.display = "block" : ''
   //... and fix the Previous/Next buttons:
   if (n == 0) {
@@ -42,7 +42,7 @@ function nextPrev(n) {
   // Exit the function if any field in the current tab is invalid:
 
   //DESCOMENTAR PARA QUE LAS VALIDACIONES NO PERMITAN CAMBIAR DE PAGINA
-  // if (n == 1 && !validateForm()) return false;
+  if (n == 1 && !validateForm()) return false;
 
 
   // Hide the current tab:
@@ -79,25 +79,27 @@ function validateForm() {
   let x, y, z, t, valid = true;
   x = document.getElementsByClassName("step");
   //validar input QUE TENGAN LA CLASE  ValidInput
-  //y = x[currentTab].querySelectorAll(".ValidInput");
-  //validar select 
-  // z = x[currentTab].querySelectorAll(".validar");
-  z = x[currentTab].querySelectorAll(".validarStep1");
-  // A loop that checks every input field in the current tab:
-  /*   for (let i = 0; i < y.length; i++) {
-      // If a field is empty...
-      if (y[i].value == "") {
-        // add an "invalid" class to the field:
-        y[i].className += " invalid";
-        // and set the current valid status to false
-        valid = false;
-      }
-    } */
+  z = x[currentTab].querySelectorAll(".ValidInput");
+
+  //validar los select
+  y = x[currentTab].querySelectorAll(".validarSelect");
+
+
+  //se recorre cada uno de los elementos que tengane sa clase
   for (let i = 0; i < z.length; i++) {
     // If a field is empty...
     if (z[i].value == "") {
       // add an "invalid" class to the field:
       z[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  for (let i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "0") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
       // and set the current valid status to false
       valid = false;
     }
@@ -182,7 +184,7 @@ function readURL(input) {
       return false
     }
     var reader = new FileReader();
-    
+
     reader.onload = function (e) {
       $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
       $('#imagePreview').hide();

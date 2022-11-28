@@ -23,7 +23,9 @@ editPass.forEach((el) => {
 let btnCambiarClave = document.getElementById('cambiarClave')
 btnCambiarClave ? btnCambiarClave.addEventListener("click", cambiarClave) : ""
 function cambiarClave() {
-if (newclaveConfirm.value !== newclave.value) {
+    if (newclaveConfirm.value.trim() == "" || newclave.value.trim() == "") {
+        DatosIncompletos()
+    } else if (newclaveConfirm.value !== newclave.value) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -42,6 +44,8 @@ if (newclaveConfirm.value !== newclave.value) {
             confirmButtonColor: '#0d6efd',
             cancelButtonColor: '#dc3545',
             confirmButtonText: 'Cambiar',
+            cancelButtonText: 'Cancelar',
+
             allowOutsideClick: () => {
                 const popup = Swal.getPopup()
                 popup.classList.remove('swal2-show')
@@ -110,7 +114,7 @@ editPassClient.forEach((el) => {
     el.addEventListener("click", (e) => {
 
         //console.log(el.dataset.id);
-         idC = el.dataset.id
+        idC = el.dataset.id
         document.getElementById("modal-tituloClient").innerText = el.dataset.nombre
 
         //console.log(id);
@@ -122,7 +126,7 @@ editPassClient.forEach((el) => {
 let cambiarClaveClient = document.getElementById('cambiarClaveClient')
 cambiarClaveClient ? cambiarClaveClient.addEventListener("click", cambiarClaveCliente) : ""
 function cambiarClaveCliente() {
-    if (newclaveClient.value.trim()=="") {
+    if (newclaveClient.value.trim() == "") {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -148,6 +152,8 @@ function cambiarClaveCliente() {
             showCancelButton: true,
             confirmButtonColor: '#0d6efd',
             cancelButtonColor: '#dc3545',
+            cancelButtonText: 'Cancelar',
+
             confirmButtonText: 'Cambiar',
             allowOutsideClick: () => {
                 const popup = Swal.getPopup()

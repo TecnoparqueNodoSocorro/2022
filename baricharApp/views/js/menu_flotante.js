@@ -24,47 +24,53 @@ function TraerProductosPorId(idc) {
     response.forEach((x) => {
       titulo_categoria.innerText = x.nombre_categoria;
       modal_body.innerHTML += `
-                <div class="container">
-    <div class="row">
-        <div class="col-4 col-md-4">
-            <img class="imgtarjeta" src="views/views/${x.img1}" alt="star">
-        </div>
 
-        <div class="col-6 col-md-5">
-            <h2 class="nombre">${x.nombre}</h2>
-            <div class="detalleproducto">
-                ${x.descripcion}
+         <div class="col-12 col-lg-6 col-xl-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4 ">
+                <img class="imgtarjeta" src="views/views/${x.img1}" alt="star">
             </div>
 
-            <hr>
+            <div class="col-5">
+                <h2 class="nombre">${x.nombre}</h2>
+                <div class="detalleproducto">
+                    ${x.descripcion}
+                </div>
 
-            <div>
-                <h2 class="precioproducto">$${x.precio}</h2>
+                <hr>
+
+                <div>
+                    <h2 class="precioproducto">$${x.precio}</h2>
+                </div>
+
             </div>
+            <div class="col-3 opciones">
 
-        </div>
-
-
-        <div class="col-2 col-md-2 opciones">
-      
                 <div>
                     <img class="logoE" src="views/views/${x.logo}" alt="">
                 </div>
                 <div>
                     <button type="button" class="btn btn-primary redondo btn-sm"><i class="bi bi-bag-plus-fill"></i></button>
                 </div>
-           
+
+            </div>
         </div>
-        <hr>
     </div>
-</div>
+<hr>
+   </div>
+
+  
+
                                           `;
     });
   });
 }
+
+
 /* 
                         <div>
                             <p class="name_empresa">${x.nombre_proveedor}</p>
                         </div> */
-
-                                 
+    

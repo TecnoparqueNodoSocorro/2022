@@ -14,6 +14,7 @@ function CerrarSesion() {
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
         confirmButtonText: 'Cerrar Sesión',
+        cancelButtonText: 'Cancelar',
         allowOutsideClick: () => {
             const popup = Swal.getPopup()
             popup.classList.remove('swal2-show')

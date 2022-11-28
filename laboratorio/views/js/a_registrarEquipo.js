@@ -6,14 +6,15 @@ let regEqui_cliente = document.getElementById('regEqui_cliente')
 let regEqui_ubic = document.getElementById('regEqui_ubic')
 
 
+
 //SELECCIONAR EL CLIENTE Y DIBUJAR LAS UBICACIONES YA REGISTRADAS
 regEqui_cliente ? regEqui_cliente.addEventListener("change", () => {
-    regEqui_ubic.innerHTML = `<option selected>--Seleccionar ubicación</option> `
-    traerUbicaciones(regEqui_cliente.value)
+    traerUbicaciones(regEqui_cliente.value, regEqui_ubic)
 }) : ''
 
 //FUNCION QUE CREA LOS SELECT DE LAS UBICACIONES
-function traerUbicaciones(id) {
+function traerUbicaciones(id, elemento) {
+    elemento.innerHTML = `<option selected>--Seleccionar ubicación</option> `
     $.ajax({
         data: { id_c: id },
         type: "POST",
@@ -27,7 +28,7 @@ function traerUbicaciones(id) {
             opcion = document.createElement('option')
             opcion.value = x.id
             opcion.text = x.nombre
-            regEqui_ubic.add(opcion)
+            elemento.add(opcion)
         })
 
     }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -35,7 +36,7 @@ function traerUbicaciones(id) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'No se pudo procesar la solicitud ' + textStatus,
+            text: 'No se pudo procesar la   solicitud ' + textStatus,
             confirmButtonColor: '#5ac15d',
 
         })
@@ -89,86 +90,98 @@ function validarImagenRe(fileInput) {
 
 signUpForm ? signUpForm.onsubmit = async (e) => {
     e.preventDefault()
-    const data = Object.fromEntries(new FormData(e.target))
+    //SE VALIDA DESDE ACÁ QUE LAS RECOMENDACIONES NO SE ENCUENTREN VACIAS, NO SE PUEDE DESDE EL MENU WIZARD
+    let regEqui_recomendaciones = document.getElementById('regEqui_recomendaciones')
+
+    if (regEqui_recomendaciones.value == "") {
+        regEqui_recomendaciones.className += " invalid";
+        // and set the current valid status to false
+        valid = false;
+    } else {
+
+        const data = Object.fromEntries(new FormData(e.target))
 
 
 
-    //console.log(data); 
-    Swal.fire({
-        title: 'Guardar',
-        text: `Guardar registro?`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#0d6efd',
-        cancelButtonColor: '#dc3545',
-        confirmButtonText: 'Guardar',
-        allowOutsideClick: () => {
-            const popup = Swal.getPopup()
-            popup.classList.remove('swal2-show')
-            setTimeout(() => {
-                popup.classList.add('animate__animated', 'animate__headShake')
-            })
-            setTimeout(() => {
-                popup.classList.remove('animate__animated', 'animate__headShake')
-            }, 500)
-            return false
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: 'POST',
-                url: 'views/ajax/equipos_ajax.php',
-                data: new FormData(signUpForm),
-                contentType: false,
-                cache: false,
-                processData: false,
+        //console.log(data); 
+        Swal.fire({
+            title: 'Guardar',
+            text: `Guardar registro?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#0d6efd',
+            cancelButtonColor: '#dc3545',
+            confirmButtonText: 'Guardar',
+            cancelButtonText: 'Cancelar',
 
-            }).done(function (data, textStatus, jqXHR) {
-                console.log(data.trim());
-                let id_registro = data.trim()
-                //si se ejecuto el registro del equipo se ejecutan las funciones para registrar los demas registros
-                guardarComponentesAsociados(id_registro, componentes)
-                guardarRiesgosAsociados(id_registro, riesgos)
-                guardarProcesosLimpieza(id_registro, procesos_limpieza)
-                Swal.fire({
-                    icon: 'success',
-                    title: `Registro guardado`,
-                    confirmButtonColor: '#0d6efd',
-                    showConfirmButton: true,
-                    allowOutsideClick: () => {
-                        const popup = Swal.getPopup()
-                        popup.classList.remove('swal2-show')
-                        setTimeout(() => {
-                            popup.classList.add('animate__animated', 'animate__headShake')
-                        })
-                        setTimeout(() => {
-                            popup.classList.remove('animate__animated', 'animate__headShake')
-                        }, 500)
-                        return false
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload();
-
-                    }
-                    return
+            allowOutsideClick: () => {
+                const popup = Swal.getPopup()
+                popup.classList.remove('swal2-show')
+                setTimeout(() => {
+                    popup.classList.add('animate__animated', 'animate__headShake')
                 })
+                setTimeout(() => {
+                    popup.classList.remove('animate__animated', 'animate__headShake')
+                }, 500)
+                return false
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'views/ajax/equipos_ajax.php',
+                    data: new FormData(signUpForm),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
 
-            }).fail(function (jqXHR, textStatus, errorThrown) {
+                }).done(function (data, textStatus, jqXHR) {
+                    console.log(data.trim());
+                    let id_registro = data.trim()
+                    //si se ejecuto el registro del equipo se ejecutan las funciones para registrar los demas registros
+                    guardarComponentesAsociados(id_registro, componentes)
+                    guardarRiesgosAsociados(id_registro, riesgos)
+                    guardarProcesosLimpieza(id_registro, procesos_limpieza)
+                    Swal.fire({
+                        icon: 'success',
+                        title: `Registro guardado`,
+                        confirmButtonColor: '#0d6efd',
+                        showConfirmButton: true,
+                        allowOutsideClick: () => {
+                            const popup = Swal.getPopup()
+                            popup.classList.remove('swal2-show')
+                            setTimeout(() => {
+                                popup.classList.add('animate__animated', 'animate__headShake')
+                            })
+                            setTimeout(() => {
+                                popup.classList.remove('animate__animated', 'animate__headShake')
+                            }, 500)
+                            return false
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
 
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'No se pudo procesar la solicitud ' + textStatus,
-                    confirmButtonColor: '#0d6efd',
+                        }
+                        return
+                    })
 
-                })
+                }).fail(function (jqXHR, textStatus, errorThrown) {
 
-            });
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No se pudo procesar la solicitud ' + textStatus,
+                        confirmButtonColor: '#0d6efd',
+
+                    })
+
+                });
 
 
-        }
-    })
+            }
+        })
+    }
 
 } : ''
 
@@ -258,9 +271,11 @@ function listarComponentes() {
                     text: `¿Eliminar registro?`,
                     icon: 'question',
                     showCancelButton: true,
-                    confirmButtonColor: '#5ac15d',
+                    confirmButtonColor: '#0d6efd',
                     cancelButtonColor: '#dc3545',
                     confirmButtonText: 'Eliminar',
+                    cancelButtonText: 'Cancelar',
+
                     allowOutsideClick: () => {
                         const popup = Swal.getPopup()
                         popup.classList.remove('swal2-show')

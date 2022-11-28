@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2022 a las 22:24:06
+-- Tiempo de generación: 28-11-2022 a las 22:36:28
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -60,7 +60,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `nit`, `rep_legal`, `ciudad`, `direccion`, `telefono`, `email`, `clave`, `logo`, `id_cargo`, `estado`) VALUES
-(1, 'cliente', '534534534 ', 'yuiyuyuiuy', 'yuiyui', 'yuiyuiyu', '76867867', 'uiuyiyuiyu@fsefesdfds', '5555', '../../images/logos/1668026236.png', 3, 1),
+(1, 'cliente', '534534534 ', 'yuiyuyuiuy', 'yuiyui', 'yuiyuiyu', '76867867', 'uiuyiyuiyu@fsefesdfds', '5555', '../../images/logos/1669383966.png', 3, 1),
 (2, 'cliente 2', '567565-4', '7567', '75675', '67567', '567567', '456@sdfsdfsdf', '6666', '../../images/logos/1668009525.jpg', 3, 1),
 (3, '345345', '3453', '4534', '345', '345', '345', '345@dgty', '4444', '../../images/logos/logostock.jpg', 3, 1),
 (4, 'rty', 'tryrt', 'ytr', 'tryrt', 'tryrty', '45645', '456@sdfsdfsdf', 'tttt', '../../images/logos/logostock.jpg', 3, 1),
@@ -98,7 +98,7 @@ CREATE TABLE `componentes_asociados` (
 --
 
 INSERT INTO `componentes_asociados` (`id`, `id_cliente`, `id_equipo`, `componente`, `marca`, `modelo`, `serie`, `cod_iden`) VALUES
-(19, '1', '66', '34', '435', '345', '345', '345'),
+(19, '1', '66', '3433', '435', '345', '345', '345'),
 (20, '1', '66', '534', '43', '5', '345', '34'),
 (21, '', '66', 'comp', 'asus', '24132', 'serie-3545', '445'),
 (22, '', '66', 'r', 'r', 'r', 'r', 'r'),
@@ -114,7 +114,8 @@ INSERT INTO `componentes_asociados` (`id`, `id_cliente`, `id_equipo`, `component
 (32, '1', '73', '567', '56', '7', '56', '567'),
 (33, '1', '74', '678', '67', '78', '86', '678'),
 (34, '1', '74', 'prueba editar', '687', '8678', '7', '76867'),
-(35, '2', '75', 'ert', 'ert', 'ert', 'erter', 'erter');
+(35, '2', '75', 'ert', 'ert', 'ert', 'erter', 'erter'),
+(36, '1', '78', 'componente', 'marca', 'modelo', 'serie', 'codigo');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `nombres`, `apellidos`, `numero_documento`, `correo`, `numero_telefono`, `clave`, `id_cargo`, `estado`) VALUES
-(1, 'pedro', 'user', '465465464', 'correo edit@editprueba', '4543534', '1111', 2, 1),
+(1, 'pedro', 'user', '465465464', 'correo edit@editprueba', '4543534', '1111', 2, 0),
 (2, 'admin', 'user', '987654321', '', '0000000', '4765', 1, 1),
 (3, 'usuario', 'usuario', '534534534', '', '34534534', '5555', 2, 1),
 (4, '456', '45546', '324234234', '45645@dtgrdfgfd', '45645', '3333', 2, 1),
@@ -165,8 +166,6 @@ CREATE TABLE `proceso_limpieza` (
 --
 
 INSERT INTO `proceso_limpieza` (`id`, `id_cliente`, `id_equipo`, `proceso`, `metodo`) VALUES
-(3, '1', '<br />\n<b>Warning</b>:  imagecreatefrompng(): \'C:\\xampp\\tmp\\php90A8.tmp\' is not a valid PNG file in ', 'Limpieza', '45645645645645'),
-(4, '1', '<br />\n<b>Warning</b>:  imagecreatefrompng(): \'C:\\xampp\\tmp\\php90A8.tmp\' is not a valid PNG file in ', 'Desinfeccion', '45645645645'),
 (5, '', '64', 'Limpieza', '5654645'),
 (6, '', '64', 'Desinfeccion', '645645645'),
 (7, '1', '66', 'Limpieza', '34534'),
@@ -255,18 +254,19 @@ CREATE TABLE `registro_equipo` (
 --
 
 INSERT INTO `registro_equipo` (`id`, `id_cliente`, `ubicacion`, `nombre`, `codigo`, `marca`, `modelo`, `fabricante`, `serie`, `lote`, `tipo`, `equipo`, `claficacion_bio`, `doc_sanitario`, `clasif_riesgo`, `pqs_oms`, `codigo_umdns`, `imagen`, `uso_previsto`, `fuente_alimentacion`, `tec_predominante`, `tension`, `corriente`, `potencia`, `temperatura`, `humedad`, `peso`, `dimensiones`, `otro`, `magnitud`, `unidad_medida`, `intervalo`, `division_escala`, `tipo_indicacion`, `clase`, `forma_adq`, `doc_adq`, `estado_adq`, `f_fabricacion`, `f_adq`, `f_recepcion`, `f_instal`, `f_venc_garantia`, `costo`, `vida_util`, `proveedor`, `tipo_intervencion`, `recurso_humano`, `frecuencia`, `metodo_desecho`, `responsable`, `recomendaciones`, `estado`) VALUES
-(64, '1', '18', 'maquina14', '453', 'asus', '45', 'carro', '3', '23', '', '', '', '', '', '', '', '../../images/registro_equipo/1669237500.jpg', '', '43534', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', '43534534', 0),
+(64, '1', '17', 'maquina14', '453', 'asus', '45', 'carro', '3', '23', 'rty', 'Móvil', 'DX', 'RS', 'I', 'rty', 'rty', '../../images/registro_equipo/1669411063.jpg', 'rty', '43534', '5', '45', '45', '4564', '56', '456', '456', '456', '456', 'ewr', 'wer', 'e', 'wer', 'we', 'wer', 'Compra', 'rreter', 'Usado', '2022-11-02', '2022-11-03', '2022-11-03', '2022-11-07', '2022-11-18', '50000', 650, '657', '', '', '', '', '', '43534534', 1),
 (65, '2', '2', '4maquina1', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669236664.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'bcvbcvbcvbcvcvbc', 1),
-(66, '2', '1', 'maquina13', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669236552.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'hjgfhgfhfg', 1),
-(67, '2', '3', 'maquina12', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669236483.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'bvvbcvbcv', 1),
-(70, '1', '11', 'maquina15', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669295774.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'fghf', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', 'Mantenimiento Preventivo', 'Interno', '', 'fghgf', 'fgh', 'fghfgh', 1),
-(71, '1', '17', 'fgh', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669295891.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'crece', 1),
-(72, '1', '20', 'maquina16', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669296541.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', 'sdf', 'sdf', '', 1),
+(66, '2', '3', 'maquina13', 'fgh', 'fgh', 'f', 'f', 'f', 'hgff', 'gh', 'Móvil', 'DX', 'RS', 'I', 'gfh', 'fghfg', '../../images/registro_equipo/1669651788.jpg', 'fdgf', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'hjgfhgfhfg', 1),
+(67, '2', '3', 'maquina12', 'fdhd', '4345', 'dfgdfg', 'dfgdf dfgfd', 'd443', 'd4', 'tre erdtdfg', 'Móvil', 'PRV', 'PC', 'IIA', '4354', ' 3453453', '../../images/registro_equipo/1669405182.jpg', 'dgdf fdgdfgdfgdfgdfgdf dfgdfgdf dfgdfgdfg dfg df dfg dfgdfg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'bvvbcvbcv', 1),
+(70, '1', '11', 'maquina15', 'g', 'fghf', 'fg', 'fgh', 'gfhff', 'fgh', 'fgh', 'Fijo', 'DX', 'RS', 'IIA', '45', '456456', '../../images/registro_equipo/1669385249.jpg', 'gfh', '', '', '', '', '', '', '', '', '', '', '', '', '', 'fghf', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', 'Mantenimiento Preventivo', 'Interno', '', 'fghgf', 'fgh', 'fghfgh', 1),
+(71, '1', '2', 'fgh', '64545', 'tyuty', 'tyu', 'tyu', 'uty', 'tyuty', 'tyu', 'Móvil', 'DX', 'RS', 'IIA', 'utytyu', 'tyuty', '../../images/registro_equipo/1669384995.jpg', 'tyuty', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Compra', 'hhfg', 'Nuevo', '2022-11-03', '2022-11-09', '2022-11-05', '2022-11-01', '2022-11-30', '50000000', 10, 'dgdfgfd sdfgdsfgsd sfdssdf', '', '', '', '', '', 'crece', 1),
+(72, '1', '20', 'maquina16', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669296541.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', 'sdf', 'sdf', '', 0),
 (73, '1', '16', 'maquina17', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669296678.jpg', '', '', '', '', '', '', '', '', '', '567', '567', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', '', 1),
-(74, '1', '21', '8maquina1', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669296750.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '678', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', 'Mantenimiento Preventivo', 'Interno', '67', '', '', '', 1),
-(75, '2', '3', 'equipo', '4324', 'amrca', '45', 'carros', '33gh6', '324', 'caro', 'Móvil', 'RH', 'PC', 'IIA', '09923922', '2255655414', '../../images/registro_equipo/1669322390.jpg', 'este equipo es para sjdhfsdkjhgsdijhfskdhfdsf', '345', '5', '345', '345', '45334', '4', '44', '443', '5', '534', '4', '34', '43', '43', '34', '4', 'Compra', '435', 'Usado', '2022-11-03', '2022-11-08', '2022-11-24', '2022-12-07', '2022-11-29', '43345344', 35, '4', 'Mantenimiento Preventivo', 'Interno', '4', '4345345', 'werwerwerwe', 'werwerwerwerwerwerewr b wetrwerwerwe werwerwe', 1),
+(74, '1', '21', '8maquina1', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/1669296750.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '678', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', 'Mantenimiento Preventivo', 'Interno', '67', '', '', '', 0),
+(75, '2', '3', 'prueba editar', '4324', 'marca edit 2', '45', 'carros', '33gh6', '324', 'caro', 'Móvil', 'RH', 'RS', 'IIA', '311121', '2255655414', '../../images/registro_equipo/1669322390.jpg', 'este equipo es para sjdhfsdkjhgsdijhfskdhfdsf', '0000', '5', '345', '345', '45334', '4', '44', '443', '5', '534', '1', '2', '3', '4', '5', '6', 'Comodato', '435', 'Usado', '2022-11-03', '2022-11-08', '2022-11-24', '2022-12-07', '2022-11-29', '43345344', 35, '4', 'Metrología', 'Externo', '4', '4345345', 'disposicion final', 'werwerwerwerwerwerewr b wetrwerwerwe werwerwe', 0),
 (76, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '../../images/registro_equipo/imagen_defecto.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'yuiyuiyu', 1),
-(77, '', '', '', '', 'etr', 'erter', '', 'erter', '', '', '', '', '', '', '', '', '../../images/registro_equipo/imagen_defecto.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'erter', 1);
+(77, '', '', '', '', 'etr', 'erter', '', 'erter', '', '', '', '', '', '', '', '', '../../images/registro_equipo/imagen_defecto.jpg', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 0, '', '', '', '', '', '', 'erter', 1),
+(78, '1', '1', 'gfh', 'fgh', 'fgh', 'hfg', 'gfh', 'hfg', 'fg', 'g', 'Móvil', 'PRV', 'RS', 'IIA', 'g', 'ghf', '../../images/registro_equipo/imagen_defecto.jpg', 'gfh', '54', '4', '53', '6', '36', '4', '4', '6', '4', '2', '33', '3', '3', '3', '3', '3', 'Donación', '3', 'Nuevo', '2022-11-18', '2022-11-01', '2022-11-18', '2022-11-01', '2022-11-04', '20000', 7, 'proveedor', 'Mantenimiento Preventivo', 'Externo', '2', 'w', 'ew', 'eqweqweq', 1);
 
 -- --------------------------------------------------------
 
@@ -316,7 +316,10 @@ INSERT INTO `riesgos_asociados` (`id`, `id_cliente`, `id_equipo`, `riesgo`) VALU
 (62, '1', '74', 'Riesgo eléctrico'),
 (63, '1', '74', 'Riesgo de congelamiento'),
 (64, '2', '75', 'Riesgo de punción'),
-(65, '2', '75', 'Riesgo quemaduras');
+(65, '2', '75', 'Riesgo quemaduras'),
+(66, '1', '78', 'Riesgo biológico'),
+(67, '1', '78', 'Riesgo de atrapamiento'),
+(68, '1', '78', 'Riesgo específico');
 
 -- --------------------------------------------------------
 
@@ -429,7 +432,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `componentes_asociados`
 --
 ALTER TABLE `componentes_asociados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
@@ -447,13 +450,13 @@ ALTER TABLE `proceso_limpieza`
 -- AUTO_INCREMENT de la tabla `registro_equipo`
 --
 ALTER TABLE `registro_equipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de la tabla `riesgos_asociados`
 --
 ALTER TABLE `riesgos_asociados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `ubicaciones`

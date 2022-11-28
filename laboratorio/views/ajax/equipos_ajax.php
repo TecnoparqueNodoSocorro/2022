@@ -8,7 +8,7 @@ class EquiposAjax
     public $controlador;
 
 
-    //GUARDAR cliente
+    //GUARDAR equipo
     public function PostEquipo($data)
     {
         $newEquipo = ControladorEquipos::CtrPostEquipo($data);
@@ -62,9 +62,64 @@ class EquiposAjax
         $datosAct = ControladorEquipos::ctrTraerDescripcion($id);
         echo json_encode($datosAct);
     }
+    //editar descripcion  equipo
+    public function EditDescripcion($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditDescripcionEquipo($data);
+        echo $newEquipo;
+    }
+    //editar imagen  equipo
+    public function EditImagenEquipo($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditImagenEquipo($data);
+        echo $newEquipo;
+    }
+    //editar ubicacion  equipo
+    public function EditUbicacion($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditUbicacion($data);
+        echo $newEquipo;
+    }
+    //editar registro tecnico  equipo
+    public function EditarRegistroTecnico($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditarRegistroTecnico($data);
+        echo $newEquipo;
+    }
+
+    //editar caraceteristicas metrologicas
+    public function EditarCaracteristicasMetro($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditarCaracteristicasMetro($data);
+        echo $newEquipo;
+    }
+    //editar registro historico
+    public function EditarRegistroHistorico($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditarRegistroHistorico($data);
+        echo $newEquipo;
+    }
+    //editar TIPO DE INTERVENCIONES REQUERIDAS, DISPOSICIÓN FINAL, RECOMENDACIONES DE USO Y CUIDADO
+    public function EditarResto($data)
+    {
+        $newEquipo = ControladorEquipos::CtrEditarResto($data);
+        echo $newEquipo;
+    }
+    //traer riesgos asociados por equipo
+    public function TraerRiesgosByEquipo($data)
+    {
+        $rta = ControladorEquipos::CtrTraerRiesgosByEquipo($data);
+        echo  json_encode($rta);
+    }
+    //traer procesos limpieza por equipo
+    public function TraerProcesosByEquipo($data)
+    {
+        $rta = ControladorEquipos::CtrTraerProcesosByEquipoo($data);
+        echo  json_encode($rta);
+    }
 }
 //------------------------------------------------------------------------
-//GUARDAR CLIENTe
+//GUARDAR equipo
 // imagen generica
 $rutaimagen = "../../images/registro_equipo/imagen_defecto.jpg";
 // directorio de almacenamiento de imagenes 
@@ -288,4 +343,170 @@ if (isset($_POST['traerDescrip'])) {
     $postData = new EquiposAjax();
     $id = $_POST['traerDescrip'];
     $postData->TraerDescripcion($id);
+}
+
+//editar descripcion equipo
+if (
+    !empty($_POST['id_oculto_registro']) ||
+    !empty($_POST['regEqui_nombre_edit']) ||
+    !empty($_POST['regEqui_ident_edit']) ||
+    !empty($_POST['regEqui_marca_edit']) ||
+    !empty($_POST['regEqui_modelo_edit']) ||
+    !empty($_POST['regEqui_fabr_edit']) ||
+    !empty($_POST['regEqui_serie_edit']) ||
+    !empty($_POST['regEqui_lote_edit']) ||
+    !empty($_POST['regEqui_tipo_edit']) ||
+    !empty($_POST['regEqui_equipo_edit']) ||
+    !empty($_POST['regEqui_clasificacion_bio_edit']) ||
+    !empty($_POST['regEqui_doc_sanitario_edit']) ||
+    !empty($_POST['regEqui_clasificacion_riesgo_edit']) ||
+    !empty($_POST['regEqui_pqs_oms_edit']) ||
+    !empty($_POST['regEqui_codigo_umdns_edit']) ||
+    !empty($_POST['regEqui_uso_previsto_edit'])
+
+) {
+
+    $datos = new EquiposAjax();
+    $data = array(
+        "id" => $_POST['id_oculto_registro'],
+
+        "nombre" => $_POST['regEqui_nombre_edit'],
+        "codigo" => $_POST['regEqui_ident_edit'],
+        "marca" => $_POST['regEqui_marca_edit'],
+        "modelo" => $_POST['regEqui_modelo_edit'],
+        "fabricante" => $_POST['regEqui_fabr_edit'],
+        "serie" => $_POST['regEqui_serie_edit'],
+        "lote" => $_POST['regEqui_lote_edit'],
+        "tipo" => $_POST['regEqui_tipo_edit'],
+        "equipo" => $_POST['regEqui_equipo_edit'],
+        "claficacion_bio" => $_POST['regEqui_clasificacion_bio_edit'],
+        "doc_sanitario" => $_POST['regEqui_doc_sanitario_edit'],
+        "clasif_riesgo" => $_POST['regEqui_clasificacion_riesgo_edit'],
+        "pqs_oms" => $_POST['regEqui_pqs_oms_edit'],
+        "codigo_umdns" =>  $_POST['regEqui_codigo_umdns_edit'],
+        "uso_previsto" => $_POST['regEqui_uso_previsto_edit']
+
+
+    );
+    //print_r($data);
+    $datos->EditDescripcion($data);
+}
+
+
+//EDITAR imagen equipo
+if (
+    !empty($_POST['id_oculto_registro'])
+) {
+    //-------------------EDITAR IAMGEN 1--------------------------------------
+    // imagen generica
+    $rutaimagen = "../../images/registro_equipo/imagen_defecto.jpg";
+    // directorio de almacenamiento de imagenes 
+    $raizImagenes = "../../images/registro_equipo";
+    if (!empty($_FILES["imagen_equipo_edit"]["tmp_name"])) {
+        $newAncho = 300;
+        $newAlto = 300;
+        list($ancho, $alto) = getimagesize($_FILES["imagen_equipo_edit"]["tmp_name"]);
+        if (!file_exists($raizImagenes))
+            mkdir($raizImagenes, 0755);
+        $dateLoad = new DateTime();
+        $nameRandom =  $dateLoad->getTimestamp();
+        if ($_FILES["imagen_equipo_edit"]["type"] == "image/png") {
+            $rutaimagen = $raizImagenes . "/" . $nameRandom . ".png";
+            $orige = imagecreatefrompng($_FILES["imagen_equipo_edit"]["tmp_name"]);
+            $destino = imagecreatetruecolor($newAncho, $newAlto);
+            imagealphablending($destino, false);
+            imagesavealpha($destino, true);
+            $transparent = imagecolorallocatealpha($destino, 255, 255, 255, 127);
+            imagefilledrectangle($destino, 0, 0, $newAncho, $newAlto, $transparent);
+            imagecopyresampled($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
+            imagepng($destino, $rutaimagen);
+            $EditP = new EquiposAjax();
+            $data = array(
+                "id" => $_POST["id_oculto_registro"],
+                "imagen" => $rutaimagen,
+            );
+            //print_r($data);
+
+            $EditP->EditImagenEquipo($data);
+        } else if ($_FILES["imagen_equipo_edit"]["type"] == "image/jpeg") {
+            $rutaimagen = $raizImagenes . "/" . $nameRandom . ".jpg";
+            $orige = imagecreatefromjpeg($_FILES["imagen_equipo_edit"]["tmp_name"]);
+            $destino = imagecreatetruecolor($newAncho, $newAlto);
+            imagecopyresized($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
+            imagejpeg($destino, $rutaimagen);
+            $EditP = new EquiposAjax();
+            $data = array(
+                "id" => $_POST["id_oculto_registro"],
+                "imagen" => $rutaimagen,
+            );
+            //print_r($data);
+
+            $EditP->EditImagenEquipo($data);
+        } else if ($_FILES["imagen_equipo_edit"]["type"] == "image/jpg") {
+            $rutaimagen = $raizImagenes . "/" . $nameRandom . ".jpg";
+            $orige = imagecreatefromjpeg($_FILES["imagen_equipo_edit"]["tmp_name"]);
+            $destino = imagecreatetruecolor($newAncho, $newAlto);
+            imagecopyresized($destino, $orige, 0, 0, 0, 0, $newAncho, $newAlto, $ancho, $alto);
+            imagejpeg($destino, $rutaimagen);
+            $EditP = new EquiposAjax();
+            $data = array(
+                "id" => $_POST["id_oculto_registro"],
+                "imagen" => $rutaimagen,
+            );
+            //print_r($data);
+
+            $EditP->EditImagenEquipo($data);
+        }
+    }
+}
+
+//editar ubicacion
+if (isset($_POST['equipo']) && isset($_POST['new_ubic'])) {
+    $postData = new EquiposAjax();
+
+    $data = array(
+        "id" => $_POST["equipo"],
+        "ubicacion" => $_POST["new_ubic"],
+    );
+    $postData->EditUbicacion($data);
+}
+
+//editar registro tecnico
+if (isset($_POST['datosRegistroTecnico'])) {
+    $postData = new EquiposAjax();
+    $data = $_POST['datosRegistroTecnico'];
+    $postData->EditarRegistroTecnico($data);
+}
+
+//editar caracetristicas metrologicas
+if (isset($_POST['datosCaracteristicasMetro'])) {
+    $postData = new EquiposAjax();
+    $data = $_POST['datosCaracteristicasMetro'];
+    $postData->EditarCaracteristicasMetro($data);
+}
+
+//editar registro histórico
+if (isset($_POST['datosRegistroHistorico'])) {
+    $postData = new EquiposAjax();
+    $data = $_POST['datosRegistroHistorico'];
+    $postData->EditarRegistroHistorico($data);
+}
+//editar TIPO DE INTERVENCIONES REQUERIDAS, DISPOSICIÓN FINAL, RECOMENDACIONES DE USO Y CUIDADO
+if (isset($_POST['datosResto'])) {
+    $postData = new EquiposAjax();
+    $data = $_POST['datosResto'];
+    $postData->EditarResto($data);
+}
+//traer riesgos
+if (isset($_POST['TraerRiesgosA'])) {
+    $postData = new EquiposAjax();
+    $id = $_POST['TraerRiesgosA'];
+    $postData->TraerRiesgosByEquipo($id);
+}
+
+//traer procesos
+if (isset($_POST['TraerProcesos'])) {
+    $postData = new EquiposAjax();
+    $id = $_POST['TraerProcesos'];
+    $postData->TraerProcesosByEquipo($id);
 }

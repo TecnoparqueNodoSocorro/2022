@@ -11,7 +11,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
 
 ?>
-<div class="container shadow p-3" style="text-align: center; ">
+<div class="container shadow mt-1 p-3" style="text-align: center; ">
     <h3 class="text-titulo">Registrar Cliente</h3>
     <div class="container-fluid mb-5" style="background-color:#ffffff; border-radius:5px;  text-align: initial;">
         <form id="formulario_post_cliente" enctype="multipart/form-data">
@@ -92,7 +92,7 @@ if (isset($_SESSION["validar_ingreso"])) {
                 </div>
                 <div class="col-12 col-xs-12 col-md-6 col-lg-6 mb-3">
                     <label class="form-label">
-                        <h6>Confirmar contraseña (Máximo 8 caracteres)</h6>
+                        <h6>Confirmar contraseña</h6>
                     </label>
                     <input type="password" maxlength="8"  name="confirm_password_emp" id="confirm_password_emp" class="   input-caja" value="" >
                 </div>
@@ -100,7 +100,7 @@ if (isset($_SESSION["validar_ingreso"])) {
 
             <div class="md-center" style="text-align: center;">
 
-                <button class="btn btn-primary mt-2 mb-4" id="btnRegistrar_emp" type="submit">Registrar cliente</button>
+                <button class="btn btn-primary mt-2 mb-2" id="btnRegistrar_emp" type="submit">Registrar cliente</button>
             </div>
         </form>
 

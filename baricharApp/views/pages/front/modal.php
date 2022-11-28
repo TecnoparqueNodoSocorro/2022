@@ -5,9 +5,9 @@
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-     
-                    <h5 class="modal-title text-light" id="titulo_categoria"></h5>
-               
+
+                <h5 class="modal-title text-light" id="titulo_categoria"></h5>
+
 
 
             </div>
@@ -15,11 +15,11 @@
             <div class="modal-body">
                 <!-- inicio -->
                 <div class="container">
-                    <div class="row">
-                        <div id="modal_body">
+                    <div class="row" id="modal_body">
+                      
 
 
-                        </div>
+                     
 
                     </div>
                 </div>

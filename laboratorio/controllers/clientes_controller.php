@@ -125,14 +125,14 @@ class ControladorClientes
 
 
 
-                            <li class="nav-item dropdown">
+                        <!--    <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle text-uppercase" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-file-earmark-text-fill"></i>
                                     Mantenimientos</a>
                                 <div class="dropdown-menu sub-menu" aria-labelledby="dropdownId">
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_mantenimientosRegistrar"><i class="bi bi-search"></i> Registrar </a>
                                     <a class=" nav-link  sub-nav" href="index.php?page=c_mantenimientosConsultar"><i class="bi bi-search"></i> Consultar </a>
                                 </div>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item">
                                     <a class="nav-link text-white text-uppercase" aria-current="page" href="index.php?page=cambioContrasena"> <i class="bi bi-unlock-fill"></i>

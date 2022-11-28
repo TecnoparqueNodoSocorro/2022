@@ -46,8 +46,8 @@ $clientes = ControladorClientes::ctrGetClientes();
         <div class="step">
             <p class="text-center mb-4">SELECCIÓN CLIENTE Y UBICACIÓN</p>
             <div class="mb-3">
-                <select class="validarStep1" oninput="this.className = ''" name="regEqui_cliente" id="regEqui_cliente">
-                    <option selected value="">--Seleccionar cliente--</option>
+                <select class="validarSelect" oninput="this.className = ''" name="regEqui_cliente" id="regEqui_cliente">
+                    <option selected value="0">--Seleccionar cliente--</option>
                     <?php foreach ($clientes as $key => $value) : ?>
                         <option value="<?php echo $value["id"] ?>"><?php echo $value["nombre"] ?></option>
                     <?php endforeach ?>
@@ -55,8 +55,8 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </select>
             </div>
             <div class="mb-3">
-                <select class="validarStep1" oninput="this.className = ''" name="regEqui_ubic" id="regEqui_ubic">
-                    <option selected value="">--Seleccionar ubicación--</option>
+                <select class="validarSelect" oninput="this.className = ''" name="regEqui_ubic" id="regEqui_ubic">
+                    <option selected value="0">--Seleccionar ubicación--</option>
 
                 </select>
             </div>
@@ -75,17 +75,17 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Código identificacion" name="regEqui_ident" id="regEqui_ident" oninput="this.className = ''">
+                        <input class="ValidInput" type="text" placeholder="Código identificacion" name="regEqui_ident" id="regEqui_ident" oninput="this.className = ''">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_marcaRE" id="regEqui_marcaRE">
+                        <input class="ValidInput" type="text" placeholder="Marca" oninput="this.className = ''" name="regEqui_marcaRE" id="regEqui_marcaRE">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_modeloRE" id="regEqui_modeloRE">
+                        <input class="ValidInput" type="text" placeholder="Modelo" oninput="this.className = ''" name="regEqui_modeloRE" id="regEqui_modeloRE">
                     </div>
                 </div>
             </div>
@@ -93,17 +93,17 @@ $clientes = ControladorClientes::ctrGetClientes();
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Fabricante" oninput="this.className = ''" name="regEqui_fabr" id="regEqui_fabr">
+                        <input class="ValidInput" type="text" placeholder="Fabricante" oninput="this.className = ''" name="regEqui_fabr" id="regEqui_fabr">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_serieRE" id="regEqui_serieRE">
+                        <input class="ValidInput" type="text" placeholder="Serie" oninput="this.className = ''" name="regEqui_serieRE" id="regEqui_serieRE">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Lote" oninput="this.className = ''" name="regEqui_lote" id="regEqui_lote">
+                        <input class="ValidInput" type="text" placeholder="Lote" oninput="this.className = ''" name="regEqui_lote" id="regEqui_lote">
                     </div>
                 </div>
                 <!--                 <div class="col-12 col-md-6 col-lg-3">
@@ -122,13 +122,13 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Tipo" oninput="this.className = ''" name="regEqui_tipo" id="regEqui_tipo">
+                        <input class="ValidInput" type="text" placeholder="Tipo" oninput="this.className = ''" name="regEqui_tipo" id="regEqui_tipo">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <select class="validar" oninput="this.className = ''" name="regEqui_equipo" id="regEqui_equipo">
-                            <option selected value="">--Equipo--</option>
+                        <select class="validarSelect" oninput="this.className = ''" name="regEqui_equipo" id="regEqui_equipo">
+                            <option selected value="0">--Equipo--</option>
                             <option value="Móvil">Móvil</option>
                             <option value="Fijo">Fijo</option>
                             <option value="Invasivo">Invasivo</option>
@@ -138,8 +138,8 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <select class="validar" oninput="this.className = ''" name="regEqui_clasificacion_bio" id="regEqui_clasificacion_bio">
-                            <option selected value="">--Clasificación biomédica--</option>
+                        <select class="validarSelect" oninput="this.className = ''" name="regEqui_clasificacion_bio" id="regEqui_clasificacion_bio">
+                            <option selected value="0">--Clasificación biomédica--</option>
                             <option value="DX">DX</option>
                             <option value="PRV">PRV</option>
                             <option value="RH">RH</option>
@@ -152,8 +152,8 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <select class="validar" oninput="this.className = ''" name="regEqui_doc_sanitario" id="regEqui_doc_sanitario">
-                            <option selected value="">--Doc sanitario--</option>
+                        <select class="validarSelect" oninput="this.className = ''" name="regEqui_doc_sanitario" id="regEqui_doc_sanitario">
+                            <option selected value="0">--Doc sanitario--</option>
                             <option value="RS">RS</option>
                             <option value="PC">PC</option>
                             <option value="LS">LS</option>
@@ -164,8 +164,8 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <select class="validar" oninput="this.className = ''" name="regEqui_clasificacion_riesgo" id="regEqui_clasificacion_riesgo">
-                            <option selected value="">--Clasif. de riesgo--</option>
+                        <select class="validarSelect" oninput="this.className = ''" name="regEqui_clasificacion_riesgo" id="regEqui_clasificacion_riesgo">
+                            <option selected value="0">--Clasif. de riesgo--</option>
                             <option value="I">I</option>
                             <option value="IIA">IIA</option>
                             <option value="IIB">IIB</option>
@@ -176,12 +176,12 @@ $clientes = ControladorClientes::ctrGetClientes();
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="PQS OMS" oninput="this.className = ''" name="regEqui_pqs_oms">
+                        <input class="ValidInput" type="text" placeholder="PQS OMS" oninput="this.className = ''" name="regEqui_pqs_oms">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="mb-3">
-                        <input type="text" placeholder="Código UMDNS" oninput="this.className = ''" name="regEqui_codigo_umdns">
+                        <input class="ValidInput" type="text" placeholder="Código UMDNS" oninput="this.className = ''" name="regEqui_codigo_umdns">
                     </div>
                 </div>
 
@@ -210,7 +210,7 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                 <div class="col-12 col-md-12 col-lg-6">
                     <div class="mb-3">
-                        <textarea placeholder="Uso Previsto" class="validar" oninput="this.className = ''" name="regEqui_uso_previsto" id="" rows="3"></textarea>
+                        <textarea placeholder="Uso Previsto" class="ValidInput" oninput="this.className = ''" name="regEqui_uso_previsto" id="" rows="3"></textarea>
                     </div>
                 </div>
             </div>
@@ -367,63 +367,63 @@ $clientes = ControladorClientes::ctrGetClientes();
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="mb-3">
-                        <input type="text" placeholder="Fuente de alimentación" oninput="this.className = ''" name="regEqui_fuente_alimentacion">
+                        <input class="ValidInput" type="text" placeholder="Fuente de alimentación" oninput="this.className = ''" name="regEqui_fuente_alimentacion">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Tec. predominante" oninput="this.className = ''" name="regEqui_tec_predominante">
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-
-                    <div class="mb-3">
-                        <input type="text" placeholder="Tensión [V]" oninput="this.className = ''" name="regEqui_tension">
+                        <input class="ValidInput" type="text" placeholder="Tec. predominante" oninput="this.className = ''" name="regEqui_tec_predominante">
                     </div>
                 </div>
 
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Corriente  [A]" oninput="this.className = ''" name="regEqui_corriente">
+                        <input class="ValidInput" type="text" placeholder="Tensión [V]" oninput="this.className = ''" name="regEqui_tension">
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+
+                    <div class="mb-3">
+                        <input class="ValidInput" type="text" placeholder="Corriente  [A]" oninput="this.className = ''" name="regEqui_corriente">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Potencia [W]" oninput="this.className = ''" name="regEqui_potencia">
+                        <input class="ValidInput" type="text" placeholder="Potencia [W]" oninput="this.className = ''" name="regEqui_potencia">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Temperatura [°C]" oninput="this.className = ''" name="regEqui_temperatura">
+                        <input class="ValidInput" type="text" placeholder="Temperatura [°C]" oninput="this.className = ''" name="regEqui_temperatura">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Humedad [%]" oninput="this.className = ''" name="regEqui_humedad">
+                        <input class="ValidInput" type="text" placeholder="Humedad [%]" oninput="this.className = ''" name="regEqui_humedad">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Peso  [kg]" oninput="this.className = ''" name="regEqui_peso">
+                        <input class="ValidInput" type="text" placeholder="Peso  [kg]" oninput="this.className = ''" name="regEqui_peso">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Dimensiones (A x L x P)" oninput="this.className = ''" name="regEqui_dimensiones">
+                        <input class="ValidInput" type="text" placeholder="Dimensiones (A x L x P)" oninput="this.className = ''" name="regEqui_dimensiones">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Otro(s)" oninput="this.className = ''" name="regEqui_otros">
+                        <input class="ValidInput" type="text" placeholder="Otro(s)" oninput="this.className = ''" name="regEqui_otros">
                     </div>
                 </div>
 
@@ -437,39 +437,39 @@ $clientes = ControladorClientes::ctrGetClientes();
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="mb-3">
-                        <input type="text" placeholder="Magnitud" oninput="this.className = ''" name="regEqui_magnitud">
+                        <input class="ValidInput" type="text" placeholder="Magnitud" oninput="this.className = ''" name="regEqui_magnitud">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Unidad de medida" oninput="this.className = ''" name="regEqui_unidad_medida">
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-
-                    <div class="mb-3">
-                        <input type="text" placeholder="Intervalo" oninput="this.className = ''" name="regEqui_intervalo">
+                        <input class="ValidInput" type="text" placeholder="Unidad de medida" oninput="this.className = ''" name="regEqui_unidad_medida">
                     </div>
                 </div>
 
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="División de escala  [A]" oninput="this.className = ''" name="regEqui_division_escala">
+                        <input class="ValidInput" type="text" placeholder="Intervalo" oninput="this.className = ''" name="regEqui_intervalo">
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+
+                    <div class="mb-3">
+                        <input class="ValidInput" type="text" placeholder="División de escala  [A]" oninput="this.className = ''" name="regEqui_division_escala">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Tipo de indicación" oninput="this.className = ''" name="regEqui_indicacion">
+                        <input class="ValidInput" type="text" placeholder="Tipo de indicación" oninput="this.className = ''" name="regEqui_indicacion">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Clase" oninput="this.className = ''" name="regEqui_clase">
+                        <input class="ValidInput" type="text" placeholder="Clase" oninput="this.className = ''" name="regEqui_clase">
                     </div>
                 </div>
 
@@ -485,8 +485,8 @@ $clientes = ControladorClientes::ctrGetClientes();
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="mb-3">
                         <!-- <input type="text" placeholder="Forma de adquisición" oninput="this.className = ''" name="forma_adquisicion"> -->
-                        <select class="validar" oninput="this.className = ''" name="regEqui_forma_adquisicion" id="regEqui_forma_adquisicion">
-                            <option selected value="">--Forma de adquisición--</option>
+                        <select class="validarSelect" oninput="this.className = ''" name="regEqui_forma_adquisicion" id="regEqui_forma_adquisicion">
+                            <option selected value="0">--Forma de adquisición--</option>
                             <option value="Compra">Compra</option>
                             <option value="Donación">Donación</option>
                             <option value="Comodato">Comodato</option>
@@ -506,8 +506,8 @@ $clientes = ControladorClientes::ctrGetClientes();
 
                     <div class="mb-3">
                         <!-- <input type="text" placeholder="Estado adq." oninput="this.className = ''" name="estado_adquisicion"> -->
-                        <select class="validar" oninput="this.className = ''" name="regEqui_estado_adquisicion" id="regEqui_estado_adquisicion">
-                            <option selected value="">--Estado adq.--</option>
+                        <select class="validarSelect" oninput="this.className = ''" name="regEqui_estado_adquisicion" id="regEqui_estado_adquisicion">
+                            <option selected value="0">--Estado adq.--</option>
                             <option value="Nuevo">Nuevo</option>
                             <option value="Usado">Usado</option>
 
@@ -520,7 +520,7 @@ $clientes = ControladorClientes::ctrGetClientes();
                     <div class="mb-3">
                         <label class="form-label">Fecha fabricación</label>
 
-                        <input type="date" placeholder="Fecha fabricación" oninput="this.className = ''" name="regEqui_f_fabricacion">
+                        <input class="ValidInput" type="date" placeholder="Fecha fabricación" oninput="this.className = ''" name="regEqui_f_fabricacion">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
@@ -528,28 +528,28 @@ $clientes = ControladorClientes::ctrGetClientes();
                     <div class="mb-3">
 
                         <label class="form-label">Fecha adquisición</label>
-                        <input type="date" placeholder="Fecha adquisición" oninput="this.className = ''" name="regEqui_f_adquisicion">
+                        <input class="ValidInput" type="date" placeholder="Fecha adquisición" oninput="this.className = ''" name="regEqui_f_adquisicion">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="mb-3">
                         <label class="form-label">Fecha recepción</label>
-                        <input type="date" placeholder="Fecha recepción" oninput="this.className = ''" name="regEqui_f_recepcion">
+                        <input class="ValidInput" type="date" placeholder="Fecha recepción" oninput="this.className = ''" name="regEqui_f_recepcion">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="mb-3">
                         <label class="form-label">Fecha instalación</label>
-                        <input type="date" placeholder="Fecha instalación" oninput="this.className = ''" name="regEqui_f_instalacion">
+                        <input class="ValidInput" type="date" placeholder="Fecha instalación" oninput="this.className = ''" name="regEqui_f_instalacion">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="mb-3">
                         <label class="form-label">Fecha ven. garantía</label>
-                        <input type="date" placeholder="Fecha ven. garantía" oninput="this.className = ''" name="regEqui_f_vengarantia">
+                        <input class="ValidInput" type="date" placeholder="Fecha ven. garantía" oninput="this.className = ''" name="regEqui_f_vengarantia">
                     </div>
                 </div>
             </div>
@@ -558,19 +558,19 @@ $clientes = ControladorClientes::ctrGetClientes();
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="mb-3">
-                        <input type="number" placeholder="Costo (COP)" oninput="this.className = ''" name="regEqui_costo">
+                        <input class="ValidInput" type="number" placeholder="Costo (COP)" oninput="this.className = ''" name="regEqui_costo">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Vida útil (años)" oninput="this.className = ''" name="regEqui_vida_util">
+                        <input class="ValidInput" type="text" placeholder="Vida útil (años)" oninput="this.className = ''" name="regEqui_vida_util">
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="mb-3">
-                        <input type="text" placeholder="Proveedor" oninput="this.className = ''" name="regEqui_proveedor">
+                        <input class="ValidInput" type="text" placeholder="Proveedor" oninput="this.className = ''" name="regEqui_proveedor">
                     </div>
                 </div>
 
@@ -581,23 +581,23 @@ $clientes = ControladorClientes::ctrGetClientes();
         <div class="step">
             <p class="text-center mb-4">TIPO DE INTERVENCIONES REQUERIDAS</p>
             <div class="mb-3">
-                <select class="validar" oninput="this.className = ''" name="regEqui_tipo_intervencion" id="regEqui_tipo_intervencion">
-                    <option selected value="">--Tipo de intervención.--</option>
+                <select class="validarSelect" oninput="this.className = ''" name="regEqui_tipo_intervencion" id="regEqui_tipo_intervencion">
+                    <option selected value="0">--Tipo de intervención.--</option>
                     <option value="Mantenimiento Preventivo">Mantenimiento Preventivo</option>
                     <option value="Metrología">Metrología</option>
 
                 </select>
             </div>
             <div class="mb-3">
-                <select class="validar" oninput="this.className = ''" name="regEqui_recurso_humano" id="regEqui_recurso_humano">
-                    <option selected value="">--Recurso humano.--</option>
+                <select class="validarSelect" oninput="this.className = ''" name="regEqui_recurso_humano" id="regEqui_recurso_humano">
+                    <option selected value="0">--Recurso humano.--</option>
                     <option value="Interno">Interno</option>
                     <option value="Externo">Externo</option>
 
                 </select>
             </div>
             <div class="mb-3">
-                <input type="number" placeholder="Frecuencia en meses (No aplica = 0)" oninput="this.className = ''" name="regEqui_frecuencia">
+                <input class="ValidInput" type="number" placeholder="Frecuencia en meses (No aplica = 0)" oninput="this.className = ''" name="regEqui_frecuencia">
             </div>
         </div>
 
@@ -647,10 +647,10 @@ $clientes = ControladorClientes::ctrGetClientes();
         <div class="step">
             <p class="text-center mb-4">DISPOSICIÓN FINAL</p>
             <div class="mb-3">
-                <input type="text" placeholder="Método de desecho" oninput="this.className = ''" name="regEqui_metodo_desecho">
+                <input class="ValidInput" type="text" placeholder="Método de desecho" oninput="this.className = ''" name="regEqui_metodo_desecho">
             </div>
             <div class="mb-3">
-                <input type="text" placeholder="Responsable" oninput="this.className = ''" name="regEqui_responsable">
+                <input class="ValidInput"  type="text" placeholder="Responsable" oninput="this.className = ''" name="regEqui_responsable">
             </div>
 
         </div>
@@ -752,7 +752,7 @@ $clientes = ControladorClientes::ctrGetClientes();
         <div class="step">
             <p class="text-center mb-4">RECOMENDACIONES DE USO Y CUIDADO</p>
             <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="regEqui_recomendaciones" name="regEqui_recomendaciones" style="height: 200px"></textarea>
+                <textarea class="form-control ValidInput" id="regEqui_recomendaciones" name="regEqui_recomendaciones" style="height: 200px"></textarea>
                 <label for="floatingTextarea">Recomendaciones</label>
             </div>
         </div>

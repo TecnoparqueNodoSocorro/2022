@@ -20,6 +20,13 @@ class ControladorEquipos
         return $respuesta;
     }
 
+    //traer equipo por usuariio
+    static public function CtrGetEquiposByUser($id)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlGetEquiposByUser($tabla, $id);
+        return $respuesta;
+    }
     /* --------------------POST COMPONENTES ASOCIADOS--------------------------------- */
     static public function ctrPostComponentesAsociados($id_equipo, $data,  $id_cliente)
     {
@@ -80,11 +87,79 @@ class ControladorEquipos
         $results = ModelEquipos::mdlEditarComponente($tabla, $data);
         return $results;
     }
-        /* -------------------TRAER DESCRIPCION GENERAL----------------------------------- */
-        static public function ctrTraerDescripcion($id)
+    /* -------------------TRAER DESCRIPCION GENERAL----------------------------------- */
+    static public function ctrTraerDescripcion($id)
+    {
+        $tabla = "registro_equipo";
+        $results = ModelEquipos::mdlTraerDescripcion($tabla, $id);
+        return $results;
+    }
+    //editar descripcion equipo
+    static public function CtrEditDescripcionEquipo($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditDescripcionEquipo($tabla, $data);
+        echo $respuesta;
+    }
+    //editar imagen  equipo
+    static public function CtrEditImagenEquipo($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditImagenEquipo($tabla, $data);
+        echo $respuesta;
+    }
+    //editar ubicacion  equipo
+    static public function CtrEditUbicacion($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditUbicacion($tabla, $data);
+        echo $respuesta;
+    }
+    //editar registro tecnico  equipo
+    static public function CtrEditarRegistroTecnico($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditarRegistroTecnico($tabla, $data);
+        echo $respuesta;
+    }
+    //editar caracteristicas metrologicas
+    static public function CtrEditarCaracteristicasMetro($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditarCaracteristicasMetro($tabla, $data);
+        echo $respuesta;
+    }
+    //editar registro historico
+    static public function CtrEditarRegistroHistorico($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditarRegistroHistorico($tabla, $data);
+        echo $respuesta;
+    }
+    ///editar TIPO DE INTERVENCIONES REQUERIDAS, DISPOSICIÓN FINAL, RECOMENDACIONES DE USO Y CUIDADO
+
+    static public function CtrEditarResto($data)
+    {
+        $tabla = "registro_equipo";
+        $respuesta = ModelEquipos::mdlEditarResto($tabla, $data);
+        echo $respuesta;
+    }
+
+    //traer riesgos asociados por equipo
+
+    static public function CtrTraerRiesgosByEquipo($data)
+    {
+        $tabla = "riesgos_asociados";
+        $respuesta = ModelEquipos::mdlTraerRiesgosByEquipo($tabla, $data);
+        return $respuesta;
+    }
+
+    //traer procesos limpieza por equipo
+
+        static public function CtrTraerProcesosByEquipoo($data)
         {
-            $tabla = "registro_equipo";
-            $results = ModelEquipos::mdlTraerDescripcion($tabla, $id);
-            return $results;
+            $tabla = "proceso_limpieza";
+            $respuesta = ModelEquipos::mdlTraerProcesosByEquipo($tabla, $data);
+            return $respuesta;
         }
 }
